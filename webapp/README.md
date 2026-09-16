@@ -28,7 +28,7 @@ Parcours disponibles :
 - `/` pour chercher une slide ;
 - `Escape` pour quitter le mode présentation.
 
-Le moteur partagé est dans [`app.js`](app.js). Le parcours Operating System reste dans [`content/slides.js`](content/slides.js) et est enregistré par [`journeys/operating-system/config.js`](journeys/operating-system/config.js). Le contenu PME et ses données déclaratives sont dans [`journeys/pme-overview/content.js`](journeys/pme-overview/content.js). Les interactions sont enregistrées dans [`interactions/`](interactions/). Aucun appel réseau n’est requis.
+Le moteur partagé est dans [`app.js`](app.js). Le parcours Operating System reste dans [`content/slides.js`](content/slides.js) et est enregistré par [`journeys/operating-system/config.js`](journeys/operating-system/config.js). Le contenu PME est dans [`journeys/pme-overview/content.js`](journeys/pme-overview/content.js), avec les cas d’usage dans [`opportunities.js`](journeys/pme-overview/opportunities.js) et le catalogue de familles de solutions dans [`solutions.js`](journeys/pme-overview/solutions.js). Les interactions sont enregistrées dans [`interactions/`](interactions/). Aucun appel réseau n’est requis.
 
 ## Contrôles
 

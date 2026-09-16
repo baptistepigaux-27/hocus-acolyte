@@ -2,14 +2,16 @@
   'use strict';
 
   const journeys = window.ACOLYTE_JOURNEYS || (window.ACOLYTE_JOURNEYS = {});
+  const opportunityCatalog = window.ACOLYTE_PME_OPPORTUNITIES || [];
+  const solutionCatalog = window.ACOLYTE_PME_SOLUTIONS || [];
 
   const transformationLevels = [
-    { key: 'individual', number: '01', label: 'Individu augmenté', detail: 'Une personne travaille mieux avec l’IA.' },
-    { key: 'knowledge', number: '02', label: 'Connaissance', detail: 'Les documents de l’entreprise deviennent interrogeables.' },
-    { key: 'process', number: '03', label: 'Processus augmentés', detail: 'Une chaîne métier gagne en vitesse et en qualité.' },
-    { key: 'agent', number: '04', label: 'Agents', detail: 'Un objectif déclenche plusieurs étapes bornées.' },
-    { key: 'product', number: '05', label: 'Outil métier', detail: 'Un besoin récurrent devient une interface dédiée.' },
-    { key: 'company', number: '06', label: 'Entreprise AI-native', detail: 'Humains, données, logiciels et contrôles forment un système.' }
+    { key: 'individual', number: '01', label: 'Individu augmenté', detail: 'Une personne travaille mieux avec l’IA.', investment: 'léger', timeToImpact: 'jours' },
+    { key: 'knowledge', number: '02', label: 'Connaissance', detail: 'L’entreprise retrouve et exploite son savoir.', investment: 'moyen', timeToImpact: 'semaines' },
+    { key: 'process', number: '03', label: 'Processus augmentés', detail: 'Une chaîne de travail devient plus rapide ou fiable.', investment: 'moyen', timeToImpact: 'semaines' },
+    { key: 'agent', number: '04', label: 'Agents', detail: 'Un objectif déclenche plusieurs actions.', investment: 'moyen à fort', timeToImpact: 'semaines à mois' },
+    { key: 'product', number: '05', label: 'Outil métier', detail: 'Une capacité devient récurrente et dédiée.', investment: 'fort', timeToImpact: 'mois' },
+    { key: 'company', number: '06', label: 'Entreprise AI-native', detail: 'Humains, données, logiciels et IA forment un système.', investment: 'transformation', timeToImpact: 'continu' }
   ];
 
   const opportunityLevels = [
@@ -20,96 +22,24 @@
     { key: 'product', label: 'Outil métier', shortLabel: 'Outil métier', description: 'Une capacité récurrente dédiée.' }
   ];
 
-  const opportunities = [
-    {
-      key: 'direction',
-      label: 'Direction',
-      opportunities: {
-        individual: ['préparer un CODIR', 'synthétiser une décision'],
-        knowledge: ['retrouver les indicateurs clés', 'retracer les arbitrages passés'],
-        process: ['préparer la revue d’activité', 'suivre les plans d’action'],
-        agent: ['préparer une note de décision', 'surveiller des signaux faibles'],
-        product: ['cockpit de pilotage', 'outil d’arbitrage']
-      }
-    },
-    {
-      key: 'commerce',
-      label: 'Commerce',
-      opportunities: {
-        individual: ['préparer un rendez-vous', 'rédiger un mail', 'faire une synthèse'],
-        knowledge: ['retrouver l’historique client', 'interroger le catalogue', 'retrouver les offres précédentes'],
-        process: ['qualifier une demande', 'préparer un devis', 'répondre à un appel d’offres'],
-        agent: ['préparer automatiquement un dossier commercial', 'proposer les prochaines actions'],
-        product: ['sales intelligence', 'scoring commercial', 'moteur d’opportunité']
-      }
-    },
-    {
-      key: 'marketing',
-      label: 'Marketing',
-      opportunities: {
-        individual: ['produire une campagne', 'adapter un message', 'analyser un retour'],
-        knowledge: ['retrouver les personas', 'interroger les contenus validés'],
-        process: ['qualifier les briefs', 'enchaîner contenu et validation'],
-        agent: ['surveiller une veille', 'proposer des angles de campagne'],
-        product: ['observatoire marché', 'moteur de contenu']
-      }
-    },
-    {
-      key: 'sav-adv',
-      label: 'SAV / ADV',
-      opportunities: {
-        individual: ['préparer une réponse', 'résumer un dossier client'],
-        knowledge: ['retrouver une procédure', 'retrouver les conditions contractuelles'],
-        process: ['classifier une demande', 'router un ticket', 'contrôler une pièce'],
-        agent: ['préparer le dossier avant traitement', 'relancer une information manquante'],
-        product: ['assistant documentaire', 'outil de diagnostic client']
-      }
-    },
-    {
-      key: 'finance',
-      label: 'Finance',
-      opportunities: {
-        individual: ['préparer un reporting', 'analyser une variation'],
-        knowledge: ['retrouver une règle', 'interroger les contrats et référentiels'],
-        process: ['contrôler une facture', 'rapprocher des écritures', 'signaler une anomalie'],
-        agent: ['préparer une clôture', 'expliquer les écarts'],
-        product: ['cockpit de trésorerie', 'moteur d’anomalies']
-      }
-    },
-    {
-      key: 'rh',
-      label: 'RH',
-      opportunities: {
-        individual: ['préparer un entretien', 'rédiger une annonce'],
-        knowledge: ['retrouver une politique interne', 'interroger le référentiel RH'],
-        process: ['guider un onboarding', 'traiter une demande interne'],
-        agent: ['préparer un parcours d’arrivée', 'rappeler les étapes manquantes'],
-        product: ['assistant RH interne', 'observatoire des compétences']
-      }
-    },
-    {
-      key: 'operations',
-      label: 'Opérations',
-      opportunities: {
-        individual: ['préparer une intervention', 'résumer un incident'],
-        knowledge: ['retrouver une procédure', 'interroger les fiches qualité'],
-        process: ['contrôler un document', 'qualifier un incident', 'suivre une non-conformité'],
-        agent: ['préparer un dossier d’intervention', 'proposer une séquence de contrôle'],
-        product: ['cockpit qualité', 'outil de diagnostic opérationnel']
-      }
-    },
-    {
-      key: 'it-data',
-      label: 'IT / Data',
-      opportunities: {
-        individual: ['documenter un système', 'analyser un jeu de données'],
-        knowledge: ['retrouver l’architecture', 'interroger le catalogue de données'],
-        process: ['qualifier un incident', 'contrôler une livraison'],
-        agent: ['trier les alertes', 'préparer un diagnostic'],
-        product: ['observatoire data', 'assistant de support technique']
-      }
-    }
+  const functionDefinitions = [
+    { key: 'direction', label: 'Direction' },
+    { key: 'commerce', label: 'Commerce' },
+    { key: 'marketing', label: 'Marketing' },
+    { key: 'sav-adv', label: 'SAV / ADV' },
+    { key: 'finance', label: 'Finance' },
+    { key: 'rh', label: 'RH' },
+    { key: 'operations', label: 'Opérations' },
+    { key: 'it-data', label: 'IT / Data' }
   ];
+
+  const opportunityFunctions = functionDefinitions.map((businessFunction) => ({
+    ...businessFunction,
+    opportunities: Object.fromEntries(opportunityLevels.map((level) => [
+      level.key,
+      opportunityCatalog.filter((opportunity) => opportunity.function === businessFunction.key && opportunity.level === level.key)
+    ]))
+  }));
 
   const priorityCards = [
     { key: 'quick-wins', label: 'QUICK WINS', detail: 'Faible complexité · impact rapide', example: 'Préparer les rendez-vous commerciaux', gate: 'Tester en jours' },
@@ -139,12 +69,12 @@
       actLabel: 'Ce que l’IA peut déjà changer demain matin',
       title: 'Six niveaux de transformation',
       message: 'On peut commencer petit sans limiter la vision : chaque niveau répond à un besoin différent.',
-      bullets: ['Individu augmenté : mieux préparer, écrire, analyser.', 'Connaissance : retrouver les règles, sources et décisions.', 'Processus : extraire, contrôler, recommander, agir.', 'Agents, outils métier et système d’entreprise : seulement si le besoin le justifie.'],
+      bullets: ['Ce n’est pas une échelle de maturité obligatoire.', 'Un besoin peut être résolu au niveau individu ou processus.', 'Le niveau d’investissement va de léger à transformation.', 'Le time to impact est indicatif : jours, semaines, mois.'],
       visual: 'transformation-ladder',
       levels: transformationLevels,
-      source: 'PME AI OVERVIEW · progression',
-      speaker: 'Ces niveaux ne sont pas une échelle de maturité obligatoire. Ils sont une carte pour choisir le bon niveau d’investissement.',
-      demo: 'Lecture guidée · du niveau 1 au niveau 6.',
+      source: 'PME AI OVERVIEW · progression business',
+      speaker: 'Ces niveaux ne sont pas une échelle de maturité obligatoire. Ils servent à choisir le bon niveau de solution pour le problème réel.',
+      demo: 'Lecture guidée · niveau d’investissement et délai indicatif.',
       interactive: false
     },
     {
@@ -153,19 +83,20 @@
       actLabel: 'Explorer les possibles',
       title: 'Opportunity Map : où regarder dans votre entreprise ?',
       message: 'Choisissez une fonction métier pour voir comment les possibilités évoluent du travail individuel à l’outil métier.',
-      bullets: ['Une même fonction peut avoir plusieurs niveaux d’opportunité.', 'Chaque exemple reste à confronter aux données et au processus réel.', 'La carte sert à discuter et à choisir un premier sujet.'],
+      bullets: ['Une même fonction peut avoir plusieurs niveaux d’opportunité.', 'Cliquez sur une carte pour ouvrir la fiche du cas d’usage.', 'La carte sert à discuter avant de choisir un premier sujet.'],
       visual: 'opportunity-map',
       source: 'PME AI OVERVIEW · matrice métiers × niveaux',
       speaker: 'La carte évite de partir d’une technologie. On part d’un métier, puis on regarde ce qui peut être augmenté, connecté, orchestré ou outillé.',
-      demo: 'LIVE · sélectionner Commerce, puis comparer Finance ou Opérations.',
+      demo: 'LIVE · sélectionner Commerce, ouvrir Répondre à un appel d’offres, puis comparer Finance.',
       demoType: 'LIVE',
       wow: true,
       interactive: true,
       interaction: {
         kind: 'opportunity-map',
-        intro: 'Sélectionnez un métier : la même grille se recompose autour de ses opportunités.',
+        intro: 'Sélectionnez un métier, puis ouvrez une carte pour regarder le besoin, la solution et le mode de mise en œuvre.',
         levels: opportunityLevels,
-        functions: opportunities,
+        functions: opportunityFunctions,
+        solutions: solutionCatalog,
         defaultFunction: 'commerce'
       }
     },

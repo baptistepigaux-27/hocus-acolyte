@@ -10,19 +10,25 @@ test -f webapp/app.js
 test -f webapp/content/slides.js
 test -f webapp/journeys/operating-system/config.js
 test -f webapp/journeys/pme-overview/content.js
+test -f webapp/journeys/pme-overview/opportunities.js
+test -f webapp/journeys/pme-overview/solutions.js
 test -f webapp/interactions/chatbot-agent.js
 test -f webapp/interactions/opportunity-map.js
 test -f webapp/tests/e2e.py
+test -f webapp/tests/data-check.js
 
 node --check webapp/app.js
 node --check webapp/content/slides.js
 node --check webapp/journeys/operating-system/config.js
 node --check webapp/journeys/pme-overview/content.js
+node --check webapp/journeys/pme-overview/opportunities.js
+node --check webapp/journeys/pme-overview/solutions.js
 for interaction in webapp/interactions/*.js; do
   node --check "$interaction"
 done
+node webapp/tests/data-check.js
 
-slide_count="$(rg -c '^  \{ id:' webapp/content/slides.js)"
+slide_count="$(rg -o 'id: [0-9]+,' webapp/content/slides.js | wc -l | tr -d ' ')"
 test "$slide_count" -eq 23
 test "$(rg -c 'interactive: true' webapp/content/slides.js)" -ge 1
 test "$(rg -c 'demoType:' webapp/content/slides.js)" -ge 2
@@ -35,11 +41,15 @@ test "$(rg -c 'class="topbar-nav-button"' webapp/index.html)" -eq 2
 test "$(rg -c 'class="journey-link"' webapp/index.html)" -eq 2
 rg -q 'journey=pme' webapp/index.html
 rg -q 'journeys/operating-system/config.js' webapp/index.html
+rg -q 'journeys/pme-overview/opportunities.js' webapp/index.html
+rg -q 'journeys/pme-overview/solutions.js' webapp/index.html
 rg -q 'journeys/pme-overview/content.js' webapp/index.html
 rg -q 'interactions/chatbot-agent.js' webapp/index.html
 rg -q 'interactions/opportunity-map.js' webapp/index.html
 rg -q "kind: 'chatbot-agent'" webapp/content/slides.js
 rg -q "kind: 'opportunity-map'" webapp/journeys/pme-overview/content.js
+rg -q 'solutionCategory' webapp/journeys/pme-overview/opportunities.js
+rg -q "FICHE CAS D’USAGE" webapp/interactions/opportunity-map.js
 rg -q 'LANCER LA MISSION' webapp/interactions/chatbot-agent.js
 rg -q 'Opportunity Map' webapp/interactions/opportunity-map.js
 

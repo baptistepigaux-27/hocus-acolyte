@@ -112,6 +112,20 @@ def run_checks(base_url: str) -> None:
         assert "facture" in page.locator(".opportunity-matrix").inner_text().lower()
         page.locator(".opportunity-function-button[data-function-key='operations']").click()
         assert "incident" in page.locator(".opportunity-matrix").inner_text().lower()
+        page.locator(".opportunity-function-button[data-function-key='commerce']").click()
+        page.locator(".opportunity-card[data-opportunity-id='sales-tender']").click()
+        assert page.locator(".opportunity-detail-panel").is_visible()
+        assert "appel d’offres" in page.locator(".opportunity-detail-title").inner_text().lower()
+        assert "configure" in page.locator(".opportunity-detail-mode").inner_text().lower()
+        detail_text = page.locator(".opportunity-detail-panel").inner_text().lower()
+        assert "dce" in detail_text and "capacités ia" in detail_text and "workflow automation" in detail_text
+        page.get_by_role("button", name="FERMER").click()
+        assert page.locator(".opportunity-detail-panel").is_hidden()
+
+        page.goto(f"{base_url}?journey=pme&slide=3&present=1", wait_until="networkidle")
+        assert "presentation-mode" in page.locator("body").get_attribute("class")
+        assert page.locator(".opportunity-map-interaction").is_visible()
+        assert not page.locator(".slide-copy").is_visible()
 
         page.goto(f"{base_url}?journey=operating-system&slide=1", wait_until="networkidle")
         assert page.locator("#slide-title").inner_text() == "Vous connaissez déjà une partie de l’histoire"

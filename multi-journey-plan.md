@@ -22,6 +22,8 @@ webapp/
   journeys/
     operating-system/config.js   métadonnées + branchement du contenu OS
     pme-overview/content.js      contenu et données PME déclaratifs
+    pme-overview/opportunities.js cas d’usage normalisés
+    pme-overview/solutions.js     familles de solutions et exemples
   interactions/
     chatbot-agent.js             interaction OS
     context-builder.js           interaction OS
@@ -37,7 +39,7 @@ webapp/
 
 La première passe couvre quatre écrans : ouverture, six niveaux de transformation, Opportunity Map filtrable par métier et priorisation. La matrice est déclarée dans le contenu PME ; le composant ne connaît ni les métiers ni leurs exemples.
 
-L’interaction P0 affiche les huit fonctions métier et cinq niveaux de possibilités. La sélection d’une fonction recompose la ligne de matrice, sans appel externe ni état partagé avec Operating System.
+L’interaction P0 affiche les huit fonctions métier et cinq niveaux de possibilités. La sélection d’une fonction recompose la ligne de matrice, puis chaque carte ouvre une fiche de cas d’usage avec besoin, entrées, capacités IA, solution type, outils, mode BUY/CONFIGURE/BUILD, signaux de valeur/faisabilité et risques. Le catalogue de solutions est séparé du modèle d’opportunités, sans appel externe ni état partagé avec Operating System.
 
 ## Extensions prévues
 
