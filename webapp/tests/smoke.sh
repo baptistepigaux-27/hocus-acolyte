@@ -21,6 +21,8 @@ for required in 'data-action="next"' 'data-action="previous"' 'data-action="togg
   rg -q "$required" webapp/index.html
 done
 
+test "$(rg -c 'class="topbar-nav-button"' webapp/index.html)" -eq 2
+
 for visual in cover context memory compare agent-workflow roles timeline northstar sybil specialized consulting closing; do
   rg -q "visual: '$visual'" webapp/content/slides.js
 done

@@ -14,6 +14,7 @@ Puis ouvrir <http://127.0.0.1:4173/>.
 
 ## Navigation
 
+- boutons `Avant` / `Après` dans la barre supérieure ;
 - clic sur une slide dans le sommaire ;
 - `←` / `→`, `PageUp` / `PageDown` ou espace ;
 - `Home` / `End` pour aller au début ou à la fin ;
