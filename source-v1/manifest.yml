@@ -1,0 +1,103 @@
+title: "L’IA : du chatbot au système de travail"
+language: fr
+phase: 1
+status: storyboard_for_validation
+deck:
+  target_slide_count: 26
+  aspect_ratio: "16:9"
+  estimated_duration_minutes: "45-60"
+  audience: "personne intelligente, non nécessairement technique"
+  presentation_mode: STORY
+  webapp_allowed: false
+sections:
+  - id: comprendre
+    label: "Comprendre"
+    slides: [1, 2, 3, 4, 5, 6]
+  - id: contextualiser
+    label: "Contextualiser"
+    slides: [7, 8]
+  - id: combiner
+    label: "Combiner"
+    slides: [9, 10, 11, 12, 13, 14, 15]
+  - id: construire
+    label: "Agir et construire"
+    slides: [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+slides:
+  - number: 1
+    content: introduction
+    demo: none
+  - number: 2
+    content: introduction
+    demo: animation
+  - number: 3
+    content: introduction
+    demo: none
+  - number: 4
+    content: what-is-ai
+    demo: animation
+  - number: 5
+    content: what-is-ai
+    demo: animation
+  - number: 6
+    content: what-is-ai
+    demo: none
+  - number: 7
+    content: prompt-context
+    demo: live
+  - number: 8
+    content: prompt-context
+    demo: live
+  - number: 9
+    content: agent
+    demo: none
+  - number: 10
+    content: agent
+    demo: animation
+  - number: 11
+    content: tools
+    demo: none
+  - number: 12
+    content: tools
+    demo: simulated
+  - number: 13
+    content: memory
+    demo: animation
+  - number: 14
+    content: memory
+    demo: capture
+  - number: 15
+    content: github
+    demo: capture
+  - number: 16
+    content: workflow
+    demo: animation
+  - number: 17
+    content: codex
+    demo: capture
+  - number: 18
+    content: workflow
+    demo: animation
+  - number: 19
+    content: build-product
+    demo: simulated
+  - number: 20
+    content: build-product
+    demo: capture
+  - number: 21
+    content: poc-vs-spec
+    demo: none
+  - number: 22
+    content: hocus-system
+    demo: simulated
+  - number: 23
+    content: consulting
+    demo: simulated
+  - number: 24
+    content: consulting
+    demo: none
+  - number: 25
+    content: live-demo
+    demo: simulated
+  - number: 26
+    content: live-demo
+    demo: none
