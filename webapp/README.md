@@ -1,6 +1,6 @@
 # Hocus Acolyte — draft webapp
 
-Prototype statique du storyboard V2 validé.
+Prototype offline/staging multi-journey du storyboard V2.
 
 ## Lancer localement
 
@@ -11,6 +11,11 @@ python3 -m http.server 4173 --directory webapp
 ```
 
 Puis ouvrir <http://127.0.0.1:4173/>.
+
+Parcours disponibles :
+
+- <http://127.0.0.1:4173/?journey=operating-system> — du chatbot au système de travail ;
+- <http://127.0.0.1:4173/?journey=pme> — PME AI Overview.
 
 ## Navigation
 
@@ -23,13 +28,15 @@ Puis ouvrir <http://127.0.0.1:4173/>.
 - `/` pour chercher une slide ;
 - `Escape` pour quitter le mode présentation.
 
-Le contenu est structuré dans [`content/slides.js`](content/slides.js). Le rendu visuel est produit par [`app.js`](app.js), sans appel réseau et sans dépendance externe.
+Le moteur partagé est dans [`app.js`](app.js). Le parcours Operating System reste dans [`content/slides.js`](content/slides.js) et est enregistré par [`journeys/operating-system/config.js`](journeys/operating-system/config.js). Le contenu PME et ses données déclaratives sont dans [`journeys/pme-overview/content.js`](journeys/pme-overview/content.js). Les interactions sont enregistrées dans [`interactions/`](interactions/). Aucun appel réseau n’est requis.
 
 ## Contrôles
 
 ```bash
 node --check webapp/app.js
 node --check webapp/content/slides.js
+node --check webapp/journeys/operating-system/config.js
+node --check webapp/journeys/pme-overview/content.js
 bash webapp/tests/smoke.sh
 python3 webapp/tests/e2e.py
 ```

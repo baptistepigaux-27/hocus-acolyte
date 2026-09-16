@@ -17,6 +17,7 @@ This repository freezes the narrative before producing the PowerPoint deck. It c
 - the declarative V2 deck map in [`manifest-v2.yml`](manifest-v2.yml).
 - the interactive storyboard draft in [`webapp/`](webapp/).
 - the V2 interactive audit and vertical-slice plan in [`v2-interactive-plan.md`](v2-interactive-plan.md).
+- the PME AI Overview multi-journey plan and vertical slice in [`webapp/journeys/`](webapp/journeys/).
 
 The PPTX is intentionally not generated in this issue. The webapp is a local/staging draft for validating the 23-slide experience. No production environment is touched.
 
@@ -38,6 +39,8 @@ The recommended main case is **Northstar TEN**: it is easier to understand as a 
 
 - Issue: [#1 — review AI operating system storyboard V2](https://github.com/baptistepigaux-27/hocus-acolyte/issues/1)
 - Issue: [#3 — expose storyboard V2 as an interactive webapp draft](https://github.com/baptistepigaux-27/hocus-acolyte/issues/3)
+- Issue: [#5 — add PME AI Overview multi-journey vertical slice](https://github.com/baptistepigaux-27/hocus-acolyte/issues/5)
 - V2 branch: `docs/issue-1-storyboard-review-v2-pr`
 - Webapp branch: `feat/issue-3-webapp-draft`
+- PME branch: `feat/issue-5-pme-overview`
 - Next after human validation: decide whether to iterate the webapp, generate the PPT in a follow-up change, or both.

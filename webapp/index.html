@@ -15,14 +15,19 @@
         <a class="brand" href="./" aria-label="Hocus Acolyte, retour au début">
           <span class="brand-mark" aria-hidden="true">✦</span>
           <span>HOCUS ACOLYTE</span>
-          <small>AI OPERATING SYSTEM / DRAFT</small>
+          <small>AI OPERATING EXPERIENCES / DRAFT</small>
         </a>
         <div class="topbar-tools">
+          <nav class="journey-switcher" aria-label="Choisir un parcours">
+            <span class="journey-switcher-label">PARCOURS</span>
+            <a class="journey-link" data-journey="operating-system" href="?journey=operating-system&amp;slide=1">SYSTÈME</a>
+            <a class="journey-link" data-journey="pme" href="?journey=pme&amp;slide=1">PME</a>
+          </nav>
           <nav class="topbar-navigation" aria-label="Navigation entre les slides">
             <button class="topbar-nav-button" type="button" data-action="previous" aria-label="Slide précédente"><span aria-hidden="true">←</span> Avant</button>
             <button class="topbar-nav-button" type="button" data-action="next" aria-label="Slide suivante">Après <span aria-hidden="true">→</span></button>
           </nav>
-          <span class="status-dot"><i aria-hidden="true"></i> storyboard V2 · 23 slides</span>
+          <span class="status-dot"><i aria-hidden="true"></i><span id="journey-status">SYSTÈME DE TRAVAIL · 23 slides</span></span>
           <button class="tool-button" type="button" data-action="toggle-index" aria-controls="sidebar" aria-expanded="true">Sommaire</button>
           <button class="tool-button accent-button" type="button" data-action="toggle-present" aria-pressed="false">Présenter <b aria-hidden="true">↗</b></button>
         </div>
@@ -103,17 +108,20 @@
       </div>
       <footer class="app-footer">
         <span>HOCUS ACOLYTE / AI OPERATING SYSTEM</span>
-        <span>Draft webapp · Issue #3 · aucun appel externe</span>
+        <span>Draft webapp · multi-journey · aucun appel externe</span>
       </footer>
     </div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <noscript><div class="noscript">Cette expérience nécessite JavaScript pour naviguer entre les slides.</div></noscript>
     <script src="content/slides.js"></script>
+    <script src="journeys/operating-system/config.js"></script>
+    <script src="journeys/pme-overview/content.js"></script>
     <script src="interactions/chatbot-agent.js"></script>
     <script src="interactions/context-builder.js"></script>
     <script src="interactions/memory-recall.js"></script>
     <script src="interactions/handoff.js"></script>
     <script src="interactions/idea-product.js"></script>
+    <script src="interactions/opportunity-map.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

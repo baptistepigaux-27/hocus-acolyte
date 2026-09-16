@@ -40,10 +40,12 @@ def run_checks(base_url: str) -> None:
 
         desktop = browser.new_context(viewport={"width": 1440, "height": 1000})
         page = desktop.new_page()
-        page.goto(f"{base_url}?slide=9", wait_until="networkidle")
+        page.goto(f"{base_url}?journey=operating-system&slide=9", wait_until="networkidle")
         assert page.locator("#slide-title").inner_text() == "Chatbot contre agent — le déclic"
         assert page.locator(".chatbot-agent-interaction").count() == 1
         assert page.locator(".topbar-nav-button").count() == 2
+        assert page.locator(".journey-link").count() == 2
+        assert page.locator(".journey-link[data-journey='operating-system']").get_attribute("aria-current") == "page"
         assert page.locator(".agent-step[data-state='upcoming']").count() == 7
 
         page.get_by_role("button", name="LANCER LA MISSION").click()
@@ -92,6 +94,31 @@ def run_checks(base_url: str) -> None:
         assert "source" in page.locator(".recalled-note-source").inner_text().lower()
         assert "réinjectée" in page.locator(".memory-live-status").inner_text().lower()
 
+        page.goto(f"{base_url}?journey=pme&slide=1", wait_until="networkidle")
+        assert page.locator("#slide-title").inner_text() == "Une PME n’a pas « un cas d’usage IA »"
+        assert page.locator("#slide-counter").inner_text() == "01 / 04"
+        assert "PME AI OVERVIEW" in page.locator("#journey-status").inner_text()
+        assert page.locator(".journey-link[data-journey='pme']").get_attribute("aria-current") == "page"
+        assert page.locator(".pme-level-card").count() == 6
+
+        page.goto(f"{base_url}?journey=pme&slide=3", wait_until="networkidle")
+        assert page.locator(".opportunity-map-interaction").count() == 1
+        assert page.locator(".opportunity-function-button").count() == 8
+        assert page.locator(".opportunity-function-button[data-function-key='commerce']").get_attribute("aria-pressed") == "true"
+        assert page.locator(".opportunity-cell").count() == 5
+        assert "commerce" in page.locator(".opportunity-result-title").inner_text().lower()
+        page.locator(".opportunity-function-button[data-function-key='finance']").click()
+        assert page.locator(".opportunity-map-interaction").get_attribute("data-function") == "finance"
+        assert "facture" in page.locator(".opportunity-matrix").inner_text().lower()
+        page.locator(".opportunity-function-button[data-function-key='operations']").click()
+        assert "incident" in page.locator(".opportunity-matrix").inner_text().lower()
+
+        page.goto(f"{base_url}?journey=operating-system&slide=1", wait_until="networkidle")
+        assert page.locator("#slide-title").inner_text() == "Vous connaissez déjà une partie de l’histoire"
+        assert page.locator(".opportunity-map-interaction").count() == 0
+        page.goto(f"{base_url}?journey=pme&slide=3", wait_until="networkidle")
+        assert page.locator(".opportunity-map-interaction").get_attribute("data-function") == "commerce"
+
         page.goto(f"{base_url}?slide=12", wait_until="networkidle")
         assert page.locator(".handoff-interaction").count() == 1
         assert page.locator(".handoff-stage").count() == 6
@@ -137,7 +164,7 @@ def run_checks(base_url: str) -> None:
         )
         assert float(transition.rstrip("s")) <= 0.0001, transition
 
-        mobile = browser.new_context(viewport={"width": 390, "height": 844})
+        mobile = browser.new_context(viewport={"width": 390, "height": 844}, has_touch=True)
         mobile_page = mobile.new_page()
         mobile_page.goto(f"{base_url}?slide=9", wait_until="networkidle")
         assert mobile_page.locator(".topbar-navigation").is_visible()
@@ -149,6 +176,11 @@ def run_checks(base_url: str) -> None:
         assert mobile_page.locator(".context-builder-interaction").is_visible()
         assert_no_horizontal_overflow(mobile_page)
         mobile_page.locator(".context-option[data-context-key='objective']").click()
+        assert_no_horizontal_overflow(mobile_page)
+        mobile_page.goto(f"{base_url}?journey=pme&slide=3", wait_until="networkidle")
+        assert mobile_page.locator(".opportunity-map-interaction").is_visible()
+        assert_no_horizontal_overflow(mobile_page)
+        mobile_page.locator(".opportunity-function-button[data-function-key='marketing']").click()
         assert_no_horizontal_overflow(mobile_page)
 
         desktop.close()
@@ -176,7 +208,7 @@ def main() -> None:
             server.terminate()
             server.wait(timeout=5)
 
-    print("Hocus Acolyte Playwright checks passed (desktop, mobile, interaction, deep link).")
+    print("Hocus Acolyte Playwright checks passed (multi-journey, desktop, mobile, interaction, deep link).")
 
 
 if __name__ == "__main__":

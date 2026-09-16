@@ -8,12 +8,19 @@ test -f webapp/index.html
 test -f webapp/styles.css
 test -f webapp/app.js
 test -f webapp/content/slides.js
+test -f webapp/journeys/operating-system/config.js
+test -f webapp/journeys/pme-overview/content.js
 test -f webapp/interactions/chatbot-agent.js
+test -f webapp/interactions/opportunity-map.js
 test -f webapp/tests/e2e.py
 
 node --check webapp/app.js
 node --check webapp/content/slides.js
-node --check webapp/interactions/chatbot-agent.js
+node --check webapp/journeys/operating-system/config.js
+node --check webapp/journeys/pme-overview/content.js
+for interaction in webapp/interactions/*.js; do
+  node --check "$interaction"
+done
 
 slide_count="$(rg -c '^  \{ id:' webapp/content/slides.js)"
 test "$slide_count" -eq 23
@@ -25,9 +32,16 @@ for required in 'data-action="next"' 'data-action="previous"' 'data-action="togg
 done
 
 test "$(rg -c 'class="topbar-nav-button"' webapp/index.html)" -eq 2
+test "$(rg -c 'class="journey-link"' webapp/index.html)" -eq 2
+rg -q 'journey=pme' webapp/index.html
+rg -q 'journeys/operating-system/config.js' webapp/index.html
+rg -q 'journeys/pme-overview/content.js' webapp/index.html
 rg -q 'interactions/chatbot-agent.js' webapp/index.html
+rg -q 'interactions/opportunity-map.js' webapp/index.html
 rg -q "kind: 'chatbot-agent'" webapp/content/slides.js
+rg -q "kind: 'opportunity-map'" webapp/journeys/pme-overview/content.js
 rg -q 'LANCER LA MISSION' webapp/interactions/chatbot-agent.js
+rg -q 'Opportunity Map' webapp/interactions/opportunity-map.js
 
 for visual in cover context memory compare agent-workflow roles timeline northstar sybil specialized consulting closing; do
   rg -q "visual: '$visual'" webapp/content/slides.js

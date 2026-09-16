@@ -1,7 +1,16 @@
 (() => {
   'use strict';
 
-  const slides = window.ACOLYTE_SLIDES || [];
+  const params = new URLSearchParams(window.location.search);
+  const journeys = window.ACOLYTE_JOURNEYS || {};
+  const requestedJourney = params.get('journey') || 'operating-system';
+  const journeyKey = journeys[requestedJourney] ? requestedJourney : 'operating-system';
+  const activeJourney = journeys[journeyKey] || {
+    config: { key: 'operating-system', shortLabel: 'SYSTÈME DE TRAVAIL', label: 'Du chatbot au système de travail' },
+    slides: window.ACOLYTE_SLIDES || []
+  };
+  const journeyConfig = activeJourney.config || {};
+  const slides = activeJourney.slides || [];
   const acts = [...new Map(slides.map((slide) => [slide.act, { id: slide.act, label: slide.actLabel }])).values()];
   const state = { index: 0, present: false, notes: false, indexOpen: window.innerWidth >= 900, query: '' };
   const $ = (selector) => document.querySelector(selector);
@@ -20,6 +29,8 @@
     index: $('#slide-index'),
     flags: $('#slide-flags'),
     canvas: $('#visual-canvas'),
+    journeyStatus: $('#journey-status'),
+    journeyLinks: $$('.journey-link'),
     act: $('#slide-act'),
     title: $('#slide-title'),
     message: $('#slide-message'),
@@ -66,6 +77,21 @@
     refs.flags.innerHTML = flags.join('');
   }
 
+  function renderJourneyLinks() {
+    refs.journeyLinks.forEach((link) => {
+      const active = link.dataset.journey === journeyKey;
+      link.classList.toggle('is-active', active);
+      if (active) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+      const url = new URL(window.location.href);
+      url.searchParams.set('journey', link.dataset.journey);
+      url.searchParams.set('slide', '1');
+      url.searchParams.delete('present');
+      link.href = `${url.pathname}${url.search}`;
+    });
+    if (refs.journeyStatus) refs.journeyStatus.textContent = `${journeyConfig.shortLabel || journeyKey} · ${slides.length} slides`;
+  }
+
   function renderSlide() {
     const slide = current();
     refs.actLabel.textContent = `ACTE ${slide.act} · ${slide.actLabel}`;
@@ -94,11 +120,13 @@
     }
     renderFlags(slide);
     renderActList();
-    document.title = `${pad(slide.id)} · ${slide.title} — Hocus Acolyte`;
+    document.title = `${pad(slide.id)} · ${slide.title} — ${journeyConfig.label || 'Hocus Acolyte'}`;
     const url = new URL(window.location.href);
+    url.searchParams.set('journey', journeyKey);
     url.searchParams.set('slide', slide.id);
     if (state.present) url.searchParams.set('present', '1'); else url.searchParams.delete('present');
     window.history.replaceState({}, '', url);
+    renderJourneyLinks();
   }
 
   function visualMarkup(slide) {
@@ -130,6 +158,9 @@
     if (visual === 'specialized') return `<div class="specialized-visual"><div class="specialized-row source-row"><span>sources</span><i></i><span>intelligence</span><i></i><span>restitution</span></div><div class="specialized-agents"><b>Gremlin</b><b>Zoltar</b><b>Stolas</b><b>Sybil</b><b>Northstar</b><b>Inat</b><b>Fumist</b></div><div class="cortex-orbit">CORTEX · orchestrer / gouverner / prouver</div></div>`;
     if (visual === 'consulting') return `<div class="consulting-visual"><div class="consulting-input"><span>50 fichiers</span><span>PDF</span><span>question</span></div><div class="consulting-pipeline">${['import','nettoyage','analyse','IA','visualisation'].map((label) => `<span>${label}</span>`).join('')}</div><div class="consulting-output"><b>recommandation</b><span>prototype</span><span>outil</span><span>mesure</span></div></div>`;
     if (visual === 'closing') return `<div class="closing-visual"><div class="closing-human"><span>HUMAIN</span><b>décide / juge</b></div>${arrow}<div class="closing-ai"><span>IA</span><b>raisonne / orchestre</b></div><div class="closing-orbits"><span>mémoire</span><span>outils</span><span>données</span></div><div class="closing-action">ACTION</div></div>`;
+    if (visual === 'pme-levels') return `<div class="pme-levels-visual">${(slide.levels || []).map((level) => `<div class="pme-level-card"><span>${escapeHtml(level.number)}</span><strong>${escapeHtml(level.label)}</strong><small>${escapeHtml(level.detail)}</small></div>`).join('')}</div>`;
+    if (visual === 'transformation-ladder') return `<div class="transformation-ladder-visual">${(slide.levels || []).map((level, index) => `<div class="transformation-ladder-step"><span>${escapeHtml(level.number)}</span><div><b>${escapeHtml(level.label)}</b><small>${escapeHtml(level.detail)}</small></div>${index < (slide.levels || []).length - 1 ? '<i aria-hidden="true">↓</i>' : '<em>VISION</em>'}</div>`).join('')}</div>`;
+    if (visual === 'pme-prioritization') return `<div class="pme-prioritization-visual">${(slide.priorityCards || []).map((card) => `<div class="pme-priority-card priority-${escapeHtml(card.key)}"><span>${escapeHtml(card.label)}</span><b>${escapeHtml(card.example)}</b><small>${escapeHtml(card.detail)}</small><em>${escapeHtml(card.gate)}</em></div>`).join('')}</div>`;
     return `<div class="fallback-visual">${escapeHtml(slide.title)}</div>`;
   }
 
@@ -213,7 +244,6 @@
     if (event.key === 'Escape' && state.present) setPresent(false);
   });
 
-  const params = new URLSearchParams(window.location.search);
   const initialSlide = Number(params.get('slide'));
   if (initialSlide && slides.some((slide) => slide.id === initialSlide)) state.index = slides.findIndex((slide) => slide.id === initialSlide);
   setIndexOpen(state.indexOpen);
