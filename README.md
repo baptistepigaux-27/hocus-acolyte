@@ -13,10 +13,12 @@ This repository freezes the narrative before producing the PowerPoint deck. It c
 - the selected real assets in [`assets-inventory-v2.md`](assets-inventory-v2.md);
 - the demonstration plan in [`demonstrations-v2.md`](demonstrations-v2.md);
 - the future interaction map in [`webapp-interaction-candidates.md`](webapp-interaction-candidates.md);
-- the final recommendation in [`recommendations-v2.md`](recommendations-v2.md).
+- the final recommendation in [`recommendations-v2.md`](recommendations-v2.md);
 - the declarative V2 deck map in [`manifest-v2.yml`](manifest-v2.yml).
+- the interactive storyboard draft in [`webapp/`](webapp/).
+- the V2 interactive audit and vertical-slice plan in [`v2-interactive-plan.md`](v2-interactive-plan.md).
 
-No PPTX is generated in this issue. No webapp is developed. No production environment is touched.
+The PPTX is intentionally not generated in this issue. The webapp is a local/staging draft for validating the 23-slide experience. No production environment is touched.
 
 ## Narrative decision
 
@@ -35,5 +37,7 @@ The recommended main case is **Northstar TEN**: it is easier to understand as a 
 ## Workflow
 
 - Issue: [#1 — review AI operating system storyboard V2](https://github.com/baptistepigaux-27/hocus-acolyte/issues/1)
-- Branch: `docs/issue-1-storyboard-review-v2-pr`
-- Next after explicit validation: generate the PPT in a follow-up change, then review it in staging / preview.
+- Issue: [#3 — expose storyboard V2 as an interactive webapp draft](https://github.com/baptistepigaux-27/hocus-acolyte/issues/3)
+- V2 branch: `docs/issue-1-storyboard-review-v2-pr`
+- Webapp branch: `feat/issue-3-webapp-draft`
+- Next after human validation: decide whether to iterate the webapp, generate the PPT in a follow-up change, or both.
