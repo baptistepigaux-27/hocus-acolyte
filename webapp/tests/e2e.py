@@ -34,6 +34,23 @@ def assert_no_horizontal_overflow(page) -> None:
     )
 
 
+def assert_visual_fits_canvas(page) -> None:
+    assert page.evaluate(
+        """() => {
+            const canvas = document.querySelector('.visual-canvas');
+            if (!canvas) return false;
+            return canvas.scrollWidth <= canvas.clientWidth + 1
+                && [...canvas.children].every((child) => {
+                    if (child.hidden || getComputedStyle(child).display === 'none') return true;
+                    const canvasBox = canvas.getBoundingClientRect();
+                    const childBox = child.getBoundingClientRect();
+                    return childBox.left >= canvasBox.left - 1
+                        && childBox.right <= canvasBox.right + 1;
+                });
+        }"""
+    )
+
+
 def run_checks(base_url: str) -> None:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
@@ -47,6 +64,7 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".journey-link").count() == 2
         assert page.locator(".journey-link[data-journey='operating-system']").get_attribute("aria-current") == "page"
         assert page.locator(".agent-step[data-state='upcoming']").count() == 7
+        assert_visual_fits_canvas(page)
 
         page.get_by_role("button", name="LANCER LA MISSION").click()
         assert page.locator(".chatbot-response.is-emphasized").is_visible()
@@ -62,6 +80,11 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".agent-step-detail:visible").count() == 7
         final_status = page.locator(".interaction-live-status").inner_text().lower()
         assert "validée" in final_status and "humain" in final_status
+        assert_visual_fits_canvas(page)
+
+        page.goto(f"{base_url}?journey=operating-system&slide=10&function=commerce", wait_until="networkidle")
+        assert page.locator(".step-flow").count() == 1
+        assert_visual_fits_canvas(page)
 
         page.goto(f"{base_url}?slide=5", wait_until="networkidle")
         assert page.locator(".context-builder-interaction").count() == 1
@@ -275,9 +298,15 @@ def run_checks(base_url: str) -> None:
         mobile_page.goto(f"{base_url}?slide=9", wait_until="networkidle")
         assert mobile_page.locator(".topbar-navigation").is_visible()
         assert_no_horizontal_overflow(mobile_page)
+        assert_visual_fits_canvas(mobile_page)
         mobile_page.get_by_role("button", name="LANCER LA MISSION").click()
         assert mobile_page.locator(".agent-step-detail:visible").count() == 1
         assert_no_horizontal_overflow(mobile_page)
+        assert_visual_fits_canvas(mobile_page)
+        mobile_page.goto(f"{base_url}?journey=operating-system&slide=10&function=commerce", wait_until="networkidle")
+        assert mobile_page.locator(".step-flow").count() == 1
+        assert_no_horizontal_overflow(mobile_page)
+        assert_visual_fits_canvas(mobile_page)
         mobile_page.goto(f"{base_url}?slide=5", wait_until="networkidle")
         assert mobile_page.locator(".context-builder-interaction").is_visible()
         assert_no_horizontal_overflow(mobile_page)
