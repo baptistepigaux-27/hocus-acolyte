@@ -72,4 +72,6 @@ Le POC sert à décider. Il n’est pas présenté comme une mini-production à 
 
 ## Première livraison
 
-La première passe implémentée couvre les slides 01, 02, 03 et 04 du parcours, avec la slide 03 comme vertical slice de référence. Les slides 05 à 17 sont storyboardées et prêtes à être ajoutées sans modifier le shell multi-journey.
+La version webapp implémente les 17 slides du parcours sans modifier le shell multi-journey. La slide 03 reste la vertical slice de référence : l’Opportunity Map propose des tabs métiers, une matrice responsive et une fiche accessible en drawer latéral desktop ou bottom sheet mobile. Les slides 05, 06, 09, 11, 13 et 14 ajoutent des interactions légères pour faire progresser le fil rouge sans transformer chaque slide en composant isolé.
+
+Le parcours est livré en draft sur la staging publique, sans merge et sans déploiement production. Le workflow `.github/workflows/acolyte-webapp.yml` exécute les contrôles de syntaxe, de données, de smoke, de navigateur et de diff sur chaque push et pull request.

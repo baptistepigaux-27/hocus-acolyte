@@ -30,13 +30,20 @@
     const levels = config.levels || [];
     const functions = config.functions || [];
     const solutions = config.solutions || [];
+    const requestedFunction = new URLSearchParams(window.location.search).get('function');
     const state = {
-      selectedFunction: config.defaultFunction || functions[0]?.key,
+      selectedFunction: functions.some((businessFunction) => businessFunction.key === requestedFunction)
+        ? requestedFunction
+        : config.defaultFunction || functions[0]?.key,
       selectedOpportunity: null
     };
+    let triggerElement = null;
+    let triggerOpportunityId = null;
+    let fallbackFocusElement = null;
 
     root.innerHTML = '';
     root.classList.add('opportunity-map-interaction');
+    root.classList.remove('has-detail');
     root.setAttribute('role', 'region');
     root.setAttribute('aria-label', 'Opportunity Map interactive : explorer les métiers');
 
@@ -70,12 +77,21 @@
       button.addEventListener('click', () => {
         state.selectedFunction = businessFunction.key;
         state.selectedOpportunity = null;
+        fallbackFocusElement = button;
         render();
       });
       functionList.append(button);
       return { businessFunction, button };
     });
     controls.append(functionList);
+    const legend = create('div', 'opportunity-implementation-legend');
+    legend.setAttribute('aria-label', 'Légende des approches');
+    [['BUY', 'acheter'], ['CONFIGURE', 'assembler'], ['BUILD', 'construire']].forEach(([mode, description]) => {
+      const item = create('span', `implementation-legend-item implementation-${mode.toLowerCase()}`);
+      item.append(create('b', '', mode), create('small', '', `· ${description}`));
+      legend.append(item);
+    });
+    controls.append(legend);
     root.append(controls);
 
     const selectedPanel = create('section', 'opportunity-map-result');
@@ -95,21 +111,22 @@
 
     const detailPanel = create('section', 'opportunity-detail-panel');
     detailPanel.setAttribute('aria-labelledby', 'opportunity-detail-title');
+    detailPanel.setAttribute('aria-describedby', 'opportunity-detail-mode');
+    detailPanel.setAttribute('role', 'dialog');
     detailPanel.hidden = true;
     const detailHeader = create('div', 'opportunity-detail-header');
+    const detailContext = create('span', 'opportunity-detail-context');
     detailHeader.append(
-      create('span', 'interaction-kicker', 'FICHE CAS D’USAGE'),
+      detailContext,
       create('button', 'opportunity-detail-close', 'FERMER')
     );
     const closeButton = detailHeader.querySelector('button');
     closeButton.type = 'button';
-    closeButton.addEventListener('click', () => {
-      state.selectedOpportunity = null;
-      render();
-    });
     const detailTitle = create('h3', 'opportunity-detail-title');
     detailTitle.id = 'opportunity-detail-title';
+    detailTitle.tabIndex = -1;
     const detailMode = create('span', 'opportunity-detail-mode');
+    detailMode.id = 'opportunity-detail-mode';
     const detailBody = create('div', 'opportunity-detail-body');
     detailPanel.append(detailHeader, detailTitle, detailMode, detailBody);
     root.append(detailPanel);
@@ -119,35 +136,72 @@
     liveStatus.setAttribute('aria-live', 'polite');
     root.append(liveStatus);
 
+    function selectedFunctionLabel() {
+      return (functions.find((businessFunction) => businessFunction.key === state.selectedFunction) || {}).label || 'Métier';
+    }
+
+    function restoreFocus() {
+      let focusTarget = triggerElement && triggerElement.isConnected ? triggerElement : null;
+      if (!focusTarget && triggerOpportunityId) {
+        focusTarget = [...root.querySelectorAll('.opportunity-card')]
+          .find((card) => card.dataset.opportunityId === triggerOpportunityId);
+      }
+      if (!focusTarget) focusTarget = fallbackFocusElement;
+      triggerElement = null;
+      triggerOpportunityId = null;
+      fallbackFocusElement = null;
+      if (focusTarget && focusTarget.isConnected) focusTarget.focus();
+    }
+
+    function closeDetail(shouldRestoreFocus = true) {
+      state.selectedOpportunity = null;
+      render();
+      if (shouldRestoreFocus) restoreFocus();
+    }
+
+    closeButton.addEventListener('click', () => closeDetail(true));
+    root.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && state.selectedOpportunity) {
+        event.preventDefault();
+        closeDetail(true);
+      }
+    });
+
     function renderDetail(opportunity) {
       if (!opportunity) {
         detailPanel.hidden = true;
+        root.classList.remove('has-detail');
         detailBody.replaceChildren();
         return;
       }
       const solution = solutions.find((candidate) => candidate.key === opportunity.solutionCategory);
       detailPanel.hidden = false;
+      root.classList.add('has-detail');
+      const level = levels.find((candidate) => candidate.key === opportunity.level);
+      detailContext.textContent = `FICHE CAS D’USAGE · ${selectedFunctionLabel()} · ${level?.label || opportunity.level}`;
       detailTitle.textContent = opportunity.label;
-      detailMode.textContent = `${opportunity.level.toUpperCase()} · ${opportunity.implementation}`;
+      detailMode.textContent = `APPROCHE FRÉQUENTE · ${opportunity.implementation}`;
       detailMode.dataset.mode = opportunity.implementation.toLowerCase();
       detailBody.replaceChildren(
         textField('BESOIN', opportunity.need, 'opportunity-detail-need'),
         listField('ENTRÉES', opportunity.inputs),
         listField('CAPACITÉS IA', opportunity.capabilities),
         textField('SOLUTION TYPE', opportunity.solutionType),
-        listField('OUTILS POSSIBLES', opportunity.tools),
+        listField('BRIQUES POSSIBLES', opportunity.tools),
         textField('POURQUOI ?', opportunity.why),
         listField('CONDITIONS DE SUCCÈS', opportunity.successConditions),
         listField('SIGNAUX · VALEUR', opportunity.valueSignals),
         listField('SIGNAUX · FAISABILITÉ', opportunity.feasibilitySignals),
-        listField('RISQUES', opportunity.risks)
+        listField('RISQUES', opportunity.risks),
+        textField('QUAND PERSONNALISER ?', opportunity.customWhen, 'opportunity-detail-custom')
       );
       if (solution) {
         const solutionField = create('div', 'opportunity-detail-solution');
         solutionField.append(
-          create('small', '', `FAMILLE · ${solution.family}`),
+          create('small', '', `FAMILLE DE SOLUTION · ${solution.family}`),
           create('p', '', solution.description),
-          create('span', 'opportunity-solution-examples', `Exemples : ${solution.examples.join(' · ')}`)
+          create('small', '', 'EXEMPLES'),
+          create('span', 'opportunity-solution-examples', solution.examples.join(' · '))
         );
         detailBody.append(solutionField);
       }
@@ -194,9 +248,11 @@
             create('em', '', opportunity.implementation)
           );
           card.addEventListener('click', () => {
+            triggerElement = card;
+            triggerOpportunityId = opportunity.id;
             state.selectedOpportunity = opportunity.id;
             render();
-            closeButton.focus({ preventScroll: true });
+            detailTitle.focus({ preventScroll: true });
           });
           list.append(card);
         });
@@ -213,7 +269,7 @@
       renderDetail(selectedOpportunity);
       root.dataset.function = selected.key;
       liveStatus.textContent = selectedOpportunity
-        ? `Fiche ouverte : ${selectedOpportunity.label} · ${selectedOpportunity.implementation}.`
+        ? `Fiche ouverte : ${selectedOpportunity.label} · approche fréquente ${selectedOpportunity.implementation}.`
         : `${selected.label} sélectionné · ${levels.length} niveaux affichés · ouvrez une carte pour voir la solution.`;
     }
 
@@ -222,6 +278,7 @@
       destroy: () => {
         root.replaceChildren();
         root.classList.remove('opportunity-map-interaction');
+        root.classList.remove('has-detail');
         root.removeAttribute('role');
         root.removeAttribute('aria-label');
         delete root.dataset.function;

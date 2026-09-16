@@ -96,7 +96,7 @@ def run_checks(base_url: str) -> None:
 
         page.goto(f"{base_url}?journey=pme&slide=1", wait_until="networkidle")
         assert page.locator("#slide-title").inner_text() == "Une PME n’a pas « un cas d’usage IA »"
-        assert page.locator("#slide-counter").inner_text() == "01 / 04"
+        assert page.locator("#slide-counter").inner_text() == "01 / 17"
         assert "PME AI OVERVIEW" in page.locator("#journey-status").inner_text()
         assert page.locator(".journey-link[data-journey='pme']").get_attribute("aria-current") == "page"
         assert page.locator(".pme-level-card").count() == 6
@@ -113,14 +113,55 @@ def run_checks(base_url: str) -> None:
         page.locator(".opportunity-function-button[data-function-key='operations']").click()
         assert "incident" in page.locator(".opportunity-matrix").inner_text().lower()
         page.locator(".opportunity-function-button[data-function-key='commerce']").click()
-        page.locator(".opportunity-card[data-opportunity-id='sales-tender']").click()
+        tender_card = page.locator(".opportunity-card[data-opportunity-id='sales-tender']")
+        tender_card.click()
         assert page.locator(".opportunity-detail-panel").is_visible()
+        assert "has-detail" in page.locator(".opportunity-map-interaction").get_attribute("class")
         assert "appel d’offres" in page.locator(".opportunity-detail-title").inner_text().lower()
+        assert "approche fréquente" in page.locator(".opportunity-detail-mode").inner_text().lower()
         assert "configure" in page.locator(".opportunity-detail-mode").inner_text().lower()
         detail_text = page.locator(".opportunity-detail-panel").inner_text().lower()
-        assert "dce" in detail_text and "capacités ia" in detail_text and "workflow automation" in detail_text
+        assert "dce" in detail_text and "capacités ia" in detail_text and "briques possibles" in detail_text
+        assert "workflow automation" in detail_text and "n8n" in detail_text and "famille de solution" in detail_text
+        assert page.locator(".opportunity-implementation-legend").count() == 1
+        assert page.evaluate("document.activeElement === document.querySelector('.opportunity-detail-title')")
         page.get_by_role("button", name="FERMER").click()
         assert page.locator(".opportunity-detail-panel").is_hidden()
+        assert page.evaluate("document.activeElement?.dataset.opportunityId === 'sales-tender'")
+        page.locator(".opportunity-card[data-opportunity-id='sales-tender']").click()
+        page.keyboard.press("Escape")
+        assert page.locator(".opportunity-detail-panel").is_hidden()
+        assert page.evaluate("document.activeElement?.dataset.opportunityId === 'sales-tender'")
+        page.locator(".opportunity-function-button[data-function-key='finance']").click()
+        assert page.locator(".opportunity-detail-panel").is_hidden()
+        assert "facture" in page.locator(".opportunity-matrix").inner_text().lower()
+
+        for slide_id, expected_counter in [(4, "04 / 17"), (5, "05 / 17"), (6, "06 / 17"), (9, "09 / 17"), (11, "11 / 17"), (13, "13 / 17"), (14, "14 / 17"), (17, "17 / 17")]:
+            page.goto(f"{base_url}?journey=pme&slide={slide_id}", wait_until="networkidle")
+            assert page.locator("#slide-counter").inner_text() == expected_counter
+
+        page.goto(f"{base_url}?journey=pme&slide=4", wait_until="networkidle")
+        assert page.locator(".solution-family-card").count() == 5
+        page.goto(f"{base_url}?journey=pme&slide=5", wait_until="networkidle")
+        assert page.locator(".role-selector-tab").count() == 4
+        page.locator(".role-selector-tab[data-role-key='finance']").click()
+        assert "contrôler une facture" in page.locator(".role-task-list").inner_text().lower()
+        page.goto(f"{base_url}?journey=pme&slide=6", wait_until="networkidle")
+        page.get_by_role("button", name="SANS CONNAISSANCE").click()
+        assert "générique" in page.locator(".knowledge-response").inner_text().lower()
+        page.goto(f"{base_url}?journey=pme&slide=9", wait_until="networkidle")
+        page.get_by_role("button", name="LANCER LA PRÉPARATION").click()
+        assert page.locator(".agent-business-step[data-state='done']").count() == 1
+        page.goto(f"{base_url}?journey=pme&slide=13", wait_until="networkidle")
+        assert page.locator(".opportunity-scoring-case").count() == 3
+        page.locator(".opportunity-scoring-case[data-opportunity-id='sales-meeting']").click()
+        assert "days" in page.locator(".opportunity-scoring-detail").inner_text().lower()
+        page.goto(f"{base_url}?journey=pme&slide=14", wait_until="networkidle")
+        page.locator(".portfolio-card[data-portfolio-key='strategic-bets']").click()
+        portfolio_text = page.locator(".portfolio-detail").inner_text().lower()
+        assert "moteur d’opportunité" in portfolio_text and "build" in portfolio_text
+        page.goto(f"{base_url}?journey=pme&slide=17", wait_until="networkidle")
+        assert "3 opportunités prioritaires" in page.locator(".pme-conclusion-output").inner_text().lower().replace("\n", " ")
 
         page.goto(f"{base_url}?journey=pme&slide=3&present=1", wait_until="networkidle")
         assert "presentation-mode" in page.locator("body").get_attribute("class")
@@ -195,6 +236,14 @@ def run_checks(base_url: str) -> None:
         assert mobile_page.locator(".opportunity-map-interaction").is_visible()
         assert_no_horizontal_overflow(mobile_page)
         mobile_page.locator(".opportunity-function-button[data-function-key='marketing']").click()
+        assert_no_horizontal_overflow(mobile_page)
+        mobile_page.locator(".opportunity-card").first.click()
+        assert mobile_page.locator(".opportunity-detail-panel").is_visible()
+        assert mobile_page.locator(".opportunity-detail-panel").evaluate("element => getComputedStyle(element).position") == "fixed"
+        assert_no_horizontal_overflow(mobile_page)
+        mobile_page.keyboard.press("Escape")
+        assert mobile_page.locator(".opportunity-detail-panel").is_hidden()
+        mobile_page.goto(f"{base_url}?journey=pme&slide=14", wait_until="networkidle")
         assert_no_horizontal_overflow(mobile_page)
 
         desktop.close()

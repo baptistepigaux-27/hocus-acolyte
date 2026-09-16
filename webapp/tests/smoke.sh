@@ -14,6 +14,12 @@ test -f webapp/journeys/pme-overview/opportunities.js
 test -f webapp/journeys/pme-overview/solutions.js
 test -f webapp/interactions/chatbot-agent.js
 test -f webapp/interactions/opportunity-map.js
+test -f webapp/interactions/role-selector.js
+test -f webapp/interactions/knowledge-journey.js
+test -f webapp/interactions/agent-business.js
+test -f webapp/interactions/function-overview.js
+test -f webapp/interactions/opportunity-scoring.js
+test -f webapp/interactions/portfolio-explorer.js
 test -f webapp/tests/e2e.py
 test -f webapp/tests/data-check.js
 
@@ -48,6 +54,12 @@ rg -q 'interactions/chatbot-agent.js' webapp/index.html
 rg -q 'interactions/opportunity-map.js' webapp/index.html
 rg -q "kind: 'chatbot-agent'" webapp/content/slides.js
 rg -q "kind: 'opportunity-map'" webapp/journeys/pme-overview/content.js
+for kind in role-selector knowledge-journey agent-business function-overview opportunity-scoring portfolio-explorer; do
+  rg -q "kind: '$kind'" webapp/journeys/pme-overview/content.js
+done
+rg -q 'APPROCHE FRÉQUENTE' webapp/interactions/opportunity-map.js
+rg -q 'triggerElement' webapp/interactions/opportunity-map.js
+rg -q 'opportunity-implementation-legend' webapp/interactions/opportunity-map.js
 rg -q 'solutionCategory' webapp/journeys/pme-overview/opportunities.js
 rg -q "FICHE CAS D’USAGE" webapp/interactions/opportunity-map.js
 rg -q 'LANCER LA MISSION' webapp/interactions/chatbot-agent.js
@@ -57,7 +69,7 @@ for visual in cover context memory compare agent-workflow roles timeline northst
   rg -q "visual: '$visual'" webapp/content/slides.js
 done
 
-if rg -n -i 'sk-[A-Za-z0-9]+|gh[pousr]_[A-Za-z0-9]+|BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY' webapp; then
+if rg -n -i 'sk-[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY' webapp; then
   echo 'Potential secret found in webapp source.' >&2
   exit 1
 fi

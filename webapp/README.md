@@ -30,6 +30,8 @@ Parcours disponibles :
 
 Le moteur partagé est dans [`app.js`](app.js). Le parcours Operating System reste dans [`content/slides.js`](content/slides.js) et est enregistré par [`journeys/operating-system/config.js`](journeys/operating-system/config.js). Le contenu PME est dans [`journeys/pme-overview/content.js`](journeys/pme-overview/content.js), avec les cas d’usage dans [`opportunities.js`](journeys/pme-overview/opportunities.js) et le catalogue de familles de solutions dans [`solutions.js`](journeys/pme-overview/solutions.js). Les interactions sont enregistrées dans [`interactions/`](interactions/). Aucun appel réseau n’est requis.
 
+Le parcours PME comprend 17 slides. L’Opportunity Map (slide 3) conserve la matrice visible pendant l’ouverture d’un drawer latéral desktop ; sur mobile, la fiche devient un bottom sheet. Le drawer expose séparément les briques possibles, la famille de solution et ses exemples, avec fermeture `Escape` et retour du focus sur la carte source. Les slides 5, 6, 9, 11, 13 et 14 proposent des interactions légères et réutilisables.
+
 ## Contrôles
 
 ```bash
