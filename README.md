@@ -35,5 +35,5 @@ The recommended main case is **Northstar TEN**: it is easier to understand as a 
 ## Workflow
 
 - Issue: [#1 — review AI operating system storyboard V2](https://github.com/baptistepigaux-27/hocus-acolyte/issues/1)
-- Branch: `docs/issue-1-storyboard-review-v2`
+- Branch: `docs/issue-1-storyboard-review-v2-pr`
 - Next after explicit validation: generate the PPT in a follow-up change, then review it in staging / preview.
