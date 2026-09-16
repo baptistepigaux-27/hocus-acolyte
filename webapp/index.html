@@ -28,9 +28,16 @@
             <button class="topbar-nav-button" type="button" data-action="next" aria-label="Slide suivante">Après <span aria-hidden="true">→</span></button>
           </nav>
           <span class="status-dot"><i aria-hidden="true"></i><span id="journey-status">SYSTÈME DE TRAVAIL · 23 slides</span></span>
+          <button class="tool-button module-launcher-button" type="button" data-action="toggle-modules" aria-controls="module-menu" aria-expanded="false">Explorer</button>
           <button class="tool-button" type="button" data-action="toggle-index" aria-controls="sidebar" aria-expanded="true">Sommaire</button>
           <button class="tool-button accent-button" type="button" data-action="toggle-present" aria-pressed="false">Présenter <b aria-hidden="true">↗</b></button>
         </div>
+        <nav class="module-menu" id="module-menu" hidden aria-label="Modules conversationnels">
+          <p>EXPLORER</p>
+          <a class="module-launcher-link" data-module="cases" href="?module=cases&amp;journey=pme&amp;slide=1">Cas réels</a>
+          <a class="module-launcher-link" data-module="agent-lab" href="?module=agent-lab&amp;journey=pme&amp;slide=1">Agent Lab</a>
+          <a class="module-launcher-link" data-module="memory-map" href="?module=memory-map&amp;journey=pme&amp;slide=1">Memory Map</a>
+        </nav>
       </header>
 
       <div class="app-layout">
@@ -106,6 +113,7 @@
 
         </main>
       </div>
+      <main id="module-content" class="module-content" hidden tabindex="-1"></main>
       <footer class="app-footer">
         <span>HOCUS ACOLYTE / AI OPERATING SYSTEM</span>
         <span>Draft webapp · multi-journey · aucun appel externe</span>
@@ -130,6 +138,8 @@
     <script src="interactions/function-overview.js"></script>
     <script src="interactions/opportunity-scoring.js"></script>
     <script src="interactions/portfolio-explorer.js"></script>
+    <script src="modules/real-cases/cases.js"></script>
+    <script src="modules/module-app.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

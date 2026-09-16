@@ -2,6 +2,8 @@
   'use strict';
 
   const params = new URLSearchParams(window.location.search);
+  const requestedModule = params.get('module');
+  if (requestedModule && window.ACOLYTE_MODULES && window.ACOLYTE_MODULES[requestedModule]) return;
   const journeys = window.ACOLYTE_JOURNEYS || {};
   const requestedJourney = params.get('journey') || 'operating-system';
   const journeyKey = journeys[requestedJourney] ? requestedJourney : 'operating-system';

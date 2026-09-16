@@ -20,6 +20,8 @@ test -f webapp/interactions/agent-business.js
 test -f webapp/interactions/function-overview.js
 test -f webapp/interactions/opportunity-scoring.js
 test -f webapp/interactions/portfolio-explorer.js
+test -f webapp/modules/real-cases/cases.js
+test -f webapp/modules/module-app.js
 test -f webapp/tests/e2e.py
 test -f webapp/tests/data-check.js
 
@@ -29,6 +31,8 @@ node --check webapp/journeys/operating-system/config.js
 node --check webapp/journeys/pme-overview/content.js
 node --check webapp/journeys/pme-overview/opportunities.js
 node --check webapp/journeys/pme-overview/solutions.js
+node --check webapp/modules/real-cases/cases.js
+node --check webapp/modules/module-app.js
 for interaction in webapp/interactions/*.js; do
   node --check "$interaction"
 done
@@ -52,6 +56,13 @@ rg -q 'journeys/pme-overview/solutions.js' webapp/index.html
 rg -q 'journeys/pme-overview/content.js' webapp/index.html
 rg -q 'interactions/chatbot-agent.js' webapp/index.html
 rg -q 'interactions/opportunity-map.js' webapp/index.html
+rg -q 'modules/real-cases/cases.js' webapp/index.html
+rg -q 'modules/module-app.js' webapp/index.html
+rg -q 'data-action="toggle-modules"' webapp/index.html
+rg -q 'module=cases' webapp/index.html
+rg -q 'REAL CASES' webapp/modules/module-app.js
+rg -q 'AGENT LAB' webapp/modules/module-app.js
+rg -q 'MEMORY MAP' webapp/modules/module-app.js
 rg -q "kind: 'chatbot-agent'" webapp/content/slides.js
 rg -q "kind: 'opportunity-map'" webapp/journeys/pme-overview/content.js
 for kind in role-selector knowledge-journey agent-business function-overview opportunity-scoring portfolio-explorer; do

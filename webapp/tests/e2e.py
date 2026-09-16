@@ -86,6 +86,56 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".step-flow").count() == 1
         assert_visual_fits_canvas(page)
 
+        page.goto(f"{base_url}?module=cases&journey=pme&slide=3", wait_until="networkidle")
+        assert page.locator(".module-content").is_visible()
+        assert page.locator(".app-layout").is_hidden()
+        assert page.locator(".real-case-card").count() == 7
+        page.select_option("#case-industry-filter", "finance")
+        assert page.locator(".real-case-card").count() == 1
+        page.locator("[data-open-case='qonto-human-gate']").click()
+        assert page.locator(".module-drawer").is_visible()
+        assert "Qonto" in page.locator(".module-drawer").inner_text()
+        assert page.locator(".module-drawer a[href*='claude.com']").count() == 1
+        assert page.locator(".module-bridge-link[href*='module=agent-lab']").count() == 1
+        page.locator(".module-drawer [data-close-case]").first.click()
+        assert page.locator(".module-drawer").count() == 0
+        assert page.evaluate("document.activeElement?.dataset.openCase === 'qonto-human-gate'")
+        page.select_option("#case-industry-filter", "all")
+        page.select_option("#case-level-filter", "tool")
+        assert page.locator(".real-case-card").count() == 1
+        assert "Original Tamale" in page.locator(".real-case-card").inner_text()
+
+        page.goto(f"{base_url}?module=agent-lab&journey=pme&slide=3", wait_until="networkidle")
+        assert page.locator(".agent-tool").count() == 7
+        assert page.locator(".agent-human-gate").is_hidden()
+        assert page.locator("[data-agent-permission='crm-update']").inner_text() == "ASK FIRST"
+        page.locator("[data-agent-tool='crm-update']").click()
+        assert page.locator("[data-agent-permission='crm-update']").inner_text() == "DENIED"
+        page.locator("[data-agent-tool='crm-update']").click()
+        assert page.locator("[data-agent-permission='crm-update']").inner_text() == "AUTO"
+        page.get_by_role("button", name="LANCER LA MISSION").click()
+        assert page.locator(".agent-mission-steps li[data-state='active']").count() == 1
+        for _ in range(5):
+            page.get_by_role("button", name="RÉVÉLER L’ÉTAPE SUIVANTE").click()
+        assert page.locator(".agent-human-gate").is_visible()
+        page.get_by_role("button", name="MODIFIER", exact=True).click()
+        assert "modifier choisi" in page.locator("#agent-live-status").inner_text().lower()
+        page.get_by_role("button", name="ANNULER", exact=True).click()
+        assert "annuler choisi" in page.locator("#agent-live-status").inner_text().lower()
+        page.get_by_role("button", name="VALIDER", exact=True).click()
+        assert "aucune action distante" in page.locator("#agent-live-status").inner_text().lower()
+        page.get_by_role("button", name="REJOUER LA MISSION", exact=True).click()
+        assert page.locator(".agent-human-gate").is_hidden()
+
+        page.goto(f"{base_url}?module=memory-map&journey=pme&slide=3", wait_until="networkidle")
+        assert page.locator(".memory-type-grid article").count() == 4
+        page.get_by_role("button", name="LLM SEUL").click()
+        assert "je ne sais pas" in page.locator("#memory-query-result").inner_text().lower()
+        page.get_by_role("button", name="LLM + KNOWLEDGE").click()
+        assert "12 %" in page.locator("#memory-query-result").inner_text()
+        page.get_by_role("button", name="CRM", exact=True).click()
+        assert "système métier" in page.locator("#memory-lifecycle-result").inner_text().lower()
+
         page.goto(f"{base_url}?slide=5", wait_until="networkidle")
         assert page.locator(".context-builder-interaction").count() == 1
         context_options = page.locator(".context-option")
@@ -307,6 +357,16 @@ def run_checks(base_url: str) -> None:
         assert mobile_page.locator(".step-flow").count() == 1
         assert_no_horizontal_overflow(mobile_page)
         assert_visual_fits_canvas(mobile_page)
+        for module_key in ["cases", "agent-lab", "memory-map"]:
+            mobile_page.goto(f"{base_url}?module={module_key}&journey=pme&slide=3", wait_until="networkidle")
+            assert mobile_page.locator(".module-content").is_visible()
+            assert_no_horizontal_overflow(mobile_page)
+        mobile_page.goto(f"{base_url}?module=cases&journey=pme&slide=3", wait_until="networkidle")
+        assert mobile_page.locator(".real-case-card").count() == 7
+        mobile_page.goto(f"{base_url}?module=agent-lab&journey=pme&slide=3", wait_until="networkidle")
+        assert mobile_page.locator(".agent-lab-pipeline").evaluate("element => getComputedStyle(element).display") == "grid"
+        mobile_page.goto(f"{base_url}?module=memory-map&journey=pme&slide=3", wait_until="networkidle")
+        assert mobile_page.locator(".memory-type-grid").evaluate("element => getComputedStyle(element).gridTemplateColumns.split(' ').length") == 1
         mobile_page.goto(f"{base_url}?slide=5", wait_until="networkidle")
         assert mobile_page.locator(".context-builder-interaction").is_visible()
         assert_no_horizontal_overflow(mobile_page)
