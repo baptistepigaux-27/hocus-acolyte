@@ -3,7 +3,7 @@
 
   const slides = window.ACOLYTE_SLIDES || [];
   const acts = [...new Map(slides.map((slide) => [slide.act, { id: slide.act, label: slide.actLabel }])).values()];
-  const state = { index: 0, present: false, notes: false, indexOpen: true, query: '' };
+  const state = { index: 0, present: false, notes: false, indexOpen: window.innerWidth >= 900, query: '' };
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => [...document.querySelectorAll(selector)];
 
@@ -106,7 +106,7 @@
     const arrow = '<span class="diagram-arrow" aria-hidden="true">→</span>';
     const step = (number, label, detail = '') => `<div class="step-node"><span>${pad(number)}</span><b>${escapeHtml(label)}</b>${detail ? `<small>${escapeHtml(detail)}</small>` : ''}</div>`;
     const visual = slide.visual;
-    if (slide.interaction && slide.interaction.kind === 'chatbot-agent') return '<div class="interaction-placeholder">Chargement de la simulation…</div>';
+    if (slide.interaction) return '<div class="interaction-placeholder">Chargement de la simulation…</div>';
     if (visual === 'cover') return `<div class="visual-cover"><span class="ghost-word">CHAT</span><div class="cover-orbit"><i></i><i></i><i></i><b>AI</b></div><div class="cover-flow"><span>question</span><span>context</span><span>action</span></div></div>`;
     if (visual === 'familiar') return `<div class="card-grid familiar-grid">${['résumer','reformuler','comparer','structurer','produire'].map((label, i) => `<div class="mini-card"><span>0${i + 1}</span><b>${label}</b><i>→</i><small>${['document','message','options','problème','présentation'][i]}</small></div>`).join('')}</div>`;
     if (visual === 'meeting') return `<div class="meeting-loop"><div class="loop-core">rendez-vous<br><small>client</small></div>${['synthétiser','questionner','incertitudes','préparer','rendre compte'].map((label, i) => `<div class="loop-step loop-${i + 1}"><span>0${i + 1}</span>${label}</div>`).join('')}</div>`;
@@ -216,6 +216,7 @@
   const params = new URLSearchParams(window.location.search);
   const initialSlide = Number(params.get('slide'));
   if (initialSlide && slides.some((slide) => slide.id === initialSlide)) state.index = slides.findIndex((slide) => slide.id === initialSlide);
+  setIndexOpen(state.indexOpen);
   renderSlide();
   if (params.get('present') === '1') setPresent(true);
 })();

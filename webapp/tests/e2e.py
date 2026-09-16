@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Focused browser checks for the first Hocus Acolyte interactive vertical slice."""
+"""Focused browser checks for the Hocus Acolyte interactive draft."""
 
 from __future__ import annotations
 
@@ -26,6 +26,12 @@ def wait_for_server(url: str) -> None:
         except OSError:
             time.sleep(0.1)
     raise RuntimeError(f"Static server did not start: {url}")
+
+
+def assert_no_horizontal_overflow(page) -> None:
+    assert page.evaluate(
+        "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
+    )
 
 
 def run_checks(base_url: str) -> None:
@@ -55,6 +61,66 @@ def run_checks(base_url: str) -> None:
         final_status = page.locator(".interaction-live-status").inner_text().lower()
         assert "validée" in final_status and "humain" in final_status
 
+        page.goto(f"{base_url}?slide=5", wait_until="networkidle")
+        assert page.locator(".context-builder-interaction").count() == 1
+        context_options = page.locator(".context-option")
+        assert context_options.count() == 5
+        assert page.locator(".context-builder-interaction").get_attribute("data-phase") == "base"
+        assert page.locator(".context-answer").inner_text().startswith("RÉPONSE ÉVOLUTIVE")
+        context_options.nth(0).click()
+        assert page.locator(".context-option").nth(0).get_attribute("aria-pressed") == "true"
+        assert page.locator(".context-answer.is-emphasized").is_visible()
+        assert "décision" in page.locator(".context-answer").inner_text().lower()
+        for index in range(1, context_options.count()):
+            context_options.nth(index).click()
+        assert page.locator(".context-builder-interaction").get_attribute("data-phase") == "complete"
+        assert page.get_by_role("button", name="RÉINITIALISER").is_visible()
+        assert "complet" in page.locator(".context-unknowns").inner_text().lower()
+        page.get_by_role("button", name="RÉINITIALISER").click()
+        assert page.locator(".context-builder-interaction").get_attribute("data-phase") == "base"
+
+        page.goto(f"{base_url}?slide=7", wait_until="networkidle")
+        assert page.locator(".memory-recall-interaction").count() == 1
+        assert page.get_by_role("button", name="SANS MÉMOIRE").get_attribute("aria-pressed") == "true"
+        assert page.locator(".memory-library").is_hidden()
+        assert "réexpliquer" in page.locator(".memory-live-status").inner_text().lower()
+        page.get_by_role("button", name="AVEC MÉMOIRE").click()
+        assert page.locator(".memory-library").is_visible()
+        page.locator(".memory-note[data-memory-key='decision']").click()
+        assert page.locator(".recalled-note").is_visible()
+        assert "12 juin" in page.locator(".recalled-note").inner_text().lower()
+        assert "source" in page.locator(".recalled-note-source").inner_text().lower()
+        assert "réinjectée" in page.locator(".memory-live-status").inner_text().lower()
+
+        page.goto(f"{base_url}?slide=12", wait_until="networkidle")
+        assert page.locator(".handoff-interaction").count() == 1
+        assert page.locator(".handoff-stage").count() == 6
+        assert "BRIEF-001" in page.locator(".handoff-artifact").inner_text()
+        page.get_by_role("button", name="LANCER LE HANDOFF").click()
+        assert page.locator(".handoff-stage-detail:visible").count() == 1
+        handoff_reveal = page.get_by_role("button", name="FAIRE SUIVRE L’ARTEFACT")
+        for _ in range(5):
+            handoff_reveal.click()
+        assert page.locator(".handoff-stage[data-state='done']").count() == 6
+        assert page.locator(".handoff-stage-detail:visible").count() == 6
+        assert page.locator(".handoff-stage-artifact:visible").count() == 6
+        assert "validation humaine" in page.locator(".handoff-live-status").inner_text().lower()
+
+        page.goto(f"{base_url}?slide=18", wait_until="networkidle")
+        assert page.locator(".idea-product-interaction").count() == 1
+        assert page.locator(".idea-stage").count() == 12
+        assert "DCE ANALYZER" in page.locator(".idea-artifact").inner_text()
+        page.get_by_role("button", name="FAIRE ÉVOLUER L’ARTEFACT").click()
+        assert page.locator(".idea-stage-detail:visible").count() == 1
+        assert not page.locator(".idea-final-result").is_visible()
+        idea_reveal = page.get_by_role("button", name="RÉVÉLER L’ÉTAPE SUIVANTE")
+        for _ in range(11):
+            idea_reveal.click()
+        assert page.locator(".idea-stage[data-state='done']").count() == 12
+        assert page.locator(".idea-stage-detail:visible").count() == 12
+        assert page.locator(".idea-final-result").is_visible()
+        assert "outil testable" in page.locator(".idea-live-status").inner_text().lower()
+
         page.goto(f"{base_url}?slide=9&present=1", wait_until="networkidle")
         assert "presentation-mode" in page.locator("body").get_attribute("class")
         assert page.locator(".topbar-navigation").is_visible()
@@ -75,14 +141,15 @@ def run_checks(base_url: str) -> None:
         mobile_page = mobile.new_page()
         mobile_page.goto(f"{base_url}?slide=9", wait_until="networkidle")
         assert mobile_page.locator(".topbar-navigation").is_visible()
-        assert mobile_page.evaluate(
-            "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
-        )
+        assert_no_horizontal_overflow(mobile_page)
         mobile_page.get_by_role("button", name="LANCER LA MISSION").click()
         assert mobile_page.locator(".agent-step-detail:visible").count() == 1
-        assert mobile_page.evaluate(
-            "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
-        )
+        assert_no_horizontal_overflow(mobile_page)
+        mobile_page.goto(f"{base_url}?slide=5", wait_until="networkidle")
+        assert mobile_page.locator(".context-builder-interaction").is_visible()
+        assert_no_horizontal_overflow(mobile_page)
+        mobile_page.locator(".context-option[data-context-key='objective']").click()
+        assert_no_horizontal_overflow(mobile_page)
 
         desktop.close()
         reduced.close()
