@@ -15,8 +15,8 @@
     const cards = config.cards || [];
     const opportunities = config.opportunities || [];
     const state = { selectedCard: cards[0]?.key };
-    const functions = { direction: 'Direction', commerce: 'Commerce', marketing: 'Marketing', 'sav-adv': 'SAV / ADV', finance: 'Finance', rh: 'RH', operations: 'Opérations', 'it-data': 'IT / Data' };
-    const levels = { individual: 'Individu', knowledge: 'Connaissance', process: 'Processus', agent: 'Agent', product: 'Outil métier' };
+    const functionLabels = Object.fromEntries((config.functions || []).map((businessFunction) => [businessFunction.key, businessFunction.label]));
+    const levelLabels = Object.fromEntries((config.levels || []).map((level) => [level.key, level.shortLabel || level.label]));
 
     root.innerHTML = '';
     root.className = 'portfolio-explorer-interaction';
@@ -53,10 +53,10 @@
       if (!card || !opportunity) return;
       detail.replaceChildren(create('span', 'interaction-panel-kicker', 'FICHE PORTEFEUILLE'), create('h3', '', opportunity.label));
       const metadata = create('div', 'portfolio-metadata');
-      metadata.append(create('span', '', `MÉTIER · ${functions[opportunity.function] || opportunity.function}`), create('span', '', `NIVEAU · ${levels[opportunity.level] || opportunity.level}`), create('b', '', `APPROCHE · ${opportunity.implementation}`));
+      metadata.append(create('span', '', `MÉTIER · ${functionLabels[opportunity.function] || opportunity.function}`), create('span', '', `NIVEAU · ${levelLabels[opportunity.level] || opportunity.level}`), create('b', '', `APPROCHE · ${opportunity.implementation}`));
       detail.append(metadata);
       const mapLink = create('a', 'portfolio-map-link', 'APPROFONDIR DANS LA MAP →');
-      mapLink.href = `?journey=pme&slide=3&function=${encodeURIComponent(opportunity.function)}`;
+      mapLink.href = `?journey=pme&slide=3&function=${encodeURIComponent(opportunity.function)}&opportunity=${encodeURIComponent(opportunity.id)}`;
       detail.append(mapLink);
       grid.querySelectorAll('button').forEach((button) => {
         button.classList.toggle('is-active', button.dataset.portfolioKey === card.key);

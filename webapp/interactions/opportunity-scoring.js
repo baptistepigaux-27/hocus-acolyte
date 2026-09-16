@@ -51,7 +51,10 @@
         indicator.append(create('small', '', label), create('strong', '', value));
         indicators.append(indicator);
       });
-      detail.append(indicators, create('p', 'opportunity-scoring-note', candidate.note));
+      const evidence = create('div', 'opportunity-scoring-evidence');
+      evidence.append(create('small', '', 'À VÉRIFIER'));
+      (candidate.evidence || []).forEach((item) => evidence.append(create('span', '', item)));
+      detail.append(indicators, evidence, create('p', 'opportunity-scoring-note', candidate.note));
       caseList.querySelectorAll('button').forEach((button) => {
         button.classList.toggle('is-active', button.dataset.opportunityId === candidate.opportunityId);
         button.setAttribute('aria-pressed', String(button.dataset.opportunityId === candidate.opportunityId));

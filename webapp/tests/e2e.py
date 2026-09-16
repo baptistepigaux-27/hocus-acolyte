@@ -125,7 +125,7 @@ def run_checks(base_url: str) -> None:
         assert "workflow automation" in detail_text and "n8n" in detail_text and "famille de solution" in detail_text
         assert page.locator(".opportunity-implementation-legend").count() == 1
         assert page.evaluate("document.activeElement === document.querySelector('.opportunity-detail-title')")
-        page.get_by_role("button", name="FERMER").click()
+        page.get_by_role("button", name="FERMER", exact=True).click()
         assert page.locator(".opportunity-detail-panel").is_hidden()
         assert page.evaluate("document.activeElement?.dataset.opportunityId === 'sales-tender'")
         page.locator(".opportunity-card[data-opportunity-id='sales-tender']").click()
@@ -135,6 +135,21 @@ def run_checks(base_url: str) -> None:
         page.locator(".opportunity-function-button[data-function-key='finance']").click()
         assert page.locator(".opportunity-detail-panel").is_hidden()
         assert "facture" in page.locator(".opportunity-matrix").inner_text().lower()
+
+        page.goto(f"{base_url}?journey=pme&slide=3&function=commerce&opportunity=sales-tender", wait_until="networkidle")
+        assert page.locator(".opportunity-map-interaction").get_attribute("data-function") == "commerce"
+        assert page.locator(".opportunity-detail-panel").is_visible()
+        assert "appel d’offres" in page.locator(".opportunity-detail-title").inner_text().lower()
+        assert "opportunity=sales-tender" in page.url
+        page.get_by_role("button", name="FERMER", exact=True).click()
+        assert "opportunity=" not in page.url
+        assert "function=commerce" in page.url
+        page.goto(f"{base_url}?journey=pme&slide=3&function=finance&opportunity=sales-tender", wait_until="networkidle")
+        assert page.locator(".opportunity-map-interaction").get_attribute("data-function") == "finance"
+        assert page.locator(".opportunity-detail-panel").is_hidden()
+        page.goto(f"{base_url}?journey=pme&slide=3&function=unknown&opportunity=sales-tender", wait_until="networkidle")
+        assert page.locator(".opportunity-map-interaction").get_attribute("data-function") == "commerce"
+        assert page.locator(".opportunity-detail-panel").is_hidden()
 
         for slide_id, expected_counter in [(4, "04 / 17"), (5, "05 / 17"), (6, "06 / 17"), (9, "09 / 17"), (11, "11 / 17"), (13, "13 / 17"), (14, "14 / 17"), (17, "17 / 17")]:
             page.goto(f"{base_url}?journey=pme&slide={slide_id}", wait_until="networkidle")
@@ -156,10 +171,26 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".opportunity-scoring-case").count() == 3
         page.locator(".opportunity-scoring-case[data-opportunity-id='sales-meeting']").click()
         assert "days" in page.locator(".opportunity-scoring-detail").inner_text().lower()
+        page.locator(".opportunity-scoring-case[data-opportunity-id='finance-invoice']").click()
+        scoring_text = page.locator(".opportunity-scoring-detail").inner_text().lower()
+        assert "contrôler une facture" in scoring_text and "à vérifier" in scoring_text and "règles de contrôle" in scoring_text
         page.goto(f"{base_url}?journey=pme&slide=14", wait_until="networkidle")
         page.locator(".portfolio-card[data-portfolio-key='strategic-bets']").click()
         portfolio_text = page.locator(".portfolio-detail").inner_text().lower()
-        assert "moteur d’opportunité" in portfolio_text and "build" in portfolio_text
+        assert "cockpit de pilotage" in portfolio_text and "direction" in portfolio_text and "build" in portfolio_text
+        page.get_by_role("link", name="APPROFONDIR DANS LA MAP →").click()
+        page.wait_for_load_state("networkidle")
+        assert "slide=3" in page.url and "function=direction" in page.url and "opportunity=direction-cockpit" in page.url
+        assert page.locator(".opportunity-detail-panel").is_visible()
+        assert "cockpit de pilotage" in page.locator(".opportunity-detail-title").inner_text().lower()
+        page.get_by_role("button", name="FERMER", exact=True).click()
+        page.goto(f"{base_url}?journey=pme&slide=11", wait_until="networkidle")
+        page.locator(".function-overview-tab[data-function-key='finance']").click()
+        page.get_by_role("link", name="OUVRIR DANS L’OPPORTUNITY MAP →").click()
+        page.wait_for_load_state("networkidle")
+        assert "function=finance" in page.url and "opportunity=finance-invoice" in page.url
+        assert page.locator(".opportunity-detail-panel").is_visible()
+        assert "contrôler une facture" in page.locator(".opportunity-detail-title").inner_text().lower()
         page.goto(f"{base_url}?journey=pme&slide=17", wait_until="networkidle")
         assert "3 opportunités prioritaires" in page.locator(".pme-conclusion-output").inner_text().lower().replace("\n", " ")
 
@@ -209,6 +240,26 @@ def run_checks(base_url: str) -> None:
         page.keyboard.press("ArrowRight")
         assert page.locator("#slide-counter").inner_text() == "10 / 23"
 
+        for viewport in [(1440, 900), (1920, 1080)]:
+            presentation_audit = browser.new_context(viewport={"width": viewport[0], "height": viewport[1]})
+            presentation_page = presentation_audit.new_page()
+            for slide_id in [3, 7, 10, 13, 14, 15, 17]:
+                presentation_page.goto(f"{base_url}?journey=pme&slide={slide_id}&present=1", wait_until="networkidle")
+                assert "presentation-mode" in presentation_page.locator("body").get_attribute("class")
+                assert presentation_page.locator("#slide-counter").inner_text() == f"{slide_id:02} / 17"
+                assert_no_horizontal_overflow(presentation_page)
+            presentation_page.goto(f"{base_url}?journey=pme&slide=3&present=1", wait_until="networkidle")
+            assert presentation_page.locator(".opportunity-column-label").count() == 5
+            presentation_page.locator(".opportunity-card[data-opportunity-id='sales-tender']").click()
+            assert presentation_page.locator(".opportunity-detail-panel").is_visible()
+            assert presentation_page.locator(".opportunity-detail-title").evaluate("element => parseFloat(getComputedStyle(element).fontSize)") >= 24
+            assert presentation_page.locator(".opportunity-card strong").first.evaluate("element => parseFloat(getComputedStyle(element).fontSize)") >= 15
+            assert presentation_page.locator(".opportunity-card span").first.evaluate("element => parseFloat(getComputedStyle(element).fontSize)") >= 11
+            assert presentation_page.locator(".opportunity-card em").first.evaluate("element => parseFloat(getComputedStyle(element).fontSize)") >= 10
+            assert presentation_page.locator(".opportunity-column-label").first.evaluate("element => parseFloat(getComputedStyle(element).fontSize)") >= 11
+            assert_no_horizontal_overflow(presentation_page)
+            presentation_audit.close()
+
         reduced = browser.new_context(
             viewport={"width": 1440, "height": 1000}, reduced_motion="reduce"
         )
@@ -243,6 +294,22 @@ def run_checks(base_url: str) -> None:
         assert_no_horizontal_overflow(mobile_page)
         mobile_page.keyboard.press("Escape")
         assert mobile_page.locator(".opportunity-detail-panel").is_hidden()
+        for slide_id in range(1, 18):
+            mobile_page.goto(f"{base_url}?journey=pme&slide={slide_id}", wait_until="networkidle")
+            assert mobile_page.locator("#slide-counter").inner_text() == f"{slide_id:02} / 17"
+            assert mobile_page.locator("#slide-title").inner_text()
+            assert_no_horizontal_overflow(mobile_page)
+        mobile_page.goto(f"{base_url}?journey=pme&slide=7", wait_until="networkidle")
+        assert mobile_page.locator(".pme-process-pipeline").evaluate("element => getComputedStyle(element).display") == "grid"
+        assert mobile_page.locator(".pme-process-pipeline").evaluate("element => getComputedStyle(element).minWidth") == "0px"
+        mobile_page.goto(f"{base_url}?journey=pme&slide=10", wait_until="networkidle")
+        assert mobile_page.locator(".build-threshold-visual").evaluate("element => getComputedStyle(element).display") == "grid"
+        assert mobile_page.locator(".build-threshold-visual").evaluate("element => getComputedStyle(element).minWidth") == "0px"
+        mobile_page.goto(f"{base_url}?journey=pme&slide=3&function=commerce&opportunity=sales-tender", wait_until="networkidle")
+        assert mobile_page.locator(".opportunity-detail-panel").is_visible()
+        assert_no_horizontal_overflow(mobile_page)
+        mobile_page.get_by_role("button", name="FERMER", exact=True).click()
+        assert "opportunity=" not in mobile_page.url
         mobile_page.goto(f"{base_url}?journey=pme&slide=14", wait_until="networkidle")
         assert_no_horizontal_overflow(mobile_page)
 

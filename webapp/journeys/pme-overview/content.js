@@ -101,22 +101,22 @@
   });
 
   const decisionAxes = [
-    { key: 'value', label: 'VALUE', question: 'Pourquoi cela compte ?', detail: 'revenu · temps · qualité' },
-    { key: 'feasibility', label: 'FEASIBILITY', question: 'Peut-on réellement le faire ?', detail: 'données · processus · accès' },
-    { key: 'time', label: 'TIME TO IMPACT', question: 'Quand la valeur arrive-t-elle ?', detail: 'jours · semaines · mois' },
-    { key: 'risk', label: 'RISK', question: 'Qu’est-ce qui peut mal se passer ?', detail: 'erreur · conformité · adoption' }
+    { key: 'value', label: 'VALUE', question: 'Pourquoi cela compte ?', detail: 'Commerce · revenu à protéger' },
+    { key: 'feasibility', label: 'FEASIBILITY', question: 'Peut-on réellement le faire ?', detail: 'Finance · factures disponibles' },
+    { key: 'time', label: 'TIME TO IMPACT', question: 'Quand la valeur arrive-t-elle ?', detail: 'SAV · routage rapide' },
+    { key: 'risk', label: 'RISK', question: 'Qu’est-ce qui peut mal se passer ?', detail: 'RH · données sensibles' }
   ];
 
   const scoringCases = [
-    { opportunityId: 'sales-meeting', label: 'Préparer un rendez-vous commercial', value: 'HIGH', feasibility: 'HIGH', time: 'DAYS', risk: 'LOW', note: 'Une première preuve rapide sur un irritant quotidien.' },
-    { opportunityId: 'sales-tender', label: 'Répondre à un appel d’offres', value: 'HIGH', feasibility: 'MEDIUM', time: 'WEEKS', risk: 'MEDIUM', note: 'Un processus à sécuriser avant d’augmenter le volume.' },
-    { opportunityId: 'sales-product', label: 'Moteur d’opportunité', value: 'HIGH', feasibility: 'MEDIUM', time: 'MONTHS', risk: 'MEDIUM', note: 'Un actif propriétaire à tester par un POC mesurable.' }
+    { opportunityId: 'sales-meeting', label: 'Préparer un rendez-vous commercial', value: 'HIGH', feasibility: 'HIGH', time: 'DAYS', risk: 'LOW', note: 'Commerce · une première preuve rapide sur un irritant quotidien.', evidence: ['historique CRM disponible', 'responsable commercial identifié'] },
+    { opportunityId: 'finance-invoice', label: 'Contrôler une facture', value: 'MEDIUM / HIGH', feasibility: 'HIGH', time: 'WEEKS', risk: 'MEDIUM', note: 'Finance · une chaîne de contrôle avec règles et exceptions.', evidence: ['règles de contrôle stabilisées', 'système comptable accessible'] },
+    { opportunityId: 'ops-incident', label: 'Qualifier un incident', value: 'HIGH', feasibility: 'MEDIUM', time: 'WEEKS', risk: 'MEDIUM', note: 'Opérations · réduire le délai tout en gardant le diagnostic vérifiable.', evidence: ['procédure qualité à jour', 'responsable de validation identifié'] }
   ];
 
   const portfolioCards = [
     { key: 'quick-wins', label: 'QUICK WINS', description: 'Tester en jours', opportunityId: 'sales-meeting' },
-    { key: 'process-wins', label: 'PROCESS WINS', description: 'Rendre une chaîne mesurable', opportunityId: 'sales-tender' },
-    { key: 'strategic-bets', label: 'STRATEGIC BETS', description: 'Construire une différenciation', opportunityId: 'sales-product' },
+    { key: 'process-wins', label: 'PROCESS WINS', description: 'Rendre une chaîne mesurable', opportunityId: 'sav-routing' },
+    { key: 'strategic-bets', label: 'STRATEGIC BETS', description: 'Construire une différenciation', opportunityId: 'direction-cockpit' },
     { key: 'not-now', label: 'NOT NOW', description: 'Garder l’idée sous surveillance', opportunityId: 'marketing-observatory' }
   ];
 
@@ -341,7 +341,7 @@
       speaker: 'Le portefeuille donne une place aux idées ambitieuses sans leur donner automatiquement la priorité. Chaque case porte un prochain geste différent.',
       demo: 'LIVE · cliquer une carte pour voir métier, niveau et approche.',
       interactive: true,
-      interaction: { kind: 'portfolio-explorer', cards: portfolioCards, opportunities: opportunityCatalog }
+      interaction: { kind: 'portfolio-explorer', cards: portfolioCards, opportunities: opportunityCatalog, functions: functionDefinitions, levels: opportunityLevels }
     },
     {
       id: 15,

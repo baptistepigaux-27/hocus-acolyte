@@ -61,7 +61,7 @@
         opportunityCard('PROCESS WIN', selected.processWin, 'process'),
         opportunityCard('STRATEGIC BET', selected.strategicBet, 'strategic')
       );
-      link.href = `?journey=pme&slide=3&function=${encodeURIComponent(selected.key)}`;
+      link.href = `?journey=pme&slide=3&function=${encodeURIComponent(selected.key)}&opportunity=${encodeURIComponent(selected.processWin?.id || selected.quickWin?.id || '')}`;
       tabs.querySelectorAll('button').forEach((button) => {
         button.classList.toggle('is-active', button.dataset.functionKey === selected.key);
         button.setAttribute('aria-pressed', String(button.dataset.functionKey === selected.key));

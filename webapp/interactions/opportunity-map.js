@@ -31,11 +31,17 @@
     const functions = config.functions || [];
     const solutions = config.solutions || [];
     const requestedFunction = new URLSearchParams(window.location.search).get('function');
+    const requestedOpportunity = new URLSearchParams(window.location.search).get('opportunity');
+    const requestedFunctionIsValid = functions.some((businessFunction) => businessFunction.key === requestedFunction);
+    const initialFunction = functions.find((businessFunction) => businessFunction.key === requestedFunction)
+      || functions.find((businessFunction) => businessFunction.key === config.defaultFunction)
+      || functions[0];
+    const initialOpportunity = requestedFunctionIsValid && initialFunction
+      ? Object.values(initialFunction.opportunities || {}).flat().find((opportunity) => opportunity.id === requestedOpportunity)
+      : null;
     const state = {
-      selectedFunction: functions.some((businessFunction) => businessFunction.key === requestedFunction)
-        ? requestedFunction
-        : config.defaultFunction || functions[0]?.key,
-      selectedOpportunity: null
+      selectedFunction: initialFunction?.key,
+      selectedOpportunity: initialOpportunity?.id || null
     };
     let triggerElement = null;
     let triggerOpportunityId = null;
@@ -154,9 +160,18 @@
     }
 
     function closeDetail(shouldRestoreFocus = true) {
+      if (!triggerOpportunityId && state.selectedOpportunity) triggerOpportunityId = state.selectedOpportunity;
       state.selectedOpportunity = null;
       render();
       if (shouldRestoreFocus) restoreFocus();
+    }
+
+    function syncUrl() {
+      const url = new URL(window.location.href);
+      if (state.selectedFunction) url.searchParams.set('function', state.selectedFunction);
+      if (state.selectedOpportunity) url.searchParams.set('opportunity', state.selectedOpportunity);
+      else url.searchParams.delete('opportunity');
+      window.history.replaceState({}, '', url);
     }
 
     closeButton.addEventListener('click', () => closeDetail(true));
@@ -268,12 +283,14 @@
       });
       renderDetail(selectedOpportunity);
       root.dataset.function = selected.key;
+      syncUrl();
       liveStatus.textContent = selectedOpportunity
         ? `Fiche ouverte : ${selectedOpportunity.label} · approche fréquente ${selectedOpportunity.implementation}.`
         : `${selected.label} sélectionné · ${levels.length} niveaux affichés · ouvrez une carte pour voir la solution.`;
     }
 
     render();
+    if (initialOpportunity) detailTitle.focus({ preventScroll: true });
     return {
       destroy: () => {
         root.replaceChildren();
