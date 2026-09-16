@@ -31,6 +31,7 @@ Le contenu est structuré dans [`content/slides.js`](content/slides.js). Le rend
 node --check webapp/app.js
 node --check webapp/content/slides.js
 bash webapp/tests/smoke.sh
+python3 webapp/tests/e2e.py
 ```
 
-La webapp est un draft local/staging. Elle ne contient aucune authentification, donnée client, clé, API ou écriture de production.
+Le test navigateur utilise Playwright installé dans l’environnement de travail et lance un serveur statique local sur le port 4174. La webapp est un draft local/staging. Elle ne contient aucune authentification, donnée client, clé, API ou écriture de production.

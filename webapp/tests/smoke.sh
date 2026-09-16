@@ -8,9 +8,12 @@ test -f webapp/index.html
 test -f webapp/styles.css
 test -f webapp/app.js
 test -f webapp/content/slides.js
+test -f webapp/interactions/chatbot-agent.js
+test -f webapp/tests/e2e.py
 
 node --check webapp/app.js
 node --check webapp/content/slides.js
+node --check webapp/interactions/chatbot-agent.js
 
 slide_count="$(rg -c '^  \{ id:' webapp/content/slides.js)"
 test "$slide_count" -eq 23
@@ -22,6 +25,9 @@ for required in 'data-action="next"' 'data-action="previous"' 'data-action="togg
 done
 
 test "$(rg -c 'class="topbar-nav-button"' webapp/index.html)" -eq 2
+rg -q 'interactions/chatbot-agent.js' webapp/index.html
+rg -q "kind: 'chatbot-agent'" webapp/content/slides.js
+rg -q 'LANCER LA MISSION' webapp/interactions/chatbot-agent.js
 
 for visual in cover context memory compare agent-workflow roles timeline northstar sybil specialized consulting closing; do
   rg -q "visual: '$visual'" webapp/content/slides.js

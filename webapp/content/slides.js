@@ -8,7 +8,40 @@ window.ACOLYTE_SLIDES = [
   { id: 6, act: 2, actLabel: 'Ce qui change tout', title: 'IA seule ≠ système IA', message: 'La puissance d’un système vient de la combinaison du modèle avec le contexte, la mémoire, les outils et les actions.', bullets: ['IA seule : génère une proposition.', 'Système IA : retrouve, observe, agit et rend compte.', 'Modèle + contexte + mémoire + outils + actions.', 'Le contrôle encadre l’ensemble.'], visual: 'equation', source: 'Thèse · système IA', speaker: 'Le modèle reste le moteur de langage. Le système est tout ce qu’on construit autour pour qu’il puisse travailler de façon utile et vérifiable.', demo: 'Aucune démo · respiration conceptuelle.', interactive: true },
   { id: 7, act: 2, actLabel: 'Ce qui change tout', title: 'Trois semaines plus tard : la mémoire', message: 'Sans mémoire organisée, une nouvelle conversation repart presque de zéro. Avec une mémoire de travail, elle retrouve décisions et contexte.', bullets: ['Sans mémoire : tout réexpliquer, risque d’incohérence.', 'Avec mémoire : brief, décisions, méthodes et points ouverts.', 'La mémoire garde aussi sources, limites et incertitudes.', 'Obsidian devient une continuité de travail.'], visual: 'memory', source: 'WOW 1 · mémoire de travail', speaker: 'La mémoire n’est pas un bonus de confort. Elle évite de perdre le travail déjà fait et permet à l’IA d’être cohérente dans le temps.', demo: 'Animation sans / avec mémoire · 12 s.', wow: true, interactive: true },
   { id: 8, act: 2, actLabel: 'Ce qui change tout', title: 'Ajouter un objectif, des outils, une boucle', message: 'Un agent est une IA qui poursuit un objectif en choisissant plusieurs étapes dans un cadre autorisé.', bullets: ['Objectif + outils + autonomie bornée.', 'Planifier → appeler un outil → observer → décider.', 'L’utilisateur ne dicte pas chaque micro-étape.', 'Les permissions et points d’arrêt restent explicites.'], visual: 'agent-loop', source: 'Définition · agent', speaker: 'Un agent n’est pas une IA qui fait n’importe quoi toute seule. C’est une IA à qui l’on confie un objectif et une marge d’initiative définie.', demo: 'Aucune démo · préparer le choc visuel du slide suivant.', interactive: true },
-  { id: 9, act: 3, actLabel: 'Un agent travaille', title: 'Chatbot contre agent — le déclic', message: 'Le chatbot répond à une question. L’agent poursuit un objectif en enchaînant observation, action et vérification.', bullets: ['Chatbot : question → réponse.', 'Agent : objectif → recherche → sources → comparaison.', 'Puis calcul → vérification → résultat.', 'La différence porte sur la boucle de travail.'], visual: 'compare', source: 'WOW 2 · chatbot contre agent', speaker: 'Le mot important n’est pas « plus intelligent ». Le mot important est « plus d’étapes prises en charge ».', demo: 'Animation conceptuelle · révélation de 15 s.', wow: true, interactive: true },
+  {
+    id: 9,
+    act: 3,
+    actLabel: 'Un agent travaille',
+    title: 'Chatbot contre agent — le déclic',
+    message: 'Le chatbot répond à une question. L’agent poursuit un objectif en enchaînant observation, action et vérification.',
+    bullets: ['Chatbot : question → réponse.', 'Agent : objectif → recherche → sources → comparaison.', 'Puis calcul → vérification → résultat.', 'La différence porte sur la boucle de travail.'],
+    visual: 'compare',
+    source: 'WOW 2 · chatbot contre agent',
+    speaker: 'Le mot important n’est pas « plus intelligent ». Le mot important est « plus d’étapes prises en charge ».',
+    demo: 'Animation conceptuelle · révélation de 15 s.',
+    wow: true,
+    interactive: true,
+    interaction: {
+      kind: 'chatbot-agent',
+      mission: 'Analyse ce dossier et prépare une recommandation.',
+      chatbotResponse: 'Je recommande de poursuivre l’analyse. Les informations disponibles ne permettent pas encore de conclure avec confiance.',
+      steps: [
+        { label: 'Comprendre', tool: 'cadre de travail', observation: 'Périmètre et critères identifiés.', proof: 'demande + critères' },
+        { label: 'Chercher', tool: 'recherche autorisée', observation: 'Sources pertinentes repérées.', proof: 'liste des sources' },
+        { label: 'Lire', tool: 'outil document', observation: 'Éléments clés extraits.', proof: 'source / page' },
+        { label: 'Comparer', tool: 'tableau de comparaison', observation: 'Écarts et convergences visibles.', proof: 'comparaison sourcée' },
+        { label: 'Calculer', tool: 'outil de calcul', observation: 'Indicateurs utiles produits.', proof: 'formule + valeurs' },
+        { label: 'Vérifier', tool: 'contrôle de cohérence', observation: 'Inconnues et contradictions isolées.', proof: 'points à confirmer' },
+        { label: 'Synthétiser', tool: 'rédaction structurée', observation: 'Recommandation prête à être relue.', proof: 'résultat + sources' }
+      ],
+      permissions: [
+        { label: 'AUTORISÉ', value: 'lire · comparer · calculer', tone: 'allowed' },
+        { label: 'À VALIDER', value: 'recommander · décider', tone: 'review' },
+        { label: 'INTERDIT', value: 'publier · produire', tone: 'blocked' }
+      ],
+      finalResult: 'Recommandation structurée, avec sources et points à valider.'
+    }
+  },
   { id: 10, act: 3, actLabel: 'Un agent travaille', title: 'Démonstration conceptuelle : analyser un dossier', message: 'L’utilisateur donne un objectif. L’agent choisit et exécute les étapes nécessaires pour produire une synthèse vérifiable.', bullets: ['Comprendre la demande et le périmètre.', 'Chercher les informations autorisées.', 'Lire, comparer et calculer.', 'Produire une synthèse avec sources et inconnues.'], visual: 'agent-workflow', source: 'Scénario générique · dossier à analyser', speaker: 'Si je dois donner chacune de ces instructions, je pilote un chatbot. Si je donne l’objectif et que la boucle est bornée, on commence à parler d’agent.', demo: 'Simulation pré-enregistrée · aucune recherche réseau non contrôlée.', interactive: true },
   { id: 11, act: 3, actLabel: 'Un agent travaille', title: 'Un workflow, pas une boîte noire', message: 'Un agent produit des étapes, des artefacts et des preuves. Il ne transforme pas automatiquement une proposition en décision finale.', bullets: ['Chaque étape : entrée, action, observation, sortie.', 'Une erreur peut déclencher correction ou arrêt.', 'Une décision sensible peut demander un humain.', 'Proposition → exécution contrôlée → test → validation.'], visual: 'control', source: 'Contrôle · preuves · gate humain', speaker: 'Plus l’IA agit, plus il faut rendre son travail visible : ce qu’elle a vu, ce qu’elle a fait, ce qu’elle ignore et qui valide.', demo: 'Animation : arrêt sur validation humaine.', interactive: true },
   { id: 12, act: 4, actLabel: 'Voilà comment je travaille réellement', title: 'Quatre rôles, un système de travail', message: 'GPT, Obsidian, GitHub et Codex ne font pas la même chose. Leur valeur vient des handoffs entre eux.', bullets: ['GPT : réfléchir, cadrer, challenger.', 'Obsidian : mémoriser décisions et méthodes.', 'GitHub : porter l’état, les versions et les revues.', 'Codex : réaliser, tester et préparer une version.'], visual: 'roles', source: 'Acte 4 · système personnel', speaker: 'Je n’utilise pas quatre IA pour faire la même chose. J’utilise des rôles différents qui se passent un travail structuré.', demo: 'Aucune démo · cadrage de l’acte 4.', interactive: true },

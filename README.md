@@ -16,6 +16,7 @@ This repository freezes the narrative before producing the PowerPoint deck. It c
 - the final recommendation in [`recommendations-v2.md`](recommendations-v2.md);
 - the declarative V2 deck map in [`manifest-v2.yml`](manifest-v2.yml).
 - the interactive storyboard draft in [`webapp/`](webapp/).
+- the V2 interactive audit and vertical-slice plan in [`v2-interactive-plan.md`](v2-interactive-plan.md).
 
 The PPTX is intentionally not generated in this issue. The webapp is a local/staging draft for validating the 23-slide experience. No production environment is touched.
 

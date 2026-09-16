@@ -31,6 +31,7 @@
     toast: $('#toast'),
     stage: $('#slide-stage')
   };
+  let activeInteraction = null;
 
   const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[char]);
   const pad = (value) => String(value).padStart(2, '0');
@@ -79,8 +80,18 @@
     refs.bullets.innerHTML = (slide.bullets || []).map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join('');
     refs.speaker.textContent = slide.speaker;
     refs.demo.textContent = slide.demo;
+    if (activeInteraction && activeInteraction.destroy) activeInteraction.destroy();
     refs.canvas.innerHTML = visualMarkup(slide);
     refs.canvas.dataset.visual = slide.visual;
+    if (slide.interaction) {
+      refs.canvas.removeAttribute('aria-hidden');
+      const interaction = window.ACOLYTE_INTERACTIONS && window.ACOLYTE_INTERACTIONS[slide.interaction.kind];
+      activeInteraction = interaction ? interaction.mount(refs.canvas, slide) : null;
+    } else {
+      refs.canvas.setAttribute('aria-hidden', 'true');
+      refs.canvas.removeAttribute('aria-label');
+      activeInteraction = null;
+    }
     renderFlags(slide);
     renderActList();
     document.title = `${pad(slide.id)} · ${slide.title} — Hocus Acolyte`;
@@ -95,6 +106,7 @@
     const arrow = '<span class="diagram-arrow" aria-hidden="true">→</span>';
     const step = (number, label, detail = '') => `<div class="step-node"><span>${pad(number)}</span><b>${escapeHtml(label)}</b>${detail ? `<small>${escapeHtml(detail)}</small>` : ''}</div>`;
     const visual = slide.visual;
+    if (slide.interaction && slide.interaction.kind === 'chatbot-agent') return '<div class="interaction-placeholder">Chargement de la simulation…</div>';
     if (visual === 'cover') return `<div class="visual-cover"><span class="ghost-word">CHAT</span><div class="cover-orbit"><i></i><i></i><i></i><b>AI</b></div><div class="cover-flow"><span>question</span><span>context</span><span>action</span></div></div>`;
     if (visual === 'familiar') return `<div class="card-grid familiar-grid">${['résumer','reformuler','comparer','structurer','produire'].map((label, i) => `<div class="mini-card"><span>0${i + 1}</span><b>${label}</b><i>→</i><small>${['document','message','options','problème','présentation'][i]}</small></div>`).join('')}</div>`;
     if (visual === 'meeting') return `<div class="meeting-loop"><div class="loop-core">rendez-vous<br><small>client</small></div>${['synthétiser','questionner','incertitudes','préparer','rendre compte'].map((label, i) => `<div class="loop-step loop-${i + 1}"><span>0${i + 1}</span>${label}</div>`).join('')}</div>`;
