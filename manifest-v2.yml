@@ -1,0 +1,52 @@
+title: "L’IA : du chatbot au système de travail"
+language: fr
+phase: 1
+status: ready_for_ppt_after_human_validation
+deck:
+  slide_count: 23
+  aspect_ratio: "16:9"
+  estimated_duration_minutes: "45-55"
+  presentation_mode: STORY
+  webapp_allowed: false
+  main_case: northstar-ten
+  secondary_case: sybil
+acts:
+  - id: act-1
+    label: "Ce que vous connaissez déjà"
+    slides: [1, 2, 3, 4]
+  - id: act-2
+    label: "Ce qui change tout"
+    slides: [5, 6, 7, 8]
+  - id: act-3
+    label: "Un agent travaille"
+    slides: [9, 10, 11]
+  - id: act-4
+    label: "Voilà comment je travaille réellement"
+    slides: [12, 13, 14, 15, 16]
+  - id: act-5
+    label: "De l’idée au produit"
+    slides: [17, 18, 19, 20, 21, 22, 23]
+wow_moments:
+  - id: memory
+    slide: 7
+  - id: chatbot-vs-agent
+    slide: 9
+  - id: phrase-to-software
+    slides: [18, 19]
+  - id: specialized-system
+    slide: 21
+  - id: augmented-consulting
+    slide: 22
+demonstrations:
+  - id: context-contrast
+    type: LIVE
+    slides: [3, 5]
+  - id: tool-continuity
+    type: LIVE_OR_PRE_RECORDED
+    slides: [12, 16]
+  - id: northstar-ten
+    type: PRE_RECORDED_OR_SCREENSHOT
+    slides: [17, 19]
+  - id: sybil-poc
+    type: OPTIONAL_PRE_RECORDED_OR_SCREENSHOT
+    slides: [20]
