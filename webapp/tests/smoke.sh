@@ -29,6 +29,14 @@ test -f webapp/ux/playground/index.html
 test -f webapp/ux/field-guide/index.html
 test -f webapp/ux/current/index.html
 test -f webapp/tests/ux_e2e.py
+test -f webapp/tests/ux_round2_e2e.py
+test -f webapp/ux/round-2/ux2-app.js
+test -f webapp/ux/round-2/ux2.css
+test -f webapp/ux/round-2/index.html
+test -f webapp/ux/round-2/manual/index.html
+test -f webapp/ux/round-2/lab/index.html
+test -f webapp/ux/round-2/system/index.html
+test -f webapp/ux/round-2/review/index.html
 test -f webapp/tests/e2e.py
 test -f webapp/tests/data-check.js
 
@@ -41,6 +49,7 @@ node --check webapp/journeys/pme-overview/solutions.js
 node --check webapp/modules/real-cases/cases.js
 node --check webapp/modules/module-app.js
 node --check webapp/ux/ux-app.js
+node --check webapp/ux/round-2/ux2-app.js
 for interaction in webapp/interactions/*.js; do
   node --check "$interaction"
 done
@@ -74,6 +83,10 @@ rg -q 'MEMORY MAP' webapp/modules/module-app.js
 rg -q 'EDITORIAL AIR' webapp/ux/ux-app.js
 rg -q 'PRODUCT PLAYGROUND' webapp/ux/ux-app.js
 rg -q 'FIELD GUIDE' webapp/ux/ux-app.js
+rg -q 'MANUEL DE TERRAIN' webapp/ux/round-2/ux2-app.js
+rg -q 'LAB / INSTRUMENT' webapp/ux/round-2/ux2-app.js
+rg -q 'HOCUS SYSTEM' webapp/ux/round-2/ux2-app.js
+rg -q 'REVUE / INTELLIGENCE APPLIQUÉE' webapp/ux/round-2/ux2-app.js
 rg -q "kind: 'chatbot-agent'" webapp/content/slides.js
 rg -q "kind: 'opportunity-map'" webapp/journeys/pme-overview/content.js
 for kind in role-selector knowledge-journey agent-business function-overview opportunity-scoring portfolio-explorer; do

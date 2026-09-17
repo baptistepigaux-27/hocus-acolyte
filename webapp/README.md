@@ -38,6 +38,21 @@ Chaque direction expose les vues `?view=home`, `?view=learn`,
 fiche cas, exemple de mascotte et responsive desktop/mobile. La version
 actuelle n’est pas remplacée.
 
+### UX Lab — round 2
+
+Le second round garde le premier round comme témoin et force quatre écarts de
+direction :
+
+- `/ux/round-2/manual/` — Manuel de terrain, papier, repères et annotations ;
+- `/ux/round-2/lab/` — Lab / instrument, carbone, signaux et chaînes de lecture ;
+- `/ux/round-2/system/` — HOCUS System, casting et palette multipolaire ;
+- `/ux/round-2/review/` — Revue d’intelligence appliquée, rythme de publication.
+
+Le comparateur est disponible sur `/ux/round-2/`. Les quatre directions
+conservent le même contenu, les mêmes cas et les mêmes interactions, mais font
+varier la structure de page, la densité, la navigation locale, les schémas et
+la place des mascottes. Aucune direction ne remplace l’UX actuelle.
+
 ## Navigation
 
 - boutons `Avant` / `Après` dans la barre supérieure ;
