@@ -38,6 +38,52 @@ body.is-explore .tuto-board { box-shadow: 0 0 0 2px rgba(112, 209, 200, .15), 0 
   .tuto-topbar { grid-template-columns: minmax(0, 1fr) auto; gap: 11px 14px; padding: 11px 15px; }.tuto-brand { font-size: 10px; }.tuto-breadcrumb { grid-column: 1 / -1; grid-row: 2; }.tuto-nav { grid-column: 1 / -1; grid-row: 3; justify-content: flex-start; overflow: auto; }.tuto-nav-arrows { grid-column: 2; grid-row: 1; padding-left: 8px; }.tuto-main { width: min(100% - 28px, 1350px); padding: 23px 0 30px; }.tuto-board-meta { flex-wrap: wrap; }.tuto-board-meta span:first-child { width: 100%; }.tuto-board { min-height: 0; }.tuto-diagram { min-height: 480px; padding: 24px 15px; }.tuto-reading { min-height: 0; padding: 29px 21px 28px; }.tuto-reading-kicker { flex-wrap: wrap; margin-bottom: 25px; }.tuto-reading h1 { font-size: clamp(39px, 12vw, 60px); }.tuto-intro { font-size: 16px; }.tuto-takeaways { margin-top: 35px; }.tuto-board-actions { flex-wrap: wrap; }.tuto-board-actions .tuto-button { flex: 1; }.tuto-footer { align-items: flex-start; flex-direction: column; padding-top: 14px; }.tuto-chapter-diagram { padding-left: 4%; }.tuto-giant-number { font-size: 105px; }.tuto-loop-orbit { height: 340px; }.tuto-loop-orbit .tuto-node { min-width: 93px; padding: 8px 5px; font-size: 8px; }.tuto-loop-orbit .tuto-node:nth-of-type(2) { top: 50px; right: -2px; }.tuto-loop-orbit .tuto-node:nth-of-type(3) { right: 3px; bottom: 42px; }.tuto-loop-orbit .tuto-node:nth-of-type(4) { bottom: 42px; left: 3px; }.tuto-loop-orbit .tuto-node:nth-of-type(5) { top: 50px; left: -2px; }.tuto-workflow-row { grid-template-columns: 1fr; gap: 7px; justify-items: center; }.tuto-workflow-row .tuto-arrow { transform: rotate(90deg); }.tuto-connector-line { display: none; }.tuto-tools-orbit { min-height: 350px; }.tuto-tool { min-width: 82px; font-size: 8px; }.tool-crm, .tool-search { left: 4%; }.tool-mail, .tool-finance { right: 4%; }.tuto-compare-columns { grid-template-columns: 1fr; }.tuto-evidence-stack > div { grid-template-columns: 1fr; }.tuto-gate-path { grid-template-columns: 1fr; justify-items: center; }.tuto-gate-path .tuto-arrow { transform: rotate(90deg); }.tuto-case-proof strong { font-size: 22px; }.tuto-summary-diagram > div > span:nth-child(n) { margin-left: 0; }.tuto-diagram-caption { right: 15px; bottom: 12px; left: 15px; font-size: 8px; }.tuto-node small { width: 150px; }.tuto-index { padding: 19px; }
 }
 
+/* Readability pass inspired by the clear learning-path grammar of Webflow University. */
+:root {
+  --tuto-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --tuto-serif: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --tuto-heading: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --tuto-page: #f3f4f1;
+}
+body { font-size: 16px; line-height: 1.58; }
+.tuto-topbar { min-height: 76px; background: rgba(243, 244, 241, .94); }
+.tuto-brand-mark { border-radius: 5px; }
+.tuto-breadcrumb { line-height: 1.35; }
+.tuto-breadcrumb span { color: var(--tuto-petrol); font-weight: 600; }
+.tuto-breadcrumb strong { font-size: 10px; font-weight: 500; letter-spacing: .02em; }
+.tuto-nav { font-size: 9px; }
+.tuto-nav button, .tuto-nav a { font-weight: 600; }
+.tuto-board { min-height: 650px; border-radius: 10px; box-shadow: 0 18px 44px rgba(17, 24, 32, .14); }
+.tuto-diagram { min-height: 650px; border-radius: 10px 0 0 10px; }
+.tuto-reading { min-height: 650px; }
+.tuto-reading h1 { max-width: 560px; font-family: var(--tuto-heading); font-size: clamp(39px, 4.3vw, 65px); font-weight: 650; line-height: .99; letter-spacing: -.055em; }
+.tuto-intro { max-width: 500px; font-size: clamp(16px, 1.35vw, 19px); line-height: 1.58; }
+.tuto-reading-kicker { font-weight: 600; line-height: 1.35; }
+.tuto-takeaways { max-width: 500px; }
+.tuto-takeaways > div:not(.tuto-section-label) { min-height: 31px; line-height: 1.45; }
+.tuto-aside p { font-family: var(--tuto-sans); line-height: 1.45; }
+.tuto-button { border-radius: 5px; font-weight: 600; }
+.tuto-node { border-radius: 6px; font-size: 10px; font-weight: 600; }
+.tuto-node small { border-radius: 5px; line-height: 1.45; }
+.tuto-chapter-diagram strong, .tuto-context-frame strong, .tuto-case-proof strong { font-family: var(--tuto-heading); font-weight: 650; letter-spacing: -.045em; }
+.tuto-chapter-diagram strong { line-height: 1.12; }
+.tuto-context-frame strong { line-height: 1.05; }
+.tuto-case-proof strong { line-height: 1.12; }
+.tuto-diagram-caption { line-height: 1.45; }
+.tuto-index > button span { font-family: var(--tuto-heading); font-weight: 600; line-height: 1.2; }
+.tuto-index > button small, .tuto-index > button i { line-height: 1.35; }
+.tuto-footer { line-height: 1.35; }
+@media (max-width: 980px) {
+  .tuto-diagram { min-height: 510px; border-radius: 10px 10px 0 0; }
+  .tuto-reading { min-height: 590px; }
+}
+@media (max-width: 600px) {
+  .tuto-board { border-radius: 8px; }
+  .tuto-diagram { min-height: 480px; border-radius: 8px 8px 0 0; }
+  .tuto-reading { min-height: 0; }
+  .tuto-reading h1 { font-size: clamp(38px, 11.5vw, 58px); line-height: 1.01; }
+}
+
 /* Keep the four loop nodes on the orbit in both desktop and mobile layouts. */
 .tuto-loop-orbit .tuto-node:nth-of-type(1) { top: 60px; right: 4px; bottom: auto; left: auto; }
 .tuto-loop-orbit .tuto-node:nth-of-type(2) { top: auto; right: 18px; bottom: 68px; left: auto; }

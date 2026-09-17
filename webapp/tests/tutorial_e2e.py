@@ -56,7 +56,7 @@ def run_checks(base_url: str) -> None:
             assert page.locator(".tuto-diagram").is_visible()
             assert page.locator(".tuto-reading").is_visible()
             assert page.locator(".tuto-progress i").is_visible()
-            assert page.locator(".tuto-board-meta").get_by_text(f"PLANCHE {slide:02d}").is_visible()
+            assert page.locator(".tuto-board-meta").get_by_text(f"LEÇON {slide:02d} / 10").is_visible()
             titles.append(page.locator(".tuto-reading h1").inner_text())
             assert_no_horizontal_overflow(page, f"desktop slide {slide}")
         assert len(set(titles)) == 10
@@ -66,7 +66,7 @@ def run_checks(base_url: str) -> None:
         assert "slide=2" in page.url
         page.get_by_role("button", name="Planche précédente").click()
         assert "slide=1" in page.url
-        page.get_by_role("button", name="SOMMAIRE").click()
+        page.get_by_role("button", name="CONTENU").click()
         assert page.locator(".tuto-index").is_visible()
         assert page.locator(".tuto-index > button").count() == 10
         page.locator('[data-slide="8"]').click()
