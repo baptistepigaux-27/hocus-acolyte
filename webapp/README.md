@@ -12,6 +12,11 @@ python3 -m http.server 4173 --directory webapp
 
 Puis ouvrir <http://127.0.0.1:4173/>.
 
+La racine <http://127.0.0.1:4173/> sert l’index structuré d’Acolyte : les
+parcours, modules, directions UX, round 2 et Tutorial Boards. Les liens
+profonds avec `journey`, `slide` ou `module` ouvrent directement l’expérience
+correspondante.
+
 Parcours disponibles :
 
 - <http://127.0.0.1:4173/?journey=operating-system> — du chatbot au système de travail ;

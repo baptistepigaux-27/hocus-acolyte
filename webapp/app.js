@@ -4,6 +4,8 @@
   const params = new URLSearchParams(window.location.search);
   const requestedModule = params.get('module');
   if (requestedModule && window.ACOLYTE_MODULES && window.ACOLYTE_MODULES[requestedModule]) return;
+  const homeRouteKeys = ['journey', 'slide', 'module', 'present', 'function', 'opportunity'];
+  const isHome = homeRouteKeys.every((key) => !params.has(key));
   const journeys = window.ACOLYTE_JOURNEYS || {};
   const requestedJourney = params.get('journey') || 'operating-system';
   const journeyKey = journeys[requestedJourney] ? requestedJourney : 'operating-system';
@@ -20,6 +22,8 @@
 
   const refs = {
     body: document.body,
+    home: $('#home-content'),
+    appLayout: $('.app-layout'),
     main: $('#main-content'),
     sidebar: $('#sidebar'),
     actList: $('#act-list'),
@@ -256,7 +260,15 @@
 
   const initialSlide = Number(params.get('slide'));
   if (initialSlide && slides.some((slide) => slide.id === initialSlide)) state.index = slides.findIndex((slide) => slide.id === initialSlide);
-  setIndexOpen(state.indexOpen);
-  renderSlide();
-  if (params.get('present') === '1') setPresent(true);
+  refs.home.hidden = !isHome;
+  refs.appLayout.hidden = isHome;
+  refs.body.classList.toggle('home-mode', isHome);
+  if (isHome) {
+    document.title = 'Hocus Acolyte — Index';
+    refs.home.focus({ preventScroll: true });
+  } else {
+    setIndexOpen(state.indexOpen);
+    renderSlide();
+    if (params.get('present') === '1') setPresent(true);
+  }
 })();

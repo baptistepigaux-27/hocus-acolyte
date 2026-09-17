@@ -57,6 +57,14 @@ def run_checks(base_url: str) -> None:
 
         desktop = browser.new_context(viewport={"width": 1440, "height": 1000})
         page = desktop.new_page()
+        page.goto(base_url, wait_until="networkidle")
+        assert page.locator("#home-content").is_visible()
+        assert page.locator(".app-layout").is_hidden()
+        assert page.locator(".home-journey-grid .home-card").count() == 2
+        assert page.locator(".home-module-card").count() == 3
+        assert page.locator(".home-mini-grid a").count() == 8
+        assert_no_horizontal_overflow(page)
+
         page.goto(f"{base_url}?journey=operating-system&slide=9", wait_until="networkidle")
         assert page.locator("#slide-title").inner_text() == "Chatbot contre agent — le déclic"
         assert page.locator(".chatbot-agent-interaction").count() == 1
