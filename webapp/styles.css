@@ -486,3 +486,40 @@ body.module-mode .topbar-navigation, body.module-mode .status-dot, body.module-m
 @media (max-width: 600px) {
   body.module-mode .topbar { min-height: 76px; }.module-menu { top: 67px; right: 16px; }.module-content { padding: 28px 16px 45px; }.module-header-copy h1 { font-size: clamp(46px, 16vw, 70px); }.module-header-copy > p:not(.eyebrow) { font-size: 15px; }.module-nav-link { font-size: 8px; padding: 7px 6px; }.module-return-link { font-size: 8px; }.real-cases-grid, .memory-type-grid { grid-template-columns: 1fr; }.real-case-card { min-height: 280px; }.real-cases-filters { align-items: stretch; flex-direction: column; }.real-cases-filters select { width: 100%; }.real-cases-filters .tool-button { margin-left: 0; }.module-drawer { width: 100%; padding: 18px 16px 28px; }.module-drawer h2 { font-size: 38px; }.agent-lab-pipeline { display: grid; grid-template-columns: 1fr; gap: 3px; padding: 12px; }.agent-lab-pipeline i { transform: none; }.agent-lab-pipeline span { width: 100%; text-align: left; }.agent-loop-diagram { grid-template-columns: 1fr; }.agent-mission-steps li { grid-template-columns: 24px minmax(0, 1fr); }.agent-mission-steps em { grid-column: 2; }.memory-flow-diagram { padding: 16px 10px; }.memory-flow-diagram figcaption { font-size: 8px; line-height: 1.35; }.memory-obisidian-flow { grid-template-columns: repeat(2, 1fr); }.memory-obisidian-flow span:last-of-type { grid-column: 1 / -1; }.memory-subpanel h3 { font-size: 22px; }.memory-answer strong { font-size: 19px; }.memory-key-message strong { font-size: 24px; }
 }
+
+/* Readability pass: keep small labels legible across the complete Acolyte app. */
+.app-shell small,
+.app-shell .eyebrow,
+.app-shell .overline,
+.app-shell .slide-act,
+.app-shell .journey-switcher-label,
+.app-shell .journey-link,
+.app-shell .topbar-nav-button,
+.app-shell .status-dot,
+.app-shell .tool-button,
+.app-shell .act-heading span,
+.app-shell .act-heading h3,
+.app-shell .slide-link span,
+.app-shell .sidebar-footer,
+.app-shell .deck-meta,
+.app-shell .flag,
+.app-shell .text-button,
+.app-shell .slide-bottomline,
+.app-shell .control-button,
+.app-shell .app-footer,
+.app-shell [class*="-kicker"],
+.app-shell [class*="-label"],
+.app-shell [class*="-meta"],
+.app-shell [class*="-status"],
+.app-shell [class*="-state"],
+.app-shell [class*="-source"],
+.app-shell [class*="-level"],
+.app-shell [class*="-tag"],
+.app-shell [class*="-number"] {
+  font-size: 11px;
+}
+
+.presentation-mode .opportunity-column-label { font-size: 12px; }
+.presentation-mode .opportunity-row-label { font-size: 13px; }
+.presentation-mode .opportunity-cell > small { font-size: 11px; }
+.app-shell .roadmap-phase small { font-size: 11px; }

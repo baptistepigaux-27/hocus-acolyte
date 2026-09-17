@@ -58,3 +58,39 @@ body.ux-field-guide { --ux-paper: #efe4cf; --ux-ink: #24312e; --ux-muted: #64706
 @media (max-width: 600px) {
   .ux-topbar { padding: 12px 16px; }.ux-brand { font-size: 11px; }.ux-variant-label { font-size: 7px; }.ux-current-link { width: 100%; }.ux-variant-nav { flex-wrap: wrap; padding: 9px 16px; }.ux-main { width: min(100% - 30px, 1180px); padding: 37px 0 55px; }.ux-hero h1, .ux-view-title h1 { font-size: clamp(40px, 14vw, 65px); }.ux-lead { font-size: 15px; }.ux-home-hero { min-height: 62vh; }.ux-home-intro { gap: 20px; padding-top: 35px; }.ux-home-intro h2 { font-size: 34px; }.ux-pillar-grid, .ux-case-grid, .ux-current .ux-case-grid, .ux-editorial .ux-case-grid, .ux-field-guide .ux-case-grid { grid-template-columns: 1fr; }.ux-pillar { min-height: 205px; }.ux-editorial .ux-pillar { padding-right: 0; }.ux-component-list li { grid-template-columns: 95px 1fr; }.ux-pipeline { display: grid; grid-template-columns: 1fr; justify-items: stretch; }.ux-pipeline i { text-align: center; }.ux-pipeline span { text-align: left; }.ux-loop { grid-template-columns: 1fr; }.ux-loop i { transform: rotate(90deg); }.ux-agent-controls { padding: 15px; }.ux-mission { padding: 15px; }.ux-mission-steps li { grid-template-columns: 24px 1fr; }.ux-mission-steps em { grid-column: 2; }.ux-explore-toolbar { align-items: stretch; flex-direction: column; }.ux-explore-toolbar select { width: 100%; min-width: 0; }.ux-case-detail { gap: 20px; }.ux-case-card { min-height: 270px; }.ux-footer { flex-direction: column; padding: 15px; }.ux-field-guide .ux-pillar { grid-template-columns: 72px 1fr; }.ux-field-guide .ux-pillar b { grid-column: 2; grid-row: auto; }.ux-field-guide .ux-pillar p { grid-column: 2; }.ux-mascot-note { margin-left: 0 !important; }
 }
+
+/* Readability pass: keep labels and navigation readable across all UX directions. */
+.ux-variant small,
+.ux-variant .ux-kicker,
+.ux-variant .ux-primary-nav,
+.ux-variant .ux-variant-label,
+.ux-variant .ux-current-link,
+.ux-variant .ux-back-link,
+.ux-variant .ux-variant-nav,
+.ux-variant .ux-button,
+.ux-variant .ux-pillar > span,
+.ux-variant .ux-pillar b,
+.ux-variant .ux-mascot-note > span,
+.ux-variant .ux-definition > span,
+.ux-variant .ux-takeaway > span,
+.ux-variant .ux-pipeline span,
+.ux-variant .ux-loop span,
+.ux-variant .ux-loop small,
+.ux-variant .ux-toggle-list button,
+.ux-variant .ux-agent-status,
+.ux-variant .ux-mission-steps li > span,
+.ux-variant .ux-mission-steps em,
+.ux-variant .ux-human-gate span,
+.ux-variant .ux-explore-toolbar label,
+.ux-variant .ux-explore-toolbar > span,
+.ux-variant .ux-case-meta,
+.ux-variant .ux-case-level,
+.ux-variant .ux-text-link,
+.ux-variant .ux-bridge,
+.ux-variant .ux-empty,
+.ux-variant .ux-architecture span,
+.ux-variant .ux-source,
+.ux-variant .ux-footer,
+.ux-variant .ux-guide-rail {
+  font-size: 10px;
+}
