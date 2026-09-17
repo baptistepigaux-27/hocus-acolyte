@@ -43,10 +43,12 @@ jobs:
           node --check webapp/modules/module-app.js
           node --check webapp/ux/ux-app.js
           node --check webapp/ux/round-2/ux2-app.js
+          node --check webapp/ux/tutorial/tutorial-app.js
       - name: Webapp checks
         run: |
           bash webapp/tests/smoke.sh
           python3 webapp/tests/e2e.py
           python3 webapp/tests/ux_e2e.py
           python3 webapp/tests/ux_round2_e2e.py
+          python3 webapp/tests/tutorial_e2e.py
           git diff --check

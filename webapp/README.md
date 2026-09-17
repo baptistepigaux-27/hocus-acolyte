@@ -53,6 +53,14 @@ conservent le même contenu, les mêmes cas et les mêmes interactions, mais fon
 varier la structure de page, la densité, la navigation locale, les schémas et
 la place des mascottes. Aucune direction ne remplace l’UX actuelle.
 
+### Tutorial Boards
+
+Le prototype de format tuto est disponible sur `/ux/tutorial/`. Il propose un
+parcours de 10 planches avec une zone schéma à gauche et une lecture guidée à
+droite : introduction d’acte, workflow, contexte, outils, comparaison,
+preuve, human gate, cas guidé et synthèse. Le sommaire, les boutons précédent /
+suivant, les touches fléchées et un mode exploration des nœuds sont inclus.
+
 ## Navigation
 
 - boutons `Avant` / `Après` dans la barre supérieure ;
