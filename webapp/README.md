@@ -23,6 +23,21 @@ Modules conversationnels accessibles depuis `Explorer` ou directement par URL :
 - <http://127.0.0.1:4173/?module=agent-lab&journey=pme&slide=3> — Agent Lab ;
 - <http://127.0.0.1:4173/?module=memory-map&journey=pme&slide=3> — Memory Map.
 
+## UX Lab
+
+Les directions visuelles vivent en parallèle de la webapp actuelle et
+partagent le même contenu pédagogique :
+
+- <http://127.0.0.1:4173/ux/current/> — témoin UX actuelle ;
+- <http://127.0.0.1:4173/ux/editorial/> — Editorial Air, respiration et narration ;
+- <http://127.0.0.1:4173/ux/playground/> — Product Playground, apprentissage par manipulation ;
+- <http://127.0.0.1:4173/ux/field-guide/> — Field Guide, manuel de terrain.
+
+Chaque direction expose les vues `?view=home`, `?view=learn`,
+`?view=agent`, `?view=explore` et `?view=case`, avec navigation locale,
+fiche cas, exemple de mascotte et responsive desktop/mobile. La version
+actuelle n’est pas remplacée.
+
 ## Navigation
 
 - boutons `Avant` / `Après` dans la barre supérieure ;

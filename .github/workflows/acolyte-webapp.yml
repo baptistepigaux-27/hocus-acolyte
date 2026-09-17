@@ -39,8 +39,12 @@ jobs:
           node --check webapp/journeys/pme-overview/content.js
           node --check webapp/journeys/pme-overview/opportunities.js
           node --check webapp/journeys/pme-overview/solutions.js
+          node --check webapp/modules/real-cases/cases.js
+          node --check webapp/modules/module-app.js
+          node --check webapp/ux/ux-app.js
       - name: Webapp checks
         run: |
           bash webapp/tests/smoke.sh
           python3 webapp/tests/e2e.py
+          python3 webapp/tests/ux_e2e.py
           git diff --check
