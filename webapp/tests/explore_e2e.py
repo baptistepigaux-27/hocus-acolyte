@@ -51,15 +51,26 @@ def run_checks(base_url: str) -> None:
         page.select_option("#filter-solution_type", "agent")
         assert page.locator(".explore-card").count() == 10
         assert "10 cas affichés" in page.locator("#results-count").inner_text().lower()
+        assert page.locator("#active-filters [data-remove-filter='solution_type']").is_visible()
+        page.locator("#active-filters [data-remove-filter='solution_type']").click()
+        assert page.locator(".explore-card").count() == 48
+        evidence_values = page.locator("#filter-evidence_level option").evaluate_all("options => options.map(option => option.value)")
+        assert evidence_values == ["all", "documented", "experience", "pattern", "concept"]
+        page.select_option("#filter-evidence_level", "concept")
+        assert page.locator(".explore-card").count() == 0
+        assert page.locator("#case-empty").is_visible()
         page.locator("#reset-filters").click()
         page.locator("#case-search").fill("support")
         assert page.locator(".explore-card").count() == 1
         assert "RIS" in page.locator(".explore-card").inner_text()
-        page.locator("#reset-filters").click()
+        assert page.locator("#active-filters [data-remove-query]").is_visible()
+        page.locator("#active-filters [data-remove-query]").click()
         assert page.locator(".explore-card").count() == 48
 
         page.goto(f"{explore_url}?case=case-real-qonto-human-gate", wait_until="networkidle")
         assert page.locator(".explore-detail-hero h1").inner_text() == "Qonto — Agent + Human Gate"
+        assert "company_size" not in page.locator(".detail-facts").inner_text()
+        assert "business_function" not in page.locator(".detail-facts").inner_text()
         assert page.locator(".detail-proof-panel .proof-documented").is_visible()
         assert "RAPPORTÉ" in page.locator(".detail-results").inner_text()
         assert "Ouvrir la source" in page.locator(".detail-source").inner_text()

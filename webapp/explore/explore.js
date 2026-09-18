@@ -103,8 +103,24 @@
   }
 
   function optionValues(field) {
+    if (field === 'evidence_level') return ['documented', 'experience', 'pattern', 'concept'];
     const values = new Set(state.cases.flatMap((item) => valuesFor(item, field)));
     return [...values].sort((a, b) => titleFor(field, a).localeCompare(titleFor(field, b), 'fr'));
+  }
+
+  function renderActiveFilters() {
+    const container = $('#active-filters');
+    if (!container) return;
+    const active = filterConfig
+      .map(([field, label]) => ({ field, label, value: state.filters[field] }))
+      .filter(({ value }) => value && value !== 'all');
+    const query = state.query.trim();
+    const chips = [
+      ...(query ? [`<button class="explore-filter-chip" type="button" data-remove-query aria-label="Retirer la recherche ${escapeHtml(query)}">Recherche : ${escapeHtml(query)} <b aria-hidden="true">×</b></button>`] : []),
+      ...active.map(({ field, label, value }) => `<button class="explore-filter-chip" type="button" data-remove-filter="${escapeHtml(field)}" aria-label="Retirer le filtre ${escapeHtml(label)} : ${escapeHtml(titleFor(field, value))}">${escapeHtml(label)} : ${escapeHtml(titleFor(field, value))} <b aria-hidden="true">×</b></button>`)
+    ];
+    container.hidden = chips.length === 0;
+    container.innerHTML = chips.join('');
   }
 
   function populateFilterOptions(scope = document) {
@@ -129,7 +145,7 @@
     </section>
     <section class="explore-catalog" aria-labelledby="catalog-title">
       <div class="explore-catalog-head"><div><p class="explore-kicker">CATALOGUE CANONIQUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur et le pattern IA. Les filtres se combinent.</p></div>
-      <div class="explore-toolbar"><label class="explore-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher dans les cas</span><input id="case-search" type="search" autocomplete="off" placeholder="Rechercher un problème, une fonction, un pattern…" value="${escapeHtml(state.query)}"></label><button class="explore-filter-toggle" id="filter-toggle" type="button" aria-expanded="${state.filtersOpen}">Filtres <span aria-hidden="true">＋</span></button><button class="explore-reset" id="reset-filters" type="button">Réinitialiser</button></div>
+      <div class="explore-toolbar"><label class="explore-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher dans les cas</span><input id="case-search" type="search" autocomplete="off" placeholder="Rechercher un problème, une fonction, un pattern…" value="${escapeHtml(state.query)}"></label><button class="explore-filter-toggle" id="filter-toggle" type="button" aria-expanded="${state.filtersOpen}">Filtres <span aria-hidden="true">＋</span></button><button class="explore-reset" id="reset-filters" type="button">Réinitialiser</button></div><div class="explore-active-filters" id="active-filters" aria-live="polite"></div>
       <div class="explore-catalog-layout ${state.filtersOpen ? 'filters-open' : ''}">
         <aside class="explore-filters" id="explore-filters" aria-label="Filtrer les cas"><div class="explore-filters-head"><span>FILTRER PAR CONTEXTE</span><button id="filter-close" type="button" aria-label="Fermer les filtres">×</button></div>${filterConfig.map(([field, label]) => `<label class="explore-filter" for="filter-${field}"><span>${escapeHtml(label)}</span><select id="filter-${field}" data-filter="${field}"></select></label>`).join('')}<div class="explore-proof-key"><span>NIVEAUX DE PREUVE</span>${Object.keys(evidenceCopy).map((key) => `<p>${proofBadge(key)}<small>${escapeHtml(evidenceCopy[key])}</small></p>`).join('')}</div></aside>
         <div class="explore-results"><div class="explore-results-head"><p id="results-count" aria-live="polite"></p><span>Les fiches restent au niveau du corpus source.</span></div><div class="explore-card-grid" id="case-grid"></div><div class="explore-empty" id="case-empty" hidden><strong>Aucun cas dans cette sélection.</strong><p>Essayez une recherche plus courte ou retirez un filtre.</p><button class="explore-button" id="empty-reset" type="button">Réinitialiser les filtres</button></div></div>
@@ -139,7 +155,7 @@
   }
 
   function card(item) {
-    const functionLabel = formatList('business_function', item.business_function) || 'Fonction non renseignée';
+    const functionLabel = formatList(item.business_function, 'business_function') || 'Fonction non renseignée';
     const industryLabel = titleFor('industry', item.industry);
     return `<article class="explore-card"><a class="explore-card-link" href="?case=${encodeURIComponent(item.id)}" data-case-link="${escapeHtml(item.id)}"><div class="explore-card-top"><span class="explore-card-number">${escapeHtml(item.evidence_level === 'documented' ? 'REAL CASE' : 'OPPORTUNITÉ')}</span>${proofBadge(item.evidence_level)}</div><h3>${escapeHtml(item.title)}</h3><p class="explore-card-problem">${escapeHtml(item.short_description || item.problem)}</p><div class="explore-card-meta"><span><b>Secteur</b>${escapeHtml(industryLabel)}</span><span><b>Fonction</b>${escapeHtml(functionLabel)}</span><span><b>Solution</b>${escapeHtml(titleFor('solution_type', item.solution_type))}</span><span><b>Autonomie</b>${escapeHtml(titleFor('autonomy_level', item.autonomy_level))}</span></div><span class="explore-card-open">Ouvrir la fiche <b aria-hidden="true">→</b></span></a></article>`;
   }
@@ -154,6 +170,7 @@
     grid.innerHTML = visible.map(card).join('');
     empty.hidden = visible.length > 0;
     $('#case-count').textContent = `${state.cases.length} cas`;
+    renderActiveFilters();
   }
 
   function missingNote() { return '<p class="detail-missing">Cette information n’est pas renseignée dans la fiche canonique.</p>'; }
@@ -164,7 +181,7 @@
   function sourceType(item) { return item.sources?.[0]?.evidence_type || 'unknown'; }
 
   function detailFacts(item) {
-    return [['Taille', formatList('company_size', item.company_size)], ['Secteur', titleFor('industry', item.industry)], ['Fonction', formatList('business_function', item.business_function)], ['Solution', titleFor('solution_type', item.solution_type)], ['Autonomie', titleFor('autonomy_level', item.autonomy_level)], ['Preuve', titleFor('evidence_level', item.evidence_level)]].map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${escapeHtml(value || 'Non renseigné')}</strong></div>`).join('');
+    return [['Taille', formatList(item.company_size, 'company_size')], ['Secteur', titleFor('industry', item.industry)], ['Fonction', formatList(item.business_function, 'business_function')], ['Solution', titleFor('solution_type', item.solution_type)], ['Autonomie', titleFor('autonomy_level', item.autonomy_level)], ['Preuve', titleFor('evidence_level', item.evidence_level)]].map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${escapeHtml(value || 'Non renseigné')}</strong></div>`).join('');
   }
 
   function relatedCases(item) {
@@ -223,6 +240,20 @@
   }
 
   root.addEventListener('click', (event) => {
+    const removeFilter = event.target.closest('[data-remove-filter]');
+    if (removeFilter) {
+      event.preventDefault();
+      const filters = { ...state.filters };
+      delete filters[removeFilter.dataset.removeFilter];
+      navigate({ filters, detail: null });
+      return;
+    }
+    const removeQuery = event.target.closest('[data-remove-query]');
+    if (removeQuery) {
+      event.preventDefault();
+      navigate({ query: '', detail: null });
+      return;
+    }
     const back = event.target.closest('[data-back-catalog]');
     if (back) { event.preventDefault(); navigate({ detail: null }); }
     const related = event.target.closest('[data-case-link]');
