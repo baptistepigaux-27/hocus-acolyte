@@ -41,6 +41,8 @@ jobs:
           node --check webapp/journeys/pme-overview/solutions.js
           node --check webapp/modules/real-cases/cases.js
           node --check webapp/modules/module-app.js
+          node --check scripts/sync-acolyte-cases.mjs
+          node --check webapp/explore/explore.js
           node --check webapp/ux/ux-app.js
           node --check webapp/ux/round-2/ux2-app.js
           node --check webapp/ux/tutorial/tutorial-app.js
@@ -51,4 +53,5 @@ jobs:
           python3 webapp/tests/ux_e2e.py
           python3 webapp/tests/ux_round2_e2e.py
           python3 webapp/tests/tutorial_e2e.py
+          python3 webapp/tests/explore_e2e.py
           git diff --check
