@@ -1,0 +1,4365 @@
+[
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-direction-codir",
+    "slug": "pme-direction-codir",
+    "title": "Préparer un CODIR",
+    "short_description": "Synthétiser les sujets clés et préparer les décisions du CODIR.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Synthétiser les sujets clés et préparer les décisions du CODIR.",
+    "ai_pattern": [
+      "summarization",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity direction-codir during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "general-management"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "qualité"
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-direction-knowledge",
+    "slug": "pme-direction-knowledge",
+    "title": "Retrouver les arbitrages",
+    "short_description": "Retrouver une décision, son contexte et les points encore ouverts.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Retrouver une décision, son contexte et les points encore ouverts.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity direction-knowledge during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "general-management"
+    ],
+    "data_required": [
+      "procédures",
+      "contrats",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "procédures"
+      },
+      {
+        "name": "contrats"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "fiabilité"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "fiabilité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-direction-review",
+    "slug": "pme-direction-review",
+    "title": "Préparer la revue d’activité",
+    "short_description": "Assembler les indicateurs et faire ressortir les écarts à discuter.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Assembler les indicateurs et faire ressortir les écarts à discuter.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity direction-review during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "general-management"
+    ],
+    "data_required": [
+      "documents",
+      "emails",
+      "données métier"
+    ],
+    "data_sources": [
+      {
+        "name": "documents"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "données métier"
+      }
+    ],
+    "tools": [
+      "workflow automation",
+      "connecteurs",
+      "modèle IA"
+    ],
+    "risks": [
+      "erreur de classification",
+      "exception non traitée"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "qualité"
+    ],
+    "value_type": [
+      "unknown",
+      "cost",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "délai"
+      },
+      {
+        "type": "cost",
+        "description": "coût"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-direction-signals",
+    "slug": "pme-direction-signals",
+    "title": "Surveiller les signaux faibles",
+    "short_description": "Repérer régulièrement les changements qui méritent un arbitrage.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Repérer régulièrement les changements qui méritent un arbitrage.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "monitoring"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity direction-signals during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "general-management"
+    ],
+    "data_required": [
+      "objectif",
+      "historique",
+      "outils autorisés"
+    ],
+    "data_sources": [
+      {
+        "name": "objectif"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "outils autorisés"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "outils métier",
+      "human gate"
+    ],
+    "risks": [
+      "action non souhaitée",
+      "boucle difficile à contrôler"
+    ],
+    "business_impact": [
+      "temps",
+      "capacité",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "productivity",
+        "description": "capacité"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-direction-cockpit",
+    "slug": "pme-direction-cockpit",
+    "title": "Cockpit de pilotage",
+    "short_description": "Relier indicateurs, décisions et plans d’action dans une vue métier.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Relier indicateurs, décisions et plans d’action dans une vue métier.",
+    "ai_pattern": [
+      "scoring",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity direction-cockpit during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "general-management"
+    ],
+    "data_required": [
+      "données multiples",
+      "règles métier",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "données multiples"
+      },
+      {
+        "name": "règles métier"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "interface métier",
+      "API + LLM"
+    ],
+    "risks": [
+      "intégration",
+      "dépendance",
+      "coût de maintenance"
+    ],
+    "business_impact": [
+      "revenu",
+      "marge",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "revenue",
+        "description": "marge"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sales-meeting",
+    "slug": "pme-sales-meeting",
+    "title": "Préparer un rendez-vous",
+    "short_description": "Préparer un rendez-vous commercial avec les bons faits, questions et prochaines actions.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Préparer un rendez-vous commercial avec les bons faits, questions et prochaines actions.",
+    "ai_pattern": [
+      "summarization",
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sales-meeting during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "sales"
+    ],
+    "data_required": [
+      "CRM",
+      "emails",
+      "notes de rendez-vous"
+    ],
+    "data_sources": [
+      {
+        "name": "CRM"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "notes de rendez-vous"
+      }
+    ],
+    "tools": [
+      "CRM",
+      "modèle IA",
+      "historique client"
+    ],
+    "risks": [
+      "information obsolète",
+      "surconfiance"
+    ],
+    "business_impact": [
+      "temps commercial",
+      "qualité de préparation"
+    ],
+    "value_type": [
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "temps commercial"
+      },
+      {
+        "type": "unknown",
+        "description": "qualité de préparation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sales-email",
+    "slug": "pme-sales-email",
+    "title": "Rédiger un mail",
+    "short_description": "Adapter un mail commercial au contexte du client et à la prochaine étape.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Adapter un mail commercial au contexte du client et à la prochaine étape.",
+    "ai_pattern": [
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sales-email during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "sales"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sales-knowledge",
+    "slug": "pme-sales-knowledge",
+    "title": "Retrouver l’historique client",
+    "short_description": "Retrouver l’historique, le catalogue et les offres précédentes avant un échange.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Retrouver l’historique, le catalogue et les offres précédentes avant un échange.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sales-knowledge during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "sales"
+    ],
+    "data_required": [
+      "CRM",
+      "catalogue",
+      "offres précédentes"
+    ],
+    "data_sources": [
+      {
+        "name": "CRM"
+      },
+      {
+        "name": "catalogue"
+      },
+      {
+        "name": "offres précédentes"
+      }
+    ],
+    "tools": [
+      "CRM",
+      "base documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "cohérence commerciale"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "cohérence commerciale"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sales-tender",
+    "slug": "pme-sales-tender",
+    "title": "Répondre à un appel d’offres",
+    "short_description": "Lire un DCE, vérifier les exigences, identifier les risques et préparer la réponse.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Lire un DCE, vérifier les exigences, identifier les risques et préparer la réponse.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "retrieval",
+      "comparison",
+      "scoring",
+      "generation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sales-tender during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "sales"
+    ],
+    "data_required": [
+      "DCE",
+      "historique",
+      "données entreprise"
+    ],
+    "data_sources": [
+      {
+        "name": "DCE"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "données entreprise"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "workflow automation",
+      "modèle IA"
+    ],
+    "risks": [
+      "oubli d’exigence",
+      "réponse non conforme"
+    ],
+    "business_impact": [
+      "revenu",
+      "temps de réponse",
+      "risque"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown",
+      "risk"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "unknown",
+        "description": "temps de réponse"
+      },
+      {
+        "type": "risk",
+        "description": "risque"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sales-agent",
+    "slug": "pme-sales-agent",
+    "title": "Préparer un dossier commercial",
+    "short_description": "Préparer automatiquement un dossier commercial avant un rendez-vous, sous validation humaine.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Préparer automatiquement un dossier commercial avant un rendez-vous, sous validation humaine.",
+    "ai_pattern": [
+      "retrieval",
+      "summarization",
+      "recommendation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sales-agent during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "sales"
+    ],
+    "data_required": [
+      "CRM",
+      "emails",
+      "web / data"
+    ],
+    "data_sources": [
+      {
+        "name": "CRM"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "web / data"
+      }
+    ],
+    "tools": [
+      "CRM",
+      "agent métier",
+      "human gate"
+    ],
+    "risks": [
+      "mauvaise interprétation",
+      "action prématurée"
+    ],
+    "business_impact": [
+      "capacité commerciale",
+      "réactivité"
+    ],
+    "value_type": [
+      "unknown",
+      "speed"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "capacité commerciale"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sales-product",
+    "slug": "pme-sales-product",
+    "title": "Moteur d’opportunité",
+    "short_description": "Comparer des opportunités commerciales avec des critères communs et explicables.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Comparer des opportunités commerciales avec des critères communs et explicables.",
+    "ai_pattern": [
+      "scoring",
+      "comparison",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sales-product during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "sales"
+    ],
+    "data_required": [
+      "CRM",
+      "catalogue",
+      "données marché"
+    ],
+    "data_sources": [
+      {
+        "name": "CRM"
+      },
+      {
+        "name": "catalogue"
+      },
+      {
+        "name": "données marché"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "dashboard",
+      "API + LLM"
+    ],
+    "risks": [
+      "score trompeur",
+      "biais de données"
+    ],
+    "business_impact": [
+      "revenu",
+      "priorisation",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "decision",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "decision",
+        "description": "priorisation"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-marketing-campaign",
+    "slug": "pme-marketing-campaign",
+    "title": "Produire une campagne",
+    "short_description": "Décliner une campagne à partir d’un brief et de contenus validés.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Décliner une campagne à partir d’un brief et de contenus validés.",
+    "ai_pattern": [
+      "summarization",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity marketing-campaign during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "marketing"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "qualité"
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-marketing-knowledge",
+    "slug": "pme-marketing-knowledge",
+    "title": "Retrouver les contenus validés",
+    "short_description": "Retrouver les personas, messages et contenus déjà validés.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Retrouver les personas, messages et contenus déjà validés.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity marketing-knowledge during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "marketing"
+    ],
+    "data_required": [
+      "procédures",
+      "contrats",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "procédures"
+      },
+      {
+        "name": "contrats"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "fiabilité"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "fiabilité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-marketing-brief",
+    "slug": "pme-marketing-brief",
+    "title": "Qualifier un brief",
+    "short_description": "Contrôler qu’un brief contient les informations nécessaires avant production.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Contrôler qu’un brief contient les informations nécessaires avant production.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity marketing-brief during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "marketing"
+    ],
+    "data_required": [
+      "documents",
+      "emails",
+      "données métier"
+    ],
+    "data_sources": [
+      {
+        "name": "documents"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "données métier"
+      }
+    ],
+    "tools": [
+      "workflow automation",
+      "connecteurs",
+      "modèle IA"
+    ],
+    "risks": [
+      "erreur de classification",
+      "exception non traitée"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "qualité"
+    ],
+    "value_type": [
+      "unknown",
+      "cost",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "délai"
+      },
+      {
+        "type": "cost",
+        "description": "coût"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-marketing-watch",
+    "slug": "pme-marketing-watch",
+    "title": "Surveiller une veille",
+    "short_description": "Surveiller un périmètre et signaler les informations qui méritent lecture.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Surveiller un périmètre et signaler les informations qui méritent lecture.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "monitoring"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity marketing-watch during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "marketing"
+    ],
+    "data_required": [
+      "objectif",
+      "historique",
+      "outils autorisés"
+    ],
+    "data_sources": [
+      {
+        "name": "objectif"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "outils autorisés"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "outils métier",
+      "human gate"
+    ],
+    "risks": [
+      "action non souhaitée",
+      "boucle difficile à contrôler"
+    ],
+    "business_impact": [
+      "temps",
+      "capacité",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "productivity",
+        "description": "capacité"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-marketing-observatory",
+    "slug": "pme-marketing-observatory",
+    "title": "Observatoire marché",
+    "short_description": "Rassembler signaux, contenus et analyses dans une vue marché.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Rassembler signaux, contenus et analyses dans une vue marché.",
+    "ai_pattern": [
+      "scoring",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity marketing-observatory during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "marketing"
+    ],
+    "data_required": [
+      "données multiples",
+      "règles métier",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "données multiples"
+      },
+      {
+        "name": "règles métier"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "interface métier",
+      "API + LLM"
+    ],
+    "risks": [
+      "intégration",
+      "dépendance",
+      "coût de maintenance"
+    ],
+    "business_impact": [
+      "revenu",
+      "marge",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "revenue",
+        "description": "marge"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sav-response",
+    "slug": "pme-sav-response",
+    "title": "Préparer une réponse",
+    "short_description": "Préparer une réponse SAV cohérente avec le contrat et la procédure.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Préparer une réponse SAV cohérente avec le contrat et la procédure.",
+    "ai_pattern": [
+      "summarization",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sav-response during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "customer-service"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "qualité"
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sav-procedure",
+    "slug": "pme-sav-procedure",
+    "title": "Retrouver une procédure",
+    "short_description": "Retrouver la bonne procédure et sa version applicable.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Retrouver la bonne procédure et sa version applicable.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sav-procedure during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "customer-service"
+    ],
+    "data_required": [
+      "procédures",
+      "contrats",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "procédures"
+      },
+      {
+        "name": "contrats"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "fiabilité"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "fiabilité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sav-routing",
+    "slug": "pme-sav-routing",
+    "title": "Router une demande",
+    "short_description": "Classifier une demande et la router vers le bon responsable.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Classifier une demande et la router vers le bon responsable.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sav-routing during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "customer-service"
+    ],
+    "data_required": [
+      "documents",
+      "emails",
+      "données métier"
+    ],
+    "data_sources": [
+      {
+        "name": "documents"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "données métier"
+      }
+    ],
+    "tools": [
+      "workflow automation",
+      "connecteurs",
+      "modèle IA"
+    ],
+    "risks": [
+      "erreur de classification",
+      "exception non traitée"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "qualité"
+    ],
+    "value_type": [
+      "unknown",
+      "cost",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "délai"
+      },
+      {
+        "type": "cost",
+        "description": "coût"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sav-dossier",
+    "slug": "pme-sav-dossier",
+    "title": "Préparer un dossier client",
+    "short_description": "Assembler les éléments nécessaires avant le traitement d’une demande.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Assembler les éléments nécessaires avant le traitement d’une demande.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "monitoring"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sav-dossier during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "customer-service"
+    ],
+    "data_required": [
+      "objectif",
+      "historique",
+      "outils autorisés"
+    ],
+    "data_sources": [
+      {
+        "name": "objectif"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "outils autorisés"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "outils métier",
+      "human gate"
+    ],
+    "risks": [
+      "action non souhaitée",
+      "boucle difficile à contrôler"
+    ],
+    "business_impact": [
+      "temps",
+      "capacité",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "productivity",
+        "description": "capacité"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-sav-diagnostic",
+    "slug": "pme-sav-diagnostic",
+    "title": "Outil de diagnostic client",
+    "short_description": "Guider le diagnostic à partir des symptômes, contrats et historiques.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Guider le diagnostic à partir des symptômes, contrats et historiques.",
+    "ai_pattern": [
+      "scoring",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity sav-diagnostic during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "customer-service"
+    ],
+    "data_required": [
+      "données multiples",
+      "règles métier",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "données multiples"
+      },
+      {
+        "name": "règles métier"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "interface métier",
+      "API + LLM"
+    ],
+    "risks": [
+      "intégration",
+      "dépendance",
+      "coût de maintenance"
+    ],
+    "business_impact": [
+      "revenu",
+      "marge",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "revenue",
+        "description": "marge"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-finance-reporting",
+    "slug": "pme-finance-reporting",
+    "title": "Préparer un reporting",
+    "short_description": "Préparer un reporting lisible et expliquer les variations importantes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Préparer un reporting lisible et expliquer les variations importantes.",
+    "ai_pattern": [
+      "summarization",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity finance-reporting during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "finance"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "qualité"
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-finance-rules",
+    "slug": "pme-finance-rules",
+    "title": "Retrouver une règle",
+    "short_description": "Retrouver la règle applicable dans les contrats et référentiels.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Retrouver la règle applicable dans les contrats et référentiels.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity finance-rules during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "finance"
+    ],
+    "data_required": [
+      "procédures",
+      "contrats",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "procédures"
+      },
+      {
+        "name": "contrats"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "fiabilité"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "fiabilité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-finance-invoice",
+    "slug": "pme-finance-invoice",
+    "title": "Contrôler une facture",
+    "short_description": "Extraire, contrôler et signaler les anomalies d’une facture.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Extraire, contrôler et signaler les anomalies d’une facture.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity finance-invoice during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "finance"
+    ],
+    "data_required": [
+      "documents",
+      "emails",
+      "données métier"
+    ],
+    "data_sources": [
+      {
+        "name": "documents"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "données métier"
+      }
+    ],
+    "tools": [
+      "workflow automation",
+      "connecteurs",
+      "modèle IA"
+    ],
+    "risks": [
+      "erreur de classification",
+      "exception non traitée"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "qualité"
+    ],
+    "value_type": [
+      "unknown",
+      "cost",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "délai"
+      },
+      {
+        "type": "cost",
+        "description": "coût"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-finance-close",
+    "slug": "pme-finance-close",
+    "title": "Préparer une clôture",
+    "short_description": "Préparer les contrôles récurrents et remonter les écarts à valider.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Préparer les contrôles récurrents et remonter les écarts à valider.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "monitoring"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity finance-close during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "finance"
+    ],
+    "data_required": [
+      "objectif",
+      "historique",
+      "outils autorisés"
+    ],
+    "data_sources": [
+      {
+        "name": "objectif"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "outils autorisés"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "outils métier",
+      "human gate"
+    ],
+    "risks": [
+      "action non souhaitée",
+      "boucle difficile à contrôler"
+    ],
+    "business_impact": [
+      "temps",
+      "capacité",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "productivity",
+        "description": "capacité"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-finance-cash",
+    "slug": "pme-finance-cash",
+    "title": "Cockpit de trésorerie",
+    "short_description": "Relier prévisions, encaissements et alertes dans une vue exploitable.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Relier prévisions, encaissements et alertes dans une vue exploitable.",
+    "ai_pattern": [
+      "scoring",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity finance-cash during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "finance"
+    ],
+    "data_required": [
+      "données multiples",
+      "règles métier",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "données multiples"
+      },
+      {
+        "name": "règles métier"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "interface métier",
+      "API + LLM"
+    ],
+    "risks": [
+      "intégration",
+      "dépendance",
+      "coût de maintenance"
+    ],
+    "business_impact": [
+      "revenu",
+      "marge",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "revenue",
+        "description": "marge"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-rh-interview",
+    "slug": "pme-rh-interview",
+    "title": "Préparer un entretien",
+    "short_description": "Préparer un entretien avec les éléments du poste et du parcours.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Préparer un entretien avec les éléments du poste et du parcours.",
+    "ai_pattern": [
+      "summarization",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity rh-interview during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "hr"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "qualité"
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-rh-policy",
+    "slug": "pme-rh-policy",
+    "title": "Interroger le référentiel RH",
+    "short_description": "Répondre aux demandes internes à partir des politiques à jour.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Répondre aux demandes internes à partir des politiques à jour.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity rh-policy during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "hr"
+    ],
+    "data_required": [
+      "procédures",
+      "contrats",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "procédures"
+      },
+      {
+        "name": "contrats"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "fiabilité"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "fiabilité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-rh-onboarding",
+    "slug": "pme-rh-onboarding",
+    "title": "Guider un onboarding",
+    "short_description": "Orchestrer les étapes d’arrivée et signaler les éléments manquants.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Orchestrer les étapes d’arrivée et signaler les éléments manquants.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity rh-onboarding during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "hr"
+    ],
+    "data_required": [
+      "documents",
+      "emails",
+      "données métier"
+    ],
+    "data_sources": [
+      {
+        "name": "documents"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "données métier"
+      }
+    ],
+    "tools": [
+      "workflow automation",
+      "connecteurs",
+      "modèle IA"
+    ],
+    "risks": [
+      "erreur de classification",
+      "exception non traitée"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "qualité"
+    ],
+    "value_type": [
+      "unknown",
+      "cost",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "délai"
+      },
+      {
+        "type": "cost",
+        "description": "coût"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-rh-assistant",
+    "slug": "pme-rh-assistant",
+    "title": "Préparer un parcours d’arrivée",
+    "short_description": "Adapter le parcours d’arrivée au poste et aux règles de l’entreprise.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Adapter le parcours d’arrivée au poste et aux règles de l’entreprise.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "monitoring"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity rh-assistant during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "hr"
+    ],
+    "data_required": [
+      "objectif",
+      "historique",
+      "outils autorisés"
+    ],
+    "data_sources": [
+      {
+        "name": "objectif"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "outils autorisés"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "outils métier",
+      "human gate"
+    ],
+    "risks": [
+      "action non souhaitée",
+      "boucle difficile à contrôler"
+    ],
+    "business_impact": [
+      "temps",
+      "capacité",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "productivity",
+        "description": "capacité"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-rh-skills",
+    "slug": "pme-rh-skills",
+    "title": "Observatoire des compétences",
+    "short_description": "Relier compétences, besoins et évolutions dans une vue partagée.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Relier compétences, besoins et évolutions dans une vue partagée.",
+    "ai_pattern": [
+      "scoring",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity rh-skills during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "hr"
+    ],
+    "data_required": [
+      "données multiples",
+      "règles métier",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "données multiples"
+      },
+      {
+        "name": "règles métier"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "interface métier",
+      "API + LLM"
+    ],
+    "risks": [
+      "intégration",
+      "dépendance",
+      "coût de maintenance"
+    ],
+    "business_impact": [
+      "revenu",
+      "marge",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "revenue",
+        "description": "marge"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-ops-intervention",
+    "slug": "pme-ops-intervention",
+    "title": "Préparer une intervention",
+    "short_description": "Préparer une intervention à partir des consignes et de l’historique.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Préparer une intervention à partir des consignes et de l’historique.",
+    "ai_pattern": [
+      "summarization",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity ops-intervention during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "operations"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "qualité"
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-ops-quality",
+    "slug": "pme-ops-quality",
+    "title": "Interroger les fiches qualité",
+    "short_description": "Retrouver une procédure qualité et les précédents utiles.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Retrouver une procédure qualité et les précédents utiles.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity ops-quality during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "operations"
+    ],
+    "data_required": [
+      "procédures",
+      "contrats",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "procédures"
+      },
+      {
+        "name": "contrats"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "fiabilité"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "fiabilité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-ops-incident",
+    "slug": "pme-ops-incident",
+    "title": "Qualifier un incident",
+    "short_description": "Qualifier un incident, retrouver la procédure et préparer le compte rendu.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Qualifier un incident, retrouver la procédure et préparer le compte rendu.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity ops-incident during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "operations"
+    ],
+    "data_required": [
+      "documents",
+      "emails",
+      "données métier"
+    ],
+    "data_sources": [
+      {
+        "name": "documents"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "données métier"
+      }
+    ],
+    "tools": [
+      "workflow automation",
+      "connecteurs",
+      "modèle IA"
+    ],
+    "risks": [
+      "erreur de classification",
+      "exception non traitée"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "qualité"
+    ],
+    "value_type": [
+      "unknown",
+      "cost",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "délai"
+      },
+      {
+        "type": "cost",
+        "description": "coût"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-ops-control",
+    "slug": "pme-ops-control",
+    "title": "Proposer une séquence de contrôle",
+    "short_description": "Choisir les contrôles adaptés à un dossier et demander les validations nécessaires.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Choisir les contrôles adaptés à un dossier et demander les validations nécessaires.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "monitoring"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity ops-control during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "operations"
+    ],
+    "data_required": [
+      "objectif",
+      "historique",
+      "outils autorisés"
+    ],
+    "data_sources": [
+      {
+        "name": "objectif"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "outils autorisés"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "outils métier",
+      "human gate"
+    ],
+    "risks": [
+      "action non souhaitée",
+      "boucle difficile à contrôler"
+    ],
+    "business_impact": [
+      "temps",
+      "capacité",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "productivity",
+        "description": "capacité"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-ops-cockpit",
+    "slug": "pme-ops-cockpit",
+    "title": "Cockpit qualité",
+    "short_description": "Suivre incidents, contrôles et actions correctives au même endroit.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Suivre incidents, contrôles et actions correctives au même endroit.",
+    "ai_pattern": [
+      "scoring",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity ops-cockpit during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "operations"
+    ],
+    "data_required": [
+      "données multiples",
+      "règles métier",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "données multiples"
+      },
+      {
+        "name": "règles métier"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "interface métier",
+      "API + LLM"
+    ],
+    "risks": [
+      "intégration",
+      "dépendance",
+      "coût de maintenance"
+    ],
+    "business_impact": [
+      "revenu",
+      "marge",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "revenue",
+        "description": "marge"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-it-documentation",
+    "slug": "pme-it-documentation",
+    "title": "Documenter un système",
+    "short_description": "Produire une documentation claire à partir de sources techniques.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Produire une documentation claire à partir de sources techniques.",
+    "ai_pattern": [
+      "summarization",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity it-documentation during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "it-data"
+    ],
+    "data_required": [
+      "emails",
+      "documents"
+    ],
+    "data_sources": [
+      {
+        "name": "emails"
+      },
+      {
+        "name": "documents"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "copilote bureautique"
+    ],
+    "risks": [
+      "données sensibles",
+      "réponse à vérifier"
+    ],
+    "business_impact": [
+      "temps",
+      "qualité"
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-it-catalogue",
+    "slug": "pme-it-catalogue",
+    "title": "Interroger le catalogue data",
+    "short_description": "Retrouver les jeux de données, leurs propriétaires et leurs limites.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Retrouver les jeux de données, leurs propriétaires et leurs limites.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity it-catalogue during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "it-data"
+    ],
+    "data_required": [
+      "procédures",
+      "contrats",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "procédures"
+      },
+      {
+        "name": "contrats"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "stockage documentaire",
+      "recherche sémantique"
+    ],
+    "risks": [
+      "source obsolète",
+      "droit d’accès"
+    ],
+    "business_impact": [
+      "temps",
+      "fiabilité"
+    ],
+    "value_type": [
+      "speed",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "unknown",
+        "description": "fiabilité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-it-delivery",
+    "slug": "pme-it-delivery",
+    "title": "Contrôler une livraison",
+    "short_description": "Contrôler une livraison de données et signaler les écarts.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Contrôler une livraison de données et signaler les écarts.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity it-delivery during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "it-data"
+    ],
+    "data_required": [
+      "documents",
+      "emails",
+      "données métier"
+    ],
+    "data_sources": [
+      {
+        "name": "documents"
+      },
+      {
+        "name": "emails"
+      },
+      {
+        "name": "données métier"
+      }
+    ],
+    "tools": [
+      "workflow automation",
+      "connecteurs",
+      "modèle IA"
+    ],
+    "risks": [
+      "erreur de classification",
+      "exception non traitée"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "qualité"
+    ],
+    "value_type": [
+      "unknown",
+      "cost",
+      "quality"
+    ],
+    "expected_value": [
+      {
+        "type": "unknown",
+        "description": "délai"
+      },
+      {
+        "type": "cost",
+        "description": "coût"
+      },
+      {
+        "type": "quality",
+        "description": "qualité"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-it-triage",
+    "slug": "pme-it-triage",
+    "title": "Trier les alertes",
+    "short_description": "Trier les alertes, enrichir le diagnostic et proposer la prochaine action.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Trier les alertes, enrichir le diagnostic et proposer la prochaine action.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "monitoring"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity it-triage during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "it-data"
+    ],
+    "data_required": [
+      "objectif",
+      "historique",
+      "outils autorisés"
+    ],
+    "data_sources": [
+      {
+        "name": "objectif"
+      },
+      {
+        "name": "historique"
+      },
+      {
+        "name": "outils autorisés"
+      }
+    ],
+    "tools": [
+      "modèle IA",
+      "outils métier",
+      "human gate"
+    ],
+    "risks": [
+      "action non souhaitée",
+      "boucle difficile à contrôler"
+    ],
+    "business_impact": [
+      "temps",
+      "capacité",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "temps"
+      },
+      {
+        "type": "productivity",
+        "description": "capacité"
+      },
+      {
+        "type": "speed",
+        "description": "réactivité"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l’action conséquente"
+      ],
+      "rationale": "Human gate explicit in source catalog."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-pme-it-observatory",
+    "slug": "pme-it-observatory",
+    "title": "Observatoire data",
+    "short_description": "Rendre visibles la qualité, les usages et les incidents data.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Rendre visibles la qualité, les usages et les incidents data.",
+    "ai_pattern": [
+      "scoring",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "pattern",
+    "provenance": {
+      "source_type": "internal-note",
+      "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "PME journey catalog: business function and solution level are direct/semantic mappings; no company-specific evidence inferred."
+    },
+    "confidence": "unknown",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from PME opportunity it-observatory during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/journeys/pme-overview/opportunities.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "unknown",
+    "business_function": [
+      "it-data"
+    ],
+    "data_required": [
+      "données multiples",
+      "règles métier",
+      "historique"
+    ],
+    "data_sources": [
+      {
+        "name": "données multiples"
+      },
+      {
+        "name": "règles métier"
+      },
+      {
+        "name": "historique"
+      }
+    ],
+    "tools": [
+      "base de données",
+      "interface métier",
+      "API + LLM"
+    ],
+    "risks": [
+      "intégration",
+      "dépendance",
+      "coût de maintenance"
+    ],
+    "business_impact": [
+      "revenu",
+      "marge",
+      "différenciation"
+    ],
+    "value_type": [
+      "revenue",
+      "unknown"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "revenu"
+      },
+      {
+        "type": "revenue",
+        "description": "marge"
+      },
+      {
+        "type": "unknown",
+        "description": "différenciation"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-sharp-seed-memory",
+    "slug": "real-sharp-seed-memory",
+    "title": "Sharp & Sharp Certified Seed — Connaissance",
+    "short_description": "Des décennies de registres agricoles existaient déjà, mais restaient difficiles à retrouver au moment où le travail se faisait.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Des décennies de registres agricoles existaient déjà, mais restaient difficiles à retrouver au moment où le travail se faisait.",
+    "ai_pattern": [
+      "retrieval"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/small-business-stories/",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "Publicly identifiable case; source evidenceType=reported. No result was upgraded beyond the source wording."
+    },
+    "confidence": "medium",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from Real Case sharp-seed-memory during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "agriculture",
+    "industry_raw": "agriculture",
+    "business_function": [
+      "unknown"
+    ],
+    "geography": [
+      "USA"
+    ],
+    "solution_type_alternatives": [],
+    "architecture_pattern": [
+      "REGISTRES",
+      "NUMÉRISATION",
+      "CONNAISSANCE",
+      "RECHERCHE IA",
+      "RÉPONSE TERRAIN"
+    ],
+    "results": [
+      {
+        "text": "Historique agricole rendu accessible au quotidien.",
+        "observed": true
+      },
+      {
+        "text": "Les décisions terrain peuvent s’appuyer sur une expérience déjà accumulée.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Résultat décrit par OpenAI et la famille Sharp ; aucun déploiement technique détaillé n’est publié."
+    ],
+    "lessons_learned": [
+      "L’entreprise savait déjà beaucoup de choses. Le problème était l’accès à cette connaissance."
+    ],
+    "sources": [
+      {
+        "id": "source-sharp-seed-memory",
+        "source_type": "public-source",
+        "title": "OpenAI",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/small-business-stories/",
+        "url": "https://openai.com/index/small-business-stories/",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-original-tamale-tool",
+    "slug": "real-original-tamale-tool",
+    "title": "The Original Tamale Co. — Individu → Outil",
+    "short_description": "Les clients avaient du mal à savoir sur quels marchés retrouver la marque, et l’entreprise voulait un outil de recherche sans attendre un projet logiciel complet.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Les clients avaient du mal à savoir sur quels marchés retrouver la marque, et l’entreprise voulait un outil de recherche sans attendre un projet logiciel complet.",
+    "ai_pattern": [
+      "unknown"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "unknown",
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/small-business-stories/",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "Publicly identifiable case; source evidenceType=reported. No result was upgraded beyond the source wording."
+    },
+    "confidence": "medium",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from Real Case original-tamale-tool during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "retail",
+    "industry_raw": "retail",
+    "business_function": [
+      "unknown"
+    ],
+    "geography": [
+      "USA"
+    ],
+    "solution_type_alternatives": [
+      "copilot"
+    ],
+    "architecture_pattern": [
+      "PERSONNE",
+      "CONVERSATION IA",
+      "CODE",
+      "OUTIL UTILISABLE"
+    ],
+    "results": [
+      {
+        "text": "Un tracker de marchés construit et lancé le même après-midi.",
+        "observed": true
+      },
+      {
+        "text": "Une idée métier devient un petit outil accessible aux clients.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Cas rapporté par OpenAI ; le code et les métriques d’usage ne sont pas publiés."
+    ],
+    "lessons_learned": [
+      "L’IA ne sert pas seulement à écrire : elle peut aider quelqu’un à créer un outil métier ciblé."
+    ],
+    "sources": [
+      {
+        "id": "source-original-tamale-tool",
+        "source_type": "public-source",
+        "title": "OpenAI",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/small-business-stories/",
+        "url": "https://openai.com/index/small-business-stories/",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-ris-support-memory",
+    "slug": "real-ris-support-memory",
+    "title": "RIS d.o.o. — Connaissance + Processus",
+    "short_description": "Les demandes de support arrivaient par email et téléphone, avec une forte charge de classification, de triage et de réponse répétitive.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Les demandes de support arrivaient par email et téléphone, avec une forte charge de classification, de triage et de réponse répétitive.",
+    "ai_pattern": [
+      "classification"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://european-digital-innovation-hubs.ec.europa.eu/knowledge-hub/success-stories/ai-powered-digital-assistant-customer-support",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "Publicly identifiable case; source evidenceType=reported. No result was upgraded beyond the source wording."
+    },
+    "confidence": "medium",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from Real Case ris-support-memory during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "software",
+    "industry_raw": "software",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "Croatie"
+    ],
+    "solution_type_alternatives": [
+      "knowledge"
+    ],
+    "architecture_pattern": [
+      "FAQ + MANUELS + HISTORIQUE",
+      "RAG / SEARCH",
+      "CLASSIFICATION",
+      "RÉPONSE PROPOSÉE",
+      "SUPPORT"
+    ],
+    "results": [
+      {
+        "text": "Les demandes peuvent être traitées avec une disponibilité élargie.",
+        "observed": true
+      },
+      {
+        "text": "Les équipes peuvent réserver davantage de temps aux demandes complexes.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Le projet est présenté comme un pilote ; les gains de long terme sont décrits comme des perspectives."
+    ],
+    "lessons_learned": [
+      "La mémoire utile n’est pas un souvenir vague : c’est une connaissance retrouvable, reliée à un processus et à une validation."
+    ],
+    "sources": [
+      {
+        "id": "source-ris-support-memory",
+        "source_type": "public-source",
+        "title": "EDIH Adriatic Croatia / Commission européenne",
+        "publisher": "EDIH Adriatic Croatia / Commission européenne",
+        "reference": "https://european-digital-innovation-hubs.ec.europa.eu/knowledge-hub/success-stories/ai-powered-digital-assistant-customer-support",
+        "url": "https://european-digital-innovation-hubs.ec.europa.eu/knowledge-hub/success-stories/ai-powered-digital-assistant-customer-support",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-plus-simple-document",
+    "slug": "real-plus-simple-document",
+    "title": "+Simple — Processus",
+    "short_description": "Le traitement documentaire et la validation des dossiers ralentissaient la relation avec les courtiers et les clients.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Le traitement documentaire et la validation des dossiers ralentissaient la relation avec les courtiers et les clients.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.devoteam.com/fr/success-story/plus-simple-assistant-virtuel-ia-assurance/",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "Publicly identifiable case; source evidenceType=reported. No result was upgraded beyond the source wording."
+    },
+    "confidence": "medium",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from Real Case plus-simple-document during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      }
+    ],
+    "company_size": [
+      "unknown"
+    ],
+    "company_size_raw": "Scale-up",
+    "industry": "insurance",
+    "industry_raw": "insurance",
+    "business_function": [
+      "unknown"
+    ],
+    "geography": [
+      "France"
+    ],
+    "solution_type_alternatives": [],
+    "architecture_pattern": [
+      "DOCUMENT",
+      "EXTRACTION",
+      "PRÉ-VALIDATION",
+      "EXCEPTIONS",
+      "HUMAIN"
+    ],
+    "results": [
+      {
+        "text": "Temps de traitement documentaire annoncé de 4 minutes à 60 secondes.",
+        "observed": true
+      },
+      {
+        "text": "Pré-validation automatisée annoncée à 85 % et 87 heures gagnées par mois.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Chiffres rapportés dans une étude de cas fournisseur ; ils ne sont pas présentés comme une mesure indépendante."
+    ],
+    "lessons_learned": [
+      "On n’automatise pas le jugement : on automatise les tâches répétitives et on laisse les exceptions aux humains."
+    ],
+    "sources": [
+      {
+        "id": "source-plus-simple-document",
+        "source_type": "public-source",
+        "title": "Devoteam",
+        "publisher": "Devoteam",
+        "reference": "https://www.devoteam.com/fr/success-story/plus-simple-assistant-virtuel-ia-assurance/",
+        "url": "https://www.devoteam.com/fr/success-story/plus-simple-assistant-virtuel-ia-assurance/",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant validation ou action conséquente"
+      ],
+      "rationale": "Human validation is explicit in the case description or architecture."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-groupeactive-propale",
+    "slug": "real-groupeactive-propale",
+    "title": "GroupeActive — Agent",
+    "short_description": "Les experts perdaient une journée à rédiger des propositions commerciales, alors que la préparation de l’offre n’était pas leur cœur de métier.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Les experts perdaient une journée à rédiger des propositions commerciales, alors que la préparation de l’offre n’était pas leur cœur de métier.",
+    "ai_pattern": [
+      "unknown"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/fr-fr/customers/story/24148-groupeactive-microsoft-teams",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "Publicly identifiable case; source evidenceType=reported. No result was upgraded beyond the source wording."
+    },
+    "confidence": "medium",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from Real Case groupeactive-propale during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "services-b2b",
+    "industry_raw": "services",
+    "business_function": [
+      "sales"
+    ],
+    "geography": [
+      "France"
+    ],
+    "solution_type_alternatives": [],
+    "architecture_pattern": [
+      "NOTES DE RENDEZ-VOUS",
+      "AGENT GAIA PROPale",
+      "STRUCTURATION",
+      "RELECTURE",
+      "PROPOSITION COMMERCIALE"
+    ],
+    "results": [
+      {
+        "text": "Temps de rédaction annoncé à deux heures au lieu d’une journée.",
+        "observed": true
+      },
+      {
+        "text": "Temps de signature annoncé divisé par quatre.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Résultats rapportés par GroupeActive dans une étude de cas Microsoft ; la validation humaine reste dans le flux."
+    ],
+    "lessons_learned": [
+      "Un agent peut prendre en charge plusieurs étapes d’un travail commercial, sans prendre la décision à la place de l’expert."
+    ],
+    "sources": [
+      {
+        "id": "source-groupeactive-propale",
+        "source_type": "public-source",
+        "title": "Microsoft Customer Stories",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/fr-fr/customers/story/24148-groupeactive-microsoft-teams",
+        "url": "https://www.microsoft.com/fr-fr/customers/story/24148-groupeactive-microsoft-teams",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant validation ou action conséquente"
+      ],
+      "rationale": "Human validation is explicit in the case description or architecture."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-qonto-human-gate",
+    "slug": "real-qonto-human-gate",
+    "title": "Qonto — Agent + Human Gate",
+    "short_description": "Les tâches administratives financières répétitives prennent du temps et touchent à des données et actions sensibles.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Les tâches administratives financières répétitives prennent du temps et touchent à des données et actions sensibles.",
+    "ai_pattern": [
+      "orchestration"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://claude.com/customers/qonto",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "Publicly identifiable case; source evidenceType=reported. No result was upgraded beyond the source wording."
+    },
+    "confidence": "medium",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from Real Case qonto-human-gate during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      }
+    ],
+    "company_size": [
+      "unknown"
+    ],
+    "company_size_raw": "Entreprise en croissance",
+    "industry": "finance",
+    "industry_raw": "finance",
+    "business_function": [
+      "finance"
+    ],
+    "geography": [
+      "Europe"
+    ],
+    "solution_type_alternatives": [],
+    "architecture_pattern": [
+      "DEMANDE",
+      "PRÉPARATION",
+      "OUTILS",
+      "ACTION PROPOSÉE",
+      "HUMAN GATE",
+      "EXÉCUTION"
+    ],
+    "results": [
+      {
+        "text": "Aucun mouvement d’argent sans approbation explicite de l’utilisateur.",
+        "observed": true
+      },
+      {
+        "text": "Les études de cas annoncent des transferts deux fois plus rapides et des factures créées trois fois plus vite.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Étude de cas fournisseur ; les gains sont annoncés par Qonto et ses partenaires."
+    ],
+    "lessons_learned": [
+      "Autonomie ne signifie pas absence de contrôle : l’agent prépare, l’humain décide."
+    ],
+    "sources": [
+      {
+        "id": "source-qonto-human-gate",
+        "source_type": "public-source",
+        "title": "Claude by Anthropic / Qonto",
+        "publisher": "Claude by Anthropic / Qonto",
+        "reference": "https://claude.com/customers/qonto",
+        "url": "https://claude.com/customers/qonto",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant validation ou action conséquente"
+      ],
+      "rationale": "Human validation is explicit in the case description or architecture."
+    }
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-adria-communication",
+    "slug": "real-adria-communication",
+    "title": "Adria P.A. — Connaissance / RAG",
+    "short_description": "Un concessionnaire Renault et Dacia devait mieux gérer un volume important de demandes clients et d’activités de service.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-09-17T00:00:00Z",
+    "problem": "Un concessionnaire Renault et Dacia devait mieux gérer un volume important de demandes clients et d’activités de service.",
+    "ai_pattern": [
+      "unknown"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://edihadria.eu/en/unaprjedenje-komunikacije-iskorak-s-ai-asistentom/",
+      "captured_at": "2026-09-17T00:00:00Z",
+      "captured_by": "case-schema-validation-v1",
+      "transformation_notes": "Publicly identifiable case; source evidenceType=projected. No result was upgraded beyond the source wording."
+    },
+    "confidence": "low",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-17T00:00:00Z",
+        "change_type": "created",
+        "summary": "Mapped from Real Case adria-communication during CASE_SCHEMA v1 validation.",
+        "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      }
+    ],
+    "company_size": [
+      "pme"
+    ],
+    "industry": "automotive",
+    "industry_raw": "automotive",
+    "business_function": [
+      "unknown"
+    ],
+    "geography": [
+      "Croatie"
+    ],
+    "solution_type_alternatives": [],
+    "architecture_pattern": [
+      "DOCUMENTATION",
+      "PROCESSUS COMMERCIAUX",
+      "CONNAISSANCE INTERNE",
+      "ASSISTANT IA",
+      "RÉPONSE CLIENT"
+    ],
+    "results": [
+      {
+        "text": "Le cas décrit une amélioration attendue des interactions clients et des processus internes.",
+        "observed": false
+      },
+      {
+        "text": "Aucun gain chiffré observé n’est affiché dans cette fiche.",
+        "observed": false
+      }
+    ],
+    "limitations": [
+      "La source décrit l’objectif et la solution ; les résultats sont à considérer comme projetés tant qu’une mesure publiée n’existe pas."
+    ],
+    "lessons_learned": [
+      "Une base de connaissances peut soutenir la relation client sans devenir le moteur de raisonnement lui-même."
+    ],
+    "sources": [
+      {
+        "id": "source-adria-communication",
+        "source_type": "public-source",
+        "title": "EDIH Adriatic Croatia / Commission européenne",
+        "publisher": "EDIH Adriatic Croatia / Commission européenne",
+        "reference": "https://edihadria.eu/en/unaprjedenje-komunikacije-iskorak-s-ai-asistentom/",
+        "url": "https://edihadria.eu/en/unaprjedenje-komunikacije-iskorak-s-ai-asistentom/",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "projected",
+        "evidence_strength": "low"
+      }
+    ]
+  }
+]

@@ -61,7 +61,7 @@ def run_checks(base_url: str) -> None:
         assert page.locator("#home-content").is_visible()
         assert page.locator(".app-layout").is_hidden()
         assert page.locator(".home-journey-grid .home-card").count() == 2
-        assert page.locator(".home-module-card").count() == 3
+        assert page.locator(".home-module-card").count() == 4
         assert page.locator(".home-mini-grid a").count() == 8
         assert_no_horizontal_overflow(page)
 
