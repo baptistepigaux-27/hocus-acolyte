@@ -15,18 +15,134 @@
         <a class="brand" href="./" aria-label="Hocus Acolyte, retour au début">
           <span class="brand-mark" aria-hidden="true">✦</span>
           <span>HOCUS ACOLYTE</span>
-          <small>AI OPERATING SYSTEM / DRAFT</small>
+          <small>AI OPERATING EXPERIENCES / DRAFT</small>
         </a>
         <div class="topbar-tools">
+          <nav class="journey-switcher" aria-label="Choisir un parcours">
+            <span class="journey-switcher-label">PARCOURS</span>
+            <a class="journey-link" data-journey="operating-system" href="?journey=operating-system&amp;slide=1">SYSTÈME</a>
+            <a class="journey-link" data-journey="pme" href="?journey=pme&amp;slide=1">PME</a>
+          </nav>
           <nav class="topbar-navigation" aria-label="Navigation entre les slides">
             <button class="topbar-nav-button" type="button" data-action="previous" aria-label="Slide précédente"><span aria-hidden="true">←</span> Avant</button>
             <button class="topbar-nav-button" type="button" data-action="next" aria-label="Slide suivante">Après <span aria-hidden="true">→</span></button>
           </nav>
-          <span class="status-dot"><i aria-hidden="true"></i> storyboard V2 · 23 slides</span>
+          <span class="status-dot"><i aria-hidden="true"></i><span id="journey-status">SYSTÈME DE TRAVAIL · 23 slides</span></span>
+          <button class="tool-button module-launcher-button" type="button" data-action="toggle-modules" aria-controls="module-menu" aria-expanded="false">Explorer</button>
           <button class="tool-button" type="button" data-action="toggle-index" aria-controls="sidebar" aria-expanded="true">Sommaire</button>
           <button class="tool-button accent-button" type="button" data-action="toggle-present" aria-pressed="false">Présenter <b aria-hidden="true">↗</b></button>
         </div>
+        <span class="home-topbar-note">INDEX · TOUT ACOLYTE</span>
+        <nav class="module-menu" id="module-menu" hidden aria-label="Modules conversationnels">
+          <p>EXPLORER</p>
+          <a class="module-catalogue-link" href="explore/">Catalogue EXPLORE · 48 cas</a>
+          <a class="module-launcher-link" data-module="cases" href="?module=cases&amp;journey=pme&amp;slide=1">Cas réels</a>
+          <a class="module-launcher-link" data-module="agent-lab" href="?module=agent-lab&amp;journey=pme&amp;slide=1">Agent Lab</a>
+          <a class="module-launcher-link" data-module="memory-map" href="?module=memory-map&amp;journey=pme&amp;slide=1">Memory Map</a>
+        </nav>
       </header>
+
+      <main class="home-content" id="home-content" hidden tabindex="-1">
+        <section class="home-hero" aria-labelledby="home-title">
+          <div class="home-hero-copy">
+            <p class="home-kicker">HOCUS ACOLYTE · INDEX DE TRAVAIL</p>
+            <h1 id="home-title">Comprendre l’IA.<br><em>Structurer le travail.</em></h1>
+            <p class="home-lead">Un espace pour parcourir les récits, comparer les directions d’expérience et tester les formats qui donnent une forme concrète à l’IA.</p>
+            <div class="home-actions">
+              <a class="home-button home-button-primary" href="?journey=operating-system&amp;slide=1">Commencer le parcours <span aria-hidden="true">→</span></a>
+              <a class="home-button" href="?journey=pme&amp;slide=1">Voir le parcours PME <span aria-hidden="true">↗</span></a>
+              <a class="home-button" href="explore/">Ouvrir EXPLORE · 48 cas <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <aside class="home-hero-rail" aria-label="Contenu d'Acolyte">
+            <p class="home-rail-label">À DATE</p>
+            <strong>2 parcours<br>40 slides</strong>
+            <span>3 modules · 8 directions UX · 10 planches tuto</span>
+            <p>Un même terrain, plusieurs manières de le rendre lisible.</p>
+          </aside>
+        </section>
+
+        <section class="home-section" aria-labelledby="home-journeys-title">
+          <div class="home-section-heading">
+            <div>
+              <p class="home-kicker">01 · PARCOURIR</p>
+              <h2 id="home-journeys-title">Les deux récits à ouvrir en premier.</h2>
+            </div>
+            <p>Deux entrées complémentaires : comprendre le système de travail, puis le traduire dans les réalités d’une PME.</p>
+          </div>
+          <div class="home-journey-grid">
+            <a class="home-card home-card-dark" href="?journey=operating-system&amp;slide=1">
+              <div class="home-card-top"><span>01 · SYSTÈME</span><b>23 SLIDES</b></div>
+              <h3>Du chatbot<br>au système de travail.</h3>
+              <p>Le récit fondateur : contexte, mémoire, outils, agents, contrôle humain et continuité jusqu’au code.</p>
+              <span class="home-card-link">Ouvrir le parcours <b aria-hidden="true">→</b></span>
+            </a>
+            <a class="home-card home-card-terra" href="?journey=pme&amp;slide=1">
+              <div class="home-card-top"><span>02 · PME AI OVERVIEW</span><b>17 SLIDES</b></div>
+              <h3>Partir d’un travail réel,<br>pas d’un catalogue.</h3>
+              <p>Un parcours orienté décision : opportunités, fonctions métier, niveaux d’autonomie, preuves et portefeuille.</p>
+              <span class="home-card-link">Ouvrir le parcours <b aria-hidden="true">→</b></span>
+            </a>
+          </div>
+        </section>
+
+        <section class="home-section" aria-labelledby="home-explore-title">
+          <div class="home-section-heading">
+            <div>
+              <p class="home-kicker">02 · EXPLORER</p>
+              <h2 id="home-explore-title">Les extensions pour aller plus loin.</h2>
+            </div>
+            <p>Des espaces secondaires pour regarder les preuves, les permissions et la mémoire derrière un parcours.</p>
+          </div>
+          <div class="home-module-grid">
+            <a class="home-module-card home-module-card-accent" href="explore/"><span>CATALOGUE · 48 CAS</span><strong>EXPLORE</strong><p>Filtrer les cas d’usage, voir la preuve et ouvrir chaque fiche canonique.</p><b>Parcourir ↗</b></a>
+            <a class="home-module-card" href="?module=cases&amp;journey=pme&amp;slide=3"><span>MODULE 01</span><strong>Real Cases</strong><p>07 cas réels, sources, niveaux de preuve et architectures.</p><b>Ouvrir ↗</b></a>
+            <a class="home-module-card" href="?module=agent-lab&amp;journey=pme&amp;slide=3"><span>MODULE 02</span><strong>Agent Lab</strong><p>Une mission guidée pour voir outils, permissions et human gate.</p><b>Ouvrir ↗</b></a>
+            <a class="home-module-card" href="?module=memory-map&amp;journey=pme&amp;slide=3"><span>MODULE 03</span><strong>Memory Map</strong><p>Conversation, mémoire durable, knowledge base et retrieval.</p><b>Ouvrir ↗</b></a>
+          </div>
+        </section>
+
+        <section class="home-section" aria-labelledby="home-directions-title">
+          <div class="home-section-heading">
+            <div>
+              <p class="home-kicker">03 · COMPARER</p>
+              <h2 id="home-directions-title">Les directions d’expérience.</h2>
+            </div>
+            <p>Deux rounds pour tester la densité, le rythme, la personnalité et la capacité à accueillir Learn + Explore.</p>
+          </div>
+          <div class="home-direction-groups">
+            <div class="home-direction-group">
+              <div class="home-group-heading"><span>ROUND 01</span><a href="ux/">Comparer les 4 directions →</a></div>
+              <div class="home-mini-grid">
+                <a href="ux/current/?view=home"><b>01</b><strong>UX actuelle</strong><span>Témoin fonctionnel</span></a>
+                <a href="ux/editorial/?view=home"><b>02</b><strong>Editorial Air</strong><span>Respiration &amp; narration</span></a>
+                <a href="ux/playground/?view=home"><b>03</b><strong>Product Playground</strong><span>Manipuler pour comprendre</span></a>
+                <a href="ux/field-guide/?view=home"><b>04</b><strong>Field Guide</strong><span>Manuel de terrain</span></a>
+              </div>
+            </div>
+            <div class="home-direction-group home-direction-group-round2">
+              <div class="home-group-heading"><span>ROUND 02</span><a href="ux/round-2/">Comparer les 4 directions →</a></div>
+              <div class="home-mini-grid">
+                <a href="ux/round-2/manual/?view=home"><b>01</b><strong>Manuel de terrain</strong><span>Papier &amp; annotations</span></a>
+                <a href="ux/round-2/lab/?view=home"><b>02</b><strong>Lab / instrument</strong><span>Signaux &amp; observation</span></a>
+                <a href="ux/round-2/system/?view=home"><b>03</b><strong>HOCUS System</strong><span>Casting &amp; couleurs</span></a>
+                <a href="ux/round-2/review/?view=home"><b>04</b><strong>Revue appliquée</strong><span>Publication &amp; rareté</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-section home-tutorial-section" aria-labelledby="home-tutorial-title">
+          <div class="home-tutorial-card">
+            <div>
+              <p class="home-kicker">04 · APPRENDRE</p>
+              <h2 id="home-tutorial-title">Tutorial Boards</h2>
+              <p>10 planches pédagogiques pour dérouler un concept : schéma à gauche, lecture guidée à droite, exploration au clic.</p>
+            </div>
+            <a class="home-button home-button-primary" href="ux/tutorial/?slide=1">Ouvrir les 10 leçons <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+      </main>
 
       <div class="app-layout">
         <aside class="sidebar" id="sidebar" aria-label="Sommaire de la présentation">
@@ -101,19 +217,33 @@
 
         </main>
       </div>
+      <main id="module-content" class="module-content" hidden tabindex="-1"></main>
       <footer class="app-footer">
         <span>HOCUS ACOLYTE / AI OPERATING SYSTEM</span>
-        <span>Draft webapp · Issue #3 · aucun appel externe</span>
+        <span>Draft webapp · multi-journey · aucun appel externe</span>
       </footer>
     </div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <noscript><div class="noscript">Cette expérience nécessite JavaScript pour naviguer entre les slides.</div></noscript>
     <script src="content/slides.js"></script>
+    <script src="journeys/operating-system/config.js"></script>
+    <script src="journeys/pme-overview/solutions.js"></script>
+    <script src="journeys/pme-overview/opportunities.js"></script>
+    <script src="journeys/pme-overview/content.js"></script>
     <script src="interactions/chatbot-agent.js"></script>
     <script src="interactions/context-builder.js"></script>
     <script src="interactions/memory-recall.js"></script>
     <script src="interactions/handoff.js"></script>
     <script src="interactions/idea-product.js"></script>
+    <script src="interactions/opportunity-map.js"></script>
+    <script src="interactions/role-selector.js"></script>
+    <script src="interactions/knowledge-journey.js"></script>
+    <script src="interactions/agent-business.js"></script>
+    <script src="interactions/function-overview.js"></script>
+    <script src="interactions/opportunity-scoring.js"></script>
+    <script src="interactions/portfolio-explorer.js"></script>
+    <script src="modules/real-cases/cases.js"></script>
+    <script src="modules/module-app.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

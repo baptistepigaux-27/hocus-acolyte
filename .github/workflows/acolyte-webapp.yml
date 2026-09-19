@@ -1,0 +1,57 @@
+name: Acolyte webapp
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip playwright
+          python -m playwright install --with-deps chromium
+      - name: Install shell test tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y ripgrep
+      - name: Syntax checks
+        run: |
+          node --check webapp/app.js
+          node --check webapp/content/slides.js
+          node --check webapp/journeys/operating-system/config.js
+          node --check webapp/journeys/pme-overview/content.js
+          node --check webapp/journeys/pme-overview/opportunities.js
+          node --check webapp/journeys/pme-overview/solutions.js
+          node --check webapp/modules/real-cases/cases.js
+          node --check webapp/modules/module-app.js
+          node --check scripts/sync-acolyte-cases.mjs
+          node --check webapp/explore/explore.js
+          node --check webapp/ux/ux-app.js
+          node --check webapp/ux/round-2/ux2-app.js
+          node --check webapp/ux/tutorial/tutorial-app.js
+      - name: Webapp checks
+        run: |
+          bash webapp/tests/smoke.sh
+          python3 webapp/tests/e2e.py
+          python3 webapp/tests/ux_e2e.py
+          python3 webapp/tests/ux_round2_e2e.py
+          python3 webapp/tests/tutorial_e2e.py
+          python3 webapp/tests/explore_e2e.py
+          git diff --check
