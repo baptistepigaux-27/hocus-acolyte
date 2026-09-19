@@ -15,6 +15,9 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[2]
 WEBAPP = ROOT / "webapp"
 LOCAL_URL = "http://127.0.0.1:4178/"
+TOTAL_CASES = 100
+DOCUMENTED_CASES = 59
+AGENT_CASES = 26
 
 
 def wait_for_server(url: str) -> None:
@@ -42,18 +45,18 @@ def run_checks(base_url: str) -> None:
         page = desktop.new_page()
 
         page.goto(explore_url, wait_until="networkidle")
-        assert page.locator("#case-count").inner_text() == "48 cas"
-        assert page.locator(".explore-card").count() == 48
-        assert page.locator(".proof-badge").count() >= 48
-        assert page.locator(".explore-card .proof-documented").count() == 7
+        assert page.locator("#case-count").inner_text() == f"{TOTAL_CASES} cas"
+        assert page.locator(".explore-card").count() == TOTAL_CASES
+        assert page.locator(".proof-badge").count() >= TOTAL_CASES
+        assert page.locator(".explore-card .proof-documented").count() == DOCUMENTED_CASES
         assert_no_horizontal_overflow(page)
 
         page.select_option("#filter-solution_type", "agent")
-        assert page.locator(".explore-card").count() == 10
-        assert "10 cas affichés" in page.locator("#results-count").inner_text().lower()
+        assert page.locator(".explore-card").count() == AGENT_CASES
+        assert f"{AGENT_CASES} cas affichés" in page.locator("#results-count").inner_text().lower()
         assert page.locator("#active-filters [data-remove-filter='solution_type']").is_visible()
         page.locator("#active-filters [data-remove-filter='solution_type']").click()
-        assert page.locator(".explore-card").count() == 48
+        assert page.locator(".explore-card").count() == TOTAL_CASES
         evidence_values = page.locator("#filter-evidence_level option").evaluate_all("options => options.map(option => option.value)")
         assert evidence_values == ["all", "documented", "experience", "pattern", "concept"]
         page.select_option("#filter-evidence_level", "concept")
@@ -61,11 +64,11 @@ def run_checks(base_url: str) -> None:
         assert page.locator("#case-empty").is_visible()
         page.locator("#reset-filters").click()
         page.locator("#case-search").fill("support")
-        assert page.locator(".explore-card").count() == 1
-        assert "RIS" in page.locator(".explore-card").inner_text()
+        assert page.locator(".explore-card").count() == 7
+        assert any("RIS" in text for text in page.locator(".explore-card").all_inner_texts())
         assert page.locator("#active-filters [data-remove-query]").is_visible()
         page.locator("#active-filters [data-remove-query]").click()
-        assert page.locator(".explore-card").count() == 48
+        assert page.locator(".explore-card").count() == TOTAL_CASES
 
         page.goto(f"{explore_url}?case=case-real-qonto-human-gate", wait_until="networkidle")
         assert page.locator(".explore-detail-hero h1").inner_text() == "Qonto — Agent + Human Gate"
@@ -81,7 +84,7 @@ def run_checks(base_url: str) -> None:
         assert "Ouvrir la source" in page.locator(".detail-source").inner_text()
         assert page.locator(".detail-related-grid a").count() > 0
         page.locator("[data-back-catalog]").click()
-        assert page.locator(".explore-card").count() == 48
+        assert page.locator(".explore-card").count() == TOTAL_CASES
 
         page.goto(f"{explore_url}?case=case-pme-ops-incident", wait_until="networkidle")
         assert page.locator(".proof-pattern").is_visible()
@@ -101,7 +104,7 @@ def run_checks(base_url: str) -> None:
         mobile_page.locator("#filter-toggle").click()
         assert mobile_page.locator("#explore-filters").is_visible()
         mobile_page.select_option("#filter-evidence_level", "documented")
-        assert mobile_page.locator(".explore-card").count() == 7
+        assert mobile_page.locator(".explore-card").count() == DOCUMENTED_CASES
         assert_no_horizontal_overflow(mobile_page)
 
         desktop.close()
@@ -128,7 +131,7 @@ def main() -> None:
             server.terminate()
             server.wait(timeout=5)
 
-    print("Acolyte Explore checks passed (48 cases, filters, search, detail, bridges, mobile).")
+    print(f"Acolyte Explore checks passed ({TOTAL_CASES} cases, filters, search, detail, bridges, mobile).")
 
 
 if __name__ == "__main__":
