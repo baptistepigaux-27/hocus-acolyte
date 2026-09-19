@@ -88,6 +88,10 @@ body { font-size: 16px; line-height: 1.58; }
 .tuto-index > button span { font-family: var(--tuto-heading); font-weight: 600; line-height: 1.2; }
 .tuto-index > button small, .tuto-index > button i { line-height: 1.35; }
 .tuto-footer { line-height: 1.35; }
+.tuto-explore-bridge { display: grid; gap: 7px; max-width: 500px; margin: 22px 0 4px; padding: 13px 15px; border: 1px solid var(--tuto-petrol); background: rgba(112, 209, 200, .09); color: var(--tuto-ink); text-decoration: none; }
+.tuto-explore-bridge span { color: var(--tuto-petrol); font: 10px var(--tuto-mono); letter-spacing: .08em; }
+.tuto-explore-bridge strong { font: 600 14px/1.2 var(--tuto-sans); }
+.tuto-explore-bridge b { color: var(--tuto-petrol); }
 @media (max-width: 980px) {
   .tuto-diagram { min-height: 510px; border-radius: 10px 10px 0 0; }
   .tuto-reading { min-height: 590px; }

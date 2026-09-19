@@ -28,6 +28,28 @@ Modules conversationnels accessibles depuis `Explorer` ou directement par URL :
 - <http://127.0.0.1:4173/?module=agent-lab&journey=pme&slide=3> — Agent Lab ;
 - <http://127.0.0.1:4173/?module=memory-map&journey=pme&slide=3> — Memory Map.
 
+## Explore
+
+Le catalogue EXPLORE est disponible sur <http://127.0.0.1:4173/explore/>. Il
+consomme les 48 fiches du dataset canonique validé dans
+`server-playbook/data/acolyte-cases-v1.json` : recherche texte, filtres
+combinés, niveaux de preuve, fiches détaillées, provenance et cas proches.
+
+Le fichier servi au navigateur est un artefact généré, jamais une seconde
+source éditoriale. Pour le resynchroniser depuis un checkout local du
+playbook :
+
+```bash
+ACOLYTE_CASE_SOURCE_REVISION=<commit-server-playbook> \
+  node scripts/sync-acolyte-cases.mjs \
+  /chemin/vers/server-playbook/data/acolyte-cases-v1.json
+```
+
+La révision et le hash du fichier source sont conservés dans
+`webapp/explore/data/manifest.json`. Les Tutorial Boards exposent des liens
+contextuels vers EXPLORE pour les agents, les cas documentés et les cas de
+connaissance.
+
 ## UX Lab
 
 Les directions visuelles vivent en parallèle de la webapp actuelle et
@@ -92,6 +114,7 @@ node --check webapp/journeys/operating-system/config.js
 node --check webapp/journeys/pme-overview/content.js
 bash webapp/tests/smoke.sh
 python3 webapp/tests/e2e.py
+python3 webapp/tests/explore_e2e.py
 ```
 
 Le test navigateur utilise Playwright installé dans l’environnement de travail et lance un serveur statique local sur le port 4174. La webapp est un draft local/staging. Elle ne contient aucune authentification, donnée client, clé, API ou écriture de production.
