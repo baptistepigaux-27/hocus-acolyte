@@ -173,12 +173,75 @@
     renderActiveFilters();
   }
 
-  function missingNote() { return '<p class="detail-missing">Cette information n’est pas renseignée dans la fiche canonique.</p>'; }
   function renderItems(values, field = null) { return asArray(values).filter(Boolean).map((value) => `<li>${escapeHtml(field ? titleFor(field, textValue(value)) : textValue(value))}</li>`).join(''); }
-  function renderSection(label, content, className = '') { return content ? `<section class="detail-section ${className}"><p class="detail-label">${escapeHtml(label)}</p>${content}</section>` : ''; }
+  function renderSection(label, content, className = '') { return content ? `<section class="detail-section ${className}"><h2 class="detail-section-title">${escapeHtml(label)}</h2>${content}</section>` : ''; }
   function renderTextList(values, field = null) { const list = asArray(values).filter((item) => textValue(item)); return list.length ? `<ul class="detail-list">${renderItems(list, field)}</ul>` : ''; }
   function resultLabel(result, sourceType) { return result?.observed === false || sourceType === 'projected' ? 'PROJETÉ' : sourceType === 'reported' ? 'RAPPORTÉ' : result?.observed ? 'OBSERVÉ' : 'À QUALIFIER'; }
   function sourceType(item) { return item.sources?.[0]?.evidence_type || 'unknown'; }
+
+  function hasAny(...values) { return values.some((value) => asArray(value).some((item) => textValue(item))); }
+
+  function editorialWhy(item) {
+    if (item.id === 'case-real-qonto-human-gate') {
+      return 'Qonto illustre une architecture d’agent supervisé appliquée à une zone sensible : les opérations financières. L’agent prépare, rassemble les éléments et propose l’action ; l’utilisateur conserve le dernier mot avant toute exécution. Le cas est intéressant moins pour la sophistication technique que pour l’usage du human gate comme mécanisme de contrôle.';
+    }
+    const functionLabel = formatList(item.business_function, 'business_function');
+    const solutionLabel = titleFor('solution_type', item.solution_type).toLowerCase();
+    const problem = item.problem || item.short_description;
+    if (item.evidence_level === 'pattern') {
+      return `Ce pattern ne décrit pas un déploiement client documenté. Il sert à cadrer un travail${functionLabel && functionLabel !== 'Non renseigné' ? ` côté ${functionLabel.toLowerCase()}` : ''} autour de « ${problem} ». Son intérêt est de rendre visibles les données, les outils et les risques à traiter avant de parler d’autonomie.`;
+    }
+    if (item.evidence_level === 'concept') {
+      return `Ce concept propose une manière de traiter « ${problem} » avec un ${solutionLabel}. Il est utile pour ouvrir une discussion de conception, pas pour faire passer une hypothèse pour un résultat observé.`;
+    }
+    if (item.evidence_level === 'experience') {
+      return `Cette expérience donne un point de vue concret sur « ${problem} » et sur la place d’un ${solutionLabel}. Elle mérite d’être lue comme un retour situé, avec son contexte et ses limites, plutôt que comme une recette universelle.`;
+    }
+    if (hasAny(item.results)) {
+      return `Ce cas documenté permet de regarder concrètement comment un ${solutionLabel} répond à « ${problem} ». Il est surtout utile pour séparer ce que la source rapporte de ce qu’Acolyte peut en déduire.`;
+    }
+    return `Ce cas documenté montre comment un ${solutionLabel} est mobilisé autour de « ${problem} ». Son intérêt tient à la situation décrite ; les éléments qui ne sont pas publiés restent volontairement hors champ.`;
+  }
+
+  function editorialShows(item) {
+    if (item.id === 'case-real-qonto-human-gate') {
+      return [
+        'Un agent utile n’a pas besoin d’être totalement autonome.',
+        'Dans un domaine sensible, la valeur peut venir surtout de la préparation et de l’orchestration.',
+        'Le human gate permet d’augmenter l’autonomie sans supprimer le contrôle humain.'
+      ];
+    }
+    const points = [];
+    if (item.autonomy_level === 'supervised-agent' || item.human_in_the_loop?.required) points.push('L’autonomie peut être progressive : le système prépare et l’humain garde la décision finale.');
+    if (item.solution_type === 'knowledge' || valuesFor(item, 'ai_pattern').includes('retrieval')) points.push('La valeur peut venir de l’accès à une connaissance existante, pas nécessairement de la production de nouveau contenu.');
+    if (item.solution_type === 'copilot') points.push('Un copilote déplace le travail vers la préparation, la vérification et l’itération plutôt que vers un simple bouton “générer”.');
+    if (item.solution_type === 'workflow' || item.solution_type === 'agent') points.push('Le cas se lit comme une chaîne de travail : la qualité du résultat dépend aussi des étapes, des exceptions et du contrôle.');
+    if (hasAny(item.data_required, item.data_sources)) points.push('Les données et les outils sont une partie du cas, pas un détail d’implémentation à découvrir après la promesse.');
+    if (hasAny(item.risks, item.limitations)) points.push('Les risques rendent la proposition plus utile : ils indiquent où l’automatisation doit rester sous surveillance.');
+    if (item.evidence_level === 'pattern') points.push('Un pattern aide à cadrer une opportunité ; il ne constitue pas, à lui seul, une preuve de déploiement.');
+    if (item.evidence_level === 'concept') points.push('Un concept peut aider à explorer une direction, mais il doit rester séparé des cas éprouvés.');
+    return points.slice(0, 3);
+  }
+
+  function editorialNote(item) {
+    if (item.id === 'case-real-qonto-human-gate') return '« Autonome » ne veut pas dire : laissez-le virer l’argent pendant que vous êtes à déjeuner.';
+    return '';
+  }
+
+  function renderEditorial(item) {
+    const points = editorialShows(item);
+    return `<section class="detail-editorial-section"><p class="detail-label">ANALYSE ACOLYTE</p><h2>Ce que ce cas montre</h2><ul class="detail-analysis-list">${points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>${editorialNote(item) ? `<aside class="detail-acolyte-note"><strong>Acolyte note</strong><p>${escapeHtml(editorialNote(item))}</p></aside>` : ''}</section>`;
+  }
+
+  function renderUndocumented(item) {
+    const missing = [];
+    if (!hasAny(item.data_required, item.data_sources)) missing.push('Données mobilisées dans le détail');
+    if (!hasAny(item.tools, item.models, item.integrations, item.systems_involved)) missing.push('Stack technique et systèmes connectés');
+    if (!hasAny(item.delivery_scope, item.complexity, item.technical_feasibility, item.organizational_feasibility, item.data_readiness, item.maturity_required)) missing.push('Prérequis de déploiement');
+    if (!hasAny(item.results, item.expected_value, item.business_impact)) missing.push('Mesures de résultat ou d’impact');
+    if (!hasAny(item.sources)) missing.push('Source primaire publiée');
+    return missing.length ? `<section class="detail-undocumented"><p class="detail-label">INFORMATIONS NON DOCUMENTÉES</p><p>La fiche ne permet pas d’aller plus loin sur :</p><ul class="detail-list">${missing.map((value) => `<li>${escapeHtml(value)}</li>`).join('')}</ul></section>` : '';
+  }
 
   function detailFacts(item) {
     return [['Taille', formatList(item.company_size, 'company_size')], ['Secteur', titleFor('industry', item.industry)], ['Fonction', formatList(item.business_function, 'business_function')], ['Solution', titleFor('solution_type', item.solution_type)], ['Autonomie', titleFor('autonomy_level', item.autonomy_level)], ['Preuve', titleFor('evidence_level', item.evidence_level)]].map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${escapeHtml(value || 'Non renseigné')}</strong></div>`).join('');
@@ -205,13 +268,20 @@
 
   function renderDetail(item) {
     const source = item.sources?.[0];
-    const resultList = item.results?.length ? `<ul class="detail-results">${item.results.map((result) => `<li><span>${escapeHtml(resultLabel(result, sourceType(item)))}</span>${escapeHtml(textValue(result))}</li>`).join('')}</ul>` : '';
-    const expectedValue = item.expected_value?.length ? `<ul class="detail-list">${item.expected_value.map((value) => `<li><b>${escapeHtml(titleFor('value_type', value.type))}</b>${escapeHtml(value.description || '')}</li>`).join('')}</ul>` : '';
-    const sourceMarkup = source ? `<div class="detail-source"><strong>${escapeHtml(source.publisher || source.title || 'Source')}</strong>${source.url ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">Ouvrir la source ↗</a>` : ''}<small>${escapeHtml(sourceType(item) === 'projected' ? 'Résultat projeté dans la source.' : sourceType(item) === 'reported' ? 'Résultat rapporté par la source.' : 'Type de résultat non renseigné.')}</small></div>` : missingNote();
+    const resultList = item.results?.length ? `<div><p class="detail-sub-label">Résultats rapportés par la source</p><ul class="detail-results">${item.results.map((result) => `<li><span>${escapeHtml(resultLabel(result, sourceType(item)))}</span>${escapeHtml(textValue(result))}</li>`).join('')}</ul></div>` : '';
+    const expectedValue = item.expected_value?.length ? `<ul class="detail-list">${item.expected_value.map((value) => `<li>${value.type && value.type !== 'unknown' ? `<b>${escapeHtml(titleFor('value_type', value.type))}</b>` : ''}${escapeHtml(value.description || '')}</li>`).join('')}</ul>` : '';
+    const sourceMarkup = source ? `<div class="detail-source"><p class="detail-sub-label">Preuve et source</p><strong>${escapeHtml(source.publisher || source.title || 'Source')}</strong>${source.url ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">Ouvrir la source ↗</a>` : ''}<small>${escapeHtml(sourceType(item) === 'projected' ? 'Résultat projeté dans la source.' : sourceType(item) === 'reported' ? 'Résultat rapporté par la source.' : 'Type de résultat non renseigné.')}</small></div>` : '';
     const architecture = renderTextList(item.architecture_pattern);
-    const mechanism = `<div class="detail-pills">${labelForArray('ai_pattern', item.ai_pattern).map((value) => `<span>${escapeHtml(value)}</span>`).join('')}</div>${item.workflow?.length ? renderTextList(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : missingNote()}`;
+    const dataMarkup = hasAny(item.data_required, item.data_sources) ? renderTextList(item.data_required) || renderTextList(item.data_sources) : '';
+    const toolsMarkup = hasAny(item.tools, item.models, item.integrations, item.systems_involved) ? renderTextList([...(item.tools || []), ...(item.models || []), ...(item.integrations || []), ...(item.systems_involved || [])]) : '';
+    const mechanismSupport = [dataMarkup ? `<div><p class="detail-sub-label">Données et entrées</p>${dataMarkup}</div>` : '', toolsMarkup ? `<div><p class="detail-sub-label">Outils et systèmes</p>${toolsMarkup}</div>` : ''].join('');
+    const mechanism = `<div class="detail-pills">${labelForArray('ai_pattern', item.ai_pattern).map((value) => `<span>${escapeHtml(value)}</span>`).join('')}</div>${item.workflow?.length ? renderTextList(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : '<p class="detail-quiet">Le schéma indique le pattern mobilisé, sans déroulé opérationnel plus détaillé.</p>'}${mechanismSupport}`;
+    const impactMarkup = [resultList, expectedValue ? `<div><p class="detail-sub-label">Valeur attendue dans la fiche</p>${expectedValue}</div>` : '', item.business_impact?.length ? `<div><p class="detail-sub-label">Type d’impact envisagé</p>${renderTextList(item.business_impact)}</div>` : ''].join('');
+    const prerequisites = renderTextList([item.delivery_scope, item.complexity && `Complexité : ${item.complexity}`, item.technical_feasibility && `Faisabilité technique : ${item.technical_feasibility}`, item.organizational_feasibility && `Faisabilité organisationnelle : ${item.organizational_feasibility}`, item.data_readiness && `Maturité data : ${item.data_readiness}`, item.maturity_required && `Maturité requise : ${item.maturity_required}`]);
+    const limitations = renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]);
     const related = relatedCases(item);
-    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="./" data-back-catalog>← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE ${item.evidence_level === 'documented' ? 'REAL CASE' : 'USE CASE'} · ${escapeHtml(item.id)}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p></div></header><div class="detail-facts">${detailFacts(item)}</div><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme', mechanism)}${renderSection('Données nécessaires', renderTextList(item.data_required) || renderTextList(item.data_sources) || missingNote())}${renderSection('Outils et systèmes', renderTextList([...(item.tools || []), ...(item.models || []), ...(item.integrations || []), ...(item.systems_involved || [])]) || missingNote())}${renderSection('Impact attendu ou observé', expectedValue || resultList || (item.business_impact ? renderTextList(item.business_impact) : '') || missingNote())}${renderSection('Prérequis', renderTextList([item.delivery_scope, item.complexity && `Complexité : ${item.complexity}`, item.technical_feasibility && `Faisabilité technique : ${item.technical_feasibility}`, item.organizational_feasibility && `Faisabilité organisationnelle : ${item.organizational_feasibility}`, item.data_readiness && `Maturité data : ${item.data_readiness}`, item.maturity_required && `Maturité requise : ${item.maturity_required}`]) || missingNote())}${renderSection('Limites et risques', renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]) || missingNote())}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir', renderTextList(item.lessons_learned)) : ''}</div><aside class="detail-aside">${learnLink(item)}<section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(item.provenance?.source_type || 'Non renseignée')}</p><small>${escapeHtml(item.provenance?.source_ref || '')}</small>${item.provenance?.transformation_notes ? `<p class="detail-note">${escapeHtml(item.provenance.transformation_notes)}</p>` : ''}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong><p>Le niveau de preuve et la confiance ne remplacent pas une revue du contexte.</p></section></aside></div>${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}</div>`;
+    const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(item.provenance?.source_type || 'Non renseignée')}</p><small>${escapeHtml(item.provenance?.source_ref || '')}</small>${item.provenance?.transformation_notes ? `<p class="detail-note">${escapeHtml(item.provenance.transformation_notes)}</p>` : ''}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong><p>Le niveau de preuve et la confiance ne remplacent pas une revue du contexte.</p></section></div>`;
+    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="./" data-back-catalog>← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE ${item.evidence_level === 'documented' ? 'REAL CASE' : 'USE CASE'} · ${escapeHtml(item.id)}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p><small>La preuve décrit le statut du cas, pas une garantie de résultat.</small></div></header><div class="detail-facts">${detailFacts(item)}</div><section class="detail-editorial-intro"><div><p class="detail-label">ANALYSE ACOLYTE</p><h2>Pourquoi ce cas mérite d’être regardé</h2></div><p class="detail-editorial-copy">${escapeHtml(editorialWhy(item))}</p></section><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir de la source', renderTextList(item.lessons_learned)) : ''}${provenance}${renderUndocumented(item)}</div></div>${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
   }
 
   function render() {

@@ -69,6 +69,11 @@ def run_checks(base_url: str) -> None:
 
         page.goto(f"{explore_url}?case=case-real-qonto-human-gate", wait_until="networkidle")
         assert page.locator(".explore-detail-hero h1").inner_text() == "Qonto — Agent + Human Gate"
+        assert page.locator(".detail-editorial-intro h2").inner_text() == "Pourquoi ce cas mérite d’être regardé"
+        assert "human gate" in page.locator(".detail-editorial-copy").inner_text().lower()
+        assert page.locator(".detail-editorial-section h2").inner_text() == "Ce que ce cas montre"
+        assert page.locator(".detail-acolyte-note").is_visible()
+        assert page.locator(".detail-missing").count() == 0
         assert "company_size" not in page.locator(".detail-facts").inner_text()
         assert "business_function" not in page.locator(".detail-facts").inner_text()
         assert page.locator(".detail-proof-panel .proof-documented").is_visible()
@@ -77,6 +82,12 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".detail-related-grid a").count() > 0
         page.locator("[data-back-catalog]").click()
         assert page.locator(".explore-card").count() == 48
+
+        page.goto(f"{explore_url}?case=case-pme-ops-incident", wait_until="networkidle")
+        assert page.locator(".proof-pattern").is_visible()
+        assert "ne décrit pas un déploiement client" in page.locator(".detail-editorial-copy").inner_text()
+        assert "Non renseigné délai" not in page.locator(".explore-detail-page").inner_text()
+        assert page.locator(".detail-undocumented").is_visible()
 
         page.goto(f"{base_url}ux/tutorial/?slide=2", wait_until="networkidle")
         bridge = page.locator(".tuto-explore-bridge")
