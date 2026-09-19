@@ -6689,5 +6689,3117 @@
         "source_ref": "https://www.microsoft.com/en/customers/story/26985-cemex-microsoft-copilot-studio"
       }
     ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-csx-freight-assistant",
+    "slug": "csx-freight-assistant",
+    "title": "CSX — Suivre un fret en langage naturel",
+    "short_description": "CSX intègre un assistant IA à son portail pour suivre les expéditions et accéder aux services ferroviaires.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les clients doivent retrouver rapidement le statut d’un fret et des réponses logistiques dans un portail dense.",
+    "ai_pattern": [
+      "retrieval",
+      "orchestration",
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "customer-service",
+      "operations",
+      "supply"
+    ],
+    "tools": [
+      "Copilot Studio",
+      "Microsoft Foundry",
+      "ShipCSX"
+    ],
+    "business_impact": [
+      "service client",
+      "accès à l’information",
+      "réactivité"
+    ],
+    "value_type": [
+      "speed",
+      "quality",
+      "productivity"
+    ],
+    "results": [
+      {
+        "text": "Plus de 1 000 clients ont consulté l’assistant dans ses 45 premiers jours, sur plus de 4 000 conversations.",
+        "observed": true
+      },
+      {
+        "text": "L’assistant peut restituer le statut d’un envoi et répondre aux questions fréquentes.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Clients des 45 premiers jours",
+        "value": "1000+",
+        "unit": "clients"
+      },
+      {
+        "name": "Conversations des 45 premiers jours",
+        "value": "4000+",
+        "unit": "conversations"
+      }
+    ],
+    "risks": [
+      "statut d’expédition obsolète",
+      "droits d’accès",
+      "réponse à vérifier"
+    ],
+    "sources": [
+      {
+        "id": "source-csx-freight-assistant",
+        "source_type": "public-source",
+        "title": "CSX boosts supply chain agility using Microsoft Copilot Studio and Azure AI Foundry",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/24556-csx-microsoft-copilot-studio",
+        "url": "https://www.microsoft.com/en/customers/story/24556-csx-microsoft-copilot-studio",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/24556-csx-microsoft-copilot-studio",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Transport/logistics and enterprise scale are explicit in the source."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "Le self-service logistique devient concret quand l’assistant accède aux données opérationnelles, pas seulement aux FAQ."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public CSX/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/24556-csx-microsoft-copilot-studio"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-ch-robinson-email-logistics",
+    "slug": "ch-robinson-email-logistics",
+    "title": "C.H. Robinson — Traiter les demandes logistiques reçues par e-mail",
+    "short_description": "C.H. Robinson utilise l’IA générative pour classer les demandes d’expédition, compléter les informations et lancer les étapes du transport.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Des dizaines de milliers de demandes arrivent chaque jour par e-mail et attendent un traitement manuel variable selon le cycle du chargement.",
+    "ai_pattern": [
+      "classification",
+      "extraction",
+      "orchestration"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "customer-service",
+      "operations",
+      "supply"
+    ],
+    "tools": [
+      "Azure AI Foundry",
+      "Azure OpenAI",
+      "Azure SQL Database",
+      "Azure Cosmos DB"
+    ],
+    "business_impact": [
+      "délai",
+      "productivité",
+      "service client"
+    ],
+    "value_type": [
+      "speed",
+      "productivity",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "La vitesse de mise sur le marché des traitements passe d’heures à secondes selon la source.",
+        "observed": true
+      },
+      {
+        "text": "La source rapporte un objectif de 15 % de productivité supplémentaire.",
+        "observed": true
+      },
+      {
+        "text": "Plus d’un demi-million de devis ont été produits avec l’IA générative selon la source.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Productivité annoncée",
+        "value": "15",
+        "unit": "% de hausse visée"
+      },
+      {
+        "name": "Devis traités",
+        "value": "500000+",
+        "unit": "devis"
+      }
+    ],
+    "risks": [
+      "données de transport incomplètes",
+      "mauvaise classification",
+      "boucle humaine de contrôle"
+    ],
+    "sources": [
+      {
+        "id": "source-ch-robinson-email-logistics",
+        "source_type": "public-source",
+        "title": "C.H. Robinson overcomes decades-old barriers to automate the logistics industry using Azure AI",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio",
+        "url": "https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Organization size 10,000+ and logistics industry are explicit. The source explicitly mentions a human feedback loop, retained as a supervision signal."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "Les e-mails libres deviennent automatisables quand la connaissance métier et les variables du dossier sont réunies avant l’action."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public C.H. Robinson/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-hyundai-glovis-logistics-copilot",
+    "slug": "hyundai-glovis-logistics-copilot",
+    "title": "Hyundai Glovis — Organiser les précédents logistiques",
+    "short_description": "Hyundai Glovis utilise Copilot pour retrouver des précédents, rédiger des réponses et contrôler la cohérence de données d’expédition.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les équipes recherchent manuellement des cas passés et échangent plusieurs fichiers pour traiter retards, douanes et performance d’expédition.",
+    "ai_pattern": [
+      "retrieval",
+      "summarization",
+      "classification"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "operations",
+      "supply",
+      "it-data"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Teams",
+      "OneDrive",
+      "Excel"
+    ],
+    "business_impact": [
+      "décision",
+      "qualité data",
+      "productivité"
+    ],
+    "value_type": [
+      "speed",
+      "quality",
+      "productivity"
+    ],
+    "results": [
+      {
+        "text": "Les cas passés sont organisés en tableaux et servent à rédiger plus vite des rapports de réponse.",
+        "observed": true
+      },
+      {
+        "text": "Copilot automatise des contrôles de cohérence, la suppression de doublons et la génération de code VBA dans Excel.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "qualité des données d’expédition",
+      "accès aux historiques",
+      "automatisation de fichier à vérifier"
+    ],
+    "sources": [
+      {
+        "id": "source-hyundai-glovis-logistics-copilot",
+        "source_type": "public-source",
+        "title": "Hyundai Glovis sets an example for AI-powered change management with Microsoft 365 Copilot",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/25103-hyundai-glovis-microsoft-365",
+        "url": "https://www.microsoft.com/en/customers/story/25103-hyundai-glovis-microsoft-365",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/25103-hyundai-glovis-microsoft-365",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Organization size 10,000+ and transport/logistics industry are explicit. No numeric productivity gain is inferred because the source describes qualitative improvements."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le premier gain d’un copilote logistique peut être de rendre les précédents et les contrôles visibles au bon moment."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Hyundai Glovis/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/25103-hyundai-glovis-microsoft-365"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-logicall-logistics-data",
+    "slug": "logicall-logistics-data",
+    "title": "Logicall — Construire une source de vérité logistique",
+    "short_description": "Logicall unifie données, intégrations et reporting pour donner une visibilité quasi temps réel à ses opérations logistiques.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Après plusieurs rapprochements d’entreprises, les données logistiques sont cloisonnées, peu fiables et difficiles à utiliser pour planifier.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "monitoring"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "operations",
+      "supply",
+      "it-data"
+    ],
+    "tools": [
+      "Microsoft Fabric",
+      "Power BI",
+      "Microsoft Purview",
+      "Microsoft Entra"
+    ],
+    "business_impact": [
+      "visibilité",
+      "planification",
+      "intégration"
+    ],
+    "value_type": [
+      "decision",
+      "quality",
+      "speed"
+    ],
+    "results": [
+      {
+        "text": "La plateforme fournit une visibilité quasi temps réel sur les processus logistiques et les intégrations.",
+        "observed": true
+      },
+      {
+        "text": "La donnée gouvernée prépare l’ajout d’agents pour la planification, les opérations et le service client.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "définitions de données incohérentes",
+      "gouvernance des accès",
+      "acquisitions à intégrer"
+    ],
+    "limitations": [
+      "La source présente l’IA comme une prochaine étape et ne rapporte pas encore un résultat d’agent en production."
+    ],
+    "sources": [
+      {
+        "id": "source-logicall-logistics-data",
+        "source_type": "public-source",
+        "title": "Logicall builds an advanced data and AI logistics platform with Microsoft Azure",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/26718-logicall-azure",
+        "url": "https://www.microsoft.com/en/customers/story/26718-logicall-azure",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/26718-logicall-azure",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Organization size 1,000-9,999 is normalized to ETI. The record preserves the source’s distinction between a data foundation and future agent use."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Une base de cas utile doit aussi montrer les infrastructures qui rendent les agents possibles — même quand l’agent n’est pas encore la vedette."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Logicall/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/26718-logicall-azure"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-ad-ports-trade-agents",
+    "slug": "ad-ports-trade-agents",
+    "title": "AD Ports Group — Orchestrer des agents pour le commerce maritime",
+    "short_description": "AD Ports Group construit des agents pour optimiser les opérations de navires, de conteneurs et de terminaux.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Une activité portuaire mondiale doit coordonner des processus riches en données et réduire les tâches répétitives sans perdre la maîtrise opérationnelle.",
+    "ai_pattern": [
+      "prediction",
+      "orchestration",
+      "summarization"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "operations",
+      "supply",
+      "procurement",
+      "finance",
+      "it-data"
+    ],
+    "tools": [
+      "Azure AI Foundry",
+      "Copilot Studio",
+      "Microsoft 365 Copilot"
+    ],
+    "business_impact": [
+      "émissions",
+      "efficacité",
+      "temps de travail"
+    ],
+    "value_type": [
+      "cost",
+      "risk",
+      "productivity",
+      "speed"
+    ],
+    "results": [
+      {
+        "text": "AD Ports Group exploite 50 agents et en prépare des centaines d’autres selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Dans des fonctions prioritaires, la rédaction de documents et d’e-mails est annoncée un tiers plus rapide.",
+        "observed": true
+      },
+      {
+        "text": "Les réponses aux questions de politique sont annoncées presque 40 % plus rapides.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Agents en exploitation",
+        "value": "50+",
+        "unit": "agents"
+      },
+      {
+        "name": "Vitesse de rédaction",
+        "value": "1/3",
+        "unit": "plus rapide"
+      },
+      {
+        "name": "Réponses de politique",
+        "value": "40",
+        "unit": "% plus rapide"
+      }
+    ],
+    "risks": [
+      "sécurité opérationnelle",
+      "décision de navigation",
+      "données de terminaux et de navires"
+    ],
+    "sources": [
+      {
+        "id": "source-ad-ports-trade-agents",
+        "source_type": "public-source",
+        "title": "AD Ports Group to build 100+ AI agents with Azure AI Foundry, transforming trade operations",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/25589-ad-ports-group-azure-ai-foundry",
+        "url": "https://www.microsoft.com/en/customers/story/25589-ad-ports-group-azure-ai-foundry",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/25589-ad-ports-group-azure-ai-foundry",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Port network, agent count and named functions are explicit in the source. No additional autonomy is assumed beyond the described agent program."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "À l’échelle d’un opérateur portuaire, l’agent est une flotte de processus gouvernés, pas un assistant isolé."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public AD Ports Group/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/25589-ad-ports-group-azure-ai-foundry"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-swiss-post-copilot",
+    "slug": "swiss-post-copilot",
+    "title": "Swiss Post — Déployer le copilote dans une organisation logistique",
+    "short_description": "Swiss Post accompagne 45 000 employés avec Copilot Chat, Copilot Microsoft 365 et une fabrique d’agents gouvernée.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Faire progresser l’usage de l’IA dans une organisation logistique tout en contrôlant le partage d’information et les risques de conformité.",
+    "ai_pattern": [
+      "generation",
+      "summarization",
+      "retrieval"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "operations",
+      "finance",
+      "it-data",
+      "general-management"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Copilot Chat",
+      "Agent Factory"
+    ],
+    "business_impact": [
+      "adoption",
+      "productivité",
+      "gouvernance"
+    ],
+    "value_type": [
+      "productivity",
+      "knowledge",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "Plus de 3 000 employés utilisent activement des licences Microsoft 365 Copilot.",
+        "observed": true
+      },
+      {
+        "text": "Les équipes logistiques, finance et services centraux rapportent des gains de productivité et d’efficacité.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Utilisateurs actifs",
+        "value": "3000+",
+        "unit": "employés"
+      },
+      {
+        "name": "Sessions d’accompagnement",
+        "value": "30-50",
+        "unit": "sessions"
+      }
+    ],
+    "risks": [
+      "surpartage",
+      "données personnelles",
+      "adoption sans formation"
+    ],
+    "sources": [
+      {
+        "id": "source-swiss-post-copilot",
+        "source_type": "public-source",
+        "title": "Swiss Post empowers 45K employees with Copilot Chat and expands AI innovation",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/25880-swiss-post-microsoft-365-copilot",
+        "url": "https://www.microsoft.com/en/customers/story/25880-swiss-post-microsoft-365-copilot",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/25880-swiss-post-microsoft-365-copilot",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Employee count, transport/logistics context and governance controls are explicit in the source."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Une transformation IA logistique se joue aussi dans l’habilitation et les contrôles de partage."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Swiss Post/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/25880-swiss-post-microsoft-365-copilot"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-uber-driver-assistant",
+    "slug": "uber-driver-assistant",
+    "title": "Uber — Aider les chauffeurs à mieux utiliser la marketplace",
+    "short_description": "Uber expérimente des assistants IA pour aider chauffeurs et coursiers à comprendre leurs opportunités et réduire les frictions du support.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les chauffeurs doivent comprendre un marché temps réel complexe et accéder vite à des réponses adaptées à leur situation.",
+    "ai_pattern": [
+      "recommendation",
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "customer-service",
+      "sales",
+      "operations"
+    ],
+    "tools": [
+      "OpenAI models",
+      "Uber Assistant"
+    ],
+    "business_impact": [
+      "support",
+      "temps d’utilisation",
+      "opportunités de revenu"
+    ],
+    "value_type": [
+      "knowledge",
+      "speed",
+      "productivity"
+    ],
+    "results": [
+      {
+        "text": "Des centaines de milliers de chauffeurs américains ont accès aux expériences bêta d’Uber Assistant.",
+        "observed": true
+      },
+      {
+        "text": "La source rapporte un engagement répété et une meilleure utilisation du temps sur la plateforme.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "recommandation économique",
+      "réglementation locale",
+      "interprétation des signaux de marketplace"
+    ],
+    "limitations": [
+      "Le dispositif est présenté comme une expérimentation et les résultats sont surtout qualitatifs."
+    ],
+    "sources": [
+      {
+        "id": "source-uber-driver-assistant",
+        "source_type": "public-source",
+        "title": "Uber uses OpenAI to help people earn smarter and book faster",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/uber/",
+        "url": "https://openai.com/index/uber/",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/uber/",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Transport/logistics and global scale are explicit. The case retains the experimental status from the source."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Un assistant opérateur doit traduire les signaux du système en décisions compréhensibles, pas seulement afficher plus de données."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Uber/OpenAI case study.",
+        "source_ref": "https://openai.com/index/uber/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-zurich-insurance-sales",
+    "slug": "zurich-insurance-sales",
+    "title": "Zurich — Garder les données commerciales d’assurance à jour",
+    "short_description": "Zurich utilise Copilot for Sales pour rapprocher e-mails, CRM et informations de relation dans l’assurance commerciale.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les équipes commerciales passent entre plusieurs applications, ce qui rend les données CRM incomplètes ou obsolètes.",
+    "ai_pattern": [
+      "extraction",
+      "summarization",
+      "orchestration"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "sales",
+      "customer-service",
+      "it-data"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot for Sales",
+      "Dynamics 365 Sales",
+      "Outlook",
+      "Teams"
+    ],
+    "business_impact": [
+      "données CRM",
+      "relation client",
+      "temps"
+    ],
+    "value_type": [
+      "productivity",
+      "quality",
+      "speed"
+    ],
+    "results": [
+      {
+        "text": "La source estime environ 14 000 heures économisées sur l’année à venir.",
+        "observed": false
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Économie de temps estimée",
+        "value": "14000",
+        "unit": "heures par an"
+      }
+    ],
+    "risks": [
+      "donnée CRM mal synchronisée",
+      "confidentialité client",
+      "surconfiance commerciale"
+    ],
+    "sources": [
+      {
+        "id": "source-zurich-insurance-sales",
+        "source_type": "public-source",
+        "title": "Zurich Insurance enhances customer relationships with Dynamics 365 and Microsoft 365 Copilot for Sales",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/23452-zurich-schweiz-microsoft-365-copilot-for-sales",
+        "url": "https://www.microsoft.com/en/customers/story/23452-zurich-schweiz-microsoft-365-copilot-for-sales",
+        "citation_right": "allowed",
+        "evidence_type": "projected",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/23452-zurich-schweiz-microsoft-365-copilot-for-sales",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Organization size 1,000-9,999 is normalized to ETI. The 14,000-hour figure is marked projected because the source says estimated for the coming year."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Une donnée commerciale utile est une donnée qui revient dans le système de relation, pas une information qui reste dans un e-mail."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Zurich/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/23452-zurich-schweiz-microsoft-365-copilot-for-sales"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-newfront-insurance-platform",
+    "slug": "newfront-insurance-platform",
+    "title": "Newfront — Décharger les tâches administratives de l’assurance",
+    "short_description": "Newfront applique Claude au support benefits, à la revue de contrats et à l’extraction de documents d’assurance.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les courtiers, équipes RH et juristes passent du temps à copier des données, répondre aux mêmes questions et relire des contrats.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "summarization"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "hr",
+      "finance",
+      "customer-service",
+      "operations"
+    ],
+    "tools": [
+      "Claude",
+      "benefits assistant"
+    ],
+    "business_impact": [
+      "support salarié",
+      "coût documentaire",
+      "revue contractuelle"
+    ],
+    "value_type": [
+      "productivity",
+      "cost",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "Les équipes RH récupèrent un mois de productivité par an selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Le coût de traitement des documents baisse de 60 %.",
+        "observed": true
+      },
+      {
+        "text": "Les revues de contrats passent de jours à minutes selon la source.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Coût de traitement documentaire",
+        "value": "60",
+        "unit": "% de baisse"
+      },
+      {
+        "name": "Productivité RH récupérée",
+        "value": "1",
+        "unit": "mois par an"
+      }
+    ],
+    "risks": [
+      "données d’avantages sociaux",
+      "interprétation contractuelle",
+      "confidentialité salarié"
+    ],
+    "sources": [
+      {
+        "id": "source-newfront-insurance-platform",
+        "source_type": "public-source",
+        "title": "Newfront modernizes insurance experiences with Claude",
+        "publisher": "Anthropic",
+        "reference": "https://www.anthropic.com/customers/newfront",
+        "url": "https://www.anthropic.com/customers/newfront",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.anthropic.com/customers/newfront",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source calls Newfront a unicorn insurance platform but provides no controlled employee-size category; size remains unknown."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le modèle ne remplace pas le courtier : il retire le travail de copie et laisse l’expertise sur les cas complexes."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Newfront/Anthropic case study.",
+        "source_ref": "https://www.anthropic.com/customers/newfront"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-nsure-insurance-copilot",
+    "slug": "nsure-insurance-copilot",
+    "title": "Nsure.com — Accélérer le traitement des demandes d’assurance",
+    "short_description": "Nsure.com utilise l’IA pour prétraiter les demandes, soutenir les interactions clients et automatiser une partie des opérations d’assurance.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les demandes d’assurance nécessitent des contrôles manuels et des relances lorsque des informations manquent pour calculer un devis.",
+    "ai_pattern": [
+      "extraction",
+      "classification",
+      "orchestration"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "sales",
+      "customer-service",
+      "operations"
+    ],
+    "tools": [
+      "Power Automate",
+      "Copilot Studio",
+      "Microsoft Fabric"
+    ],
+    "business_impact": [
+      "traitement",
+      "coût",
+      "service client"
+    ],
+    "value_type": [
+      "speed",
+      "cost",
+      "productivity"
+    ],
+    "results": [
+      {
+        "text": "Le temps de traitement manuel baisse de 60 % et les coûts associés de 50 % selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Le copilot répond à environ 60 % des questions clients dans sa version décrite.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps de traitement manuel",
+        "value": "60",
+        "unit": "% de baisse"
+      },
+      {
+        "name": "Coûts associés",
+        "value": "50",
+        "unit": "% de baisse"
+      }
+    ],
+    "risks": [
+      "données de souscription",
+      "information manquante",
+      "réponse client à vérifier"
+    ],
+    "sources": [
+      {
+        "id": "source-nsure-insurance-copilot",
+        "source_type": "public-source",
+        "title": "Digital insurance agency, Nsure.com, reduces manual processing time by 60% using generative AI and Power Automate",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/1728829430186194098-nsure-power-platform-insurance-usa",
+        "url": "https://www.microsoft.com/en/customers/story/1728829430186194098-nsure-power-platform-insurance-usa",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/1728829430186194098-nsure-power-platform-insurance-usa",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Insurance context and metrics are explicit. Company size remains unknown because the source does not provide a controlled organization-size field."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "Une demande incomplète est déjà un workflow : l’IA peut repérer le manque avant de demander à un humain de reprendre le dossier."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Nsure/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/1728829430186194098-nsure-power-platform-insurance-usa"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-oscar-health-insurance-ai",
+    "slug": "oscar-health-insurance-ai",
+    "title": "Oscar — Réduire le travail documentaire autour des claims",
+    "short_description": "Oscar applique l’IA à la documentation clinique, à la lecture de résultats et à l’assistance au traitement des dossiers d’assurance santé.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les dossiers d’assurance santé mêlent conversations, résultats et variables contractuelles difficiles à synthétiser manuellement.",
+    "ai_pattern": [
+      "summarization",
+      "retrieval",
+      "extraction"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "finance",
+      "operations",
+      "customer-service",
+      "it-data"
+    ],
+    "tools": [
+      "OpenAI API",
+      "GPT-4"
+    ],
+    "business_impact": [
+      "documentation",
+      "coût",
+      "temps clinique"
+    ],
+    "value_type": [
+      "productivity",
+      "speed",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "Le temps de documentation et de revue de résultats baisse de près de 40 % selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Oscar a signé un BAA avec OpenAI pour soutenir un usage conforme HIPAA.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps de documentation et de revue",
+        "value": "40",
+        "unit": "% de baisse"
+      }
+    ],
+    "risks": [
+      "données de santé",
+      "conformité HIPAA",
+      "décision de prise en charge"
+    ],
+    "sources": [
+      {
+        "id": "source-oscar-health-insurance-ai",
+        "source_type": "public-source",
+        "title": "Reducing health insurance costs and improving care",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/oscar/",
+        "url": "https://openai.com/index/oscar/",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/oscar/",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source describes a healthcare technology company and insurance workflows. No organization-size category is inferred."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Dans l’assurance santé, la conformité et la traçabilité ne sont pas des annexes : elles déterminent le workflow."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Oscar/OpenAI case study.",
+        "source_ref": "https://openai.com/index/oscar/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-premera-contract-agent",
+    "slug": "premera-contract-agent",
+    "title": "Premera Blue Cross — Faire passer la revue de contrat de minutes à trois",
+    "short_description": "Premera Blue Cross combine Copilot, Copilot Studio, formation et gouvernance pour accélérer la revue de contrats et les réponses internes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Des équipes de santé passent trop de temps à lire, comparer et clarifier des documents contractuels et opérationnels.",
+    "ai_pattern": [
+      "comparison",
+      "summarization",
+      "retrieval"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "finance",
+      "operations",
+      "it-data"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Copilot Studio",
+      "SharePoint"
+    ],
+    "business_impact": [
+      "revue contractuelle",
+      "temps",
+      "adoption"
+    ],
+    "value_type": [
+      "speed",
+      "productivity",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "Un workflow de contrat passe de 30–45 minutes à environ trois minutes selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Un comité Data, AI and Ethics gouverne l’expansion des agents.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Revue contractuelle",
+        "value": "3 vs 30-45",
+        "unit": "minutes"
+      }
+    ],
+    "risks": [
+      "interprétation contractuelle",
+      "gouvernance",
+      "données de santé et adhérents"
+    ],
+    "sources": [
+      {
+        "id": "source-premera-contract-agent",
+        "source_type": "public-source",
+        "title": "Premera Blue Cross makes AI mainstream with Copilot and Copilot Studio",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/26405-premera-blue-cross-microsoft-365",
+        "url": "https://www.microsoft.com/en/customers/story/26405-premera-blue-cross-microsoft-365",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/26405-premera-blue-cross-microsoft-365",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source explicitly describes a health plan, contract workflow and governance committee. Company size remains unknown."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "La gouvernance accélère quand elle aide à construire le workflow plutôt qu’à seulement l’autoriser après coup."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Premera/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/26405-premera-blue-cross-microsoft-365"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-aia-insurance-customer-service",
+    "slug": "aia-insurance-customer-service",
+    "title": "AIA — Résumer les dossiers pour libérer le service client",
+    "short_description": "AIA utilise Copilot pour résumer les conversations et les dossiers afin que les conseillers puissent se concentrer sur la relation.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les représentants doivent rechercher des informations dispersées dans des e-mails et des notes avant de pouvoir traiter un dossier client.",
+    "ai_pattern": [
+      "summarization",
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "group"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "customer-service",
+      "operations"
+    ],
+    "tools": [
+      "Dynamics 365 Customer Service",
+      "Copilot"
+    ],
+    "business_impact": [
+      "service client",
+      "temps",
+      "relation"
+    ],
+    "value_type": [
+      "speed",
+      "quality",
+      "productivity"
+    ],
+    "results": [
+      {
+        "text": "Les représentants peuvent traiter plus de dossiers en moins de temps grâce aux synthèses et aux brouillons automatisés.",
+        "observed": true
+      },
+      {
+        "text": "AIA sert plus de 42 millions de polices individuelles dans 18 marchés selon la source.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Polices individuelles servies",
+        "value": "42M+",
+        "unit": "polices"
+      },
+      {
+        "name": "Marchés",
+        "value": "18",
+        "unit": "marchés"
+      }
+    ],
+    "risks": [
+      "données de santé et assurance",
+      "résumé incomplet",
+      "relation client à préserver"
+    ],
+    "sources": [
+      {
+        "id": "source-aia-insurance-customer-service",
+        "source_type": "public-source",
+        "title": "AIA transforms customer service with Copilot in Dynamics 365 Customer Service",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/21062-aia-group-dynamics-365-customer-service",
+        "url": "https://www.microsoft.com/en/customers/story/21062-aia-group-dynamics-365-customer-service",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/21062-aia-group-dynamics-365-customer-service",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "AIA is a publicly listed pan-Asian insurance group; group is used as the controlled size category. No time saving figure is invented."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Un bon résumé de dossier n’enlève pas la relation : il enlève la chasse au contexte."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public AIA/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/21062-aia-group-dynamics-365-customer-service"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-amaise-medical-claims",
+    "slug": "amaise-medical-claims",
+    "title": "amaise — Accélérer l’analyse des sinistres médicaux",
+    "short_description": "L’insurtech amaise utilise l’IA pour analyser des données médicales non structurées et assister les spécialistes des sinistres.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les dossiers médicaux non structurés ralentissent l’évaluation des sinistres et mobilisent des spécialistes sur la lecture documentaire.",
+    "ai_pattern": [
+      "extraction",
+      "classification",
+      "summarization"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "tpe"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "finance",
+      "operations",
+      "it-data"
+    ],
+    "tools": [
+      "Azure OpenAI Service",
+      "Azure AI"
+    ],
+    "business_impact": [
+      "délai",
+      "précision",
+      "coût"
+    ],
+    "value_type": [
+      "speed",
+      "quality",
+      "cost"
+    ],
+    "results": [
+      {
+        "text": "Les dossiers peuvent être traités jusqu’à 80 % plus vite selon la source.",
+        "observed": true
+      },
+      {
+        "text": "La source rapporte jusqu’à quatre fois plus de précision et jusqu’à 11 % d’optimisation des résultats de paiement.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Vitesse de traitement",
+        "value": "80",
+        "unit": "% plus rapide"
+      },
+      {
+        "name": "Précision",
+        "value": "4",
+        "unit": "fois"
+      },
+      {
+        "name": "Optimisation des paiements",
+        "value": "11",
+        "unit": "% maximum"
+      }
+    ],
+    "risks": [
+      "données médicales",
+      "décision de sinistre",
+      "biais de modèle"
+    ],
+    "sources": [
+      {
+        "id": "source-amaise-medical-claims",
+        "source_type": "public-source",
+        "title": "amaise is revolutionizing medical insurance claims management with Microsoft Azure",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/21393-legal-i-azure-open-ai-service",
+        "url": "https://www.microsoft.com/en/customers/story/21393-legal-i-azure-open-ai-service",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/21393-legal-i-azure-open-ai-service",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source explicitly calls amaise a Swiss insurtech startup; this is normalized to TPE. Results remain reported by the source."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le workflow doit garder le spécialiste dans la boucle quand l’IA intervient sur une décision sensible."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public amaise/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/21393-legal-i-azure-open-ai-service"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-sno-hotels-concierge",
+    "slug": "sno-hotels-concierge",
+    "title": "SNÖ Hotels — Automatiser le check-in et le concierge",
+    "short_description": "SNÖ Hotels relie un agent Copilot aux systèmes hôteliers pour permettre le check-in à distance et répondre aux demandes des clients.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Des hôtels indépendants doivent gérer des systèmes dispersés, des demandes de conciergerie et des opérations de réception avec des équipes limitées.",
+    "ai_pattern": [
+      "orchestration",
+      "retrieval",
+      "recommendation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "bounded-autonomous",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "hospitality",
+    "business_function": [
+      "customer-service",
+      "operations",
+      "sales"
+    ],
+    "tools": [
+      "Copilot Studio",
+      "Business Central",
+      "Power Apps",
+      "MCP server"
+    ],
+    "business_impact": [
+      "check-in",
+      "upsell",
+      "coût administratif"
+    ],
+    "value_type": [
+      "speed",
+      "revenue",
+      "productivity"
+    ],
+    "results": [
+      {
+        "text": "Le temps de check-in baisse de plus de 30 % selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Les revenus d’upsell augmentent de 10 % pendant la réservation.",
+        "observed": true
+      },
+      {
+        "text": "Les coûts administratifs baissent de 20 % et les ruptures de stock de 25 % avec le système global.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps de check-in",
+        "value": "30+",
+        "unit": "% de baisse"
+      },
+      {
+        "name": "Upsell",
+        "value": "10",
+        "unit": "% de hausse"
+      }
+    ],
+    "risks": [
+      "réservation et check-in",
+      "données voyageurs",
+      "intégrations PMS et paiement"
+    ],
+    "sources": [
+      {
+        "id": "source-sno-hotels-concierge",
+        "source_type": "public-source",
+        "title": "SNÖ Hotels reduces check-in times and administrative costs using Microsoft 365 Business Central and Copilot Studio",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/25861-sno-hotels-dynamics-365-business-central",
+        "url": "https://www.microsoft.com/en/customers/story/25861-sno-hotels-dynamics-365-business-central",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/25861-sno-hotels-dynamics-365-business-central",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source reports 50-999 employees, which is retained as unknown because the v1 taxonomy has no direct 50-999 bucket and no company-specific classification was supplied."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "L’agent hôtelier devient robuste quand il orchestre PMS, inventaire, check-in et connaissance locale dans un même passage."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public SNÖ Hotels/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/25861-sno-hotels-dynamics-365-business-central"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-booking-travel-planner",
+    "slug": "booking-travel-planner",
+    "title": "Booking.com — Passer de la recherche au voyage conversationnel",
+    "short_description": "Booking.com combine les modèles OpenAI avec ses données de prix, disponibilité et hébergement pour planifier des voyages en conversation.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les voyageurs doivent assembler destinations, dates, avis et disponibilités à travers plusieurs interfaces avant de pouvoir réserver.",
+    "ai_pattern": [
+      "recommendation",
+      "retrieval",
+      "summarization"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "hospitality",
+    "business_function": [
+      "marketing",
+      "sales",
+      "customer-service",
+      "it-data"
+    ],
+    "tools": [
+      "OpenAI models",
+      "GPT-4o mini",
+      "AI Trip Planner"
+    ],
+    "business_impact": [
+      "découverte",
+      "engagement",
+      "confiance de réservation"
+    ],
+    "value_type": [
+      "revenue",
+      "quality",
+      "speed"
+    ],
+    "results": [
+      {
+        "text": "Le premier prototype de planification de voyage a été lancé en dix semaines.",
+        "observed": true
+      },
+      {
+        "text": "La source rapporte plus d’engagement, une recherche plus rapide et moins de contacts support sur plusieurs fonctions IA.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Délai du premier prototype",
+        "value": "10",
+        "unit": "semaines"
+      }
+    ],
+    "risks": [
+      "prix et disponibilité obsolètes",
+      "recommandation de voyage",
+      "données partenaires"
+    ],
+    "limitations": [
+      "La source indique que certaines mesures long terme sont encore en collecte."
+    ],
+    "sources": [
+      {
+        "id": "source-booking-travel-planner",
+        "source_type": "public-source",
+        "title": "Booking.com and OpenAI personalize travel at scale",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/booking-com/",
+        "url": "https://openai.com/index/booking-com/",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/booking-com/",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Booking.com is described as one of the world’s largest travel marketplaces; enterprise is a scale normalization from the explicit global context. No additional conversion result is inferred."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "La conversation ne remplace pas les données métier : elle devient utile quand elle les ramène dans la réponse."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Booking.com/OpenAI case study.",
+        "source_ref": "https://openai.com/index/booking-com/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-capitaland-ascott-cubby",
+    "slug": "capitaland-ascott-cubby",
+    "title": "CapitaLand Investment — Donner un concierge IA aux hôtels",
+    "short_description": "CapitaLand Investment utilise Azure OpenAI pour Cubby, un chatbot de voyage pour les clients d’Ascott, et pour ses fonctions internes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Un groupe hôtelier doit répondre aux voyageurs tout en donnant à ses équipes une base de données et de rédaction commune.",
+    "ai_pattern": [
+      "retrieval",
+      "recommendation",
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "hospitality",
+    "business_function": [
+      "customer-service",
+      "marketing",
+      "finance",
+      "it-data"
+    ],
+    "tools": [
+      "Azure OpenAI Service",
+      "Cubby",
+      "Bing search"
+    ],
+    "business_impact": [
+      "expérience client",
+      "temps",
+      "décision"
+    ],
+    "value_type": [
+      "knowledge",
+      "productivity",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "La plateforme data centralisée a permis plus de 10 000 jours-homme économisés par an selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Cubby répond aux questions et aide à planifier des itinéraires pour les clients d’Ascott.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps économisé",
+        "value": "10000+",
+        "unit": "jours-homme par an"
+      }
+    ],
+    "risks": [
+      "données de réservation",
+      "réponse locale erronée",
+      "accès aux données internes"
+    ],
+    "sources": [
+      {
+        "id": "source-capitaland-ascott-cubby",
+        "source_type": "public-source",
+        "title": "CapitaLand Investment enhances operations with data-driven AI models built using Azure OpenAI Service",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/1750108992835776308-capitaland-azure-other-en-singapore",
+        "url": "https://www.microsoft.com/en/customers/story/1750108992835776308-capitaland-azure-other-en-singapore",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/1750108992835776308-capitaland-azure-other-en-singapore",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source describes a global real-asset manager and Ascott’s hospitality business; the record focuses on the hospitality workflow and retains the internal productivity result."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le même socle de connaissance peut servir le client, le marketing et les fonctions internes sans devenir une fiche fourre-tout si le workflow reste explicite."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public CapitaLand/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/1750108992835776308-capitaland-azure-other-en-singapore"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-hyatt-enterprise-ai",
+    "slug": "hyatt-enterprise-ai",
+    "title": "Hyatt — Donner une base IA commune aux équipes hôtelières",
+    "short_description": "Hyatt rend ChatGPT Enterprise disponible à ses équipes corporate et hôtelières pour réduire les tâches manuelles et améliorer l’expérience client.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les équipes corporate et terrain doivent coordonner des tâches manuelles tout en gardant le temps disponible pour l’expérience des clients.",
+    "ai_pattern": [
+      "generation",
+      "summarization",
+      "retrieval"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "group"
+    ],
+    "industry": "hospitality",
+    "business_function": [
+      "finance",
+      "marketing",
+      "operations",
+      "customer-service"
+    ],
+    "tools": [
+      "ChatGPT Enterprise"
+    ],
+    "business_impact": [
+      "productivité",
+      "expérience client",
+      "adoption"
+    ],
+    "value_type": [
+      "productivity",
+      "quality",
+      "knowledge"
+    ],
+    "results": [
+      {
+        "text": "Hyatt a déployé ChatGPT Enterprise auprès de ses équipes corporate et hôtelières.",
+        "observed": true
+      },
+      {
+        "text": "Les équipes finance, marketing et opérations l’utilisent pour améliorer l’expérience des clients selon la source.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "données voyageurs",
+      "qualité de marque",
+      "usages hétérogènes"
+    ],
+    "limitations": [
+      "La source ne publie pas encore de résultat chiffré de workflow."
+    ],
+    "sources": [
+      {
+        "id": "source-hyatt-enterprise-ai",
+        "source_type": "public-source",
+        "title": "OpenAI helps Hyatt advance AI among colleagues",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/hyatt-advances-ai-with-chatgpt-enterprise",
+        "url": "https://openai.com/index/hyatt-advances-ai-with-chatgpt-enterprise",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/hyatt-advances-ai-with-chatgpt-enterprise",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Hyatt’s global hotel group context is explicit; group is the controlled size category. No performance metric is invented."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Dans l’hospitality, la première couche IA peut être une capacité partagée avant de devenir une collection d’agents métier."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Hyatt/OpenAI case study.",
+        "source_ref": "https://openai.com/index/hyatt-advances-ai-with-chatgpt-enterprise"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-virgin-atlantic-customer-journey",
+    "slug": "virgin-atlantic-customer-journey",
+    "title": "Virgin Atlantic — Relier les signaux du parcours client",
+    "short_description": "Virgin Atlantic utilise ChatGPT Work pour rassembler recherche, planification produit et analytics autour du parcours aérien.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les signaux du parcours client sont répartis entre réservation, vol, expérience à bord et retours, ce qui ralentit les décisions produit.",
+    "ai_pattern": [
+      "retrieval",
+      "summarization",
+      "comparison"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "marketing",
+      "product",
+      "customer-service",
+      "it-data"
+    ],
+    "tools": [
+      "ChatGPT Work"
+    ],
+    "business_impact": [
+      "recherche",
+      "planification produit",
+      "décision"
+    ],
+    "value_type": [
+      "knowledge",
+      "speed",
+      "decision"
+    ],
+    "results": [
+      {
+        "text": "La source décrit un passage de plusieurs semaines de recherche à quelques heures.",
+        "observed": true
+      },
+      {
+        "text": "ChatGPT Work donne aux équipes une vue connectée du parcours client.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Recherche et synthèse",
+        "value": "semaines → heures",
+        "unit": "délai"
+      }
+    ],
+    "risks": [
+      "données clients dispersées",
+      "interprétation des feedbacks",
+      "confidentialité"
+    ],
+    "sources": [
+      {
+        "id": "source-virgin-atlantic-customer-journey",
+        "source_type": "public-source",
+        "title": "Virgin Atlantic sharpens customer journeys with ChatGPT Work",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/virgin-atlantic/chatgpt-work/",
+        "url": "https://openai.com/index/virgin-atlantic/chatgpt-work/",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/virgin-atlantic/chatgpt-work/",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Company size, travel industry and use of connected journey signals are explicit in the source."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le sujet n’est pas seulement de résumer les feedbacks : c’est de remettre le parcours dans la conversation de décision."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Virgin Atlantic/OpenAI case study.",
+        "source_ref": "https://openai.com/index/virgin-atlantic/chatgpt-work/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-omio-conversational-travel",
+    "slug": "omio-conversational-travel",
+    "title": "Omio — Construire des trajets réservables par conversation",
+    "short_description": "Omio combine données de transport et IA conversationnelle pour aider les voyageurs à découvrir et construire des itinéraires.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Planifier un trajet multimodal implique de comparer plusieurs opérateurs, horaires et contraintes dans des interfaces séparées.",
+    "ai_pattern": [
+      "recommendation",
+      "orchestration",
+      "retrieval"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "sales",
+      "customer-service",
+      "product",
+      "it-data"
+    ],
+    "tools": [
+      "OpenAI API",
+      "ChatGPT",
+      "Codex"
+    ],
+    "business_impact": [
+      "découverte",
+      "réservation",
+      "développement produit"
+    ],
+    "value_type": [
+      "revenue",
+      "speed",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "L’expérience connecte plus de 3 000 transporteurs dans 47 pays selon la source.",
+        "observed": true
+      },
+      {
+        "text": "La source rapporte qu’un effort de développement peut passer de trois mois à un mois.",
+        "observed": true
+      },
+      {
+        "text": "Omio est présenté comme une entreprise mid-market, normalisée en ETI.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Transporteurs connectés",
+        "value": "3000+",
+        "unit": "transporteurs"
+      },
+      {
+        "name": "Pays couverts",
+        "value": "47",
+        "unit": "pays"
+      },
+      {
+        "name": "Développement",
+        "value": "3 mois → 1 mois",
+        "unit": "cycle"
+      }
+    ],
+    "risks": [
+      "disponibilité et prix temps réel",
+      "itinéraire incorrect",
+      "données de partenaires"
+    ],
+    "sources": [
+      {
+        "id": "source-omio-conversational-travel",
+        "source_type": "public-source",
+        "title": "How Omio is building the future of conversational travel",
+        "publisher": "OpenAI",
+        "reference": "https://openai.com/index/omio/",
+        "url": "https://openai.com/index/omio/",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://openai.com/index/omio/",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Company size mid-market is normalized to ETI. Transport/logistics is the controlled category closest to a multimodal travel platform."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "La conversation ne devient réservable que si le système sait revenir à des données de disponibilité et de prix."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Omio/OpenAI case study.",
+        "source_ref": "https://openai.com/index/omio/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-air-india-operational-copilot",
+    "slug": "air-india-operational-copilot",
+    "title": "Air India — Rendre les données opérationnelles racontables",
+    "short_description": "Air India utilise Copilot dans Teams pour interpréter les données de ponctualité, les difficultés opérationnelles et les décisions d’équipe.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les données de vol et d’opération sont difficiles à transformer en décisions partagées sans dépendre de quelques experts capables de les interpréter.",
+    "ai_pattern": [
+      "summarization",
+      "retrieval",
+      "recommendation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "business_function": [
+      "operations",
+      "customer-service",
+      "finance",
+      "hr",
+      "it-data"
+    ],
+    "tools": [
+      "Microsoft Copilot",
+      "Microsoft Teams"
+    ],
+    "business_impact": [
+      "décision",
+      "ponctualité",
+      "accès à la donnée"
+    ],
+    "value_type": [
+      "decision",
+      "knowledge",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "Le copilote met en conversation les données de ponctualité et les difficultés opérationnelles dans Teams.",
+        "observed": true
+      },
+      {
+        "text": "La source décrit un usage transversal en RH, finance, expérience client et ingénierie.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "données de vol",
+      "mauvaise interprétation opérationnelle",
+      "sécurité"
+    ],
+    "sources": [
+      {
+        "id": "source-air-india-operational-copilot",
+        "source_type": "public-source",
+        "title": "Air India harnesses AI for operational excellence with Microsoft Copilot for Microsoft 365",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/1750059518785857549-airindia-microsoft-teams-travel-and-transportation-en-india",
+        "url": "https://www.microsoft.com/en/customers/story/1750059518785857549-airindia-microsoft-teams-travel-and-transportation-en-india",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/1750059518785857549-airindia-microsoft-teams-travel-and-transportation-en-india",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Air India’s 130+ aircraft and airline context are explicit; enterprise is a scale normalization. No operational KPI is invented."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le copilote de données a de la valeur quand il démocratise l’interprétation au lieu de déplacer le dashboard."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Air India/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/1750059518785857549-airindia-microsoft-teams-travel-and-transportation-en-india"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-lotte-hotels-automation",
+    "slug": "lotte-hotels-automation",
+    "title": "Lotte Hotels — Faire des équipes des citizen developers",
+    "short_description": "Lotte Hotels & Resorts utilise Power Platform, chatbots et OCR pour automatiser ses opérations et préparer des services clients connectés.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Une chaîne hôtelière doit faire évoluer ses opérations et son service client sans attendre que chaque automatisation passe par une équipe centrale.",
+    "ai_pattern": [
+      "orchestration",
+      "extraction",
+      "generation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "evidence_level": "documented",
+    "company_size": [
+      "group"
+    ],
+    "industry": "hospitality",
+    "business_function": [
+      "operations",
+      "customer-service",
+      "it-data"
+    ],
+    "tools": [
+      "Power Platform",
+      "Azure OpenAI Service",
+      "OCR",
+      "Microsoft Teams"
+    ],
+    "business_impact": [
+      "automatisation",
+      "self-service",
+      "productivité"
+    ],
+    "value_type": [
+      "productivity",
+      "speed",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "Lotte Hotels a mis en place un environnement de travail automatisé et une culture de citizen development.",
+        "observed": true
+      },
+      {
+        "text": "La source décrit une trajectoire vers la connexion du service client, des réservations et des opérations internes.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "qualité des données de réservation",
+      "automatisations locales divergentes",
+      "gouvernance"
+    ],
+    "limitations": [
+      "La source décrit surtout la transformation de l’environnement de travail et ne donne pas un gain chiffré sur un agent unique."
+    ],
+    "sources": [
+      {
+        "id": "source-lotte-hotels-automation",
+        "source_type": "public-source",
+        "title": "Hotelier becomes a citizen developer, building a smart work culture based on Power Platform",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/1804624062321190625-lotte-hotels-and-resorts-azure-ai-studio-travel-and-transportation-en-korea",
+        "url": "https://www.microsoft.com/en/customers/story/1804624062321190625-lotte-hotels-and-resorts-azure-ai-studio-travel-and-transportation-en-korea",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/1804624062321190625-lotte-hotels-and-resorts-azure-ai-studio-travel-and-transportation-en-korea",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source describes Lotte as the largest hotel and resort company in Korea; group is used as the controlled size category."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "L’automatisation tient mieux quand les équipes métier peuvent la construire, mais la plateforme doit rester gouvernée."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Lotte Hotels/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/1804624062321190625-lotte-hotels-and-resorts-azure-ai-studio-travel-and-transportation-en-korea"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-talan-recruitment-copilot",
+    "slug": "talan-recruitment-copilot",
+    "title": "Talan — Outiller les recruteurs avec un copilote",
+    "short_description": "Talan adapte Copilot aux équipes RH, recrutement, marketing et conseil, avec des usages de rédaction, recherche et synthèse de réunions.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les recruteurs et consultants passent du temps à rédiger, chercher et prendre des notes au lieu de se concentrer sur les échanges.",
+    "ai_pattern": [
+      "generation",
+      "summarization",
+      "retrieval"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "services-b2b",
+    "business_function": [
+      "hr",
+      "marketing",
+      "sales",
+      "it-data"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Teams",
+      "Microsoft Purview"
+    ],
+    "business_impact": [
+      "recrutement",
+      "réponse",
+      "productivité"
+    ],
+    "value_type": [
+      "productivity",
+      "speed",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "Les recruteurs rapportent 10 à 20 % de réponses supplémentaires sur les messages LinkedIn ciblés.",
+        "observed": true
+      },
+      {
+        "text": "Plus de 50 quick wins ont été identifiés dans l’organisation.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Réponses de recrutement",
+        "value": "10-20",
+        "unit": "% de hausse"
+      },
+      {
+        "name": "Quick wins identifiés",
+        "value": "50+",
+        "unit": "usages"
+      }
+    ],
+    "risks": [
+      "données de candidats",
+      "RGPD",
+      "qualité des messages",
+      "enregistrement des entretiens"
+    ],
+    "sources": [
+      {
+        "id": "source-talan-recruitment-copilot",
+        "source_type": "public-source",
+        "title": "Talan drives value by integrating Microsoft 365 Copilot into daily work",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/24169-talan-microsoft-365-copilot",
+        "url": "https://www.microsoft.com/en/customers/story/24169-talan-microsoft-365-copilot",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/24169-talan-microsoft-365-copilot",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source names HR, recruitment, sales, marketing and consulting use cases. Company size is left unknown because the story does not provide a v1 category."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le recrutement est un bon test de la frontière entre gain de vitesse et responsabilité humaine."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Talan/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/24169-talan-microsoft-365-copilot"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-presidio-copilot-operations",
+    "slug": "presidio-copilot-operations",
+    "title": "Presidio — Industrialiser le copilote dans les services IT",
+    "short_description": "Presidio déploie Copilot dans les équipes commerciales, ingénierie et IT, puis construit des copilotes pour les tickets et les notes de frais.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Un prestataire de services numériques veut gagner du temps en interne tout en développant une offre crédible pour ses propres clients.",
+    "ai_pattern": [
+      "generation",
+      "summarization",
+      "orchestration"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "services-b2b",
+    "business_function": [
+      "sales",
+      "operations",
+      "it-data",
+      "general-management"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Copilot Studio",
+      "Azure OpenAI Service"
+    ],
+    "business_impact": [
+      "temps",
+      "support",
+      "développement commercial"
+    ],
+    "value_type": [
+      "productivity",
+      "speed",
+      "revenue"
+    ],
+    "results": [
+      {
+        "text": "Les utilisateurs économisent environ 1 200 heures par mois selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Le temps consacré aux demandes de proposition baisse de 90 %.",
+        "observed": true
+      },
+      {
+        "text": "Le déploiement initial couvre 300 employés.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Heures économisées",
+        "value": "1200",
+        "unit": "par mois"
+      },
+      {
+        "name": "Temps de demandes de proposition",
+        "value": "90",
+        "unit": "% de baisse"
+      }
+    ],
+    "risks": [
+      "qualité des réponses commerciales",
+      "données client",
+      "réutilisation de contenus techniques"
+    ],
+    "sources": [
+      {
+        "id": "source-presidio-copilot-operations",
+        "source_type": "public-source",
+        "title": "Presidio’s adoption of Copilot streamlines operations, saving employees about 1,200 hours per month",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/19401-presidio-network-solutions-microsoft-365-copilot",
+        "url": "https://www.microsoft.com/en/customers/story/19401-presidio-network-solutions-microsoft-365-copilot",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/19401-presidio-network-solutions-microsoft-365-copilot",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Organization size 1,000-9,999 is normalized to ETI. The source explicitly names sales, engineering, IT and project management functions."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "Un prestataire gagne en crédibilité quand il vit d’abord lui-même le workflow qu’il vend ensuite."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Presidio/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/19401-presidio-network-solutions-microsoft-365-copilot"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-capita-agentic-service",
+    "slug": "capita-agentic-service",
+    "title": "Capita — Passer du copilote à l’agent de service",
+    "short_description": "Capita déploie Copilot et des agents pour accélérer ses processus internes et améliorer les services opérés pour ses clients.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Une entreprise de services B2B doit traiter des processus complexes plus vite tout en maintenant la qualité, la conformité et la capacité de livraison.",
+    "ai_pattern": [
+      "orchestration",
+      "generation",
+      "prediction"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "services-b2b",
+    "business_function": [
+      "operations",
+      "customer-service",
+      "sales",
+      "it-data"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Copilot Studio",
+      "agentic AI"
+    ],
+    "business_impact": [
+      "délai",
+      "coût",
+      "service client"
+    ],
+    "value_type": [
+      "productivity",
+      "speed",
+      "cost"
+    ],
+    "results": [
+      {
+        "text": "Capita rapporte 340 000 actions Copilot par mois et 19 000 heures économisées.",
+        "observed": true
+      },
+      {
+        "text": "Les temps de réponse e-mail baissent de 60 % selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Des agents optimisent les routes de livraison dans des services de flotte.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Actions Copilot",
+        "value": "340000",
+        "unit": "par mois"
+      },
+      {
+        "name": "Heures économisées",
+        "value": "19000",
+        "unit": "par mois"
+      },
+      {
+        "name": "Réponse e-mail",
+        "value": "60",
+        "unit": "% de baisse"
+      }
+    ],
+    "risks": [
+      "décisions de routage",
+      "qualité de service",
+      "processus client sensibles"
+    ],
+    "sources": [
+      {
+        "id": "source-capita-agentic-service",
+        "source_type": "public-source",
+        "title": "Capita uses Microsoft Copilot to transform service delivery for clients",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/25164-capita-microsoft-copilot-studio",
+        "url": "https://www.microsoft.com/en/customers/story/25164-capita-microsoft-copilot-studio",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/25164-capita-microsoft-copilot-studio",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source reports 34,000 employees and a BPO/services context; enterprise is a direct scale normalization."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "L’agent arrive après l’apprentissage du copilote, quand le service sait déjà mesurer ses délais et exceptions."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Capita/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/25164-capita-microsoft-copilot-studio"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-stratagem-retail-operations",
+    "slug": "stratagem-retail-operations",
+    "title": "Stratagem — Mettre les opérations retail en conversation",
+    "short_description": "Stratagem utilise Gemini Enterprise pour réduire la friction de ses missions de supply chain, d’entrepôt et de livraison retail.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Une société de conseil en transformation retail doit analyser des opérations complexes et servir plus de clients sans gonfler les équipes.",
+    "ai_pattern": [
+      "retrieval",
+      "recommendation",
+      "orchestration"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "services-b2b",
+    "business_function": [
+      "operations",
+      "supply",
+      "customer-service",
+      "it-data"
+    ],
+    "tools": [
+      "Gemini Enterprise",
+      "Google Cloud"
+    ],
+    "business_impact": [
+      "déflection",
+      "coût",
+      "échelle"
+    ],
+    "value_type": [
+      "productivity",
+      "cost",
+      "speed"
+    ],
+    "results": [
+      {
+        "text": "Les clients retail clés voient une hausse de 30 % de la déflection d’appels selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Stratagem sert davantage de clients sans augmenter les effectifs.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Déflection d’appels",
+        "value": "30",
+        "unit": "% de hausse"
+      }
+    ],
+    "risks": [
+      "connaissance opérationnelle fragmentée",
+      "recommandation de supply chain",
+      "qualité des réponses"
+    ],
+    "sources": [
+      {
+        "id": "source-stratagem-retail-operations",
+        "source_type": "public-source",
+        "title": "Stratagem streamlines complex retail life cycles with Gemini Enterprise",
+        "publisher": "Google Cloud",
+        "reference": "https://cloud.google.com/customers/stratagem",
+        "url": "https://cloud.google.com/customers/stratagem",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://cloud.google.com/customers/stratagem",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "The source presents Stratagem as a specialized consulting firm serving enterprise retail organizations; company size remains unknown."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Dans les services B2B, l’IA doit absorber la complexité du client sans devenir une nouvelle couche de reporting."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Stratagem/Google Cloud case study.",
+        "source_ref": "https://cloud.google.com/customers/stratagem"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-wsp-aec-copilot",
+    "slug": "wsp-aec-copilot",
+    "title": "WSP — Donner du temps aux ingénieurs et scientifiques",
+    "short_description": "WSP étend Microsoft 365 Copilot à des dizaines de milliers de professionnels de l’AEC et teste des cycles de validation plus rapides.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les équipes d’architecture, ingénierie et construction doivent gagner en vitesse sans diluer le jugement technique ni la responsabilité publique.",
+    "ai_pattern": [
+      "summarization",
+      "comparison",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "construction",
+    "business_function": [
+      "operations",
+      "it-data",
+      "general-management"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Copilot Studio"
+    ],
+    "business_impact": [
+      "productivité",
+      "validation projet",
+      "innovation"
+    ],
+    "value_type": [
+      "productivity",
+      "speed",
+      "quality"
+    ],
+    "results": [
+      {
+        "text": "WSP compte 75 000 professionnels et étend Copilot à des dizaines de milliers d’ingénieurs et scientifiques.",
+        "observed": true
+      },
+      {
+        "text": "Les utilisateurs rapportent une productivité supérieure et un potentiel d’accélération des validations de projet.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Effectif",
+        "value": "75000",
+        "unit": "professionnels"
+      }
+    ],
+    "risks": [
+      "jugement d’ingénierie",
+      "données projet",
+      "validation réglementaire"
+    ],
+    "limitations": [
+      "Le potentiel d’accélération de validation est présenté comme issu d’un pilote et non comme un résultat généralisé."
+    ],
+    "sources": [
+      {
+        "id": "source-wsp-aec-copilot",
+        "source_type": "public-source",
+        "title": "WSP empowers engineers and scientists with Microsoft 365 Copilot",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/26012-wsp-microsoft-365-copilot",
+        "url": "https://www.microsoft.com/en/customers/story/26012-wsp-microsoft-365-copilot",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/26012-wsp-microsoft-365-copilot",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Employee count, AEC context and pilot qualification are explicit. Construction is the closest controlled industry."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "L’augmentation n’est crédible dans l’AEC que si le jugement et la validation restent visibles."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public WSP/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/26012-wsp-microsoft-365-copilot"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-danone-hr-order-to-cash",
+    "slug": "danone-hr-order-to-cash",
+    "title": "Danone — Relier agents RH et order-to-cash",
+    "short_description": "Danone déploie Copilot et des agents autonomes pour l’upskilling, les processus RH et le traitement des commandes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Un groupe mondial veut renforcer les compétences IA et réduire les erreurs dans des opérations RH et order-to-cash très distribuées.",
+    "ai_pattern": [
+      "orchestration",
+      "extraction",
+      "classification"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "other",
+    "business_function": [
+      "hr",
+      "operations",
+      "finance",
+      "supply"
+    ],
+    "tools": [
+      "Microsoft 365 Copilot",
+      "Copilot Studio",
+      "Microsoft Teams"
+    ],
+    "business_impact": [
+      "erreurs",
+      "facturation",
+      "cash flow",
+      "compétences"
+    ],
+    "value_type": [
+      "quality",
+      "speed",
+      "risk",
+      "productivity"
+    ],
+    "results": [
+      {
+        "text": "Des agents pré-remplissent et valident les données RH selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Le traitement des commandes est accéléré et les erreurs manuelles et litiges de facturation diminuent selon la source.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "données salariés",
+      "intégration ERP",
+      "erreur de facturation",
+      "exceptions non traitées"
+    ],
+    "sources": [
+      {
+        "id": "source-danone-hr-order-to-cash",
+        "source_type": "public-source",
+        "title": "Danone: transforming critical business operations at scale with Microsoft AI & Autonomous Agents",
+        "publisher": "Microsoft Customer Stories",
+        "reference": "https://www.microsoft.com/en/customers/story/25506-danone-microsoft-365-copilot",
+        "url": "https://www.microsoft.com/en/customers/story/25506-danone-microsoft-365-copilot",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.microsoft.com/en/customers/story/25506-danone-microsoft-365-copilot",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "Danone’s global scale and named HR/order-to-cash workflows are explicit. Food is mapped to other because no food taxonomy exists in v1."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Le déploiement devient transformationnel quand les agents touchent à la fois le travail quotidien et le système de transaction."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public Danone/Microsoft case study.",
+        "source_ref": "https://www.microsoft.com/en/customers/story/25506-danone-microsoft-365-copilot"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-mediconcen-insurance-claims",
+    "slug": "mediconcen-insurance-claims",
+    "title": "MediConCen — Extraire les données des claims médicaux",
+    "short_description": "MediConCen orchestre des instances Gemini pour extraire les données de dossiers médicaux et accélérer le traitement des claims.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Les assureurs doivent lire des fichiers et des données médicales hétérogènes, alors que l’OCR seul ne comprend ni ne résume suffisamment le contenu.",
+    "ai_pattern": [
+      "extraction",
+      "orchestration",
+      "classification"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "evidence_level": "documented",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "finance",
+      "operations",
+      "it-data"
+    ],
+    "tools": [
+      "Gemini",
+      "Vertex AI",
+      "Cloud Run",
+      "Document AI"
+    ],
+    "business_impact": [
+      "précision",
+      "délai",
+      "straight-through processing"
+    ],
+    "value_type": [
+      "quality",
+      "speed",
+      "cost"
+    ],
+    "results": [
+      {
+        "text": "La plateforme atteint 98 % de précision d’extraction au niveau du champ selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Le temps de traitement passe de jours à heures et le straight-through processing double.",
+        "observed": true
+      },
+      {
+        "text": "Près de 100 instances Gemini sont orchestrées pour décomposer le traitement en tâches.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Précision d’extraction",
+        "value": "98",
+        "unit": "%"
+      },
+      {
+        "name": "Instances Gemini",
+        "value": "100",
+        "unit": "instances environ"
+      },
+      {
+        "name": "Straight-through processing",
+        "value": "100",
+        "unit": "% de hausse"
+      }
+    ],
+    "risks": [
+      "données de santé",
+      "décision de claim",
+      "sécurité des échanges assureur-hôpital"
+    ],
+    "sources": [
+      {
+        "id": "source-mediconcen-insurance-claims",
+        "source_type": "public-source",
+        "title": "MediConCen: Increasing insurance claim processing efficiency and accuracy with Gemini",
+        "publisher": "Google Cloud",
+        "reference": "https://cloud.google.com/customers/mediconcen",
+        "url": "https://cloud.google.com/customers/mediconcen",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://cloud.google.com/customers/mediconcen",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "MediConCen is an insurtech and the source describes insurance claim processing. Company size remains unknown."
+    },
+    "confidence": "high",
+    "lessons_learned": [
+      "L’orchestration multi-agents peut réduire le travail de revue, mais le niveau de précision doit rester explicitement mesuré."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public MediConCen/Google Cloud case study.",
+        "source_ref": "https://cloud.google.com/customers/mediconcen"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-axa-switzerland-data-ai",
+    "slug": "axa-switzerland-data-ai",
+    "title": "AXA Switzerland — Passer de la donnée à l’assurance augmentée",
+    "short_description": "AXA Switzerland réduit les temps de requête et de traitement grâce à une plateforme data, tout en gardant les assistants directs sous supervision humaine.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "problem": "Un assureur historique doit rendre ses données exploitables pour améliorer tarification, gestion des dommages et marketing sans exposer directement le client à des réponses non contrôlées.",
+    "ai_pattern": [
+      "retrieval",
+      "prediction",
+      "monitoring"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "evidence_level": "documented",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "insurance",
+    "business_function": [
+      "finance",
+      "marketing",
+      "operations",
+      "it-data"
+    ],
+    "tools": [
+      "Google Cloud",
+      "data platform"
+    ],
+    "business_impact": [
+      "temps de requête",
+      "pricing",
+      "gestion des dommages"
+    ],
+    "value_type": [
+      "speed",
+      "quality",
+      "decision"
+    ],
+    "results": [
+      {
+        "text": "Les temps de requête et de traitement passent de jours à minutes ou secondes selon la source.",
+        "observed": true
+      },
+      {
+        "text": "Les projets Smart Data sont présentés comme parmi les initiatives les plus rentables de l’histoire d’AXA Switzerland.",
+        "observed": true
+      },
+      {
+        "text": "Les assistants directs sont conçus pour augmenter les employés plutôt que répondre directement aux clients.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps de requête et traitement",
+        "value": "95+",
+        "unit": "% de réduction"
+      }
+    ],
+    "risks": [
+      "données assurantielles",
+      "pricing",
+      "hallucination en interaction client"
+    ],
+    "sources": [
+      {
+        "id": "source-axa-switzerland-data-ai",
+        "source_type": "public-source",
+        "title": "From data migration to AI innovation: AXA Switzerland’s digital transformation journey",
+        "publisher": "Google Cloud",
+        "reference": "https://cloud.google.com/customers/axa-switzerland-ai",
+        "url": "https://cloud.google.com/customers/axa-switzerland-ai",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://cloud.google.com/customers/axa-switzerland-ai",
+      "captured_at": "2026-09-19T00:00:00Z",
+      "captured_by": "case-base-enrichment-batch-02",
+      "transformation_notes": "AXA Switzerland and insurance context are explicit. The record preserves the source’s human-augmentation boundary and does not turn current exploration into a deployed agent."
+    },
+    "confidence": "medium",
+    "lessons_learned": [
+      "Dans un domaine sensible, commencer par assister les équipes peut être une décision d’architecture, pas un manque d’ambition."
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-19T00:00:00Z",
+        "change_type": "created",
+        "summary": "Added from the public AXA Switzerland/Google Cloud case study.",
+        "source_ref": "https://cloud.google.com/customers/axa-switzerland-ai"
+      }
+    ]
   }
 ]

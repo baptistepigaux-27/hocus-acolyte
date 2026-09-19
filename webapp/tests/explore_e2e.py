@@ -15,9 +15,9 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[2]
 WEBAPP = ROOT / "webapp"
 LOCAL_URL = "http://127.0.0.1:4178/"
-TOTAL_CASES = 70
-DOCUMENTED_CASES = 29
-AGENT_CASES = 19
+TOTAL_CASES = 100
+DOCUMENTED_CASES = 59
+AGENT_CASES = 26
 
 
 def wait_for_server(url: str) -> None:
@@ -64,7 +64,7 @@ def run_checks(base_url: str) -> None:
         assert page.locator("#case-empty").is_visible()
         page.locator("#reset-filters").click()
         page.locator("#case-search").fill("support")
-        assert page.locator(".explore-card").count() == 5
+        assert page.locator(".explore-card").count() == 7
         assert any("RIS" in text for text in page.locator(".explore-card").all_inner_texts())
         assert page.locator("#active-filters [data-remove-query]").is_visible()
         page.locator("#active-filters [data-remove-query]").click()
