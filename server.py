@@ -43,7 +43,6 @@ class AcolyteHandler(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
-        self.send_header("X-Robots-Tag", "noindex, nofollow, noarchive")
         self.end_headers()
         self.wfile.write(body)
 
