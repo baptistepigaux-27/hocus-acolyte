@@ -20,9 +20,12 @@
   background: rgba(245, 241, 234, .97);
   color: var(--acolyte-nav-ink);
 }
+/* The home can open full-screen module drawers above its original topbar. */
+.acolyte-global-header.topbar { z-index: 12; }
 .acolyte-global-brand { display: inline-flex; align-items: center; gap: 9px; flex: 0 0 auto; color: inherit; text-decoration: none; font: 800 14px var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); letter-spacing: .12em; }
 .acolyte-global-brand small { margin-left: 10px; color: var(--acolyte-nav-stone); font: 9px var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); letter-spacing: .08em; font-weight: 400; }
-.acolyte-global-brand-mark { display: grid; width: 26px; height: 26px; place-items: center; border-radius: 50%; background: var(--acolyte-nav-ink); color: var(--acolyte-nav-paper); font-size: 15px; letter-spacing: 0; }
+.acolyte-global-brand-mark { display: block; width: 26px; height: 26px; flex: 0 0 26px; object-fit: contain; }
+.acolyte-global-header .brand-mark { display: block; width: 26px; height: 26px; flex: 0 0 26px; border-radius: 0; background: transparent; object-fit: contain; }
 
 .acolyte-global-header .site-nav { display: flex; align-items: center; gap: 4px; min-width: 0; margin-left: auto; }
 .acolyte-global-header .site-nav-group { position: relative; }

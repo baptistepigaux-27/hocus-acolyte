@@ -283,7 +283,7 @@
   refs.appLayout.hidden = isHome;
   refs.body.classList.toggle('home-mode', isHome);
   if (isHome) {
-    document.title = 'Hocus Acolyte — Index';
+    document.title = 'Hocus Acolyte — Home';
     refs.home.focus({ preventScroll: true });
   } else {
     setIndexOpen(state.indexOpen);

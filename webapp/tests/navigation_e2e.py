@@ -58,11 +58,15 @@ def run_checks(base_url: str) -> None:
         for route in ROUTES:
             page.goto(f"{base_url}{route}", wait_until="networkidle")
             assert page.locator(".site-nav").is_visible(), route
+            assert page.locator(".site-nav-home").inner_text().casefold() == "home", route
+            assert page.locator("link[rel='icon'][href*='acolyte-o.png']").count() == 1, route
             assert page.locator(".site-nav-group").count() == 4, route
+            assert page.locator(".acolyte-global-header").count() == 1, route
+            assert page.locator(".acolyte-global-brand").is_visible(), route
             if route:
-                assert page.locator(".acolyte-global-header").is_visible(), route
+                assert page.locator(".acolyte-global-brand-mark").is_visible(), route
             else:
-                assert page.locator(".acolyte-global-header").count() == 0
+                assert page.locator(".brand-mark[src*='acolyte-o.png']").is_visible()
             assert_no_horizontal_overflow(page)
 
         page.locator(".site-nav-group").nth(1).locator("summary").click()

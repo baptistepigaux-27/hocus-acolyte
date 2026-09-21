@@ -45,6 +45,7 @@ test -f webapp/tests/e2e.py
 test -f webapp/tests/data-check.js
 test -f webapp/shared/navigation.js
 test -f webapp/shared/navigation.css
+test -f webapp/shared/acolyte-o.png
 test -f webapp/tests/navigation_e2e.py
 test -f docs/acolyte-pages-tree.md
 

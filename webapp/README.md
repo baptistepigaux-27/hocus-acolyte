@@ -12,7 +12,7 @@ python3 -m http.server 4173 --directory webapp
 
 Puis ouvrir <http://127.0.0.1:4173/>.
 
-La racine <http://127.0.0.1:4173/> sert l’index structuré d’Acolyte : les
+La racine <http://127.0.0.1:4173/> sert la home structurée d’Acolyte : les
 parcours, modules, directions UX, round 2 et Tutorial Boards. Les liens
 profonds avec `journey`, `slide` ou `module` ouvrent directement l’expérience
 correspondante.
@@ -90,7 +90,7 @@ suivant, les touches fléchées et un mode exploration des nœuds sont inclus.
 
 ## Navigation
 
-- Le menu global est harmonisé sur l’index, Explore, les deux rounds UX et Tutorial Boards ; l’arbre des pages servies est documenté dans [`docs/acolyte-pages-tree.md`](../docs/acolyte-pages-tree.md) ;
+- Le menu global est harmonisé sur la home, Explore, les deux rounds UX et Tutorial Boards ; l’arbre des pages servies est documenté dans [`docs/acolyte-pages-tree.md`](../docs/acolyte-pages-tree.md) ;
 - boutons `Avant` / `Après` dans la barre supérieure ;
 - clic sur une slide dans le sommaire ;
 - `←` / `→`, `PageUp` / `PageDown` ou espace ;

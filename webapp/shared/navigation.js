@@ -13,13 +13,13 @@
   const header = document.createElement('header');
   header.className = 'acolyte-global-header';
   header.innerHTML = `
-    <a class="acolyte-global-brand" href="${href()}" aria-label="Hocus Acolyte, retour à l’index">
-      <span class="acolyte-global-brand-mark" aria-hidden="true">✦</span>
+    <a class="acolyte-global-brand" href="${href()}" aria-label="Hocus Acolyte, retour à la home">
+      <img class="acolyte-global-brand-mark" src="${href('shared/acolyte-o.png')}" alt="">
       <span>HOCUS ACOLYTE</span>
       <small>AI OPERATING EXPERIENCES / DRAFT</small>
     </a>
     <nav class="site-nav" aria-label="Navigation principale">
-      <a class="site-nav-home" data-global-section="index" href="${href()}">Index</a>
+      <a class="site-nav-home" data-global-section="index" href="${href()}">Home</a>
       <details class="site-nav-group">
         <summary>Parcourir <span aria-hidden="true">↓</span></summary>
         <div class="site-nav-panel site-nav-panel-journeys">

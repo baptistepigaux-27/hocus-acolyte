@@ -8,7 +8,7 @@ disponibles lorsqu’elles apportent un contrôle spécifique à la page.
 
 ```text
 /acolyte/
-├── Index / home
+├── Home
 │   ├── ?journey=operating-system&slide=N       Parcours Système de travail · 23 slides
 │   ├── ?journey=pme&slide=N                    Parcours PME · 17 slides
 │   ├── ?module=cases&journey=pme&slide=3       Module Real Cases
@@ -50,4 +50,3 @@ Chaque page expose les mêmes catégories :
 - **Explorer** — catalogue EXPLORE, Real Cases, Agent Lab, Memory Map ;
 - **Comparer** — les quatre directions Round 01 et les quatre variantes Round 02 ;
 - **Apprendre** — Tutorial Boards et retours vers les deux rounds UX.
-
