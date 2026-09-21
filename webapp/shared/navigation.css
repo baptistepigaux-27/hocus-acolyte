@@ -54,12 +54,14 @@
 .acolyte-global-header .site-nav-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; min-width: 0; }
 .acolyte-global-header .site-nav-subgroup { display: grid; align-content: start; gap: 3px; min-width: 0; }
 .acolyte-global-header .site-nav-subgroup h3 { margin: 2px 0 9px; padding-bottom: 9px; border-bottom: 1px solid var(--acolyte-nav-line); color: var(--acolyte-nav-terra); font: 8px var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); letter-spacing: .07em; text-transform: uppercase; }
-.acolyte-global-header .site-nav-compact-link { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 3px 7px; padding: 8px 5px; border-left: 2px solid transparent; color: var(--acolyte-nav-ink); text-decoration: none; }
+.acolyte-global-header .site-nav-compact-link { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 3px 7px; padding: 8px 5px; border: 0; border-left: 2px solid transparent; color: var(--acolyte-nav-ink); letter-spacing: normal; text-decoration: none; text-transform: none; }
 .acolyte-global-header .site-nav-compact-link:hover,
 .acolyte-global-header .site-nav-compact-link[aria-current='page'] { border-left-color: var(--acolyte-nav-terra); background: rgba(255, 255, 255, .58); }
+.acolyte-global-header .site-nav-compact-link.site-nav-link-accent { border-left-color: var(--acolyte-nav-terra); background: rgba(228, 100, 68, .08); }
 .acolyte-global-header .site-nav-compact-link b { grid-row: span 2; color: var(--acolyte-nav-brass); font: 9px var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); }
 .acolyte-global-header .site-nav-compact-link span { overflow: hidden; font: 600 14px/1.1 Arial, Helvetica, sans-serif; text-overflow: ellipsis; white-space: nowrap; }
 .acolyte-global-header .site-nav-compact-link small { grid-column: 2; color: var(--acolyte-nav-stone); font: 10px/1.25 var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); }
+.acolyte-global-header .site-nav-columns-single { grid-template-columns: minmax(0, 1fr); }
 
 /* Keep the page-specific chrome as a secondary control layer. */
 .acolyte-global-nav-page .explore-topbar,
