@@ -53,6 +53,13 @@ def run_checks(base_url: str) -> None:
         assert first_card is not None and first_card["y"] < 1000
         assert_no_horizontal_overflow(page)
 
+        fold_context = browser.new_context(viewport={"width": 1468, "height": 729})
+        fold_page = fold_context.new_page()
+        fold_page.goto(explore_url, wait_until="networkidle")
+        fold_card = fold_page.locator(".explore-card").first.bounding_box()
+        assert fold_card is not None and fold_card["y"] < 729
+        fold_context.close()
+
         page.select_option("#filter-solution_type", "agent")
         assert page.locator(".explore-card").count() == AGENT_CASES
         assert f"{AGENT_CASES} cas affichés" in page.locator("#results-count").inner_text().lower()
