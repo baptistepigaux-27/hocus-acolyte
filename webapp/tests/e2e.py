@@ -66,7 +66,7 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".site-nav-group").count() == 4
         assert page.locator(".site-nav-home").is_visible()
         page.locator(".site-nav-group").nth(1).locator("summary").click()
-        assert page.locator(".site-nav-link-accent").first.is_visible()
+        assert page.locator(".site-nav-compact-link[aria-current='page']").count() == 0
         assert page.locator(".site-nav-panel:visible").count() == 1
         page.locator(".site-nav-group").nth(2).locator("summary").click()
         assert page.locator(".site-nav-panel:visible").count() == 1
@@ -368,7 +368,7 @@ def run_checks(base_url: str) -> None:
         assert mobile_page.locator(".topbar-navigation").is_visible()
         mobile_page.locator(".site-nav-group").nth(1).locator("summary").click()
         assert mobile_page.locator(".site-nav-panel:visible").count() == 1
-        assert mobile_page.locator(".site-nav-link-accent").first.is_visible()
+        assert mobile_page.locator(".site-nav-compact-link[aria-current='page']").count() == 0
         assert_no_horizontal_overflow(mobile_page)
         assert_visual_fits_canvas(mobile_page)
         mobile_page.get_by_role("button", name="LANCER LA MISSION").click()
