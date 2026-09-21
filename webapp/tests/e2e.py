@@ -65,6 +65,12 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".home-mini-grid a").count() == 8
         assert page.locator(".site-nav-group").count() == 4
         assert page.locator(".site-nav-home").is_visible()
+        hero_box = page.locator(".home-hero").bounding_box()
+        copy_box = page.locator(".home-hero-copy").bounding_box()
+        actions_box = page.locator(".home-actions").bounding_box()
+        assert hero_box and copy_box and actions_box
+        assert actions_box["x"] > copy_box["x"] + copy_box["width"]
+        assert actions_box["y"] + actions_box["height"] < hero_box["y"] + hero_box["height"]
         page.locator(".site-nav-group").nth(1).locator("summary").click()
         assert page.locator(".site-nav-compact-link[aria-current='page']").count() == 0
         assert page.locator(".site-nav-panel:visible").count() == 1
