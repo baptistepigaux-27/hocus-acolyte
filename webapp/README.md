@@ -90,6 +90,7 @@ suivant, les touches fléchées et un mode exploration des nœuds sont inclus.
 
 ## Navigation
 
+- Le menu global est harmonisé sur l’index, Explore, les deux rounds UX et Tutorial Boards ; l’arbre des pages servies est documenté dans [`docs/acolyte-pages-tree.md`](../docs/acolyte-pages-tree.md) ;
 - boutons `Avant` / `Après` dans la barre supérieure ;
 - clic sur une slide dans le sommaire ;
 - `←` / `→`, `PageUp` / `PageDown` ou espace ;

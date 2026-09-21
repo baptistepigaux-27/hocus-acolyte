@@ -43,6 +43,15 @@ test -f webapp/ux/tutorial/tutorial.css
 test -f webapp/tests/tutorial_e2e.py
 test -f webapp/tests/e2e.py
 test -f webapp/tests/data-check.js
+test -f webapp/shared/navigation.js
+test -f webapp/shared/navigation.css
+test -f webapp/tests/navigation_e2e.py
+test -f docs/acolyte-pages-tree.md
+
+for page in $(find webapp -name 'index.html' ! -path 'webapp/index.html' | sort); do
+  rg -q 'shared/navigation.css' "$page"
+  rg -q 'shared/navigation.js' "$page"
+done
 
 node --check webapp/app.js
 node --check webapp/content/slides.js
@@ -55,6 +64,7 @@ node --check webapp/modules/module-app.js
 node --check webapp/ux/ux-app.js
 node --check webapp/ux/round-2/ux2-app.js
 node --check webapp/ux/tutorial/tutorial-app.js
+node --check webapp/shared/navigation.js
 for interaction in webapp/interactions/*.js; do
   node --check "$interaction"
 done

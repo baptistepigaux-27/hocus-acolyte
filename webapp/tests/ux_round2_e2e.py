@@ -56,7 +56,8 @@ def run_checks(base_url: str) -> None:
             for view in VIEWS:
                 page.goto(route(base_url, direction, view), wait_until="networkidle")
                 assert page.locator("#round2-app").is_visible()
-                assert page.locator(".r2-primary-nav").is_visible()
+                assert page.locator(".acolyte-global-header").is_visible()
+                assert page.locator(".site-nav").is_visible()
                 assert page.locator(f"body.r2-{direction}").count() == 1
                 assert_no_horizontal_overflow(page, f"desktop {direction}/{view}")
                 headings[(view, direction)] = page.locator(".r2-main h1").inner_text().casefold()
