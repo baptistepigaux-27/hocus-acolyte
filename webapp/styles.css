@@ -55,8 +55,10 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .site-nav-compact-link b { grid-row: span 2; color: var(--brass); font: 9px var(--mono); }
 .site-nav-compact-link span { overflow: hidden; font: 600 11px/1.1 var(--sans); text-overflow: ellipsis; white-space: nowrap; }
 .site-nav-compact-link small { grid-column: 2; color: var(--stone); font: 9px/1.25 var(--mono); }
-.acolyte-global-header { justify-content: space-between; }
-.journey-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-height: 62px; padding: 12px clamp(18px, 4vw, 60px); border-bottom: 1px solid var(--dark-line); background: rgba(245, 241, 234, .96); }
+.acolyte-global-header { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
+.acolyte-global-brand { grid-column: 1; grid-row: 1; }
+.acolyte-global-header .site-nav { grid-column: 3; grid-row: 1; }
+.journey-toolbar { display: flex; grid-column: 2; grid-row: 1; align-items: center; justify-content: center; gap: 10px; min-width: 0; }
 .journey-switcher { display: flex; align-items: center; gap: 4px; }
 .journey-switcher-label { color: var(--stone); font: 8px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .journey-link { padding: 7px 8px; border: 1px solid var(--dark-line); color: var(--stone); font: 8px var(--mono); letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
@@ -379,7 +381,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .opportunity-scoring-evidence { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }.opportunity-scoring-evidence small { color: var(--brass); font: 9px var(--mono); letter-spacing: .06em; }.opportunity-scoring-evidence span { padding: 5px 6px; border: 1px solid rgba(245, 241, 234, .2); color: rgba(245, 241, 234, .74); font: 9px var(--mono); }
 
 body.presentation-mode .topbar { position: fixed; top: 0; left: 0; right: 0; background: rgba(11, 15, 20, .9); border-bottom-color: var(--light-line); color: var(--paper); }
-body.presentation-mode .journey-toolbar { position: fixed; z-index: 11; top: 76px; right: 0; left: 0; background: rgba(11, 15, 20, .9); border-bottom-color: var(--light-line); color: var(--paper); }
+body.presentation-mode .journey-toolbar { color: var(--paper); }
 body.presentation-mode .journey-link, body.presentation-mode .topbar-nav-button, body.presentation-mode .journey-toolbar .tool-button { border-color: var(--light-line); color: var(--paper); }
 body.presentation-mode .journey-link:hover, body.presentation-mode .journey-link.is-active, body.presentation-mode .topbar-nav-button:hover, body.presentation-mode .journey-toolbar .tool-button:hover { background: var(--paper); color: var(--ink); }
 body.presentation-mode .site-nav-home, body.presentation-mode .site-nav-group > summary { border-color: var(--light-line); color: var(--paper); }
@@ -389,7 +391,7 @@ body.presentation-mode .site-nav-panel-heading { border-color: var(--light-line)
 body.presentation-mode .site-nav-panel-heading strong, body.presentation-mode .site-nav-link, body.presentation-mode .site-nav-compact-link { color: var(--paper); }
 body.presentation-mode .site-nav-link:hover, body.presentation-mode .site-nav-link.is-active, body.presentation-mode .site-nav-compact-link:hover { background: rgba(245, 241, 234, .1); }
 body.presentation-mode .site-nav-subgroup h3 { border-color: var(--light-line); }
-body.presentation-mode .app-layout { grid-template-columns: 1fr; padding-top: 138px; }
+body.presentation-mode .app-layout { grid-template-columns: 1fr; padding-top: 76px; }
 body.presentation-mode .sidebar, body.presentation-mode .app-footer { display: none; }
 body.presentation-mode .main-content { max-width: 1500px; width: 100%; margin: auto; padding: clamp(25px, 5vw, 80px); }
 body.presentation-mode .slide-stage { min-height: calc(100svh - 190px); box-shadow: none; }
@@ -412,7 +414,7 @@ body.presentation-mode .opportunity-detail-panel { width: clamp(430px, 43%, 680p
 }
 
 @media (max-width: 760px) {
-  .topbar { min-height: 156px; align-content: center; flex-wrap: wrap; row-gap: 8px; padding: 11px 16px; }
+  .topbar { display: flex; min-height: 156px; align-content: center; flex-wrap: wrap; row-gap: 8px; padding: 11px 16px; }
   .brand { font-size: 11px; }
   .brand-mark { width: 22px; height: 22px; font-size: 12px; }
   .site-nav { order: 3; width: 100%; align-items: stretch; flex-wrap: wrap; gap: 4px; }
@@ -424,13 +426,12 @@ body.presentation-mode .opportunity-detail-panel { width: clamp(430px, 43%, 680p
   .site-nav-panel-heading strong { font-size: 22px; }
   .site-nav-columns { grid-template-columns: 1fr; gap: 12px; }
   .tool-button { min-height: 30px; padding: 6px 8px; font-size: 8px; }
-  .journey-toolbar { min-height: 52px; justify-content: flex-start; flex-wrap: wrap; gap: 6px; padding: 9px 16px; }
+  .journey-toolbar { order: 4; width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 6px; }
   .topbar-navigation { gap: 5px; }
   .topbar-nav-button { min-height: 30px; padding: 6px 8px; gap: 5px; font-size: 8px; }
   .topbar-nav-button span { font-size: 12px; }
   .app-layout, body.index-collapsed .app-layout { grid-template-columns: 1fr; }
-  body.presentation-mode .journey-toolbar { top: 156px; }
-  body.presentation-mode .app-layout { padding-top: 208px; }
+  body.presentation-mode .app-layout { padding-top: 156px; }
   .sidebar, body.index-collapsed .sidebar { position: fixed; z-index: 11; inset: 156px 0 0; display: flex; width: min(330px, 92vw); transform: translateX(0); margin: 0; box-shadow: 12px 0 35px rgba(0, 0, 0, .22); }
   body.index-collapsed .sidebar { transform: translateX(-110%); }
   .sidebar-close { display: block; }
