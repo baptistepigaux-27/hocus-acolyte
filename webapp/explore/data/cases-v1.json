@@ -9814,9 +9814,8 @@
     "created_at": "2026-09-21T00:00:00Z",
     "updated_at": "2026-09-21T00:00:00Z",
     "company_size": [
-      "group"
+      "unknown"
     ],
-    "company_size_raw": "Projet open source de Nous Research",
     "industry": "software",
     "industry_raw": "Recherche et logiciels IA",
     "business_function": [
@@ -10029,9 +10028,8 @@
     "created_at": "2026-09-21T00:00:00Z",
     "updated_at": "2026-09-21T00:00:00Z",
     "company_size": [
-      "group"
+      "unknown"
     ],
-    "company_size_raw": "Projet open source de Nous Research",
     "industry": "software",
     "industry_raw": "Recherche et logiciels IA",
     "business_function": [
@@ -10225,9 +10223,8 @@
     "created_at": "2026-09-21T00:00:00Z",
     "updated_at": "2026-09-21T00:00:00Z",
     "company_size": [
-      "group"
+      "unknown"
     ],
-    "company_size_raw": "Projet open source de Nous Research",
     "industry": "software",
     "industry_raw": "Logiciels pour agents IA",
     "business_function": [
@@ -11196,7 +11193,7 @@
         "publisher": "Spotify Engineering",
         "reference": "https://engineering.atspotify.com/2023/4/humans-machines-a-look-behind-spotifys-algotorial-playlists",
         "url": "https://engineering.atspotify.com/2023/4/humans-machines-a-look-behind-spotifys-algotorial-playlists",
-        "published_at": "2023-04-01",
+        "published_at": null,
         "citation_right": "allowed",
         "evidence_type": "reported",
         "evidence_strength": "high"
@@ -11397,7 +11394,7 @@
         "publisher": "Uber Engineering",
         "reference": "https://www.uber.com/au/en/blog/deepeta-how-uber-predicts-arrival-times/",
         "url": "https://www.uber.com/au/en/blog/deepeta-how-uber-predicts-arrival-times/",
-        "published_at": "2021-03-01",
+        "published_at": null,
         "citation_right": "allowed",
         "evidence_type": "reported",
         "evidence_strength": "high"
