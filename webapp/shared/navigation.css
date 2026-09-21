@@ -31,7 +31,7 @@
 .acolyte-global-header .site-nav { display: flex; align-items: center; gap: 4px; min-width: 0; margin-left: auto; }
 .acolyte-global-header .site-nav-group { position: relative; }
 .acolyte-global-header .site-nav-home,
-.acolyte-global-header .site-nav-group > summary { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 8px 10px; border: 1px solid transparent; color: var(--acolyte-nav-stone); cursor: pointer; font: 9px var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; list-style: none; }
+.acolyte-global-header .site-nav-group > summary { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 8px 10px; border: 1px solid transparent; color: var(--acolyte-nav-stone); cursor: pointer; font: 10px var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; list-style: none; }
 .acolyte-global-header .site-nav-group > summary::-webkit-details-marker { display: none; }
 .acolyte-global-header .site-nav-group > summary span { color: var(--acolyte-nav-terra); font-size: 12px; line-height: 1; transition: transform .2s ease; }
 .acolyte-global-header .site-nav-group[open] > summary,
@@ -86,7 +86,7 @@
   .acolyte-global-header .site-nav-home,
   .acolyte-global-header .site-nav-group { flex: 1 1 calc(25% - 4px); min-width: 0; }
   .acolyte-global-header .site-nav-home,
-  .acolyte-global-header .site-nav-group > summary { justify-content: center; width: 100%; min-height: 30px; padding: 6px 4px; font-size: 8px; }
+  .acolyte-global-header .site-nav-group > summary { justify-content: center; width: 100%; min-height: 30px; padding: 6px 4px; font-size: 9px; }
   .acolyte-global-header .site-nav-group[open] { flex-basis: 100%; }
   .acolyte-global-header .site-nav-panel,
   .acolyte-global-header .site-nav-panel-wide { position: static; right: auto; left: auto; grid-template-columns: 1fr; width: 100%; margin-top: 5px; box-shadow: none; }
