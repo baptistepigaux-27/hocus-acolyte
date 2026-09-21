@@ -63,6 +63,12 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".home-journey-grid .home-card").count() == 2
         assert page.locator(".home-module-card").count() == 4
         assert page.locator(".home-mini-grid a").count() == 8
+        assert page.locator(".site-nav-group").count() == 4
+        assert page.locator(".site-nav-home").is_visible()
+        page.locator(".site-nav-group").nth(1).locator("summary").click()
+        assert page.locator(".site-nav-link-accent").first.is_visible()
+        page.locator(".site-nav-group").nth(2).locator("summary").click()
+        assert page.locator(".site-nav-compact-link").count() == 8
         assert_no_horizontal_overflow(page)
 
         page.goto(f"{base_url}?journey=operating-system&slide=9", wait_until="networkidle")

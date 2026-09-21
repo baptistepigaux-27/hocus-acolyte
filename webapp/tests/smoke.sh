@@ -70,7 +70,7 @@ for required in 'data-action="next"' 'data-action="previous"' 'data-action="togg
 done
 
 test "$(rg -c 'class="topbar-nav-button"' webapp/index.html)" -eq 2
-test "$(rg -c 'class="journey-link"' webapp/index.html)" -eq 2
+test "$(rg -o 'journey-link' webapp/index.html | wc -l | tr -d ' ')" -eq 2
 rg -q 'journey=pme' webapp/index.html
 rg -q 'journeys/operating-system/config.js' webapp/index.html
 rg -q 'journeys/pme-overview/opportunities.js' webapp/index.html
@@ -80,7 +80,9 @@ rg -q 'interactions/chatbot-agent.js' webapp/index.html
 rg -q 'interactions/opportunity-map.js' webapp/index.html
 rg -q 'modules/real-cases/cases.js' webapp/index.html
 rg -q 'modules/module-app.js' webapp/index.html
-rg -q 'data-action="toggle-modules"' webapp/index.html
+rg -q 'class="site-nav"' webapp/index.html
+test "$(rg -c 'class="site-nav-group"' webapp/index.html)" -eq 4
+rg -q 'CATALOGUE · 100 CAS' webapp/index.html
 rg -q 'module=cases' webapp/index.html
 rg -q 'REAL CASES' webapp/modules/module-app.js
 rg -q 'AGENT LAB' webapp/modules/module-app.js
