@@ -53,7 +53,8 @@ def run_checks(base_url: str) -> None:
             for view in VIEWS:
                 page.goto(route(base_url, variant, view), wait_until="networkidle")
                 assert page.locator("#ux-app").is_visible()
-                assert page.locator(".ux-primary-nav").is_visible()
+                assert page.locator(".acolyte-global-header").is_visible()
+                assert page.locator(".site-nav").is_visible()
                 assert_no_horizontal_overflow(page)
                 headings[(view, variant)] = page.locator(".ux-main h1").inner_text().casefold()
 
@@ -87,6 +88,7 @@ def run_checks(base_url: str) -> None:
         assert mobile_page.locator(".ux-pipeline").evaluate("element => getComputedStyle(element).display") == "grid"
         mobile_page.goto(f"{base_url}ux/", wait_until="networkidle")
         assert mobile_page.locator(".ux-pillar").count() == 4
+        assert mobile_page.locator(".acolyte-global-header").is_visible()
         assert_no_horizontal_overflow(mobile_page)
 
         desktop.close()

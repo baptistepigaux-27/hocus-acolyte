@@ -1,0 +1,24 @@
+[Unit]
+Description=Hocus Acolyte sandbox webapp
+After=network.target
+
+[Service]
+Type=simple
+User=acolyte-sandbox
+Group=acolyte-sandbox
+WorkingDirectory=/srv/acolyte-sandbox/current
+Environment=APP_ENV=sandbox
+ExecStart=/usr/bin/python3 /srv/acolyte-sandbox/current/server.py --host 127.0.0.1 --port 8063
+Restart=always
+RestartSec=3
+StandardOutput=append:/var/log/hocus-acolyte-sandbox/app.log
+StandardError=append:/var/log/hocus-acolyte-sandbox/error.log
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/srv/acolyte-sandbox/current
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

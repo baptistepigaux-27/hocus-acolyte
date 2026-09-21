@@ -43,6 +43,16 @@ test -f webapp/ux/tutorial/tutorial.css
 test -f webapp/tests/tutorial_e2e.py
 test -f webapp/tests/e2e.py
 test -f webapp/tests/data-check.js
+test -f webapp/shared/navigation.js
+test -f webapp/shared/navigation.css
+test -f webapp/shared/acolyte-o.png
+test -f webapp/tests/navigation_e2e.py
+test -f docs/acolyte-pages-tree.md
+
+for page in $(find webapp -name 'index.html' ! -path 'webapp/index.html' | sort); do
+  rg -q 'shared/navigation.css' "$page"
+  rg -q 'shared/navigation.js' "$page"
+done
 
 node --check webapp/app.js
 node --check webapp/content/slides.js
@@ -55,6 +65,7 @@ node --check webapp/modules/module-app.js
 node --check webapp/ux/ux-app.js
 node --check webapp/ux/round-2/ux2-app.js
 node --check webapp/ux/tutorial/tutorial-app.js
+node --check webapp/shared/navigation.js
 for interaction in webapp/interactions/*.js; do
   node --check "$interaction"
 done
@@ -70,7 +81,7 @@ for required in 'data-action="next"' 'data-action="previous"' 'data-action="togg
 done
 
 test "$(rg -c 'class="topbar-nav-button"' webapp/index.html)" -eq 2
-test "$(rg -c 'class="journey-link"' webapp/index.html)" -eq 2
+test "$(rg -o 'journey-link' webapp/index.html | wc -l | tr -d ' ')" -eq 2
 rg -q 'journey=pme' webapp/index.html
 rg -q 'journeys/operating-system/config.js' webapp/index.html
 rg -q 'journeys/pme-overview/opportunities.js' webapp/index.html
@@ -80,7 +91,9 @@ rg -q 'interactions/chatbot-agent.js' webapp/index.html
 rg -q 'interactions/opportunity-map.js' webapp/index.html
 rg -q 'modules/real-cases/cases.js' webapp/index.html
 rg -q 'modules/module-app.js' webapp/index.html
-rg -q 'data-action="toggle-modules"' webapp/index.html
+rg -q 'class="site-nav"' webapp/index.html
+test "$(rg -c 'class="site-nav-group"' webapp/index.html)" -eq 4
+rg -q 'CATALOGUE · 100 CAS' webapp/index.html
 rg -q 'module=cases' webapp/index.html
 rg -q 'REAL CASES' webapp/modules/module-app.js
 rg -q 'AGENT LAB' webapp/modules/module-app.js

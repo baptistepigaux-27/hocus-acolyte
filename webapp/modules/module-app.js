@@ -54,11 +54,12 @@
 
   function setModuleLinks() {
     const current = context();
+    const navJourney = new URLSearchParams(window.location.search).has('journey') ? current.journey : null;
     $$('.module-launcher-link').forEach((link) => {
       link.href = hrefForModule(link.dataset.module);
     });
     $$('.journey-link').forEach((link) => {
-      const active = link.dataset.journey === current.journey;
+      const active = navJourney && link.dataset.journey === navJourney;
       link.classList.toggle('is-active', active);
       link.href = `?journey=${encodeURIComponent(link.dataset.journey)}&slide=${current.slide}`;
       if (active) link.setAttribute('aria-current', 'page');

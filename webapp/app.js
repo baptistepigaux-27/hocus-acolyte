@@ -2,6 +2,25 @@
   'use strict';
 
   const params = new URLSearchParams(window.location.search);
+  const navGroups = [...document.querySelectorAll('.site-nav-group')];
+  const closeOtherNavGroups = (activeGroup) => {
+    navGroups.filter((other) => other !== activeGroup).forEach((other) => { other.open = false; });
+  };
+  navGroups.forEach((group) => group.addEventListener('toggle', () => {
+    if (!group.open) return;
+    closeOtherNavGroups(group);
+  }));
+  navGroups.forEach((group) => group.querySelector('summary')?.addEventListener('click', () => {
+    closeOtherNavGroups(group);
+  }));
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.site-nav')) return;
+    navGroups.forEach((group) => { group.open = false; });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    navGroups.forEach((group) => { group.open = false; });
+  });
   const requestedModule = params.get('module');
   if (requestedModule && window.ACOLYTE_MODULES && window.ACOLYTE_MODULES[requestedModule]) return;
   const homeRouteKeys = ['journey', 'slide', 'module', 'present', 'function', 'opportunity'];
@@ -85,7 +104,7 @@
 
   function renderJourneyLinks() {
     refs.journeyLinks.forEach((link) => {
-      const active = link.dataset.journey === journeyKey;
+      const active = params.has('journey') && link.dataset.journey === journeyKey;
       link.classList.toggle('is-active', active);
       if (active) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
@@ -264,7 +283,7 @@
   refs.appLayout.hidden = isHome;
   refs.body.classList.toggle('home-mode', isHome);
   if (isHome) {
-    document.title = 'Hocus Acolyte — Index';
+    document.title = 'Hocus Acolyte — Home';
     refs.home.focus({ preventScroll: true });
   } else {
     setIndexOpen(state.indexOpen);

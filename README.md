@@ -21,6 +21,19 @@ This repository freezes the narrative before producing the PowerPoint deck. It c
 
 The PPTX is intentionally not generated in this issue. The webapp is a local/staging draft for validating the 23-slide experience. No production environment is touched.
 
+## Runtime
+
+The webapp is executable locally without a build step or database:
+
+```bash
+APP_ENV=local ./run.sh --port 4173
+```
+
+The runtime serves the existing `webapp/` tree and exposes `GET /health` with
+the service and environment. For sandbox releases, use `APP_ENV=sandbox` and
+the scripts in [`deploy/`](deploy/); the deployment target is
+`/srv/acolyte-sandbox/releases` with an atomic `current` symlink.
+
 ## Narrative decision
 
 The V2 uses five acts:
