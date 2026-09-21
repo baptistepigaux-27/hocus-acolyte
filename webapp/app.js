@@ -2,6 +2,19 @@
   'use strict';
 
   const params = new URLSearchParams(window.location.search);
+  const navGroups = [...document.querySelectorAll('.site-nav-group')];
+  navGroups.forEach((group) => group.addEventListener('toggle', () => {
+    if (!group.open) return;
+    navGroups.filter((other) => other !== group).forEach((other) => { other.open = false; });
+  }));
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.site-nav')) return;
+    navGroups.forEach((group) => { group.open = false; });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    navGroups.forEach((group) => { group.open = false; });
+  });
   const requestedModule = params.get('module');
   if (requestedModule && window.ACOLYTE_MODULES && window.ACOLYTE_MODULES[requestedModule]) return;
   const homeRouteKeys = ['journey', 'slide', 'module', 'present', 'function', 'opportunity'];

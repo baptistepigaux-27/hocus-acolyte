@@ -28,13 +28,14 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .brand small { margin-left: 10px; color: var(--stone); font: 9px var(--mono); letter-spacing: .08em; font-weight: 400; }
 .brand-mark { display: grid; width: 26px; height: 26px; place-items: center; border-radius: 50%; background: var(--ink); color: var(--paper); font-size: 15px; letter-spacing: 0; }
 .site-nav { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.site-nav-group { position: relative; }
 .site-nav-home, .site-nav-group > summary { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 8px 10px; border: 1px solid transparent; color: var(--stone); cursor: pointer; font: 9px var(--mono); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; list-style: none; }
 .site-nav-group > summary::-webkit-details-marker { display: none; }
 .site-nav-group > summary span { color: var(--terra); font-size: 12px; line-height: 1; transition: transform .2s ease; }
 .site-nav-group[open] > summary, .site-nav-home:hover, .site-nav-group > summary:hover { border-color: var(--terra); background: var(--ink); color: var(--paper); }
 .site-nav-group[open] > summary span { transform: rotate(180deg); }
-.site-nav-panel { position: absolute; z-index: 30; top: calc(100% + 14px); left: 0; display: grid; grid-template-columns: 145px minmax(230px, 1fr); gap: 13px; width: 430px; padding: 14px; border: 1px solid var(--dark-line); background: var(--paper); box-shadow: 8px 8px 0 rgba(184, 154, 91, .55); }
-.site-nav-panel-wide { width: 680px; grid-template-columns: 185px minmax(0, 1fr); }
+.site-nav-panel { position: absolute; z-index: 30; top: calc(100% + 14px); right: 0; left: auto; display: grid; grid-template-columns: 145px minmax(230px, 1fr); gap: 13px; width: min(430px, calc(100vw - 28px)); padding: 14px; border: 1px solid var(--dark-line); background: var(--paper); box-shadow: 8px 8px 0 rgba(184, 154, 91, .55); }
+.site-nav-panel-wide { width: min(680px, calc(100vw - 28px)); grid-template-columns: 185px minmax(0, 1fr); }
 .site-nav-panel-heading { display: grid; align-content: start; gap: 8px; padding: 3px 12px 3px 2px; border-right: 1px solid var(--dark-line); }
 .site-nav-panel-heading p { margin: 0; color: var(--terra); font: 8px var(--mono); letter-spacing: .1em; }
 .site-nav-panel-heading strong { color: var(--ink); font: 400 24px/.94 var(--serif); letter-spacing: -.05em; }
@@ -416,7 +417,7 @@ body.presentation-mode .opportunity-detail-panel { width: clamp(430px, 43%, 680p
   .site-nav-home, .site-nav-group { flex: 1 1 calc(25% - 4px); min-width: 0; }
   .site-nav-home, .site-nav-group > summary { justify-content: center; width: 100%; min-height: 30px; padding: 6px 4px; font-size: 8px; }
   .site-nav-group[open] { flex-basis: 100%; }
-  .site-nav-panel, .site-nav-panel-wide { position: static; grid-template-columns: 1fr; width: 100%; margin-top: 5px; box-shadow: none; }
+  .site-nav-panel, .site-nav-panel-wide { position: static; right: auto; left: auto; grid-template-columns: 1fr; width: 100%; margin-top: 5px; box-shadow: none; }
   .site-nav-panel-heading { padding: 0 0 10px; border-right: 0; border-bottom: 1px solid var(--dark-line); }
   .site-nav-panel-heading strong { font-size: 22px; }
   .site-nav-columns { grid-template-columns: 1fr; gap: 12px; }

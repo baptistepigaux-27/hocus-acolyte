@@ -67,8 +67,13 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".site-nav-home").is_visible()
         page.locator(".site-nav-group").nth(1).locator("summary").click()
         assert page.locator(".site-nav-link-accent").first.is_visible()
+        assert page.locator(".site-nav-panel:visible").count() == 1
         page.locator(".site-nav-group").nth(2).locator("summary").click()
-        assert page.locator(".site-nav-compact-link").count() == 8
+        assert page.locator(".site-nav-panel:visible").count() == 1
+        assert page.locator(".site-nav-compact-link:visible").count() == 8
+        panel_box = page.locator(".site-nav-panel:visible").bounding_box()
+        assert panel_box is not None
+        assert panel_box["x"] >= 0 and panel_box["x"] + panel_box["width"] <= 1440
         assert_no_horizontal_overflow(page)
 
         page.goto(f"{base_url}?journey=operating-system&slide=9", wait_until="networkidle")
@@ -361,6 +366,9 @@ def run_checks(base_url: str) -> None:
         mobile_page = mobile.new_page()
         mobile_page.goto(f"{base_url}?slide=9", wait_until="networkidle")
         assert mobile_page.locator(".topbar-navigation").is_visible()
+        mobile_page.locator(".site-nav-group").nth(1).locator("summary").click()
+        assert mobile_page.locator(".site-nav-panel:visible").count() == 1
+        assert mobile_page.locator(".site-nav-link-accent").first.is_visible()
         assert_no_horizontal_overflow(mobile_page)
         assert_visual_fits_canvas(mobile_page)
         mobile_page.get_by_role("button", name="LANCER LA MISSION").click()
