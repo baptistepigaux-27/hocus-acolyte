@@ -49,6 +49,8 @@ def run_checks(base_url: str) -> None:
         assert page.locator(".explore-card").count() == TOTAL_CASES
         assert page.locator(".proof-badge").count() >= TOTAL_CASES
         assert page.locator(".explore-card .proof-documented").count() == DOCUMENTED_CASES
+        first_card = page.locator(".explore-card").first.bounding_box()
+        assert first_card is not None and first_card["y"] < 1000
         assert_no_horizontal_overflow(page)
 
         page.select_option("#filter-solution_type", "agent")
