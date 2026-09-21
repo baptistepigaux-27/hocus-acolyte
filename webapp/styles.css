@@ -416,6 +416,14 @@ body.presentation-mode .opportunity-detail-panel { width: clamp(430px, 43%, 680p
   body.presentation-mode .slide-grid:has(.opportunity-map-interaction) .slide-copy { display: none; }
 }
 
+@media (min-width: 1700px) {
+  .acolyte-global-header { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto; row-gap: 0; }
+  .acolyte-global-brand { grid-column: 1; grid-row: 1; }
+  .acolyte-global-header .site-nav { grid-column: 3; grid-row: 1; }
+  .journey-toolbar { grid-column: 2; grid-row: 1; }
+  body.presentation-mode .app-layout { padding-top: 76px; }
+}
+
 @media (max-width: 760px) {
   .topbar { display: flex; min-height: 156px; align-content: center; flex-wrap: wrap; row-gap: 8px; padding: 11px 16px; }
   .brand { font-size: 11px; }
