@@ -67,6 +67,7 @@ def run_checks(base_url: str) -> None:
                 assert page.locator(".acolyte-global-brand-mark").is_visible(), route
             else:
                 assert page.locator(".brand-mark[src*='acolyte-o.png']").is_visible()
+                assert page.locator(".journey-link[data-journey='operating-system']").get_attribute("aria-current") == "page"
             assert_no_horizontal_overflow(page)
 
         panel_signatures = []
