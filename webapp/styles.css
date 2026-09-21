@@ -58,7 +58,10 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .acolyte-global-header { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
 .acolyte-global-brand { grid-column: 1; grid-row: 1; }
 .acolyte-global-header .site-nav { grid-column: 3; grid-row: 1; }
-.journey-toolbar { display: flex; grid-column: 2; grid-row: 1; align-items: center; justify-content: center; gap: 10px; min-width: 0; }
+.journey-toolbar { display: flex; grid-column: 2; grid-row: 1; align-items: center; justify-content: center; justify-self: center; gap: 10px; width: max-content; max-width: 100%; min-width: 0; padding: 8px 10px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); box-shadow: 5px 5px 0 rgba(184, 154, 91, .65); }
+.journey-toolbar .topbar-nav-button, .journey-toolbar .tool-button { border-color: var(--light-line); color: var(--paper); }
+.journey-toolbar .topbar-nav-button:hover, .journey-toolbar .tool-button:hover { border-color: var(--paper); background: var(--paper); color: var(--ink); }
+.journey-toolbar .status-dot { color: rgba(245, 241, 234, .72); }
 .journey-switcher { display: flex; align-items: center; gap: 4px; }
 .journey-switcher-label { color: var(--stone); font: 8px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .journey-link { padding: 7px 8px; border: 1px solid var(--dark-line); color: var(--stone); font: 8px var(--mono); letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
@@ -426,7 +429,7 @@ body.presentation-mode .opportunity-detail-panel { width: clamp(430px, 43%, 680p
   .site-nav-panel-heading strong { font-size: 22px; }
   .site-nav-columns { grid-template-columns: 1fr; gap: 12px; }
   .tool-button { min-height: 30px; padding: 6px 8px; font-size: 8px; }
-  .journey-toolbar { order: 4; width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 6px; }
+  .journey-toolbar { order: 4; width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 6px; padding: 9px 10px; box-shadow: none; }
   .topbar-navigation { gap: 5px; }
   .topbar-nav-button { min-height: 30px; padding: 6px 8px; gap: 5px; font-size: 8px; }
   .topbar-nav-button span { font-size: 12px; }
