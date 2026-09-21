@@ -571,7 +571,7 @@ body.module-mode .topbar-navigation, body.module-mode .status-dot, body.module-m
 .home-mode .topbar-tools { display: none; }
 .home-topbar-note { display: none; color: var(--stone); font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .home-mode .home-topbar-note { display: inline-block; }
-.home-content { width: min(1320px, calc(100% - 48px)); margin: 0 auto; padding: clamp(42px, 7vw, 92px) 0 76px; }
+.home-content { width: min(1320px, calc(100% - 48px)); margin: 0 auto; padding: clamp(30px, 4.5vw, 60px) 0 76px; }
 .home-content:focus { outline: 0; }
 .home-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(230px, .65fr); gap: clamp(45px, 9vw, 140px); align-items: center; min-height: 58vh; padding: 0 0 clamp(55px, 8vw, 100px); border-bottom: 1px solid var(--dark-line); }
 .home-kicker { margin: 0 0 15px; color: var(--terra); font: 11px var(--mono); letter-spacing: .11em; text-transform: uppercase; }
