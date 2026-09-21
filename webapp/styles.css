@@ -55,10 +55,10 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .site-nav-compact-link b { grid-row: span 2; color: var(--brass); font: 9px var(--mono); }
 .site-nav-compact-link span { overflow: hidden; font: 600 11px/1.1 var(--sans); text-overflow: ellipsis; white-space: nowrap; }
 .site-nav-compact-link small { grid-column: 2; color: var(--stone); font: 9px/1.25 var(--mono); }
-.acolyte-global-header { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
-.acolyte-global-brand { grid-column: 1; grid-row: 1; }
-.acolyte-global-header .site-nav { grid-column: 3; grid-row: 1; }
-.journey-toolbar { display: flex; grid-column: 2; grid-row: 1; align-items: center; justify-content: center; justify-self: center; gap: 10px; width: max-content; max-width: 100%; min-width: 0; padding: 8px 10px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); box-shadow: 5px 5px 0 rgba(184, 154, 91, .65); }
+.acolyte-global-header { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; align-items: center; row-gap: 8px; }
+.acolyte-global-brand { grid-column: 1; grid-row: 2; }
+.acolyte-global-header .site-nav { grid-column: 2; grid-row: 2; justify-self: end; }
+.journey-toolbar { display: flex; grid-column: 1 / -1; grid-row: 1; align-items: center; justify-content: center; justify-self: center; gap: 10px; width: max-content; max-width: 100%; min-width: 0; padding: 8px 10px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); box-shadow: 5px 5px 0 rgba(184, 154, 91, .65); }
 .journey-toolbar .topbar-nav-button, .journey-toolbar .tool-button { border-color: var(--light-line); color: var(--paper); }
 .journey-toolbar .topbar-nav-button:hover, .journey-toolbar .tool-button:hover { border-color: var(--paper); background: var(--paper); color: var(--ink); }
 .journey-toolbar .status-dot { color: rgba(245, 241, 234, .72); }
@@ -394,7 +394,7 @@ body.presentation-mode .site-nav-panel-heading { border-color: var(--light-line)
 body.presentation-mode .site-nav-panel-heading strong, body.presentation-mode .site-nav-link, body.presentation-mode .site-nav-compact-link { color: var(--paper); }
 body.presentation-mode .site-nav-link:hover, body.presentation-mode .site-nav-link.is-active, body.presentation-mode .site-nav-compact-link:hover { background: rgba(245, 241, 234, .1); }
 body.presentation-mode .site-nav-subgroup h3 { border-color: var(--light-line); }
-body.presentation-mode .app-layout { grid-template-columns: 1fr; padding-top: 76px; }
+body.presentation-mode .app-layout { grid-template-columns: 1fr; padding-top: 124px; }
 body.presentation-mode .sidebar, body.presentation-mode .app-footer { display: none; }
 body.presentation-mode .main-content { max-width: 1500px; width: 100%; margin: auto; padding: clamp(25px, 5vw, 80px); }
 body.presentation-mode .slide-stage { min-height: calc(100svh - 190px); box-shadow: none; }
@@ -429,7 +429,7 @@ body.presentation-mode .opportunity-detail-panel { width: clamp(430px, 43%, 680p
   .site-nav-panel-heading strong { font-size: 22px; }
   .site-nav-columns { grid-template-columns: 1fr; gap: 12px; }
   .tool-button { min-height: 30px; padding: 6px 8px; font-size: 8px; }
-  .journey-toolbar { order: 4; width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 6px; padding: 9px 10px; box-shadow: none; }
+  .journey-toolbar { order: 2; width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 6px; padding: 9px 10px; box-shadow: none; }
   .topbar-navigation { gap: 5px; }
   .topbar-nav-button { min-height: 30px; padding: 6px 8px; gap: 5px; font-size: 8px; }
   .topbar-nav-button span { font-size: 12px; }
@@ -573,7 +573,9 @@ body.module-mode .topbar-navigation, body.module-mode .status-dot, body.module-m
 .app-shell .roadmap-phase small { font-size: 11px; }
 
 /* Structured home: one calm index for every Acolyte route currently available. */
-.home-mode .topbar { justify-content: space-between; }
+.home-mode .acolyte-global-header { grid-template-rows: auto; }
+.home-mode .acolyte-global-brand { grid-column: 1; grid-row: 1; }
+.home-mode .acolyte-global-header .site-nav { grid-column: 2; grid-row: 1; }
 .home-mode .journey-toolbar, body.module-mode .journey-toolbar { display: none; }
 .home-topbar-note { display: none; color: var(--stone); font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .home-mode .home-topbar-note { display: inline-block; }
