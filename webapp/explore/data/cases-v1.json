@@ -9801,5 +9801,2020 @@
         "source_ref": "https://cloud.google.com/customers/axa-switzerland-ai"
       }
     ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-nous-hermes-autonovel",
+    "slug": "real-nous-hermes-autonovel",
+    "title": "Nous Research — Autonovel, de l’idée au livre",
+    "short_description": "Un pipeline Hermes orchestre la conception, la rédaction, la révision et l’export d’un roman complet.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "company_size_raw": "Projet open source de Nous Research",
+    "industry": "software",
+    "industry_raw": "Recherche et logiciels IA",
+    "business_function": [
+      "product",
+      "it-data"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Une production longue devait coordonner continuité, rédaction, révision, illustration et formats de sortie sans perdre le fil.",
+    "ai_pattern": [
+      "generation",
+      "orchestration",
+      "comparison",
+      "summarization"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Poser la graine",
+        "actor": "human",
+        "input": [
+          "Concept initial"
+        ],
+        "output": [
+          "Point de départ narratif"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Construire les fondations",
+        "actor": "agent",
+        "input": [
+          "Concept",
+          "monde",
+          "personnages"
+        ],
+        "action": "Générer le monde, les personnages, le plan et le canon.",
+        "output": [
+          "Bible de monde",
+          "Plan",
+          "Registre des personnages"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Rédiger et évaluer",
+        "actor": "agent",
+        "input": [
+          "Plan",
+          "chapitre précédent"
+        ],
+        "action": "Rédiger les chapitres puis conserver, reprendre ou réviser selon les évaluations.",
+        "output": [
+          "Brouillon de chapitre",
+          "Score d’évaluation"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Réviser",
+        "actor": "agent",
+        "input": [
+          "Manuscrit",
+          "retours"
+        ],
+        "action": "Enchaîner édition adversariale, panel de lecteurs et revue structurée.",
+        "output": [
+          "Manuscrit révisé"
+        ]
+      },
+      {
+        "order": 5,
+        "label": "Exporter",
+        "actor": "system",
+        "input": [
+          "Manuscrit final"
+        ],
+        "action": "Rebâtir les documents et produire les formats de sortie.",
+        "output": [
+          "PDF",
+          "ePub",
+          "audiobook",
+          "landing page"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Manuscrit complet",
+      "PDF prêt à imprimer",
+      "ePub",
+      "Scripts audiobook",
+      "Page de présentation"
+    ],
+    "data_required": [
+      "Concept initial",
+      "Bible de monde",
+      "Registre des personnages",
+      "Plan",
+      "Brouillons de chapitres",
+      "Évaluations"
+    ],
+    "data_sources": [
+      {
+        "name": "Fichiers de travail du projet",
+        "access": "read-write",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Hermes Agent",
+      "Python",
+      "LaTeX",
+      "Claude Opus pour la revue"
+    ],
+    "architecture_pattern": [
+      "CONCEPT",
+      "FONDATIONS",
+      "RÉDACTION",
+      "ÉVALUATION",
+      "RÉVISION",
+      "EXPORT"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Coordonner une production créative longue dans une boucle de travail persistante."
+      },
+      {
+        "type": "speed",
+        "description": "Automatiser les passages répétitifs entre rédaction, évaluation et export."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "speed",
+      "quality"
+    ],
+    "business_impact": [
+      "production créative",
+      "continuité éditoriale",
+      "multi-format"
+    ],
+    "results": [
+      {
+        "text": "Le dépôt documente un premier roman produit : 19 chapitres et 79 456 mots.",
+        "observed": true
+      },
+      {
+        "text": "Le pipeline couvre la rédaction, la révision, la mise en page, l’illustration, l’audiobook, l’ePub et la landing page.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Dérive de cohérence sur une production longue",
+      "Qualité littéraire dépendante des boucles d’évaluation",
+      "Boucles de révision susceptibles de plafonner"
+    ],
+    "limitations": [
+      "Le dépôt documente un projet open source et un premier ouvrage ; il ne constitue pas une preuve de résultat commercial ou éditorial indépendant."
+    ],
+    "lessons_learned": [
+      "Sur une tâche longue, la valeur vient autant de la mémoire de travail et des boucles d’évaluation que de la génération brute.",
+      "L’agent orchestre une chaîne de production ; il ne remplace pas la définition du canon ni le jugement éditorial."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://github.com/NousResearch/autonovel",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Projet open source officiellement publié par Nous Research. Les capacités et le premier ouvrage sont repris du dépôt ; aucun résultat commercial n’est déduit."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-nous-hermes-autonovel",
+        "source_type": "public-source",
+        "title": "NousResearch / autonovel",
+        "publisher": "Nous Research",
+        "reference": "https://github.com/NousResearch/autonovel",
+        "url": "https://github.com/NousResearch/autonovel",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis le projet open source officiel Autonovel de Nous Research.",
+        "source_ref": "https://github.com/NousResearch/autonovel"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-nous-hermes-self-evolution",
+    "slug": "real-nous-hermes-self-evolution",
+    "title": "Nous Research — Faire évoluer les skills de Hermes",
+    "short_description": "Une boucle DSPy + GEPA teste et améliore des skills, prompts et descriptions d’outils de Hermes sous contraintes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "company_size_raw": "Projet open source de Nous Research",
+    "industry": "software",
+    "industry_raw": "Recherche et logiciels IA",
+    "business_function": [
+      "it-data",
+      "product"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Les skills et prompts d’un agent doivent progresser à partir de traces d’exécution sans modifier directement le système en production.",
+    "ai_pattern": [
+      "comparison",
+      "scoring",
+      "coding",
+      "orchestration"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "supervised-agent",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Choisir la cible",
+        "actor": "human",
+        "input": [
+          "Skill ou prompt",
+          "jeu d’évaluation"
+        ],
+        "output": [
+          "Cible d’optimisation"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Générer des variantes",
+        "actor": "agent",
+        "input": [
+          "Skill courant",
+          "traces d’exécution"
+        ],
+        "action": "Proposer des mutations ciblées à partir des erreurs observées.",
+        "output": [
+          "Variantes candidates"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Évaluer et filtrer",
+        "actor": "system",
+        "input": [
+          "Variantes",
+          "tests",
+          "benchmarks"
+        ],
+        "action": "Appliquer les tests, limites de taille et contraintes de préservation sémantique.",
+        "output": [
+          "Meilleure variante admissible"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Revoir la proposition",
+        "actor": "human",
+        "input": [
+          "Variante admissible",
+          "rapport"
+        ],
+        "output": [
+          "PR à accepter ou refuser"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Skill optimisé",
+      "Rapport d’évaluation",
+      "Pull request soumise à revue"
+    ],
+    "data_required": [
+      "Traces d’exécution",
+      "Jeu d’évaluation",
+      "Résultats de tests",
+      "Skill ou prompt courant"
+    ],
+    "data_sources": [
+      {
+        "name": "Session history de Hermes, Claude Code ou Copilot",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Hermes Agent",
+      "DSPy",
+      "GEPA",
+      "pytest",
+      "Git"
+    ],
+    "architecture_pattern": [
+      "TRACE",
+      "VARIANTES",
+      "ÉVALUATION",
+      "CONSTRAINT GATES",
+      "PULL REQUEST",
+      "REVUE HUMAINE"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Améliorer une compétence à partir de ses échecs observés."
+      },
+      {
+        "type": "risk",
+        "description": "Conserver une revue humaine et des garde-fous avant intégration."
+      }
+    ],
+    "value_type": [
+      "quality",
+      "risk",
+      "productivity"
+    ],
+    "business_impact": [
+      "amélioration continue",
+      "qualité des workflows",
+      "réduction de la dérive"
+    ],
+    "results": [
+      {
+        "text": "La phase d’optimisation des fichiers SKILL.md est documentée comme implémentée ; les phases tool descriptions, system prompts, code et boucle continue restent planifiées.",
+        "observed": true
+      },
+      {
+        "text": "Le dépôt annonce un coût indicatif d’environ 2 à 10 dollars par run d’optimisation.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Optimiser une mauvaise métrique",
+      "Dérive sémantique d’une skill",
+      "Sur-ajustement à un jeu d’évaluation",
+      "Coût d’exécution des boucles"
+    ],
+    "limitations": [
+      "Le dépôt décrit un cadre technique et une première phase implémentée ; il ne publie pas de gain métier indépendant ni de benchmark universel."
+    ],
+    "lessons_learned": [
+      "L’amélioration d’un agent devient gouvernable quand les variantes passent par des tests, des contraintes et une pull request.",
+      "Une trace d’échec est plus utile qu’un simple score quand il s’agit de corriger une compétence."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://github.com/NousResearch/hermes-agent-self-evolution",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Projet open source officiellement publié par Nous Research. Le statut des phases et les coûts sont repris tels qu’annoncés ; aucune amélioration de qualité n’est inventée."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-nous-hermes-self-evolution",
+        "source_type": "public-source",
+        "title": "NousResearch / hermes-agent-self-evolution",
+        "publisher": "Nous Research",
+        "reference": "https://github.com/NousResearch/hermes-agent-self-evolution",
+        "url": "https://github.com/NousResearch/hermes-agent-self-evolution",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis le projet open source officiel Self-Evolution de Nous Research.",
+        "source_ref": "https://github.com/NousResearch/hermes-agent-self-evolution"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-nous-hermes-paperclip-employee",
+    "slug": "real-nous-hermes-paperclip-employee",
+    "title": "Nous Research — Hermes comme employé géré dans Paperclip",
+    "short_description": "Un adaptateur fait fonctionner Hermes comme un agent géré, affectable à des tâches et capable de reprendre son contexte.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "company_size_raw": "Projet open source de Nous Research",
+    "industry": "software",
+    "industry_raw": "Logiciels pour agents IA",
+    "business_function": [
+      "it-data",
+      "operations"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Un agent outillé doit pouvoir recevoir un travail structuré, rendre compte de son exécution et conserver une continuité entre plusieurs réveils.",
+    "ai_pattern": [
+      "orchestration",
+      "coding",
+      "monitoring",
+      "retrieval"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Affecter le travail",
+        "actor": "human",
+        "input": [
+          "Issue ou tâche",
+          "règles d’exécution"
+        ],
+        "output": [
+          "Tâche assignée"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Réveiller Hermes",
+        "actor": "system",
+        "input": [
+          "Tâche",
+          "session persistante"
+        ],
+        "action": "Transmettre les instructions à l’agent à chaque heartbeat.",
+        "output": [
+          "Contexte de travail"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Exécuter avec les outils",
+        "actor": "agent",
+        "input": [
+          "Contexte",
+          "outils",
+          "skills"
+        ],
+        "action": "Réaliser la tâche et produire un compte rendu structuré.",
+        "output": [
+          "Résultat",
+          "Transcript"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Rendre compte et reprendre",
+        "actor": "agent",
+        "input": [
+          "Résultat",
+          "état de session"
+        ],
+        "output": [
+          "Mise à jour de l’issue",
+          "Session persistée"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Travail exécuté",
+      "Transcript lisible",
+      "État de session persistant",
+      "Compte rendu dans Paperclip"
+    ],
+    "data_required": [
+      "Instructions de tâche",
+      "État de session",
+      "Skills disponibles",
+      "Sorties d’outils"
+    ],
+    "data_sources": [
+      {
+        "name": "Issues et commentaires Paperclip",
+        "access": "read-write",
+        "sensitivity": "internal"
+      },
+      {
+        "name": "Sessions Hermes",
+        "access": "read-write",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Hermes Agent",
+      "Paperclip",
+      "MCP",
+      "Terminal",
+      "File",
+      "Web"
+    ],
+    "architecture_pattern": [
+      "ISSUE",
+      "HEARTBEAT",
+      "AGENT",
+      "TOOLS",
+      "TRANSCRIPT",
+      "SESSION PERSISTÉE"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Faire passer un agent du chat ponctuel à un collaborateur assignable dans un workflow."
+      },
+      {
+        "type": "knowledge",
+        "description": "Conserver les décisions et l’état du travail entre deux exécutions."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "knowledge",
+      "quality"
+    ],
+    "business_impact": [
+      "exécution de tâches",
+      "continuité de contexte",
+      "observabilité"
+    ],
+    "results": [
+      {
+        "text": "L’adaptateur documente la création d’un agent Hermes dans Paperclip, l’assignation d’issues, l’exécution des outils, le retour de résultat et la persistance de session.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Permissions d’outils trop larges",
+      "Transcripts difficiles à auditer",
+      "Continuité de session mal bornée"
+    ],
+    "limitations": [
+      "L’adaptateur documente une intégration technique ; aucune mesure indépendante de productivité ou de qualité n’est publiée."
+    ],
+    "lessons_learned": [
+      "Le passage à l’agent opérable tient autant au protocole d’assignation et de reprise qu’au modèle.",
+      "Un agent géré doit laisser une trace lisible de ses actions et de son état."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://github.com/NousResearch/hermes-paperclip-adapter",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Intégration open source officiellement publiée par Nous Research. Les étapes sont reprises de la documentation d’installation et de fonctionnement ; aucune adoption client n’est déduite."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-nous-hermes-paperclip",
+        "source_type": "public-source",
+        "title": "NousResearch / hermes-paperclip-adapter",
+        "publisher": "Nous Research",
+        "reference": "https://github.com/NousResearch/hermes-paperclip-adapter",
+        "url": "https://github.com/NousResearch/hermes-paperclip-adapter",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis l’adaptateur Paperclip open source de Nous Research.",
+        "source_ref": "https://github.com/NousResearch/hermes-paperclip-adapter"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-amenti-hermes-lab-experiments",
+    "slug": "real-amenti-hermes-lab-experiments",
+    "title": "Amenti Labs — Piloter des expériences avec Hermes Lab",
+    "short_description": "Hermes Lab tient le journal d’expériences autonomes : planifier, tester, comparer et proposer la suite.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "unknown"
+    ],
+    "company_size_raw": "Projet communautaire Amenti Labs",
+    "industry": "software",
+    "industry_raw": "Outils de recherche et d’expérimentation",
+    "business_function": [
+      "it-data",
+      "product"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Les expérimentations répétées demandent de planifier les essais, suivre les résultats et décider quoi tenter ensuite sans perdre l’historique.",
+    "ai_pattern": [
+      "orchestration",
+      "comparison",
+      "scoring",
+      "monitoring"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Définir l’espace de recherche",
+        "actor": "human",
+        "input": [
+          "Paramètres à explorer",
+          "Critère d’évaluation"
+        ],
+        "output": [
+          "Mission d’expérimentation"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Lancer les essais",
+        "actor": "agent",
+        "input": [
+          "Mission",
+          "stratégie de recherche"
+        ],
+        "action": "Planifier et exécuter les itérations en mode cron, burst, guided ou swarm.",
+        "output": [
+          "Résultats d’essais"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Comparer et promouvoir",
+        "actor": "system",
+        "input": [
+          "Résultats",
+          "proxy",
+          "validation coûteuse"
+        ],
+        "output": [
+          "Historique",
+          "Candidats promus"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Reprendre depuis Telegram",
+        "actor": "human",
+        "input": [
+          "Résumé de progression"
+        ],
+        "output": [
+          "Décision ou nouvelle idée"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Journal des essais",
+      "Comparaison des résultats",
+      "Suggestions de prochaines expériences",
+      "Résumé de progression"
+    ],
+    "data_required": [
+      "Espace de recherche",
+      "Fonction d’évaluation",
+      "Résultats d’essais",
+      "Historique des expériences"
+    ],
+    "data_sources": [
+      {
+        "name": "Fichiers d’expérimentation",
+        "access": "read-write",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Hermes Agent",
+      "Telegram",
+      "labctl",
+      "Workers distants / cloud GPU"
+    ],
+    "architecture_pattern": [
+      "MISSION",
+      "SCHEDULE",
+      "RUN",
+      "COMPARE",
+      "PROMOTE",
+      "SUMMARY"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Décharger la tenue de journal et la coordination d’expériences répétitives."
+      },
+      {
+        "type": "knowledge",
+        "description": "Rendre visibles les essais déjà effectués et les pistes suivantes."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "knowledge",
+      "decision"
+    ],
+    "business_impact": [
+      "expérimentation ML",
+      "traçabilité",
+      "apprentissage cumulatif"
+    ],
+    "results": [
+      {
+        "text": "Le projet documente quatre modes d’exécution et une approche file-first sans base de données ni serveur.",
+        "observed": true
+      },
+      {
+        "text": "L’auteur décrit un usage pour de petites expériences ML locales, avec suivi des progrès et reprise via Telegram.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Critère d’évaluation mal défini",
+      "Coût croissant des essais",
+      "Automatisation de recherches peu utiles",
+      "Résultats difficiles à comparer si le protocole change"
+    ],
+    "limitations": [
+      "Le cas provient d’un projet communautaire archivé dans l’écosystème Nous ; il ne constitue pas une preuve de performance ML généralisable."
+    ],
+    "lessons_learned": [
+      "Pour un agent de recherche, le protocole d’évaluation compte autant que la capacité à lancer des essais.",
+      "Un historique de travail simple et inspectable peut suffire à rendre une boucle autonome exploitable."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://github.com/amenti-labs/hermes-lab",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Projet communautaire présenté dans l’archive publique du Discord Nous et publié par Amenti Labs. Les usages et modes sont repris des sources ; aucun gain de performance n’est déduit."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-amenti-hermes-lab",
+        "source_type": "public-source",
+        "title": "Amenti Labs / hermes-lab",
+        "publisher": "Amenti Labs",
+        "reference": "https://github.com/amenti-labs/hermes-lab",
+        "url": "https://github.com/amenti-labs/hermes-lab",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      },
+      {
+        "id": "source-nous-discord-hermes-lab",
+        "source_type": "public-source",
+        "title": "Hermes Lab — community project showcase",
+        "publisher": "Nous Discord archive",
+        "reference": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1486588376940281937-Hermes-Lab---file-first-experiment-scaffolding-for-autonomous-research.txt",
+        "url": "https://github.com/teknium1/nous-discord-archive/blob/main/archives/community-projects-showcase/1486588376940281937-Hermes-Lab---file-first-experiment-scaffolding-for-autonomous-research.txt",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis le projet Hermes Lab et son archive communautaire publique.",
+        "source_ref": "https://github.com/amenti-labs/hermes-lab"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-google-gmail-ml-spam",
+    "slug": "real-google-gmail-ml-spam",
+    "title": "Google — Filtrer le spam avec du machine learning",
+    "short_description": "Gmail remplace une partie de la logique de règles par des modèles qui apprennent les nouveaux signaux de spam et de phishing.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "company_size_raw": "Google",
+    "industry": "software",
+    "industry_raw": "Services numériques / messagerie",
+    "business_function": [
+      "it-data",
+      "customer-service"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Les règles manuelles de filtrage peinaient à suivre des campagnes de spam et de phishing qui changeaient rapidement.",
+    "ai_pattern": [
+      "classification",
+      "prediction",
+      "monitoring"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "bounded-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Observer les signaux",
+        "actor": "system",
+        "input": [
+          "Messages",
+          "URLs",
+          "signaux de menace"
+        ],
+        "output": [
+          "Variables de détection"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Classer le message",
+        "actor": "model",
+        "input": [
+          "Signaux de menace",
+          "réputation et similarité d’URL"
+        ],
+        "action": "Prédire si le message est indésirable ou malveillant.",
+        "output": [
+          "Classement spam / phishing / légitime"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Protéger la boîte",
+        "actor": "system",
+        "input": [
+          "Classement",
+          "règles de sécurité"
+        ],
+        "output": [
+          "Message bloqué, signalé ou livré"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Réapprendre",
+        "actor": "system",
+        "input": [
+          "Nouveaux patterns",
+          "retours utilisateurs"
+        ],
+        "output": [
+          "Modèle ou filtre mis à jour"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Détection du spam",
+      "Détection du phishing",
+      "Alerte ou blocage avant réception"
+    ],
+    "data_required": [
+      "Messages entrants",
+      "Signaux de menace",
+      "URLs",
+      "Réputation et similarité",
+      "Retours de signalement"
+    ],
+    "data_sources": [
+      {
+        "name": "Flux de messages Gmail",
+        "access": "read",
+        "sensitivity": "personal"
+      },
+      {
+        "name": "Google Safe Browsing",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "Modèles de machine learning",
+      "Google Safe Browsing"
+    ],
+    "architecture_pattern": [
+      "SIGNALS",
+      "CLASSIFY",
+      "BLOCK / WARN",
+      "FEEDBACK",
+      "RETRAIN"
+    ],
+    "expected_value": [
+      {
+        "type": "risk",
+        "description": "Écarter les messages indésirables et malveillants avant qu’ils n’atteignent la boîte de réception."
+      },
+      {
+        "type": "quality",
+        "description": "Adapter la détection à de nouveaux patterns plus vite qu’avec des règles écrites une par une."
+      }
+    ],
+    "value_type": [
+      "risk",
+      "quality",
+      "speed"
+    ],
+    "business_impact": [
+      "sécurité de la messagerie",
+      "réduction du bruit",
+      "adaptation aux menaces"
+    ],
+    "results": [
+      {
+        "text": "Google indique que les défenses IA de Gmail bloquent plus de 99,9 % du spam, du phishing et des malwares.",
+        "observed": true
+      },
+      {
+        "text": "Google indique que les modèles de détection combinent notamment réputation et similarité d’URL pour avertir sur les liens suspects.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Faux positifs sur des messages légitimes",
+      "Adaptation continue des attaquants",
+      "Dépendance à la qualité des signaux de menace"
+    ],
+    "limitations": [
+      "Les taux publiés sont des agrégats Google ; la source ne détaille pas la performance par segment d’utilisateur ou de message."
+    ],
+    "lessons_learned": [
+      "Le machine learning classique est très efficace quand le signal utile est un classement ou une décision répétée à grande échelle.",
+      "Le modèle n’est pas seul : règles, signaux externes et mécanismes de retour complètent la prédiction."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://blog.google/products-and-platforms/products/workspace/keeping-your-company-data-safe-new-security-updates-gmail/",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Cas produit décrit par Google. Les taux et signaux sont repris de la publication ; aucun taux de précision supplémentaire n’est inféré."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-google-gmail-ml-spam",
+        "source_type": "public-source",
+        "title": "Keeping your company data safe with new security updates to Gmail",
+        "publisher": "Google",
+        "reference": "https://blog.google/products-and-platforms/products/workspace/keeping-your-company-data-safe-new-security-updates-gmail/",
+        "url": "https://blog.google/products-and-platforms/products/workspace/keeping-your-company-data-safe-new-security-updates-gmail/",
+        "published_at": "2017-05-31",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la documentation publique de Google sur le machine learning anti-spam et anti-phishing de Gmail.",
+        "source_ref": "https://blog.google/products-and-platforms/products/workspace/keeping-your-company-data-safe-new-security-updates-gmail/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-netflix-recommendation",
+    "slug": "real-netflix-recommendation",
+    "title": "Netflix — Recommander le bon contenu au bon moment",
+    "short_description": "Un système de recommandation classe les titres selon les interactions, les goûts proches, le contexte et les caractéristiques du catalogue.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "company_size_raw": "Netflix",
+    "industry": "software",
+    "industry_raw": "Streaming vidéo",
+    "business_function": [
+      "product",
+      "marketing"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Un catalogue large et changeant rend difficile la découverte rapide d’un contenu pertinent pour chaque membre.",
+    "ai_pattern": [
+      "recommendation",
+      "scoring",
+      "prediction",
+      "classification"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Collecter les signaux",
+        "actor": "system",
+        "input": [
+          "Historique de visionnage",
+          "notes",
+          "interactions"
+        ],
+        "output": [
+          "Profil de préférences"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Estimer l’intérêt",
+        "actor": "model",
+        "input": [
+          "Profil",
+          "membres aux goûts proches",
+          "métadonnées des titres",
+          "contexte"
+        ],
+        "action": "Estimer la probabilité qu’un titre intéresse le membre.",
+        "output": [
+          "Scores de recommandation"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Composer la page",
+        "actor": "system",
+        "input": [
+          "Scores",
+          "catalogue disponible"
+        ],
+        "output": [
+          "Rangées, titres et ordre personnalisés"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Apprendre de la visite",
+        "actor": "system",
+        "input": [
+          "Lecture, abandon, évaluation"
+        ],
+        "output": [
+          "Signaux de mise à jour"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Rangées personnalisées",
+      "Titres classés",
+      "Recherche plus pertinente"
+    ],
+    "data_required": [
+      "Historique de visionnage",
+      "Évaluations",
+      "Interactions récentes",
+      "Métadonnées des titres",
+      "Langue et appareil"
+    ],
+    "data_sources": [
+      {
+        "name": "Interactions des membres avec Netflix",
+        "access": "read",
+        "sensitivity": "personal"
+      },
+      {
+        "name": "Catalogue de titres",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Système de recommandation Netflix"
+    ],
+    "architecture_pattern": [
+      "SIGNALS",
+      "PROFILE",
+      "SCORE",
+      "RANK",
+      "FEEDBACK"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le temps nécessaire pour trouver un contenu à regarder."
+      },
+      {
+        "type": "revenue",
+        "description": "Soutenir l’usage du service par une découverte plus pertinente."
+      }
+    ],
+    "value_type": [
+      "revenue",
+      "productivity",
+      "quality"
+    ],
+    "business_impact": [
+      "découverte de contenu",
+      "personnalisation",
+      "engagement produit"
+    ],
+    "results": [
+      {
+        "text": "Netflix décrit un système de recommandation déployé pour ses membres dans le monde entier.",
+        "observed": true
+      },
+      {
+        "text": "Le système personnalise plusieurs niveaux de la page : choix de la rangée, titres affichés et ordre des titres.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Boucle de renforcement des préférences passées",
+      "Biais de popularité ou de catalogue",
+      "Dépendance à la qualité des signaux comportementaux"
+    ],
+    "limitations": [
+      "Les publications décrivent les signaux et l’architecture à haut niveau ; elles ne donnent pas un gain causal unique attribuable au modèle."
+    ],
+    "lessons_learned": [
+      "Une recommandation est souvent un système de classement multi-étages, pas une simple liste de suggestions.",
+      "Le contexte d’usage — heure, langue, appareil — peut compter autant que l’historique long terme."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://about.netflix.com/en/news/a-global-approach-to-recommendations",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Cas produit documenté par Netflix et complété par son aide publique. Les signaux cités sont ceux explicitement décrits ; aucune contribution business n’est chiffrée par inférence."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-netflix-global-recommendations",
+        "source_type": "public-source",
+        "title": "A Global Approach to Recommendations",
+        "publisher": "Netflix",
+        "reference": "https://about.netflix.com/en/news/a-global-approach-to-recommendations",
+        "url": "https://about.netflix.com/en/news/a-global-approach-to-recommendations",
+        "published_at": "2016-02-17",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      },
+      {
+        "id": "source-netflix-recommendations-help",
+        "source_type": "public-source",
+        "title": "How Netflix’s Recommendations System Works",
+        "publisher": "Netflix Help Center",
+        "reference": "https://help.netflix.com/en/node/100639",
+        "url": "https://help.netflix.com/en/node/100639",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis les descriptions publiques du système de recommandations Netflix.",
+        "source_ref": "https://about.netflix.com/en/news/a-global-approach-to-recommendations"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-spotify-personalization",
+    "slug": "real-spotify-personalization",
+    "title": "Spotify — Personnaliser la découverte musicale",
+    "short_description": "Spotify utilise le machine learning pour prédire les morceaux pertinents à partir de l’historique d’écoute et des réactions en cours de session.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "company_size_raw": "Spotify",
+    "industry": "software",
+    "industry_raw": "Streaming musical",
+    "business_function": [
+      "product",
+      "marketing"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Une bibliothèque musicale immense doit rester découvrable sans demander à l’auditeur de formuler chaque recherche manuellement.",
+    "ai_pattern": [
+      "recommendation",
+      "prediction",
+      "classification"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Observer l’écoute",
+        "actor": "system",
+        "input": [
+          "Historique",
+          "écoutes",
+          "skips",
+          "sauvegardes"
+        ],
+        "output": [
+          "Signaux de goût"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Prédire l’intérêt",
+        "actor": "model",
+        "input": [
+          "Signaux de goût",
+          "catalogue musical"
+        ],
+        "action": "Prédire les morceaux susceptibles d’intéresser l’auditeur.",
+        "output": [
+          "Scores de pertinence"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Composer une sélection",
+        "actor": "system",
+        "input": [
+          "Scores",
+          "contexte de playlist"
+        ],
+        "output": [
+          "Playlist ou recommandation"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Réajuster",
+        "actor": "system",
+        "input": [
+          "Écoute, skip, sauvegarde"
+        ],
+        "output": [
+          "Nouveaux signaux d’apprentissage"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Playlists personnalisées",
+      "Recommandations de morceaux",
+      "Découverte de contenus"
+    ],
+    "data_required": [
+      "Historique d’écoute",
+      "Morceaux écoutés",
+      "Skips",
+      "Morceaux sauvegardés",
+      "Catalogue musical"
+    ],
+    "data_sources": [
+      {
+        "name": "Interactions d’écoute Spotify",
+        "access": "read",
+        "sensitivity": "personal"
+      },
+      {
+        "name": "Bibliothèque musicale",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Modèles de machine learning"
+    ],
+    "architecture_pattern": [
+      "HISTORY",
+      "PREDICT",
+      "CURATE",
+      "FEEDBACK"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Faciliter la découverte sans recherche explicite à chaque morceau."
+      },
+      {
+        "type": "revenue",
+        "description": "Soutenir l’usage récurrent du service par une personnalisation utile."
+      }
+    ],
+    "value_type": [
+      "revenue",
+      "productivity",
+      "quality"
+    ],
+    "business_impact": [
+      "découverte musicale",
+      "personnalisation",
+      "usage récurrent"
+    ],
+    "results": [
+      {
+        "text": "Spotify décrit le machine learning comme un moteur de sa personnalisation.",
+        "observed": true
+      },
+      {
+        "text": "Les actions d’écoute, de skip et de sauvegarde servent à entraîner le moteur de recommandation sur la pertinence des morceaux proposés.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Boucle de recommandation trop homogène",
+      "Biais des signaux d’écoute",
+      "Dépendance à la fraîcheur du catalogue"
+    ],
+    "limitations": [
+      "La source décrit le mécanisme de personnalisation mais ne fournit pas de résultat business isolé pour ce dispositif."
+    ],
+    "lessons_learned": [
+      "Le retour comportemental en temps réel est un actif de produit, pas seulement une mesure postérieure.",
+      "La recommandation classique met en scène une prédiction ; l’interface reste le lieu de la décision utilisateur."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://engineering.atspotify.com/2023/4/humans-machines-a-look-behind-spotifys-algotorial-playlists",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Cas produit décrit par Spotify Engineering. Le rôle des signaux et de la prédiction est repris de la source ; aucun impact d’écoute ou de revenu n’est inventé."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-spotify-algotorial-playlists",
+        "source_type": "public-source",
+        "title": "Humans + Machines: A Look Behind the Playlists Powered by Spotify’s Algotorial Technology",
+        "publisher": "Spotify Engineering",
+        "reference": "https://engineering.atspotify.com/2023/4/humans-machines-a-look-behind-spotifys-algotorial-playlists",
+        "url": "https://engineering.atspotify.com/2023/4/humans-machines-a-look-behind-spotifys-algotorial-playlists",
+        "published_at": "2023-04-01",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la documentation publique de Spotify Engineering sur la personnalisation.",
+        "source_ref": "https://engineering.atspotify.com/2023/4/humans-machines-a-look-behind-spotifys-algotorial-playlists"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-uber-deepeta",
+    "slug": "real-uber-deepeta",
+    "title": "Uber — Affiner l’ETA avec un modèle hybride",
+    "short_description": "DeepETA combine un moteur de routage et un modèle de machine learning qui apprend l’écart entre l’ETA calculée et la réalité observée.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "company_size_raw": "Uber",
+    "industry": "transport-logistics",
+    "industry_raw": "Mobilité et livraison",
+    "business_function": [
+      "operations",
+      "product",
+      "it-data"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Un moteur de routage connaît le chemin mais peut manquer les écarts entre le temps théorique et le temps réellement observé sur le terrain.",
+    "ai_pattern": [
+      "prediction",
+      "orchestration",
+      "scoring"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "bounded-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Calculer l’itinéraire",
+        "actor": "system",
+        "input": [
+          "Carte",
+          "trafic en temps réel",
+          "origine",
+          "destination"
+        ],
+        "output": [
+          "ETA du moteur de routage"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Prédire le résidu",
+        "actor": "model",
+        "input": [
+          "ETA du routage",
+          "origine",
+          "destination",
+          "heure",
+          "trafic",
+          "type de course"
+        ],
+        "action": "Prédire l’écart entre le routage et le temps observé.",
+        "output": [
+          "Correction d’ETA"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Afficher l’ETA affinée",
+        "actor": "system",
+        "input": [
+          "ETA de base",
+          "correction"
+        ],
+        "output": [
+          "ETA affichée au client"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Comparer au réel",
+        "actor": "system",
+        "input": [
+          "Temps observé",
+          "ETA prédite"
+        ],
+        "output": [
+          "Nouvelles données d’apprentissage"
+        ]
+      }
+    ],
+    "expected_output": [
+      "ETA affinée",
+      "Temps d’arrivée estimé",
+      "Signal d’apprentissage pour les trajets suivants"
+    ],
+    "data_required": [
+      "Origine",
+      "Destination",
+      "Heure de la demande",
+      "Trafic en temps réel",
+      "Type de course",
+      "Temps réellement observé"
+    ],
+    "data_sources": [
+      {
+        "name": "Moteur de routage et données cartographiques",
+        "access": "read",
+        "sensitivity": "internal"
+      },
+      {
+        "name": "Trajets Uber observés",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Moteur de routage",
+      "Modèle DeepETA"
+    ],
+    "architecture_pattern": [
+      "ROUTE",
+      "BASE ETA",
+      "ML RESIDUAL",
+      "REFINED ETA",
+      "OBSERVED OUTCOME"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Rendre l’estimation d’arrivée plus proche des conditions réelles."
+      },
+      {
+        "type": "decision",
+        "description": "Donner aux utilisateurs et aux opérations un signal temporel plus exploitable."
+      }
+    ],
+    "value_type": [
+      "quality",
+      "decision",
+      "speed"
+    ],
+    "business_impact": [
+      "fiabilité de l’expérience",
+      "planification des trajets",
+      "coordination de la marketplace"
+    ],
+    "results": [
+      {
+        "text": "Uber décrit DeepETA comme son nouveau modèle ETA de production.",
+        "observed": true
+      },
+      {
+        "text": "La publication présente un modèle hybride : le moteur physique calcule l’itinéraire, le machine learning apprend le résidu.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Dérive des conditions de trafic",
+      "Erreurs dans les données de temps observé",
+      "Dépendance à la qualité du moteur de routage de base"
+    ],
+    "limitations": [
+      "La publication explique la conception et le déploiement du modèle, mais ne donne pas ici un gain chiffré global de précision."
+    ],
+    "lessons_learned": [
+      "Un modèle classique peut augmenter un système existant sans remplacer tout le moteur métier.",
+      "Prédire l’écart résiduel est parfois plus robuste que réapprendre toute la décision depuis zéro."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.uber.com/au/en/blog/deepeta-how-uber-predicts-arrival-times/",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Cas de production documenté par Uber. Les variables et l’architecture hybride sont reprises de la source ; aucune amélioration chiffrée n’est extrapolée."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-uber-deepeta",
+        "source_type": "public-source",
+        "title": "DeepETA: How Uber Predicts Arrival Times Using Deep Learning",
+        "publisher": "Uber Engineering",
+        "reference": "https://www.uber.com/au/en/blog/deepeta-how-uber-predicts-arrival-times/",
+        "url": "https://www.uber.com/au/en/blog/deepeta-how-uber-predicts-arrival-times/",
+        "published_at": "2021-03-01",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la documentation de production Uber sur DeepETA.",
+        "source_ref": "https://www.uber.com/au/en/blog/deepeta-how-uber-predicts-arrival-times/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-pinterest-pixie-recommendations",
+    "slug": "real-pinterest-pixie-recommendations",
+    "title": "Pinterest — Recommander des idées à grande échelle avec Pixie",
+    "short_description": "Pixie parcourt un graphe de Pins et de boards pour générer rapidement des candidats pertinents avant le classement personnalisé.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "company_size_raw": "Pinterest",
+    "industry": "software",
+    "industry_raw": "Découverte visuelle et commerce",
+    "business_function": [
+      "product",
+      "marketing"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "Pinterest doit recommander des idées pertinentes parmi des dizaines de milliards de Pins, en temps réel et sur plusieurs surfaces produit.",
+    "ai_pattern": [
+      "recommendation",
+      "scoring",
+      "prediction",
+      "retrieval"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Partir des interactions",
+        "actor": "system",
+        "input": [
+          "Pins récemment consultés",
+          "Boards",
+          "actions utilisateur"
+        ],
+        "output": [
+          "Nœuds de départ"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Générer des candidats",
+        "actor": "model",
+        "input": [
+          "Graphe Pins / boards",
+          "nœuds de départ"
+        ],
+        "action": "Parcourir les voisinages pertinents pour produire des Pins candidats.",
+        "output": [
+          "Candidats recommandables"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Ranger les candidats",
+        "actor": "model",
+        "input": [
+          "Candidats",
+          "signaux utilisateur",
+          "contexte"
+        ],
+        "action": "Estimer la pertinence personnalisée et ordonner les résultats.",
+        "output": [
+          "Flux classé"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Distribuer",
+        "actor": "system",
+        "input": [
+          "Flux classé"
+        ],
+        "output": [
+          "Home feed",
+          "Related Pins",
+          "Explore",
+          "Email",
+          "Search"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Pins recommandés",
+      "Candidats de découverte",
+      "Flux personnalisés"
+    ],
+    "data_required": [
+      "Pins",
+      "Boards",
+      "Interactions récentes",
+      "Signaux utilisateur",
+      "Contexte de surface"
+    ],
+    "data_sources": [
+      {
+        "name": "Graphe Pins / boards",
+        "access": "read",
+        "sensitivity": "internal"
+      },
+      {
+        "name": "Actions des utilisateurs Pinterest",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "tools": [
+      "Pixie",
+      "Graph-based recommendation",
+      "Modèles de ranking"
+    ],
+    "architecture_pattern": [
+      "GRAPH",
+      "CANDIDATE GENERATION",
+      "LIGHTWEIGHT SCORE",
+      "FULL RANKING",
+      "SURFACES"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "Aider à découvrir du contenu et des produits pertinents à grande échelle."
+      },
+      {
+        "type": "speed",
+        "description": "Générer des candidats dans une contrainte de latence compatible avec un flux temps réel."
+      }
+    ],
+    "value_type": [
+      "revenue",
+      "speed",
+      "quality"
+    ],
+    "business_impact": [
+      "découverte",
+      "engagement",
+      "personnalisation multi-surface"
+    ],
+    "results": [
+      {
+        "text": "Pinterest rapporte jusqu’à 50 % d’amélioration de l’engagement dans les expérimentations citées pour Pixie.",
+        "observed": true
+      },
+      {
+        "text": "Pinterest indique que Pixie sert environ 1 000 requêtes par seconde avec une latence p99 de 60 ms.",
+        "observed": true
+      },
+      {
+        "text": "Pixie alimente Related Pins, le home feed, l’email, Explore et d’autres produits de recommandation.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Biais de popularité et de proximité",
+      "Coût de calcul et latence",
+      "Concentration des recommandations sur les signaux déjà observés"
+    ],
+    "limitations": [
+      "Les gains sont rapportés par Pinterest Engineering dans un billet technique ; ils ne décrivent pas nécessairement tous les contextes de trafic ou toutes les surfaces."
+    ],
+    "lessons_learned": [
+      "À grande échelle, la recommandation sépare souvent génération de candidats et classement final.",
+      "Un modèle plus simple placé tôt dans le funnel peut avoir plus de valeur qu’un modèle maximal partout."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://medium.com/pinterest-engineering/introducing-pixie-an-advanced-graph-based-recommendation-system-e7b4229b664b",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Cas produit et résultats rapportés par Pinterest Engineering. Les métriques sont conservées comme annoncées et ne sont pas généralisées au-delà de Pixie."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-pinterest-pixie",
+        "source_type": "public-source",
+        "title": "Introducing Pixie, an advanced graph-based recommendation system",
+        "publisher": "Pinterest Engineering",
+        "reference": "https://medium.com/pinterest-engineering/introducing-pixie-an-advanced-graph-based-recommendation-system-e7b4229b664b",
+        "url": "https://medium.com/pinterest-engineering/introducing-pixie-an-advanced-graph-based-recommendation-system-e7b4229b664b",
+        "published_at": "2017-03-31",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la publication technique de Pinterest Engineering sur Pixie.",
+        "source_ref": "https://medium.com/pinterest-engineering/introducing-pixie-an-advanced-graph-based-recommendation-system-e7b4229b664b"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-linkedin-talent-search",
+    "slug": "real-linkedin-talent-search",
+    "title": "LinkedIn — Faire correspondre recruteurs et talents",
+    "short_description": "Un système de recherche et de recommandation apprend la pertinence mutuelle entre un recruteur, une offre et un candidat.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "company_size_raw": "LinkedIn",
+    "industry": "software",
+    "industry_raw": "Réseau professionnel et recrutement",
+    "business_function": [
+      "hr",
+      "sales",
+      "product"
+    ],
+    "geography": [
+      "International"
+    ],
+    "problem": "La recherche de talents ne consiste pas seulement à mesurer la pertinence d’un profil pour une requête : elle doit estimer l’intérêt mutuel entre recruteur, candidat et poste.",
+    "ai_pattern": [
+      "recommendation",
+      "scoring",
+      "classification",
+      "prediction"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Comprendre la recherche",
+        "actor": "system",
+        "input": [
+          "Critères du recruteur",
+          "Contexte du poste"
+        ],
+        "output": [
+          "Requête structurée"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Construire les signaux",
+        "actor": "system",
+        "input": [
+          "Profils membres",
+          "entités standardisées",
+          "actions de recherche"
+        ],
+        "output": [
+          "Features de matching"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Scorer les candidats",
+        "actor": "model",
+        "input": [
+          "Requête",
+          "candidat",
+          "contexte du poste"
+        ],
+        "action": "Estimer la pertinence mutuelle et classer les résultats.",
+        "output": [
+          "Résultats ordonnés"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Mettre à jour",
+        "actor": "system",
+        "input": [
+          "Actions et labels",
+          "nouveaux profils"
+        ],
+        "output": [
+          "Modèle et index actualisés"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Résultats de recherche classés",
+      "Recommandations de talents",
+      "Mise à jour en temps réel de l’index"
+    ],
+    "data_required": [
+      "Critères de recherche",
+      "Contexte du poste",
+      "Profils membres",
+      "Actions de recherche",
+      "Labels de pertinence",
+      "Entités standardisées"
+    ],
+    "data_sources": [
+      {
+        "name": "Recherche recruteur et actions associées",
+        "access": "read",
+        "sensitivity": "internal"
+      },
+      {
+        "name": "Profils et entités LinkedIn",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "tools": [
+      "Modèle de machine learning en ligne",
+      "Index de recherche",
+      "Pipeline de labels"
+    ],
+    "architecture_pattern": [
+      "QUERY",
+      "FEATURES",
+      "ONLINE MODEL",
+      "RANK",
+      "REAL-TIME UPDATE"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le temps passé à trier les profils potentiellement pertinents."
+      },
+      {
+        "type": "quality",
+        "description": "Améliorer l’adéquation entre les critères du recruteur, le poste et le candidat."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "quality",
+      "decision"
+    ],
+    "business_impact": [
+      "recrutement",
+      "matching",
+      "recherche professionnelle"
+    ],
+    "results": [
+      {
+        "text": "LinkedIn documente une chaîne complète allant des critères de recherche et actions loguées jusqu’au modèle en ligne, à l’index et aux mises à jour temps réel.",
+        "observed": true
+      },
+      {
+        "text": "Le cas distingue la pertinence d’un résultat pour une requête de l’intérêt mutuel entre recruteur et candidat.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Biais dans les données historiques de recrutement",
+      "Confusion entre pertinence et adéquation réelle",
+      "Données personnelles et contraintes de conformité"
+    ],
+    "limitations": [
+      "La source technique présente l’architecture et les difficultés du problème ; elle ne donne pas de taux de placement ou de gain de recrutement."
+    ],
+    "lessons_learned": [
+      "Dans un problème de matching, la fonction de score doit représenter la relation métier réelle, pas seulement la similarité textuelle.",
+      "Le modèle n’est utile que si la chaîne de labels, d’index et de mise à jour tient la cadence du produit."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://engineering.linkedin.com/content/dam/me/engineering/li-en/research/SIGIR-2018.pdf",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-hermes-ml-2026-09-21",
+      "transformation_notes": "Cas technique documenté dans une publication LinkedIn. Les étapes de la chaîne et la difficulté de l’intérêt mutuel sont reprises de la source ; aucun résultat de recrutement n’est inventé."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-linkedin-talent-search",
+        "source_type": "public-source",
+        "title": "Talent Search and Recommendation Systems at LinkedIn: Practical Challenges and Lessons Learned",
+        "publisher": "LinkedIn Engineering",
+        "reference": "https://engineering.linkedin.com/content/dam/me/engineering/li-en/research/SIGIR-2018.pdf",
+        "url": "https://engineering.linkedin.com/content/dam/me/engineering/li-en/research/SIGIR-2018.pdf",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la publication LinkedIn sur la recherche et la recommandation de talents.",
+        "source_ref": "https://engineering.linkedin.com/content/dam/me/engineering/li-en/research/SIGIR-2018.pdf"
+      }
+    ]
   }
 ]
