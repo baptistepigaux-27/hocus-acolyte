@@ -3,9 +3,15 @@
 
   const params = new URLSearchParams(window.location.search);
   const navGroups = [...document.querySelectorAll('.site-nav-group')];
+  const closeOtherNavGroups = (activeGroup) => {
+    navGroups.filter((other) => other !== activeGroup).forEach((other) => { other.open = false; });
+  };
   navGroups.forEach((group) => group.addEventListener('toggle', () => {
     if (!group.open) return;
-    navGroups.filter((other) => other !== group).forEach((other) => { other.open = false; });
+    closeOtherNavGroups(group);
+  }));
+  navGroups.forEach((group) => group.querySelector('summary')?.addEventListener('click', () => {
+    closeOtherNavGroups(group);
   }));
   document.addEventListener('click', (event) => {
     if (event.target.closest('.site-nav')) return;
