@@ -31,7 +31,7 @@ Modules conversationnels accessibles depuis `Explorer` ou directement par URL :
 ## Explore
 
 Le catalogue EXPLORE est disponible sur <http://127.0.0.1:4173/explore/>. Il
-consomme les 110 fiches du dataset canonique validé dans
+consomme les 120 fiches du dataset canonique validé dans
 `server-playbook/data/acolyte-cases-v1.json` : recherche texte, filtres
 combinés, niveaux de preuve, fiches détaillées, provenance et cas proches.
 

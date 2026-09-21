@@ -11813,5 +11813,1892 @@
         "source_ref": "https://engineering.linkedin.com/content/dam/me/engineering/li-en/research/SIGIR-2018.pdf"
       }
     ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-hermes-agent-france-managed-assistant",
+    "slug": "real-hermes-agent-france-managed-assistant",
+    "title": "Hermes Agent France — Agent géré pour emails, relances et échéances",
+    "short_description": "Une offre française déploie Hermes comme assistant persistant, avec préparation des actions et validation humaine avant envoi.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "software",
+    "industry_raw": "Service français d'hébergement et d'accompagnement d'agents IA",
+    "business_function": [
+      "operations",
+      "finance",
+      "customer-service"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Des tâches administratives répétitives comme le tri d'emails, les relances d'impayés et la surveillance d'échéances doivent être suivies dans le temps sans laisser l'agent envoyer une action sensible seul.",
+    "ai_pattern": [
+      "orchestration",
+      "monitoring",
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Avant l'envoi d'un email ou d'une relance"
+      ],
+      "rationale": "Le service indique que rien ne part sans approbation de l'utilisateur."
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Connecter les canaux",
+        "actor": "human",
+        "input": [
+          "Email",
+          "Telegram",
+          "règles métier"
+        ],
+        "output": [
+          "Instance configurée"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Surveiller et préparer",
+        "actor": "agent",
+        "input": [
+          "Messages",
+          "échéances",
+          "documents"
+        ],
+        "action": "Lire, classer, rechercher et préparer les réponses ou relances.",
+        "output": [
+          "Actions proposées"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Valider",
+        "actor": "human",
+        "input": [
+          "Action proposée",
+          "contexte"
+        ],
+        "output": [
+          "Approbation ou correction"
+        ],
+        "human_gate": true
+      },
+      {
+        "order": 4,
+        "label": "Exécuter et suivre",
+        "actor": "agent",
+        "input": [
+          "Action approuvée"
+        ],
+        "output": [
+          "Message envoyé",
+          "suivi de l'échéance"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Emails triés",
+      "Relances préparées",
+      "Échéances surveillées",
+      "Actions soumises à approbation"
+    ],
+    "data_required": [
+      "Emails",
+      "Échéances",
+      "Documents",
+      "Règles de réponse"
+    ],
+    "data_sources": [
+      {
+        "name": "Messagerie et Telegram",
+        "access": "read-write",
+        "sensitivity": "mixed"
+      }
+    ],
+    "tools": [
+      "Hermes Agent",
+      "Email",
+      "Telegram",
+      "Instance privée en Europe"
+    ],
+    "architecture_pattern": [
+      "CHANNELS",
+      "MEMORY",
+      "MONITOR",
+      "PROPOSE",
+      "HUMAN GATE",
+      "EXECUTE"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le suivi manuel des tâches administratives répétitives."
+      },
+      {
+        "type": "risk",
+        "description": "Conserver une validation avant les communications sortantes."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "risk",
+      "speed"
+    ],
+    "business_impact": [
+      "suivi administratif",
+      "relances",
+      "continuité de service"
+    ],
+    "results": [
+      {
+        "text": "Le service présente un déploiement français d'Hermes avec email, Telegram, mémoire, recherche web et validation avant envoi.",
+        "observed": true
+      }
+    ],
+    "risks": [
+      "Droits d'accès trop larges",
+      "Données personnelles dans la messagerie",
+      "Relance mal préparée malgré le contrôle humain"
+    ],
+    "limitations": [
+      "Il s'agit d'une présentation commerciale de service : aucun client nommé, volume d'adoption ou résultat indépendant n'est publié.",
+      "Les capacités annoncées ne constituent pas à elles seules une mesure de performance."
+    ],
+    "lessons_learned": [
+      "Pour un agent administratif, le point de contrôle avant l'envoi est aussi important que la capacité de lecture et de préparation.",
+      "Un déploiement privé et francophone rend l'architecture plus concrète, mais ne prouve pas encore un résultat client généralisable."
+    ],
+    "evidence_level": "experience",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://hermesagentfrance.com/",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Offre française publiquement décrite. Classée experience car le dispositif est réel et détaillé mais aucun client final nommé ni résultat indépendant n'est publié."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-hermes-agent-france",
+        "source_type": "public-source",
+        "title": "Hermes Agent France",
+        "publisher": "Hermes Agent France",
+        "reference": "https://hermesagentfrance.com/",
+        "url": "https://hermesagentfrance.com/",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la présentation publique d'un service français fondé sur Hermes Agent.",
+        "source_ref": "https://hermesagentfrance.com/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-carrefour-demand-forecasting",
+    "slug": "real-carrefour-demand-forecasting",
+    "title": "Carrefour — Prévoir la demande et ajuster les stocks",
+    "short_description": "Une plateforme d'IA et de machine learning aide Carrefour à anticiper la demande et à affiner les commandes fournisseurs.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "retail",
+    "industry_raw": "Grande distribution",
+    "business_function": [
+      "supply",
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les équipes de supply chain doivent prévoir la demande à partir de données magasins, entrepôts et e-commerce, puis traduire ces prévisions en commandes avec moins de ruptures et de surstock.",
+    "ai_pattern": [
+      "prediction",
+      "recommendation",
+      "orchestration"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Rassembler les données",
+        "actor": "system",
+        "input": [
+          "Données magasins",
+          "entrepôts",
+          "e-commerce"
+        ],
+        "output": [
+          "Base de prévision"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Prévoir la demande",
+        "actor": "model",
+        "input": [
+          "Historique et signaux supply chain"
+        ],
+        "action": "Produire des prévisions et des recommandations de commande.",
+        "output": [
+          "Prévisions de demande"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Arbitrer les commandes",
+        "actor": "human",
+        "input": [
+          "Prévisions",
+          "contraintes métier"
+        ],
+        "output": [
+          "Plan d'approvisionnement"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Améliorer le modèle",
+        "actor": "human",
+        "input": [
+          "Résultats et retours des équipes"
+        ],
+        "output": [
+          "Méthodes de prévision ajustées"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Prévisions de demande",
+      "Commandes fournisseurs affinées",
+      "Réduction des ruptures et du surstock"
+    ],
+    "data_required": [
+      "Données magasins",
+      "Données entrepôts",
+      "Données e-commerce",
+      "Historique de commandes"
+    ],
+    "data_sources": [
+      {
+        "name": "Système d'information Carrefour Supply Chain",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "SAS Viya",
+      "Machine learning",
+      "Capgemini"
+    ],
+    "architecture_pattern": [
+      "DATA",
+      "FORECAST",
+      "PLANNING",
+      "HUMAN ARBITRATION",
+      "FEEDBACK"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Limiter le surstock et le gaspillage."
+      },
+      {
+        "type": "quality",
+        "description": "Améliorer la disponibilité des produits en magasin."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "quality",
+      "decision"
+    ],
+    "business_impact": [
+      "prévision de demande",
+      "approvisionnement",
+      "gestion des stocks"
+    ],
+    "results": [
+      {
+        "text": "Carrefour décrit une plateforme issue d'une phase de test de 18 mois pour traiter les données des magasins, entrepôts et sites e-commerce.",
+        "observed": true
+      },
+      {
+        "text": "Le groupe présente la réduction des ruptures, du surstock et du gaspillage comme les effets attendus du dispositif.",
+        "observed": false
+      }
+    ],
+    "limitations": [
+      "La publication Carrefour décrit le projet et ses objectifs, sans détailler la performance du modèle ni isoler un gain causal."
+    ],
+    "risks": [
+      "Prévisions sensibles aux ruptures de données ou aux changements de comportement",
+      "Arbitrage métier toujours nécessaire pour les événements exceptionnels"
+    ],
+    "lessons_learned": [
+      "Le machine learning produit de la valeur quand il est branché sur le processus de planification et les arbitrages des équipes.",
+      "Le modèle ne remplace pas le demand planner : il déplace son temps vers l'interprétation et la stratégie."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.carrefour.com/fr/news/carrefour-optimise-sa-supply-chain-grace-lintelligence-artificielle",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas Carrefour décrit par le groupe et limité aux fonctions, données et objectifs explicitement cités."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-carrefour-demand-forecasting",
+        "source_type": "public-source",
+        "title": "Carrefour optimise sa supply chain grâce à l'intelligence artificielle",
+        "publisher": "Groupe Carrefour",
+        "reference": "https://www.carrefour.com/fr/news/carrefour-optimise-sa-supply-chain-grace-lintelligence-artificielle",
+        "url": "https://www.carrefour.com/fr/news/carrefour-optimise-sa-supply-chain-grace-lintelligence-artificielle",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la publication officielle de Carrefour sur la prévision de demande.",
+        "source_ref": "https://www.carrefour.com/fr/news/carrefour-optimise-sa-supply-chain-grace-lintelligence-artificielle"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-sncf-unsupervised-maintenance",
+    "slug": "real-sncf-unsupervised-maintenance",
+    "title": "SNCF Voyageurs — Détecter les anomalies des trains par clustering",
+    "short_description": "Un système combine statistiques de flotte et machine learning non supervisé pour repérer des comportements anormaux sur de nouveaux trains.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "transport-logistics",
+    "industry_raw": "Transport ferroviaire",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les systèmes de règles de maintenance prédictive nécessitent beaucoup de retours d'expérience et deviennent efficaces tardivement sur les nouveaux matériels roulants.",
+    "ai_pattern": [
+      "classification",
+      "prediction",
+      "monitoring"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Observer la flotte",
+        "actor": "system",
+        "input": [
+          "Mesures train",
+          "retours de maintenance"
+        ],
+        "output": [
+          "Variables comparables"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Former les groupes",
+        "actor": "model",
+        "input": [
+          "Données de systèmes de la flotte"
+        ],
+        "action": "Appliquer un clustering non supervisé pour caractériser les comportements.",
+        "output": [
+          "Groupes et anomalies"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Prioriser la maintenance",
+        "actor": "workflow",
+        "input": [
+          "Anomalies",
+          "règles métier"
+        ],
+        "output": [
+          "Signal de maintenance corrective ou préventive"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Intervenir",
+        "actor": "human",
+        "input": [
+          "Signal",
+          "diagnostic technique"
+        ],
+        "output": [
+          "Action de maintenance"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Anomalies identifiées",
+      "Comportements classés",
+      "Signaux de maintenance"
+    ],
+    "data_required": [
+      "Mesures des systèmes embarqués",
+      "Historique de pannes",
+      "Retours de maintenance"
+    ],
+    "data_sources": [
+      {
+        "name": "Données de flotte et systèmes des trains",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Statistiques de flotte",
+      "Machine learning non supervisé"
+    ],
+    "architecture_pattern": [
+      "SENSORS",
+      "CLUSTER",
+      "ANOMALY",
+      "MAINTENANCE PRIORITY",
+      "HUMAN ACTION"
+    ],
+    "expected_value": [
+      {
+        "type": "risk",
+        "description": "Anticiper des comportements anormaux avant qu'ils ne deviennent des pannes répétées."
+      },
+      {
+        "type": "productivity",
+        "description": "Réduire le temps nécessaire pour apprendre les nouveaux matériels."
+      }
+    ],
+    "value_type": [
+      "risk",
+      "productivity",
+      "quality"
+    ],
+    "business_impact": [
+      "maintenance ferroviaire",
+      "fiabilité des trains",
+      "mise en service de nouveaux matériels"
+    ],
+    "results": [
+      {
+        "text": "La DGE décrit une solution développée par SNCF Voyageurs combinant calculs statistiques et clustering non supervisé pour identifier, caractériser et anticiper les comportements anormaux.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "La source décrit l'architecture et l'objectif de la solution, mais ne publie pas de gain opérationnel indépendant ni de métrique de précision."
+    ],
+    "risks": [
+      "Dérive des capteurs",
+      "Anomalies difficiles à interpréter",
+      "Faux signaux de maintenance"
+    ],
+    "lessons_learned": [
+      "Le non-supervisé est pertinent quand les pannes connues sont trop rares pour couvrir les nouveaux équipements.",
+      "Le clustering ne clôt pas le workflow : il produit un signal que les métiers doivent qualifier."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas SNCF Voyageurs extrait de la fiche officielle DGE AI for Efficiency ; le résultat retenu décrit l'architecture publiée, sans en déduire une performance."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-sncf-unsupervised-maintenance",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — Data Clustering for Predictive Maintenance of Everyday Trains",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche DGE du projet SNCF Voyageurs de maintenance par clustering.",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-berger-levrault-bl-predict",
+    "slug": "real-berger-levrault-bl-predict",
+    "title": "Berger-Levrault — Détecter les anomalies d'équipements avec BL Predict",
+    "short_description": "Une plateforme IoT française combine capteurs, détection d'anomalies et modèles adaptatifs pour la maintenance d'équipements.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "industry",
+    "industry_raw": "Équipements industriels et installations publiques",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les équipements industriels et installations doivent être surveillés en continu pour repérer les anomalies avant les pannes, alors que les comportements changent dans le temps.",
+    "ai_pattern": [
+      "classification",
+      "prediction",
+      "monitoring"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Collecter les signaux",
+        "actor": "system",
+        "input": [
+          "Capteurs",
+          "compteurs de ressources"
+        ],
+        "output": [
+          "Flux horodatés"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Détecter les écarts",
+        "actor": "model",
+        "input": [
+          "Flux temps réel",
+          "historique"
+        ],
+        "action": "Identifier les comportements anormaux et les dysfonctionnements.",
+        "output": [
+          "Alertes et anomalies"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Prioriser l'intervention",
+        "actor": "human",
+        "input": [
+          "Anomalies",
+          "contexte opérationnel"
+        ],
+        "output": [
+          "Action de maintenance"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Adapter le modèle",
+        "actor": "system",
+        "input": [
+          "Nouvelles conditions",
+          "retours terrain"
+        ],
+        "output": [
+          "Modèle ajusté"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Détection d'anomalies",
+      "Alertes de maintenance",
+      "Priorisation des interventions"
+    ],
+    "data_required": [
+      "Données capteurs",
+      "Compteurs de ressources",
+      "Historique de fonctionnement"
+    ],
+    "data_sources": [
+      {
+        "name": "Capteurs et compteurs des installations",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "BL Predict",
+      "IoT",
+      "Machine learning adaptatif"
+    ],
+    "architecture_pattern": [
+      "SENSORS",
+      "STREAM",
+      "ANOMALY DETECTION",
+      "ALERT",
+      "ADAPTATION"
+    ],
+    "expected_value": [
+      {
+        "type": "risk",
+        "description": "Détecter plus tôt les comportements susceptibles de provoquer une panne."
+      },
+      {
+        "type": "cost",
+        "description": "Réduire les interruptions et les interventions inutiles."
+      }
+    ],
+    "value_type": [
+      "risk",
+      "cost",
+      "productivity"
+    ],
+    "business_impact": [
+      "maintenance prédictive",
+      "fiabilité des actifs",
+      "efficacité énergétique"
+    ],
+    "results": [
+      {
+        "text": "La DGE indique que BL Predict a été déployé sur 16 sites clients depuis son lancement.",
+        "observed": true
+      },
+      {
+        "text": "La plateforme est décrite comme utilisant la détection d'anomalies non supervisée et des modèles qui s'adaptent en continu.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Sites clients annoncés",
+        "value": "16",
+        "unit": "sites",
+        "period": "depuis le lancement"
+      }
+    ],
+    "limitations": [
+      "La source décrit la plateforme et son déploiement, mais ne détaille pas les résultats par site ni la méthode de mesure du ROI."
+    ],
+    "risks": [
+      "Dérive des capteurs",
+      "Alertes trop nombreuses",
+      "Modèles adaptatifs difficiles à auditer"
+    ],
+    "lessons_learned": [
+      "La maintenance prédictive exige une boucle entre flux capteurs, alerte et action métier.",
+      "L'adaptation continue augmente la couverture mais rend l'observabilité et la validation des modèles indispensables."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas Berger-Levrault BL Predict extrait de la fiche officielle DGE ; les 16 sites sont conservés comme résultat annoncé."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-berger-levrault-bl-predict",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — BL Predict",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche DGE de BL Predict par Berger-Levrault.",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-colas-infracare-road-defects",
+    "slug": "real-colas-infracare-road-defects",
+    "title": "Colas — Détecter les défauts routiers par computer vision",
+    "short_description": "INFRACARE analyse des images de routes prises par des caméras embarquées pour repérer fissures, nids-de-poule et faïençage.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "construction",
+    "industry_raw": "Infrastructures routières et travaux publics",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "L'évaluation de l'état des routes est longue et dépend d'inspections répétées ; les dégradations mineures doivent être repérées avant de devenir des réparations lourdes.",
+    "ai_pattern": [
+      "classification",
+      "monitoring",
+      "prediction"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Capturer la route",
+        "actor": "system",
+        "input": [
+          "Images GoPro",
+          "données réseau routier"
+        ],
+        "output": [
+          "Images anonymisées"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Classer les défauts",
+        "actor": "model",
+        "input": [
+          "Images annotées",
+          "historique d'état"
+        ],
+        "action": "Détecter et classer fissures, nids-de-poule, faïençage et signalisation.",
+        "output": [
+          "Défauts localisés et classés"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Valider l'état",
+        "actor": "human",
+        "input": [
+          "Détections",
+          "expertise routière"
+        ],
+        "output": [
+          "Évaluation validée"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Planifier les travaux",
+        "actor": "workflow",
+        "input": [
+          "État du réseau",
+          "priorités"
+        ],
+        "output": [
+          "Plan d'intervention"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Défauts routiers détectés",
+      "Évaluation d'état",
+      "Priorisation des travaux"
+    ],
+    "data_required": [
+      "Images de routes",
+      "Annotations d'experts",
+      "Données du réseau routier",
+      "Historique des évaluations"
+    ],
+    "data_sources": [
+      {
+        "name": "Caméras GoPro embarquées sur des véhicules",
+        "access": "read",
+        "sensitivity": "mixed"
+      }
+    ],
+    "tools": [
+      "INFRACARE",
+      "YOLOv8",
+      "Computer vision"
+    ],
+    "architecture_pattern": [
+      "CAPTURE",
+      "ANONYMIZE",
+      "DETECT",
+      "VALIDATE",
+      "PLAN"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Rendre l'évaluation de l'état des routes plus homogène et rapide."
+      },
+      {
+        "type": "cost",
+        "description": "Mieux planifier les interventions et éviter des réparations plus lourdes."
+      }
+    ],
+    "value_type": [
+      "quality",
+      "cost",
+      "decision"
+    ],
+    "business_impact": [
+      "inspection routière",
+      "maintenance préventive",
+      "planification des travaux"
+    ],
+    "results": [
+      {
+        "text": "La DGE décrit un modèle YOLOv8 entraîné sur des images annotées par les experts de Colas.",
+        "observed": true
+      },
+      {
+        "text": "La solution est conçue pour détecter les dégradations mineures et soutenir la planification préventive des interventions.",
+        "observed": false
+      }
+    ],
+    "limitations": [
+      "La publication documente la méthode et les indicateurs F1/mAP50, mais ne publie pas les scores obtenus ni un gain métier mesuré."
+    ],
+    "risks": [
+      "Biais liés aux conditions de prise de vue",
+      "Faux positifs ou défauts non détectés",
+      "Anonymisation à maintenir sur les images"
+    ],
+    "lessons_learned": [
+      "La valeur d'un modèle de vision vient du raccord avec l'expertise métier qui annote et valide les défauts.",
+      "Un score de modèle ne suffit pas : la décision de travaux reste un workflow de maintenance."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas Colas INFRACARE extrait de la fiche officielle DGE ; aucune précision ou performance non publiée n'est ajoutée."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-colas-infracare",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — INFRACARE",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche DGE du projet INFRACARE de Colas.",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-credit-agricole-payment-fraud",
+    "slug": "real-credit-agricole-payment-fraud",
+    "title": "Crédit Agricole Payment Services — Détecter la fraude en temps réel",
+    "short_description": "Des systèmes hybrides combinent règles métier et machine learning pour évaluer chaque transaction et apprendre des retours de fraude.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "finance",
+    "industry_raw": "Paiements bancaires",
+    "business_function": [
+      "finance",
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les services de paiement doivent bloquer des tentatives de fraude qui évoluent rapidement, sans dégrader l'expérience des transactions légitimes.",
+    "ai_pattern": [
+      "classification",
+      "prediction",
+      "monitoring"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "bounded-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Contextualiser la transaction",
+        "actor": "system",
+        "input": [
+          "Utilisateur",
+          "moyen de paiement",
+          "contexte de paiement"
+        ],
+        "output": [
+          "Signaux de risque"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Évaluer le risque",
+        "actor": "model",
+        "input": [
+          "Signaux transactionnels",
+          "historique de fraude"
+        ],
+        "action": "Combiner systèmes experts et modèles de machine learning en temps réel.",
+        "output": [
+          "Score ou décision de fraude"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Protéger le paiement",
+        "actor": "workflow",
+        "input": [
+          "Évaluation de risque",
+          "règles métier"
+        ],
+        "output": [
+          "Transaction autorisée, contrôlée ou bloquée"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Réapprendre",
+        "actor": "system",
+        "input": [
+          "Succès et échecs de détection"
+        ],
+        "output": [
+          "Modèles améliorés"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Score de risque",
+      "Transaction autorisée ou bloquée",
+      "Détection de nouvelles tentatives"
+    ],
+    "data_required": [
+      "Informations utilisateur",
+      "Informations moyen de paiement",
+      "Contexte de paiement",
+      "Retours de fraude"
+    ],
+    "data_sources": [
+      {
+        "name": "Flux de paiements",
+        "access": "read",
+        "sensitivity": "restricted"
+      }
+    ],
+    "tools": [
+      "Systèmes experts",
+      "Modèles de machine learning",
+      "Traitement temps réel"
+    ],
+    "architecture_pattern": [
+      "TRANSACTION",
+      "FEATURES",
+      "HYBRID SCORE",
+      "DECISION",
+      "FEEDBACK"
+    ],
+    "expected_value": [
+      {
+        "type": "risk",
+        "description": "Réduire la fraude tout en laissant passer les paiements légitimes."
+      },
+      {
+        "type": "quality",
+        "description": "Adapter la détection à de nouveaux schémas frauduleux."
+      }
+    ],
+    "value_type": [
+      "risk",
+      "quality",
+      "speed"
+    ],
+    "business_impact": [
+      "sécurité des paiements",
+      "continuité de service",
+      "confiance client"
+    ],
+    "results": [
+      {
+        "text": "La DGE décrit un dispositif qui traite des milliards de données en temps réel et combine systèmes experts et modèles de machine learning.",
+        "observed": true
+      },
+      {
+        "text": "Les modèles apprennent en continu à partir de succès et d'échecs de détection selon la description du projet.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "La fiche publique ne donne pas de taux de précision, de faux positifs ou d'impact financier vérifié."
+    ],
+    "risks": [
+      "Faux positifs bloquant des paiements",
+      "Évolution des techniques de fraude",
+      "Sensibilité élevée des données transactionnelles"
+    ],
+    "lessons_learned": [
+      "Dans la fraude, le machine learning fonctionne dans une architecture hybride avec les règles et l'expertise métier.",
+      "Le temps réel et la boucle de retour sont des contraintes du produit, pas des détails d'implémentation."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas Crédit Agricole Payment Services extrait de la fiche officielle DGE ; aucun taux de fraude ou de précision n'est déduit."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-credit-agricole-payment-fraud",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — Protect payments in real time",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche DGE du projet de détection de fraude de Crédit Agricole Payment Services.",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-stmicroelectronics-pump-maintenance",
+    "slug": "real-stmicroelectronics-pump-maintenance",
+    "title": "STMicroelectronics — Prévoir la maintenance des pompes industrielles",
+    "short_description": "Un projet EdgeAI embarque du machine learning pour anticiper l'usure des pompes et ajuster le calendrier de remplacement.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "industry",
+    "industry_raw": "Fabrication de semi-conducteurs",
+    "business_function": [
+      "operations",
+      "supply",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Une usine doit maintenir la disponibilité de ses pompes industrielles sans immobiliser un inventaire excessif d'équipements de secours.",
+    "ai_pattern": [
+      "prediction",
+      "monitoring",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Surveiller les pompes",
+        "actor": "system",
+        "input": [
+          "Données de capteurs",
+          "historique de fonctionnement"
+        ],
+        "output": [
+          "Signaux d'usure"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Anticiper la panne",
+        "actor": "model",
+        "input": [
+          "Signaux temps réel"
+        ],
+        "action": "Détecter les premiers signes d'usure et estimer le besoin de remplacement.",
+        "output": [
+          "Prévision de maintenance"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Planifier la commande",
+        "actor": "human",
+        "input": [
+          "Prévision",
+          "calendrier de maintenance",
+          "stock"
+        ],
+        "output": [
+          "Commande et remplacement planifiés"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Signaux d'usure",
+      "Prévision de panne",
+      "Calendrier de remplacement",
+      "Stock de secours ajusté"
+    ],
+    "data_required": [
+      "Données de capteurs des pompes",
+      "Historique de fonctionnement",
+      "Calendrier de maintenance",
+      "Inventaire"
+    ],
+    "data_sources": [
+      {
+        "name": "Capteurs des pompes industrielles",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "EdgeAI",
+      "Machine learning embarqué",
+      "Monitoring temps réel"
+    ],
+    "architecture_pattern": [
+      "EDGE SENSORS",
+      "PREDICT",
+      "PLAN",
+      "JUST-IN-TIME REPLACEMENT"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Réduire la valeur de l'inventaire de pompes de secours."
+      },
+      {
+        "type": "risk",
+        "description": "Éviter les arrêts et réparations d'urgence en intervenant au bon moment."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "risk",
+      "productivity"
+    ],
+    "business_impact": [
+      "maintenance industrielle",
+      "stocks de pièces",
+      "continuité de production"
+    ],
+    "results": [
+      {
+        "text": "La DGE décrit un projet de maintenance prédictive fondé sur la surveillance temps réel et l'analyse de données de capteurs.",
+        "observed": true
+      },
+      {
+        "text": "La réduction de l'inventaire de secours et l'optimisation du remplacement sont présentées comme les objectifs du projet, pas comme des gains mesurés publiés.",
+        "observed": false
+      }
+    ],
+    "limitations": [
+      "La fiche publique ne fournit pas de modèle précis, de taux de panne évité ni de valeur d'inventaire effectivement réduite."
+    ],
+    "risks": [
+      "Prévision erronée de durée de vie",
+      "Capteur défaillant",
+      "Commande trop tardive ou trop précoce"
+    ],
+    "lessons_learned": [
+      "La maintenance prédictive devient un cas business quand le signal modèle est raccordé à une décision de stock et de calendrier.",
+      "L'EdgeAI peut rapprocher la détection de la machine, mais ne supprime pas l'arbitrage opérationnel."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas STMicroelectronics extrait de la fiche officielle DGE ; les objectifs de stock et de maintenance restent distingués des résultats mesurés."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-stmicroelectronics-pump-maintenance",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — EdgeAI in industrial pumps",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche DGE du projet EdgeAI in industrial pumps de STMicroelectronics.",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-socotec-sofia-inspection",
+    "slug": "real-socotec-sofia-inspection",
+    "title": "SOCOTEC — Assister l'inspection des ouvrages avec la vision",
+    "short_description": "SOFIA aide les inspecteurs à détecter et classer des défauts de structures à partir de photographies de terrain.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "construction",
+    "industry_raw": "Inspection des infrastructures et génie civil",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les inspecteurs doivent documenter et qualifier des défauts de structures de manière cohérente, malgré la variabilité des observations et le temps de saisie sur site.",
+    "ai_pattern": [
+      "classification",
+      "multimodal",
+      "monitoring"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Photographier l'ouvrage",
+        "actor": "human",
+        "input": [
+          "Photos de terrain",
+          "contexte d'inspection"
+        ],
+        "output": [
+          "Images à analyser"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Détecter et classer",
+        "actor": "model",
+        "input": [
+          "Images annotées",
+          "notes d'inspection"
+        ],
+        "action": "Proposer les défauts, leur classe et un score d'état.",
+        "output": [
+          "Défauts proposés"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Revoir avec l'expert",
+        "actor": "human",
+        "input": [
+          "Détections",
+          "contexte structurel"
+        ],
+        "output": [
+          "Évaluation validée"
+        ],
+        "human_gate": true
+      },
+      {
+        "order": 4,
+        "label": "Préparer la maintenance",
+        "actor": "workflow",
+        "input": [
+          "Évaluation",
+          "historique"
+        ],
+        "output": [
+          "Priorités et plan de travail"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Défauts détectés",
+      "Classification et score d'état",
+      "Rapport d'inspection",
+      "Priorités de maintenance"
+    ],
+    "data_required": [
+      "Photographies d'inspection",
+      "Annotations de défauts",
+      "Données structurelles",
+      "Historique de maintenance"
+    ],
+    "data_sources": [
+      {
+        "name": "Images et notations des inspecteurs",
+        "access": "read-write",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "SOFIA",
+      "Vision Transformers",
+      "Machine learning"
+    ],
+    "architecture_pattern": [
+      "CAPTURE",
+      "CLASSIFY",
+      "SCORE",
+      "EXPERT REVIEW",
+      "MAINTENANCE PLAN"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le temps de saisie et accélérer les inspections."
+      },
+      {
+        "type": "quality",
+        "description": "Rendre les évaluations plus cohérentes et objectivées."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "quality",
+      "decision"
+    ],
+    "business_impact": [
+      "inspection d'ouvrages",
+      "planification de maintenance",
+      "gestion des risques"
+    ],
+    "results": [
+      {
+        "text": "La DGE décrit une application mobile assistée par IA pour détecter et classer les défauts photographiés par les inspecteurs.",
+        "observed": true
+      },
+      {
+        "text": "Le dossier fixe comme indicateurs une précision de classification de 80 % et une hausse de productivité de 30 % ; ce sont des objectifs publiés, pas des résultats vérifiés dans la fiche.",
+        "observed": false
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Précision de classification visée",
+        "value": "80",
+        "unit": "%",
+        "period": "objectif du projet"
+      },
+      {
+        "name": "Productivité visée",
+        "value": "30",
+        "unit": "%",
+        "period": "objectif du projet"
+      }
+    ],
+    "limitations": [
+      "Les métriques publiées sont des indicateurs cibles ; la fiche ne fournit pas les résultats finaux ni une comparaison indépendante."
+    ],
+    "risks": [
+      "Faux défauts ou défauts manqués",
+      "Surconfiance dans le score",
+      "Variabilité des images de terrain"
+    ],
+    "lessons_learned": [
+      "Dans une inspection réglementée, la vision augmente l'expert mais ne doit pas faire disparaître sa validation.",
+      "Le dernier kilomètre est le passage du défaut détecté à une priorité de maintenance exploitable."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas SOCOTEC SOFIA extrait de la fiche officielle DGE ; les métriques sont explicitement marquées comme objectifs lorsqu'elles ne sont pas publiées comme résultats."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-socotec-sofia-inspection",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — SOFIA",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche DGE du projet SOFIA de SOCOTEC.",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-data2i-paris-traffic-lights",
+    "slug": "real-data2i-paris-traffic-lights",
+    "title": "Ville de Paris — Anticiper les pannes de feux tricolores",
+    "short_description": "Un dispositif de maintenance prédictive analyse les signaux faibles du parc de feux pour prioriser les interventions.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "public-sector",
+    "industry_raw": "Collectivité territoriale",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France",
+      "Paris"
+    ],
+    "problem": "La maintenance du parc de feux tricolores doit repérer les signaux faibles et réduire la part d'interventions curatives.",
+    "ai_pattern": [
+      "prediction",
+      "monitoring",
+      "orchestration"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Collecter les signaux",
+        "actor": "system",
+        "input": [
+          "Historique des feux",
+          "signaux de fonctionnement"
+        ],
+        "output": [
+          "Données de maintenance"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Prévoir les pannes",
+        "actor": "model",
+        "input": [
+          "Données historiques",
+          "signaux faibles"
+        ],
+        "action": "Identifier les équipements à risque.",
+        "output": [
+          "Liste priorisée"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Planifier l'intervention",
+        "actor": "human",
+        "input": [
+          "Liste priorisée",
+          "contraintes terrain"
+        ],
+        "output": [
+          "Ordre de maintenance"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Pannes anticipées",
+      "Priorisation des contrôles",
+      "Maintenance préventive"
+    ],
+    "data_required": [
+      "Historique des pannes",
+      "Signaux de fonctionnement",
+      "Historique des interventions"
+    ],
+    "data_sources": [
+      {
+        "name": "Parc de feux tricolores de la Ville de Paris",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Machine learning",
+      "Python",
+      "Oracle",
+      "JavaScript"
+    ],
+    "architecture_pattern": [
+      "SIGNALS",
+      "PREDICT",
+      "PRIORITIZE",
+      "FIELD ACTION"
+    ],
+    "expected_value": [
+      {
+        "type": "risk",
+        "description": "Intervenir avant la panne quand un signal faible est détecté."
+      },
+      {
+        "type": "productivity",
+        "description": "Réduire les interventions curatives."
+      }
+    ],
+    "value_type": [
+      "risk",
+      "productivity",
+      "cost"
+    ],
+    "business_impact": [
+      "maintenance urbaine",
+      "continuité du trafic",
+      "planification des équipes"
+    ],
+    "results": [
+      {
+        "text": "Data2i rapporte une anticipation de pannes supplémentaires et une réduction de 30 % des interventions curatives sur le cas présenté.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Réduction annoncée des interventions curatives",
+        "value": "30",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "Le cas est publié par le prestataire et ne détaille ni le périmètre exact du parc ni le protocole de mesure des 30 %."
+    ],
+    "risks": [
+      "Données historiques incomplètes",
+      "Faux signaux de panne",
+      "Priorisation à confronter aux contraintes de terrain"
+    ],
+    "lessons_learned": [
+      "La maintenance prédictive a une valeur immédiate quand elle change l'ordre des interventions, pas seulement quand elle produit un score.",
+      "Un cas public peut montrer l'effet métier tout en laissant la méthode de mesure partiellement opaque."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.data2i.fr/cas-d-usage",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas Ville de Paris décrit par Data2i ; le chiffre de 30 % est conservé comme résultat annoncé par le prestataire, sans validation indépendante."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-data2i-paris-traffic-lights",
+        "source_type": "public-source",
+        "title": "Cas d'usage — Maintenance prédictive des feux tricolores",
+        "publisher": "Data2i",
+        "reference": "https://www.data2i.fr/cas-d-usage",
+        "url": "https://www.data2i.fr/cas-d-usage",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis le cas d'usage public Data2i sur la Ville de Paris.",
+        "source_ref": "https://www.data2i.fr/cas-d-usage"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-mpdata-energy-predictive-maintenance",
+    "slug": "real-mpdata-energy-predictive-maintenance",
+    "title": "MP DATA — Industrialiser la maintenance prédictive dans l'énergie",
+    "short_description": "Un prestataire français décrit des modèles statistiques et de machine learning pour les actifs éoliens et photovoltaïques.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-09-21T00:00:00Z",
+    "company_size": [
+      "unknown"
+    ],
+    "industry": "other",
+    "industry_raw": "Énergie éolienne et photovoltaïque",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les exploitants d'actifs renouvelables doivent détecter les anomalies et prioriser les actions de maintenance sur des équipements distribués.",
+    "ai_pattern": [
+      "classification",
+      "prediction",
+      "monitoring",
+      "orchestration"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Ingerer les données",
+        "actor": "system",
+        "input": [
+          "Données d'actifs",
+          "historique de fonctionnement"
+        ],
+        "output": [
+          "Signaux normalisés"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Détecter les anomalies",
+        "actor": "model",
+        "input": [
+          "Signaux",
+          "modèles statistiques"
+        ],
+        "action": "Repérer les anomalies, prévoir les défaillances et estimer la durée de vie restante.",
+        "output": [
+          "Alertes et prédictions"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Prioriser la maintenance",
+        "actor": "human",
+        "input": [
+          "Alertes",
+          "coût et criticité"
+        ],
+        "output": [
+          "Plan d'action"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Intégrer les résultats",
+        "actor": "workflow",
+        "input": [
+          "Plan d'action"
+        ],
+        "output": [
+          "Système de maintenance alimenté"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Détection d'anomalies",
+      "Prévision de panne",
+      "Durée de vie restante",
+      "Priorisation des contrôles"
+    ],
+    "data_required": [
+      "Données de fonctionnement",
+      "Historique de pannes",
+      "Données de maintenance"
+    ],
+    "data_sources": [
+      {
+        "name": "Systèmes d'exploitation éoliens et photovoltaïques",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Modèles statistiques",
+      "Machine learning",
+      "PI / OSIsoft",
+      "Microservices REST"
+    ],
+    "architecture_pattern": [
+      "DATA",
+      "ANOMALY",
+      "PREDICT",
+      "PRIORITIZE",
+      "INTEGRATE"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Prioriser les contrôles et les actions de maintenance."
+      },
+      {
+        "type": "risk",
+        "description": "Repérer plus tôt les défaillances d'actifs énergétiques."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "risk",
+      "cost"
+    ],
+    "business_impact": [
+      "opérations énergétiques",
+      "maintenance d'actifs",
+      "disponibilité des installations"
+    ],
+    "results": [
+      {
+        "text": "MP DATA rapporte plus de 15 cas d'usage en production et une couverture d'environ 80 % des systèmes ou composants du périmètre présenté.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Cas d'usage annoncés en production",
+        "value": ">15",
+        "unit": "cas"
+      },
+      {
+        "name": "Couverture annoncée des systèmes ou composants",
+        "value": "80",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "Le client n'est pas nommé dans la fiche ; les résultats sont rapportés par le prestataire et ne sont pas vérifiés indépendamment."
+    ],
+    "risks": [
+      "Qualité variable des historiques",
+      "Dérive des équipements",
+      "Priorisation incorrecte si la criticité métier est mal modélisée"
+    ],
+    "lessons_learned": [
+      "Un cas ML industriel ne s'arrête pas au modèle : l'intégration dans les systèmes de maintenance est une partie du dispositif.",
+      "Quand le client reste anonymisé, le niveau de preuve doit rester distinct d'un cas publiquement identifiable."
+    ],
+    "evidence_level": "experience",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.mpdata.fr/fr/cas-clients/maintenance-predictive-eolien-photovoltaique/",
+      "captured_at": "2026-09-21T00:00:00Z",
+      "captured_by": "case-base-enrichment-fr-2026-09-21",
+      "transformation_notes": "Cas client français anonymisé décrit par MP DATA ; classé experience car l'architecture et les résultats sont publics mais le client n'est pas identifiable."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-mpdata-energy-predictive-maintenance",
+        "source_type": "public-source",
+        "title": "Maintenance prédictive éolien et photovoltaïque",
+        "publisher": "MP DATA",
+        "reference": "https://www.mpdata.fr/fr/cas-clients/maintenance-predictive-eolien-photovoltaique/",
+        "url": "https://www.mpdata.fr/fr/cas-clients/maintenance-predictive-eolien-photovoltaique/",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-09-21T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis le cas client anonymisé publié par MP DATA.",
+        "source_ref": "https://www.mpdata.fr/fr/cas-clients/maintenance-predictive-eolien-photovoltaique/"
+      }
+    ]
   }
 ]

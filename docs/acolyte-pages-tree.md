@@ -15,7 +15,7 @@ disponibles lorsqu’elles apportent un contrôle spécifique à la page.
 │   ├── ?module=agent-lab&journey=pme&slide=3   Module Agent Lab
 │   └── ?module=memory-map&journey=pme&slide=3  Module Memory Map
 │
-├── explore/                                    EXPLORE · catalogue des 110 cas
+├── explore/                                    EXPLORE · catalogue des 120 cas
 │   └── ?case=<case-id>                          Fiche détaillée d’un cas
 │
 ├── ux/                                         Comparer · UX Lab Round 01

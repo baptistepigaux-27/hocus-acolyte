@@ -48,7 +48,7 @@
           <div class="site-nav-columns site-nav-columns-single">
             <div class="site-nav-subgroup">
               <h3>Espaces de travail</h3>
-              <a class="site-nav-compact-link" data-global-section="explore" href="${href('explore/')}"><b>01</b><span>EXPLORE</span><small>Catalogue · 110 cas</small></a>
+              <a class="site-nav-compact-link" data-global-section="explore" href="${href('explore/')}"><b>01</b><span>EXPLORE</span><small>Catalogue · 120 cas</small></a>
               <a class="site-nav-compact-link" href="${href('', '?module=cases&amp;journey=pme&amp;slide=3')}"><b>02</b><span>Real Cases</span><small>Cas documentés, architectures et résultats</small></a>
               <a class="site-nav-compact-link" href="${href('', '?module=agent-lab&amp;journey=pme&amp;slide=3')}"><b>03</b><span>Agent Lab</span><small>Outils, permissions, boucle et human gate</small></a>
               <a class="site-nav-compact-link" href="${href('', '?module=memory-map&amp;journey=pme&amp;slide=3')}"><b>04</b><span>Memory Map</span><small>Contexte, recherche, mémoire et retrieval</small></a>
