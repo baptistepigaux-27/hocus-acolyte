@@ -69,6 +69,17 @@ def run_checks(base_url: str) -> None:
                 assert page.locator(".brand-mark[src*='acolyte-o.png']").is_visible()
             assert_no_horizontal_overflow(page)
 
+        panel_signatures = []
+        for route in ["", "explore/"]:
+            page.goto(f"{base_url}{route}", wait_until="networkidle")
+            page.locator(".site-nav-group").nth(0).locator("summary").click()
+            panel_signatures.append(page.locator(".site-nav-panel").nth(0).evaluate(
+                "e => { const s = getComputedStyle(e); return {grid: s.gridTemplateColumns, width: s.width, padding: s.padding, shadow: s.boxShadow}; }"
+            ))
+            assert page.locator(".site-nav-link b").first.evaluate("e => getComputedStyle(e).textTransform") == "none"
+            assert page.locator(".site-nav-link span").first.evaluate("e => getComputedStyle(e).textTransform") == "none"
+        assert panel_signatures[0] == panel_signatures[1]
+
         page.locator(".site-nav-group").nth(1).locator("summary").click()
         assert page.locator(".site-nav-group").nth(1).locator(".site-nav-panel").is_visible()
         assert sum(group.get_attribute("open") is not None for group in page.locator(".site-nav-group").all()) == 1

@@ -44,7 +44,7 @@
 .acolyte-global-header .site-nav-panel-heading strong { color: var(--acolyte-nav-ink); font: 400 31px/.92 Georgia, 'Times New Roman', serif; letter-spacing: -.055em; }
 .acolyte-global-header .site-nav-panel-heading span { color: var(--acolyte-nav-stone); font: 12px/1.35 Arial, Helvetica, sans-serif; }
 .acolyte-global-header .site-nav-links { display: grid; gap: 0; min-width: 0; }
-.acolyte-global-header .site-nav-link { display: grid; gap: 5px; min-width: 0; padding: 10px; border-left: 2px solid transparent; color: var(--acolyte-nav-ink); text-decoration: none; }
+.acolyte-global-header .site-nav-link { display: grid; gap: 5px; min-width: 0; padding: 10px; border: 0; border-left: 2px solid transparent; color: var(--acolyte-nav-ink); letter-spacing: normal; text-decoration: none; text-transform: none; }
 .acolyte-global-header .site-nav-link:hover,
 .acolyte-global-header .site-nav-link[aria-current='page'] { border-left-color: var(--acolyte-nav-terra); background: rgba(255, 255, 255, .58); }
 .acolyte-global-header .site-nav-link small { overflow: hidden; color: var(--acolyte-nav-brass); font: 8px var(--acolyte-nav-mono, 'SFMono-Regular', Consolas, monospace); letter-spacing: .06em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
