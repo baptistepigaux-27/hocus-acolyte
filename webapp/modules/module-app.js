@@ -8,9 +8,9 @@
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[char]);
 
   const moduleLabels = {
-    cases: 'REAL CASES',
-    'agent-lab': 'AGENT LAB',
-    'memory-map': 'MEMORY MAP'
+    cases: 'CAS RÉELS',
+    'agent-lab': 'LABO AGENT',
+    'memory-map': 'CARTE DE LA MÉMOIRE'
   };
   const moduleDescriptions = {
     cases: 'Des entreprises utilisent déjà ces approches.',
@@ -72,7 +72,7 @@
     const returnLabel = current.journey === 'pme' ? 'RETOUR AU PARCOURS PME' : 'RETOUR AU SYSTÈME';
     return `<header class="module-header">
       <div class="module-header-copy">
-        <p class="eyebrow">EXPLORER · MODULE CONVERSATIONNEL</p>
+        <p class="eyebrow">EXPLORER · ATELIER</p>
         <h1>${escapeHtml(moduleLabels[active])}</h1>
         <p>${escapeHtml(moduleDescriptions[active])}</p>
       </div>
@@ -193,7 +193,7 @@
       { key: 'email', label: 'READ EMAIL', detail: 'Lire les derniers échanges', defaultPermission: 'AUTO' },
       { key: 'documents', label: 'READ DOCUMENTS', detail: 'Lire les pièces autorisées', defaultPermission: 'AUTO' },
       { key: 'web', label: 'SEARCH WEB', detail: 'Chercher des informations externes', defaultPermission: 'AUTO' },
-      { key: 'draft', label: 'WRITE DRAFT', detail: 'Préparer le briefing', defaultPermission: 'AUTO' },
+      { key: 'draft', label: 'RÉDIGER', detail: 'Préparer le briefing', defaultPermission: 'AUTO' },
       { key: 'crm-update', label: 'UPDATE CRM', detail: 'Écrire une mise à jour', defaultPermission: 'ASK FIRST' },
       { key: 'send-email', label: 'SEND EMAIL', detail: 'Envoyer un message', defaultPermission: 'ASK FIRST' }
     ];
@@ -211,7 +211,7 @@
           </div>
           <div class="agent-loop-diagram"><div><small>BOUCLE AGENT</small><span>PLAN</span><i>↓</i><span>ACTION</span><i>↓</i><span>OBSERVATION</span></div><div class="agent-loop-question">SUFFISANT ?<b>NON → ACTION</b><b>OUI → LIVRABLE</b></div></div>
           <section class="agent-mission-panel"><div class="module-panel-heading"><small>DÉMONSTRATION</small><h3>Une mission commerciale, étape par étape.</h3></div><ol class="agent-mission-steps">${steps.map((step, index) => `<li data-agent-step="${index}"><span>0${index + 1}</span><b>${escapeHtml(step)}</b><em>À VENIR</em></li>`).join('')}</ol><div class="module-action-row"><button class="interaction-button interaction-button-primary" id="agent-launch" type="button">LANCER LA MISSION</button><button class="interaction-button" id="agent-reveal" type="button" hidden>RÉVÉLER L’ÉTAPE SUIVANTE</button><p id="agent-live-status" class="interaction-live-status" role="status">Lancez la mission pour observer la boucle.</p></div></section>
-          <section class="agent-human-gate" id="agent-human-gate" hidden><div><small>HUMAN GATE · SORTIE SIMULÉE</small><h3>J’ai préparé l’email de relance et mis à jour la fiche CRM.</h3><p>Aucune action distante n’est envoyée. Le présentateur montre ici où l’humain reprend la responsabilité.</p></div><div class="module-action-row"><button class="interaction-button interaction-button-primary" data-agent-gate="VALIDER" type="button">VALIDER</button><button class="interaction-button" data-agent-gate="MODIFIER" type="button">MODIFIER</button><button class="interaction-button" data-agent-gate="ANNULER" type="button">ANNULER</button></div></section>
+          <section class="agent-human-gate" id="agent-human-gate" hidden><div><small>VALIDATION HUMAINE · SORTIE SIMULÉE</small><h3>J’ai préparé l’email de relance et mis à jour la fiche CRM.</h3><p>Aucune action distante n’est envoyée. Le présentateur montre ici où l’humain reprend la responsabilité.</p></div><div class="module-action-row"><button class="interaction-button interaction-button-primary" data-agent-gate="VALIDER" type="button">VALIDER</button><button class="interaction-button" data-agent-gate="MODIFIER" type="button">MODIFIER</button><button class="interaction-button" data-agent-gate="ANNULER" type="button">ANNULER</button></div></section>
         </section>
       </div>`;
 

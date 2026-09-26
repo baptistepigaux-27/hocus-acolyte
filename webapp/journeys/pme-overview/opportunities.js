@@ -44,7 +44,7 @@
       implementation: 'CONFIGURE',
       inputs: ['objectif', 'historique', 'outils autorisés'],
       capabilities: ['planification', 'recherche', 'observation', 'action'],
-      tools: ['modèle IA', 'outils métier', 'human gate'],
+      tools: ['modèle IA', 'outils métier', 'validation humaine'],
       customWhen: 'Construire si l’agent porte une méthode ou une décision propriétaire.',
       valueSignals: ['temps', 'capacité', 'réactivité'],
       feasibilitySignals: ['objectif clair', 'permissions définies'],

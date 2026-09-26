@@ -94,3 +94,11 @@
   .acolyte-global-header .site-nav-panel-heading strong { font-size: 22px; }
   .acolyte-global-header .site-nav-columns { grid-template-columns: 1fr; gap: 12px; }
 }
+
+/* Acolyte V2 : emplacement de navigation de l'accueil, lien HOCUS et bouton Diagnostic. */
+.acolyte-nav-slot { display: contents; }
+.acolyte-nav-cta { display: inline-flex; align-items: center; min-height: 34px; margin-left: 6px; padding: 8px 12px; border: 1px solid #e46444; background: #e46444; color: #0b0f14; font: 700 9px 'SFMono-Regular', Consolas, monospace; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+.acolyte-nav-cta:hover { background: #0b0f14; border-color: #0b0f14; color: #f5f1ea; }
+.acolyte-global-brand-mark { object-fit: contain; }
+@media (max-width: 760px) { .acolyte-nav-cta { display: none; } }
+.acolyte-hocus-link { white-space: nowrap; }

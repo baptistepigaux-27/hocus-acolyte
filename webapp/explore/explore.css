@@ -128,3 +128,21 @@ a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
 .detail-aside-card p { color: #4e5b5e; }
+
+/* ===== Acolyte V2 ===== */
+.explore-more { display: flex; justify-content: center; margin-top: 22px; }
+.explore-footer a { color: inherit; }
+.detail-hocus { margin-top: 42px; padding: clamp(22px, 3vw, 36px); background: var(--explore-ink); color: #f3f1eb; }
+.detail-hocus-head h2 { margin: 6px 0 10px; font-size: clamp(28px, 3vw, 42px); letter-spacing: -.04em; line-height: 1; }
+.detail-hocus-head p:last-child { max-width: 44em; margin: 0 0 22px; color: rgba(243, 241, 235, .75); line-height: 1.5; }
+.detail-hocus .detail-label { color: #e4a488; }
+.detail-hocus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.detail-hocus-card { display: flex; flex-direction: column; gap: 8px; padding: 18px; border: 1px solid rgba(243, 241, 235, .22); color: inherit; text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+.detail-hocus-card:hover { border-color: #f3f1eb; transform: translateY(-2px); }
+.detail-hocus-card span { color: #e4a488; font: 700 9.5px var(--explore-mono); letter-spacing: .12em; }
+.detail-hocus-card strong { font-size: 21px; letter-spacing: -.02em; }
+.detail-hocus-card p { margin: 0; color: rgba(243, 241, 235, .75); font-size: 14px; line-height: 1.45; }
+.detail-hocus-card b { margin-top: auto; font: 700 10px var(--explore-mono); letter-spacing: .06em; text-transform: uppercase; }
+.detail-hocus-card.is-entry { border-color: #e46444; background: #e46444; color: #101820; }
+.detail-hocus-card.is-entry span, .detail-hocus-card.is-entry p { color: rgba(16, 24, 32, .85); }
+@media (max-width: 900px) { .detail-hocus-grid { grid-template-columns: 1fr; } }

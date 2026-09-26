@@ -6,20 +6,20 @@
 
   const labels = {
     company_size: {
-      tpe: 'TPE', pme: 'PME', eti: 'ETI', enterprise: 'Grand compte', group: 'Groupe', unknown: 'Non renseigné'
+      tpe: 'TPE', pme: 'PME', eti: 'ETI', enterprise: 'Grand compte', group: 'Groupe', unknown: 'Toutes tailles'
     },
     industry: {
-      retail: 'Retail', industry: 'Industrie', 'services-b2b': 'Services B2B', insurance: 'Assurance', finance: 'Finance',
-      construction: 'Construction', hospitality: 'Hospitality', 'luxury-beauty': 'Luxe / Beauty', 'transport-logistics': 'Transport / Logistique',
-      agriculture: 'Agriculture', automotive: 'Automobile', software: 'Logiciel', healthcare: 'Santé', 'public-sector': 'Secteur public', other: 'Autre', unknown: 'Non renseigné'
+      retail: 'Distribution', industry: 'Industrie', 'services-b2b': 'Services B2B', insurance: 'Assurance', finance: 'Finance',
+      construction: 'Construction', hospitality: 'Hôtellerie', 'luxury-beauty': 'Luxe / Beauté', 'transport-logistics': 'Transport / Logistique',
+      agriculture: 'Agriculture', automotive: 'Automobile', software: 'Logiciel', healthcare: 'Santé', 'public-sector': 'Secteur public', other: 'Autre', unknown: 'Tous secteurs'
     },
     business_function: {
       'general-management': 'Direction générale', marketing: 'Marketing', sales: 'Commerce', finance: 'Finance', hr: 'Ressources humaines',
-      operations: 'Opérations', supply: 'Supply', 'customer-service': 'Service client', 'it-data': 'IT / Data', procurement: 'Achats', product: 'Produit', other: 'Autre', unknown: 'Non renseigné'
+      operations: 'Opérations', supply: 'Supply chain', 'customer-service': 'Service client', 'it-data': 'IT / Data', procurement: 'Achats', product: 'Produit', other: 'Autre', unknown: 'Non renseigné'
     },
-    solution_type: { copilot: 'Copilote', knowledge: 'Knowledge', workflow: 'Workflow', agent: 'Agent', product: 'Produit', unknown: 'Non renseigné' },
+    solution_type: { copilot: 'Copilote', knowledge: 'Base de connaissance', workflow: 'Chaîne automatisée', agent: 'Agent', product: 'Produit', unknown: 'Non renseigné' },
     autonomy_level: { assisted: 'Assisté', 'semi-autonomous': 'Semi-autonome', 'supervised-agent': 'Agent supervisé', 'bounded-autonomous': 'Autonome borné', unknown: 'Non renseigné' },
-    evidence_level: { documented: 'Documenté', experience: 'Expérience', pattern: 'Pattern', concept: 'Concept' },
+    evidence_level: { documented: 'Documenté', experience: 'Expérience', pattern: 'Cas type', concept: 'Concept' },
     confidence: { high: 'Élevée', medium: 'Moyenne', low: 'Faible', unknown: 'Non renseignée' },
     value_type: { productivity: 'Productivité', quality: 'Qualité', speed: 'Vitesse', cost: 'Coût', revenue: 'Revenu', risk: 'Risque', knowledge: 'Connaissance', decision: 'Décision', unknown: 'Non renseigné' },
     ai_pattern: { generation: 'Génération', summarization: 'Synthèse', retrieval: 'Recherche', extraction: 'Extraction', classification: 'Classification', comparison: 'Comparaison', scoring: 'Scoring', recommendation: 'Recommandation', orchestration: 'Orchestration', monitoring: 'Veille', prediction: 'Prédiction', coding: 'Code', multimodal: 'Multimodal', other: 'Autre', unknown: 'Non renseigné' }
@@ -36,11 +36,16 @@
   const evidenceCopy = {
     documented: 'Cas publiquement documenté, avec entreprise identifiable et source.',
     experience: 'Expérience réelle reformulée ou anonymisée.',
-    pattern: 'Pattern généralisé, pas un cas client unique.',
+    pattern: 'Cas type construit à partir de situations fréquentes, pas un cas client unique.',
     concept: 'Concept ou proposition non prouvé par un cas réel.'
   };
   const evidenceColors = { documented: 'documented', experience: 'experience', pattern: 'pattern', concept: 'concept' };
-  const state = { cases: [], query: '', filters: {}, detail: null, filtersOpen: false };
+  const PAGE = 12;
+  const state = { cases: [], query: '', filters: {}, detail: null, filtersOpen: false, limit: PAGE };
+  /* Acolyte V2 : chaque fiche a sa page, /acolyte/cas/{slug}/ (pré-rendue pour les moteurs de recherche). */
+  const base = root.dataset.root || '../';
+  const caseHref = (item) => `${base}cas/${encodeURIComponent(item.slug || item.id)}/`;
+  const exploreHref = `${base}explore/`;
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[char]);
@@ -83,6 +88,7 @@
     if (Object.prototype.hasOwnProperty.call(next, 'detail')) state.detail = next.detail;
     if (Object.prototype.hasOwnProperty.call(next, 'query')) state.query = next.query;
     if (Object.prototype.hasOwnProperty.call(next, 'filters')) state.filters = next.filters;
+    state.limit = PAGE;
     window.history.pushState({}, '', routeUrl());
     render();
     root.focus({ preventScroll: true });
@@ -136,28 +142,30 @@
   function renderCatalogShell() {
     root.innerHTML = `<section class="explore-hero">
       <div class="explore-hero-copy">
-        <p class="explore-kicker">EXPLORE · BIBLIOTHÈQUE DE CAS</p>
-        <h1>Les use cases IA, avant le catalogue de promesses.</h1>
-        <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par contexte, ouvrez une fiche, puis revenez au parcours qui l’explique.</p>
-        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="../ux/tutorial/?slide=9">Lire un cas guidé <span aria-hidden="true">→</span></a><a class="explore-text-link" href="../">Retour à l’accueil ↗</a></div>
+        <p class="explore-kicker">CATALOGUE · 120 CAS D’USAGE</p>
+        <h1>Les cas d’usage de l’IA, avant les promesses.</h1>
+        <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par secteur, fonction ou taille d’entreprise, puis ouvrez une fiche.</p>
+        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
       </div>
-      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p>Un corpus volontairement petit, avec les inconnues et les limites laissées visibles.</p></aside>
+      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p>77 cas documentés par une source publique, 41 cas types et 2 retours d’expérience. Les inconnues et les limites restent visibles.</p></aside>
     </section>
     <section class="explore-catalog" aria-labelledby="catalog-title">
-      <div class="explore-catalog-head"><div><p class="explore-kicker">CATALOGUE CANONIQUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur et le pattern IA. Les filtres se combinent.</p></div>
-      <div class="explore-toolbar"><label class="explore-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher dans les cas</span><input id="case-search" type="search" autocomplete="off" placeholder="Rechercher un problème, une fonction, un pattern…" value="${escapeHtml(state.query)}"></label><button class="explore-filter-toggle" id="filter-toggle" type="button" aria-expanded="${state.filtersOpen}">Filtres <span aria-hidden="true">＋</span></button><button class="explore-reset" id="reset-filters" type="button">Réinitialiser</button></div><div class="explore-active-filters" id="active-filters" aria-live="polite"></div>
+      <div class="explore-catalog-head"><div><p class="explore-kicker">LE CATALOGUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur et le type d’IA. Les filtres se combinent.</p></div>
+      <div class="explore-toolbar"><label class="explore-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher dans les cas</span><input id="case-search" type="search" autocomplete="off" placeholder="Rechercher un problème, une fonction, un secteur…" value="${escapeHtml(state.query)}"></label><button class="explore-filter-toggle" id="filter-toggle" type="button" aria-expanded="${state.filtersOpen}">Filtres <span aria-hidden="true">＋</span></button><button class="explore-reset" id="reset-filters" type="button">Réinitialiser</button></div><div class="explore-active-filters" id="active-filters" aria-live="polite"></div>
       <div class="explore-catalog-layout ${state.filtersOpen ? 'filters-open' : ''}">
         <aside class="explore-filters" id="explore-filters" aria-label="Filtrer les cas"><div class="explore-filters-head"><span>FILTRER PAR CONTEXTE</span><button id="filter-close" type="button" aria-label="Fermer les filtres">×</button></div>${filterConfig.map(([field, label]) => `<label class="explore-filter" for="filter-${field}"><span>${escapeHtml(label)}</span><select id="filter-${field}" data-filter="${field}"></select></label>`).join('')}<div class="explore-proof-key"><span>NIVEAUX DE PREUVE</span>${Object.keys(evidenceCopy).map((key) => `<p>${proofBadge(key)}<small>${escapeHtml(evidenceCopy[key])}</small></p>`).join('')}</div></aside>
-        <div class="explore-results"><div class="explore-results-head"><p id="results-count" aria-live="polite"></p><span>Les fiches restent au niveau du corpus source.</span></div><div class="explore-card-grid" id="case-grid"></div><div class="explore-empty" id="case-empty" hidden><strong>Aucun cas dans cette sélection.</strong><p>Essayez une recherche plus courte ou retirez un filtre.</p><button class="explore-button" id="empty-reset" type="button">Réinitialiser les filtres</button></div></div>
+        <div class="explore-results"><div class="explore-results-head"><p id="results-count" aria-live="polite"></p></div><div class="explore-card-grid" id="case-grid"></div><div class="explore-more" id="case-more" hidden><button class="explore-button" id="more-cases" type="button"></button></div><div class="explore-empty" id="case-empty" hidden><strong>Aucun cas dans cette sélection.</strong><p>Essayez une recherche plus courte ou retirez un filtre.</p><button class="explore-button" id="empty-reset" type="button">Réinitialiser les filtres</button></div></div>
       </div>
     </section>`;
     populateFilterOptions(root);
   }
 
+  function kindLabel(item) { return item.evidence_level === 'documented' ? 'CAS DOCUMENTÉ' : item.evidence_level === 'experience' ? 'RETOUR D’EXPÉRIENCE' : 'CAS TYPE'; }
+
   function card(item) {
     const functionLabel = formatList(item.business_function, 'business_function') || 'Fonction non renseignée';
     const industryLabel = titleFor('industry', item.industry);
-    return `<article class="explore-card"><a class="explore-card-link" href="?case=${encodeURIComponent(item.id)}" data-case-link="${escapeHtml(item.id)}"><div class="explore-card-top"><span class="explore-card-number">${escapeHtml(item.evidence_level === 'documented' ? 'REAL CASE' : 'OPPORTUNITÉ')}</span>${proofBadge(item.evidence_level)}</div><h3>${escapeHtml(item.title)}</h3><p class="explore-card-problem">${escapeHtml(item.short_description || item.problem)}</p><div class="explore-card-meta"><span><b>Secteur</b>${escapeHtml(industryLabel)}</span><span><b>Fonction</b>${escapeHtml(functionLabel)}</span><span><b>Solution</b>${escapeHtml(titleFor('solution_type', item.solution_type))}</span><span><b>Autonomie</b>${escapeHtml(titleFor('autonomy_level', item.autonomy_level))}</span></div><span class="explore-card-open">Ouvrir la fiche <b aria-hidden="true">→</b></span></a></article>`;
+    return `<article class="explore-card"><a class="explore-card-link" href="${caseHref(item)}"><div class="explore-card-top"><span class="explore-card-number">${escapeHtml(kindLabel(item))}</span>${proofBadge(item.evidence_level)}</div><h3>${escapeHtml(item.title)}</h3><p class="explore-card-problem">${escapeHtml(item.short_description || item.problem)}</p><div class="explore-card-meta"><span><b>Secteur</b>${escapeHtml(industryLabel)}</span><span><b>Fonction</b>${escapeHtml(functionLabel)}</span><span><b>Solution</b>${escapeHtml(titleFor('solution_type', item.solution_type))}</span><span><b>Autonomie</b>${escapeHtml(titleFor('autonomy_level', item.autonomy_level))}</span></div><span class="explore-card-open">Ouvrir la fiche <b aria-hidden="true">→</b></span></a></article>`;
   }
 
   function renderResults() {
@@ -166,8 +174,15 @@
     const empty = $('#case-empty');
     const count = $('#results-count');
     if (!grid || !empty || !count) return;
-    count.innerHTML = `<strong>${visible.length}</strong> cas affiché${visible.length > 1 ? 's' : ''} <span>sur ${state.cases.length}</span>`;
-    grid.innerHTML = visible.map(card).join('');
+    count.innerHTML = `<strong>${visible.length}</strong> cas trouvé${visible.length > 1 ? 's' : ''} <span>sur ${state.cases.length}</span>`;
+    const shown = visible.slice(0, state.limit);
+    grid.innerHTML = shown.map(card).join('');
+    const more = $('#case-more');
+    if (more) {
+      const rest = visible.length - shown.length;
+      more.hidden = rest <= 0;
+      $('#more-cases').textContent = `Afficher ${Math.min(PAGE, rest)} cas de plus (${rest} restant${rest > 1 ? 's' : ''})`;
+    }
     empty.hidden = visible.length > 0;
     $('#case-count').textContent = `${state.cases.length} cas`;
     renderActiveFilters();
@@ -183,7 +198,7 @@
 
   function editorialWhy(item) {
     if (item.id === 'case-real-qonto-human-gate') {
-      return 'Qonto illustre une architecture d’agent supervisé appliquée à une zone sensible : les opérations financières. L’agent prépare, rassemble les éléments et propose l’action ; l’utilisateur conserve le dernier mot avant toute exécution. Le cas est intéressant moins pour la sophistication technique que pour l’usage du human gate comme mécanisme de contrôle.';
+      return 'Qonto illustre une architecture d’agent supervisé appliquée à une zone sensible : les opérations financières. L’agent prépare, rassemble les éléments et propose l’action ; l’utilisateur conserve le dernier mot avant toute exécution. Le cas est intéressant moins pour la sophistication technique que pour l’usage de la validation humaine comme mécanisme de contrôle.';
     }
     const functionLabel = formatList(item.business_function, 'business_function');
     const solutionLabel = titleFor('solution_type', item.solution_type).toLowerCase();
@@ -208,7 +223,7 @@
       return [
         'Un agent utile n’a pas besoin d’être totalement autonome.',
         'Dans un domaine sensible, la valeur peut venir surtout de la préparation et de l’orchestration.',
-        'Le human gate permet d’augmenter l’autonomie sans supprimer le contrôle humain.'
+        'La validation humaine permet d’augmenter l’autonomie sans supprimer le contrôle humain.'
       ];
     }
     const points = [];
@@ -230,7 +245,7 @@
 
   function renderEditorial(item) {
     const points = editorialShows(item);
-    return `<section class="detail-editorial-section"><p class="detail-label">ANALYSE ACOLYTE</p><h2>Ce que ce cas montre</h2><ul class="detail-analysis-list">${points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>${editorialNote(item) ? `<aside class="detail-acolyte-note"><strong>Acolyte note</strong><p>${escapeHtml(editorialNote(item))}</p></aside>` : ''}</section>`;
+    return `<section class="detail-editorial-section"><p class="detail-label">ANALYSE ACOLYTE</p><h2>Ce que ce cas montre</h2><ul class="detail-analysis-list">${points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>${editorialNote(item) ? `<aside class="detail-acolyte-note"><strong>Note d’Acolyte</strong><p>${escapeHtml(editorialNote(item))}</p></aside>` : ''}</section>`;
   }
 
   function renderUndocumented(item) {
@@ -257,13 +272,40 @@
       value += valuesFor(item, 'ai_pattern').filter((x) => x !== 'unknown' && valuesFor(candidate, 'ai_pattern').includes(x)).length;
       return value;
     };
-    return state.cases.map((candidate) => ({ candidate, score: score(candidate) })).filter((entry) => entry.score > 0).sort((a, b) => b.score - a.score || a.candidate.title.localeCompare(b.candidate.title, 'fr')).slice(0, 3).map(({ candidate }) => `<a href="?case=${encodeURIComponent(candidate.id)}" data-case-link="${escapeHtml(candidate.id)}"><span>${escapeHtml(titleFor('solution_type', candidate.solution_type))}</span><strong>${escapeHtml(candidate.title)}</strong><small>${escapeHtml(titleFor('evidence_level', candidate.evidence_level))} · ${escapeHtml(titleFor('industry', candidate.industry))}</small></a>`).join('');
+    return state.cases.map((candidate) => ({ candidate, score: score(candidate) })).filter((entry) => entry.score > 0).sort((a, b) => b.score - a.score || a.candidate.title.localeCompare(b.candidate.title, 'fr')).slice(0, 3).map(({ candidate }) => `<a href="${caseHref(candidate)}"><span>${escapeHtml(titleFor('solution_type', candidate.solution_type))}</span><strong>${escapeHtml(candidate.title)}</strong><small>${escapeHtml(titleFor('evidence_level', candidate.evidence_level))} · ${escapeHtml(titleFor('industry', candidate.industry))}</small></a>`).join('');
+  }
+
+  function provenanceLabel(type) {
+    return { 'public-source': 'Source publique', 'internal-note': 'Cas type HOCUS' }[type] || type || 'Non renseignée';
+  }
+
+  /* Ce que HOCUS ferait ici : la passerelle vers l'offre la plus proche (règles ordonnées), toujours
+     précédée du Diagnostic Data & IA, point de départ de toute mission. */
+  function hocusFor(item) {
+    const patterns = valuesFor(item, 'ai_pattern');
+    const functions = valuesFor(item, 'business_function');
+    const text = [item.title, item.short_description, item.problem].join(' ').toLocaleLowerCase('fr');
+    const has = (...keys) => keys.some((key) => patterns.includes(key));
+    const says = (re) => re.test(text);
+    if (says(/catalogue|assortiment|référentiel produit|fiches? produits?|gamme/) || (functions.includes('product') && has('classification', 'comparison'))) return { name: 'Stolas', tier: 'Atelier', href: '/atelier/stolas/', why: 'Stolas lit la forme d’un catalogue : familles, recouvrements, compléments et substituts, espaces blancs.' };
+    if (says(/veille|concurren|marché|tendance|social commerce|réseaux sociaux/) && has('monitoring', 'comparison', 'summarization')) return { name: 'Scrolls', tier: 'Atelier', href: '/atelier/scrolls/', why: 'Scrolls transforme une veille de marché en intelligence suivie : acteurs, catégories, signaux et leviers.' };
+    if (has('generation') && (functions.includes('marketing') || says(/contenu|description|article|rédaction|texte/))) return { name: 'Lore', tier: 'Atelier', href: '/atelier/lore/', why: 'Lore produit des contenus contextuels à grande échelle, à partir de faits vérifiés et tenus à jour.' };
+    if (item.solution_type === 'agent' || (item.solution_type === 'workflow' && has('orchestration'))) return { name: 'Strings', tier: 'Atelier', href: '/atelier/strings/', why: 'Strings conçoit des agents et des chaînes automatisées, avec leurs permissions et leurs points de validation.' };
+    if (has('prediction', 'scoring')) return { name: 'Works · Scoring & prédiction', tier: 'Works', href: '/works/', why: 'Des scores recalculés et expliqués (attrition, valeur, appétence, demande) branchés là où l’action se passe.' };
+    if (has('recommendation')) return { name: 'Works · Recommandation & affinités', tier: 'Works', href: '/works/', why: 'Le prochain meilleur produit, les compléments et les substituts, même sans historique d’achat.' };
+    if (has('retrieval', 'summarization', 'extraction') || item.solution_type === 'knowledge') return { name: 'Works · IA générative & contenus', tier: 'Works', href: '/works/', why: 'Une connaissance rendue retrouvable et des synthèses fondées sur des sources vérifiées.' };
+    return { name: 'Works', tier: 'Works', href: '/works/', why: 'Un problème spécifique devient un système construit sur mesure, du diagnostic au pilotage.' };
+  }
+
+  function renderHocus(item) {
+    const offer = hocusFor(item);
+    return `<section class="detail-hocus" aria-labelledby="detail-hocus-title"><div class="detail-hocus-head"><p class="detail-label">ET CHEZ VOUS ?</p><h2 id="detail-hocus-title">Ce que HOCUS ferait ici</h2><p>Un cas publié ne se recopie pas : il se transpose à vos données, vos équipes et vos contraintes.</p></div><div class="detail-hocus-grid"><a class="detail-hocus-card is-entry" href="/works/diagnostic/"><span>1 · POINT DE DÉPART</span><strong>Diagnostic Data &amp; IA</strong><p>Vérifier que ce cas a du sens chez vous, avec quelles données, et ce qu’il rapporterait.</p><b>Découvrir ↗</b></a><a class="detail-hocus-card" href="${offer.href}"><span>2 · ${escapeHtml(offer.tier.toLocaleUpperCase('fr'))}</span><strong>${escapeHtml(offer.name)}</strong><p>${escapeHtml(offer.why)}</p><b>Voir ↗</b></a><a class="detail-hocus-card" href="mailto:hello@hocus.works?subject=${encodeURIComponent(`Acolyte — ${item.title}`)}"><span>3 · EN PARLER</span><strong>Écrire à HOCUS</strong><p>Une question sur ce cas ou sur votre situation.</p><b>hello@hocus.works ↗</b></a></div></section>`;
   }
 
   function learnLink(item) {
-    if (item.solution_type === 'agent') return '<a class="detail-bridge" href="../ux/tutorial/?slide=2"><span>LEARN · AGENTS</span><strong>Comprendre le fonctionnement d’un agent <b aria-hidden="true">→</b></strong></a>';
-    if (item.solution_type === 'knowledge' || valuesFor(item, 'ai_pattern').includes('retrieval')) return '<a class="detail-bridge" href="../ux/tutorial/?slide=9"><span>LEARN · CAS GUIDÉ</span><strong>Voir une mémoire rendue retrouvable <b aria-hidden="true">→</b></strong></a>';
-    return '<a class="detail-bridge" href="../ux/tutorial/?slide=7"><span>LEARN · PREUVE</span><strong>Lire la grille des niveaux de preuve <b aria-hidden="true">→</b></strong></a>';
+    if (item.solution_type === 'agent') return `<a class="detail-bridge" href="${base}?journey=operating-system&amp;slide=8"><span>PARCOURS · AGENTS</span><strong>Comprendre le fonctionnement d’un agent <b aria-hidden="true">→</b></strong></a>`;
+    if (item.solution_type === 'knowledge' || valuesFor(item, 'ai_pattern').includes('retrieval')) return `<a class="detail-bridge" href="${base}?module=memory-map&amp;journey=pme&amp;slide=3"><span>ATELIER · MÉMOIRE</span><strong>Voir une mémoire rendue retrouvable <b aria-hidden="true">→</b></strong></a>`;
+    return `<a class="detail-bridge" href="${base}?journey=pme&amp;slide=1"><span>PARCOURS · PME</span><strong>Partir d’un travail réel, pas d’un catalogue <b aria-hidden="true">→</b></strong></a>`;
   }
 
   function renderDetail(item) {
@@ -280,12 +322,14 @@
     const prerequisites = renderTextList([item.delivery_scope, item.complexity && `Complexité : ${item.complexity}`, item.technical_feasibility && `Faisabilité technique : ${item.technical_feasibility}`, item.organizational_feasibility && `Faisabilité organisationnelle : ${item.organizational_feasibility}`, item.data_readiness && `Maturité data : ${item.data_readiness}`, item.maturity_required && `Maturité requise : ${item.maturity_required}`]);
     const limitations = renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]);
     const related = relatedCases(item);
-    const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(item.provenance?.source_type || 'Non renseignée')}</p><small>${escapeHtml(item.provenance?.source_ref || '')}</small>${item.provenance?.transformation_notes ? `<p class="detail-note">${escapeHtml(item.provenance.transformation_notes)}</p>` : ''}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong><p>Le niveau de preuve et la confiance ne remplacent pas une revue du contexte.</p></section></div>`;
-    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="./" data-back-catalog>← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE ${item.evidence_level === 'documented' ? 'REAL CASE' : 'USE CASE'} · ${escapeHtml(item.id)}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p><small>La preuve décrit le statut du cas, pas une garantie de résultat.</small></div></header><div class="detail-facts">${detailFacts(item)}</div><section class="detail-editorial-intro"><div><p class="detail-label">ANALYSE ACOLYTE</p><h2>Pourquoi ce cas mérite d’être regardé</h2></div><p class="detail-editorial-copy">${escapeHtml(editorialWhy(item))}</p></section><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir de la source', renderTextList(item.lessons_learned)) : ''}${provenance}${renderUndocumented(item)}</div></div>${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
+    const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(provenanceLabel(item.provenance?.source_type))}</p>${item.provenance?.source_type === 'internal-note' ? '<small>Cas type construit par HOCUS à partir des parcours Acolyte.</small>' : `<small>${escapeHtml(item.provenance?.source_ref || '')}</small>`}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong><p>Le niveau de preuve et la confiance ne remplacent pas une revue du contexte.</p></section></div>`;
+    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p><small>La preuve décrit le statut du cas, pas une garantie de résultat.</small></div></header><div class="detail-facts">${detailFacts(item)}</div><section class="detail-editorial-intro"><div><p class="detail-label">ANALYSE ACOLYTE</p><h2>Pourquoi ce cas mérite d’être regardé</h2></div><p class="detail-editorial-copy">${escapeHtml(editorialWhy(item))}</p></section><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir de la source', renderTextList(item.lessons_learned)) : ''}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
   }
 
   function render() {
     readRoute();
+    if (root.dataset.case) { const own = state.cases.find((candidate) => candidate.id === root.dataset.case); if (own) renderDetail(own); return; }
+    if (state.detail) { const legacy = state.cases.find((candidate) => candidate.id === state.detail); if (legacy) { window.location.replace(caseHref(legacy)); return; } }
     const item = state.detail ? state.cases.find((candidate) => candidate.id === state.detail) : null;
     if (state.detail && item) { renderDetail(item); return; }
     if (state.detail && !item) { state.detail = null; window.history.replaceState({}, '', routeUrl({ detail: null })); }
@@ -298,15 +342,16 @@
     $('#case-search')?.addEventListener('input', (event) => {
       state.query = event.target.value;
       state.detail = null;
+      state.limit = PAGE;
       window.history.replaceState({}, '', routeUrl());
       renderResults();
     });
     $$('[data-filter]').forEach((select) => select.addEventListener('change', (event) => navigate({ filters: { ...state.filters, [event.target.dataset.filter]: event.target.value }, detail: null })));
+    $('#more-cases')?.addEventListener('click', () => { state.limit += PAGE; renderResults(); });
     $('#reset-filters')?.addEventListener('click', () => navigate({ query: '', filters: {}, detail: null }));
     $('#empty-reset')?.addEventListener('click', () => navigate({ query: '', filters: {}, detail: null }));
     $('#filter-toggle')?.addEventListener('click', () => { state.filtersOpen = !state.filtersOpen; $('.explore-catalog-layout')?.classList.toggle('filters-open', state.filtersOpen); $('#filter-toggle').setAttribute('aria-expanded', String(state.filtersOpen)); });
     $('#filter-close')?.addEventListener('click', () => { state.filtersOpen = false; $('.explore-catalog-layout')?.classList.remove('filters-open'); $('#filter-toggle')?.setAttribute('aria-expanded', 'false'); });
-    $$('[data-case-link]').forEach((link) => link.addEventListener('click', (event) => { event.preventDefault(); navigate({ detail: link.dataset.caseLink }); }));
   }
 
   root.addEventListener('click', (event) => {
@@ -324,15 +369,14 @@
       navigate({ query: '', detail: null });
       return;
     }
-    const back = event.target.closest('[data-back-catalog]');
-    if (back) { event.preventDefault(); navigate({ detail: null }); }
-    const related = event.target.closest('[data-case-link]');
-    if (related) { event.preventDefault(); navigate({ detail: related.dataset.caseLink }); }
   });
   window.addEventListener('popstate', render);
 
-  fetch('data/cases-v1.json')
+  window.ACOLYTE_HOCUS_FOR = hocusFor;
+  /* Page de fiche pré-rendue : tout est déjà dans le HTML, pas besoin de charger le corpus. */
+  if (root.dataset.prerendered === 'true') return;
+  fetch(root.dataset.src || 'data/cases-v1.json')
     .then((response) => { if (!response.ok) throw new Error(`Dataset unavailable (${response.status})`); return response.json(); })
     .then((cases) => { state.cases = cases; render(); })
-    .catch((error) => { root.innerHTML = `<div class="explore-error"><strong>Le corpus n’a pas pu être chargé.</strong><p>${escapeHtml(error.message)}</p><a class="explore-button" href="../">Retour à Acolyte</a></div>`; });
+    .catch((error) => { root.innerHTML = `<div class="explore-error"><strong>Le corpus n’a pas pu être chargé.</strong><p>${escapeHtml(error.message)}</p><a class="explore-button" href="${base}">Retour à Acolyte</a></div>`; });
 })();
