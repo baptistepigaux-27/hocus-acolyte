@@ -42,8 +42,14 @@
         <section class="home-hero" aria-labelledby="home-title">
           <div class="home-hero-copy">
             <p class="home-kicker">HOCUS ACOLYTE · COMPRENDRE L’IA</p>
-            <h1 id="home-title">Comprendre l’IA.<br><em>Des usages concrets, adaptés à vos métiers.</em></h1>
+            <h1 id="home-title">Comprendre l’IA.<br><em>Des usages concrets, <span class="hero-metier" data-hero-metier>adaptés à vos métiers</span>.</em></h1>
             <p class="home-lead">Deux parcours pour comprendre ce qui change quand l’IA devient un système de travail, et 120 cas d’usage pour voir ce qui est réellement documenté. Gratuit, sans inscription.</p>
+            <form class="hero-ask" role="search" action="explore/" data-hero-ask>
+              <label class="hero-ask-label" for="hero-q">Que voulez-vous faire avec l’IA ?</label>
+              <div class="hero-ask-field"><span aria-hidden="true">⌕</span><input id="hero-q" name="q" type="search" autocomplete="off" placeholder="Décrivez une tâche, un problème, un métier…" aria-describedby="hero-ask-help"><button type="submit">Chercher <b aria-hidden="true">→</b></button></div>
+              <p class="hero-ask-help" id="hero-ask-help">Essayez : <button type="button" data-hero-try>préparer un CODIR</button><button type="button" data-hero-try>répondre à un appel d’offres</button><button type="button" data-hero-try>trier les demandes clients</button><button type="button" data-hero-try>prévoir la demande</button></p>
+              <div class="hero-ask-results" data-hero-results aria-live="polite" hidden></div>
+            </form>
           </div>
           <div class="home-hero-side">
             <div class="home-actions">
@@ -51,11 +57,10 @@
               <a class="home-button" href="?journey=pme&amp;slide=1">Voir le parcours PME <span aria-hidden="true">↗</span></a>
               <a class="home-button" href="explore/">Explorer les 120 cas <span aria-hidden="true">↗</span></a>
             </div>
-            <aside class="home-hero-rail" aria-label="Contenu d’Acolyte">
-              <p class="home-rail-label">EN UN COUP D’ŒIL</p>
-              <strong>2 parcours<br>40 étapes</strong>
-              <span>3 ateliers · 120 cas d’usage</span>
-              <p>Environ 15 minutes par parcours. Chaque cas indique ce qui est prouvé, et ce qui ne l’est pas.</p>
+            <aside class="hero-case" data-hero-case aria-label="Un cas documenté, métier par métier">
+              <p class="hero-case-kicker">CAS DOCUMENTÉ</p>
+              <strong>2 parcours, 40 étapes, 120 cas d’usage</strong>
+              <p>Chaque cas indique ce qui est prouvé, et ce qui ne l’est pas.</p>
             </aside>
           </div>
         </section>
@@ -233,5 +238,6 @@
     <script src="app.js"></script>
     <script src="home/equation.js"></script>
     <script src="home/autonomy-line.js"></script>
+    <script src="home/hero.js"></script>
   </body>
 </html>

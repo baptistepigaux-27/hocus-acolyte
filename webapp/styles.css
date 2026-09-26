@@ -848,3 +848,50 @@ body.module-mode .topbar-navigation, body.module-mode .status-dot, body.module-m
 .mw-hint { margin: 0; color: rgba(245, 241, 234, .5); font: 10px var(--mono); letter-spacing: .06em; }
 .is-remembered .mw-hint { visibility: hidden; }
 @media (max-width: 600px) { .mw-behind, .mw-pinned { grid-template-columns: 1fr; } .mw-note:nth-of-type(n+4), .mw-card:nth-child(n+4) { display: none; } }
+
+/* ===== Opus Lab 35 — Le hero vivant ===== */
+.hero-metier { position: relative; }
+.hero-metier.is-typing::after { content: ""; display: inline-block; width: .06em; height: .8em; margin-left: .04em; background: var(--terra); vertical-align: baseline; animation: eq-blink .7s steps(1) infinite; }
+.hero-ask { position: relative; max-width: 640px; margin-top: 26px; }
+.hero-ask-label { display: block; margin-bottom: 8px; color: var(--ink); font: 700 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.hero-ask-field { display: flex; align-items: center; gap: 10px; padding: 6px 6px 6px 14px; border: 2px solid var(--ink); background: #fff; box-shadow: 6px 6px 0 var(--terra); transition: box-shadow .2s ease, transform .2s ease; }
+.hero-ask-field:focus-within { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--terra); }
+.hero-ask-field > span { color: var(--terra); font-size: 18px; }
+.hero-ask-field input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font: 17px var(--sans); padding: 10px 0; }
+.hero-ask-field input::placeholder { color: #8b8b86; }
+.hero-ask-field button { padding: 11px 14px; border: 0; background: var(--ink); color: var(--paper); cursor: pointer; font: 700 10.5px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.hero-ask-field button b { color: var(--terra); }
+.hero-ask-help { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 12px 0 0; color: var(--stone); font-size: 13px; }
+.hero-ask-help button { padding: 5px 9px; border: 1px solid var(--dark-line); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; font: 12.5px var(--sans); }
+.hero-ask-help button:hover { border-color: var(--terra); color: var(--terra); }
+.hero-ask-results { margin-top: 14px; padding: 14px; border: 1px solid var(--ink); background: #fbf8f2; animation: hero-in .3s ease; }
+.hero-ask-cases { display: grid; gap: 6px; }
+.hero-ask-cases a { display: grid; gap: 2px; padding: 8px 10px; border: 1px solid var(--dark-line); color: var(--ink); text-decoration: none; }
+.hero-ask-cases a:hover { border-color: var(--terra); }
+.hero-ask-cases span { color: var(--stone); font: 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.hero-ask-cases strong { font-size: 14.5px; line-height: 1.3; }
+.hero-ask-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; }
+.hero-ask-station { display: grid; gap: 2px; padding: 8px 10px; background: var(--ink); color: var(--paper); text-decoration: none; }
+.hero-ask-station span { color: #efb84e; font: 700 9px var(--mono); letter-spacing: .1em; }
+.hero-ask-station strong { font-size: 13.5px; }
+.hero-ask-all { color: var(--terra); font: 700 10.5px var(--mono); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+.hero-ask-empty { margin: 0; color: var(--stone); font-size: 14px; line-height: 1.5; }
+.hero-ask-empty a { color: var(--terra); }
+.hero-case { display: grid; gap: 8px; margin-top: 28px; padding: 18px 20px; border-left: 3px solid var(--terra); background: rgba(255, 255, 255, .5); }
+.hero-case-kicker { margin: 0; color: var(--terra); font: 700 9.5px var(--mono); letter-spacing: .12em; }
+.hero-case strong { font-size: 19px; letter-spacing: -.02em; line-height: 1.2; }
+.hero-case p { margin: 0; color: var(--stone); font-size: 14px; line-height: 1.45; }
+.hero-case a { color: var(--ink); font: 700 10.5px var(--mono); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+.hero-case a span { color: var(--terra); }
+.hero-case.is-in { animation: hero-in .5s cubic-bezier(.2, .9, .2, 1); }
+@keyframes hero-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 760px) {
+  .hero-ask-field input { font-size: 16px; }
+  .hero-ask-field button { padding: 10px; font-size: 0; } .hero-ask-field button b { font-size: 16px; }
+  .hero-case strong { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-case.is-in, .hero-ask-results { animation: none; } }
+/* Le métier change de longueur : la ligne en italique garde une hauteur fixe (pas de saut de page). */
+.home-hero h1 { font-size: clamp(54px, 7.4vw, 112px); }
+.home-hero h1 em { display: block; min-height: 2.76em; }
+@media (max-width: 760px) { .home-hero h1 { font-size: clamp(46px, 13.5vw, 70px); } .home-hero h1 em { min-height: 3.52em; } }

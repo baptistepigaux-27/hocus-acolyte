@@ -17,6 +17,7 @@
     { key: 'agent', name: 'Agent', line: 'Plusieurs étapes vers un objectif', text: 'L’IA choisit ses étapes et ses outils pour atteindre un objectif, dans un cadre autorisé et sous validation humaine.', you: 'le travail demande de chercher, croiser et agir dans plusieurs outils.', slide: 9, slideTitle: 'Un agent métier, borné et vérifiable' },
     { key: 'product', name: 'Outil métier', line: 'Un système utilisé par les équipes', text: 'L’IA devient un outil à part entière, avec ses utilisateurs, ses données, sa mesure et son exploitation.', you: 'l’usage est récurrent, partagé et doit être mesuré.', slide: 10, slideTitle: 'Quand construire un outil métier ?' },
   ];
+  window.ACOLYTE_STATIONS = STATIONS;
   const RANK = { documented: 0, experience: 1, pattern: 2 };
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[c]);
   let cases = [];
