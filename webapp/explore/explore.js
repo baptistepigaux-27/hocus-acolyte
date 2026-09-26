@@ -46,6 +46,7 @@
   const base = root.dataset.root || '../';
   const caseHref = (item) => `${base}cas/${encodeURIComponent(item.slug || item.id)}/`;
   const exploreHref = `${base}explore/`;
+  let sky = null;
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[char]);
@@ -151,6 +152,7 @@
     </section>
     <section class="explore-catalog" aria-labelledby="catalog-title">
       <div class="explore-catalog-head"><div><p class="explore-kicker">LE CATALOGUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur et le type d’IA. Les filtres se combinent.</p></div>
+      <section class="sky" id="case-sky" aria-label="Le ciel des cas"></section>
       <div class="explore-toolbar"><label class="explore-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher dans les cas</span><input id="case-search" type="search" autocomplete="off" placeholder="Rechercher un problème, une fonction, un secteur…" value="${escapeHtml(state.query)}"></label><button class="explore-filter-toggle" id="filter-toggle" type="button" aria-expanded="${state.filtersOpen}">Filtres <span aria-hidden="true">＋</span></button><button class="explore-reset" id="reset-filters" type="button">Réinitialiser</button></div><div class="explore-active-filters" id="active-filters" aria-live="polite"></div>
       <div class="explore-catalog-layout ${state.filtersOpen ? 'filters-open' : ''}">
         <aside class="explore-filters" id="explore-filters" aria-label="Filtrer les cas"><div class="explore-filters-head"><span>FILTRER PAR CONTEXTE</span><button id="filter-close" type="button" aria-label="Fermer les filtres">×</button></div>${filterConfig.map(([field, label]) => `<label class="explore-filter" for="filter-${field}"><span>${escapeHtml(label)}</span><select id="filter-${field}" data-filter="${field}"></select></label>`).join('')}<div class="explore-proof-key"><span>NIVEAUX DE PREUVE</span>${Object.keys(evidenceCopy).map((key) => `<p>${proofBadge(key)}<small>${escapeHtml(evidenceCopy[key])}</small></p>`).join('')}</div></aside>
@@ -158,6 +160,8 @@
       </div>
     </section>`;
     populateFilterOptions(root);
+    const skyHost = $('#case-sky', root);
+    sky = skyHost && window.ACOLYTE_SKY ? window.ACOLYTE_SKY.mount(skyHost, state.cases, caseHref) : null;
   }
 
   function kindLabel(item) { return item.evidence_level === 'documented' ? 'CAS DOCUMENTÉ' : item.evidence_level === 'experience' ? 'RETOUR D’EXPÉRIENCE' : 'CAS TYPE'; }
@@ -175,6 +179,7 @@
     const count = $('#results-count');
     if (!grid || !empty || !count) return;
     count.innerHTML = `<strong>${visible.length}</strong> cas trouvé${visible.length > 1 ? 's' : ''} <span>sur ${state.cases.length}</span>`;
+    if (sky) sky.update(visible);
     const shown = visible.slice(0, state.limit);
     grid.innerHTML = shown.map(card).join('');
     const more = $('#case-more');

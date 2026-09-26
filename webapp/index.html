@@ -60,6 +60,33 @@
           </div>
         </section>
 
+        <section class="eq" data-equation aria-labelledby="eq-title">
+          <div class="eq-track">
+            <div class="eq-sticky">
+              <div class="eq-copy">
+                <p class="home-kicker">DU CHATBOT AU SYSTÈME</p>
+                <h2 id="eq-title">Une réponse ne suffit pas.<br><em>Un système, si.</em></h2>
+                <ol class="eq-steps" data-eq-steps></ol>
+                <p class="eq-caption" data-eq-caption></p>
+                <a class="eq-link" href="?journey=operating-system&amp;slide=6">Le parcours explique chaque pièce <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="eq-stage">
+                <div class="eq-orrery" aria-hidden="true">
+                  <div class="eq-ring eq-r1"><span class="eq-piece" data-eq-piece="1" style="--a:200deg"><b>Contexte</b></span><span class="eq-piece" data-eq-piece="2" style="--a:20deg"><b>Mémoire</b></span></div>
+                  <div class="eq-ring eq-r2"><span class="eq-piece" data-eq-piece="3" style="--a:110deg"><b>Outils</b></span><span class="eq-piece" data-eq-piece="4" style="--a:290deg"><b>Agents</b></span></div>
+                  <div class="eq-ring eq-r3"><span class="eq-piece is-human" data-eq-piece="5" style="--a:245deg"><b>Validation humaine</b></span></div>
+                  <div class="eq-core" data-eq-core>MODÈLE</div>
+                </div>
+                <div class="eq-chat">
+                  <p class="eq-chat-head"><span></span>ASSISTANT IA · EXEMPLE FICTIF</p>
+                  <p class="eq-user">Prépare mon rendez-vous de jeudi avec Durand SA.</p>
+                  <p class="eq-reply" data-eq-reply aria-live="polite"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="home-section" aria-labelledby="home-journeys-title">
           <div class="home-section-heading">
             <div>
@@ -100,10 +127,21 @@
           </div>
         </section>
 
+        <section class="home-section al" aria-labelledby="home-line-title">
+          <div class="home-section-heading">
+            <div>
+              <p class="home-kicker">03 · OÙ EN EST VOTRE ÉQUIPE ?</p>
+              <h2 id="home-line-title">La ligne de l’autonomie.</h2>
+            </div>
+            <p>Cinq stations, de l’assistant à l’outil métier. Touchez celle qui ressemble le plus à votre usage d’aujourd’hui.</p>
+          </div>
+          <div class="al-map" data-autonomy-line></div>
+        </section>
+
         <section class="home-section acolyte-bridge" aria-labelledby="home-bridge-title">
           <div class="home-section-heading">
             <div>
-              <p class="home-kicker">03 · ET CHEZ VOUS ?</p>
+              <p class="home-kicker">04 · ET CHEZ VOUS ?</p>
               <h2 id="home-bridge-title">De la compréhension au terrain.</h2>
             </div>
             <p>Acolyte explique. HOCUS relève le terrain, choisit les bons cas et construit les systèmes qui tournent.</p>
@@ -180,6 +218,7 @@
     <script src="interactions/chatbot-agent.js"></script>
     <script src="interactions/context-builder.js"></script>
     <script src="interactions/memory-recall.js"></script>
+    <script src="interactions/memory-window.js"></script>
     <script src="interactions/handoff.js"></script>
     <script src="interactions/idea-product.js"></script>
     <script src="interactions/opportunity-map.js"></script>
@@ -192,5 +231,7 @@
     <script src="modules/real-cases/cases.js"></script>
     <script src="modules/module-app.js"></script>
     <script src="app.js"></script>
+    <script src="home/equation.js"></script>
+    <script src="home/autonomy-line.js"></script>
   </body>
 </html>

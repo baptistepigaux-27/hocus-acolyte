@@ -50,7 +50,7 @@ window.ACOLYTE_SLIDES = [
     wow: true,
     interactive: true,
     interaction: {
-      kind: 'memory-recall',
+      kind: 'memory-window',
       scenario: 'Trois semaines plus tard, vous reprenez le projet.',
       without: {
         title: 'Tout réexpliquer',
