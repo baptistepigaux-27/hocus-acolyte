@@ -406,7 +406,7 @@
   function renderTool(tool) {
     const cases = toolCases(tool).sort(byEvidenceThenTitle);
     const siblings = state.tools.filter((other) => other.family === tool.family && other.id !== tool.id).sort((a, b) => a.name.localeCompare(b.name, 'fr'));
-    const facts = [['Éditeur', tool.vendor], ['Origine', titleFor('country', tool.vendor_country)], ['Famille', titleFor('tool_family', tool.family)], ['Licence', titleFor('license', tool.license)], ['Hébergement', formatList(tool.hosting, 'hosting')], ['Niveau technique', titleFor('skill_level', tool.skill_level)], ['Modèle de prix', titleFor('pricing_model', tool.pricing_model)]]
+    const facts = [['Éditeur', tool.vendor], ['Origine', titleFor('country', tool.vendor_country)], ['Licence', titleFor('license', tool.license)], ['Hébergement', formatList(tool.hosting, 'hosting')], ['Niveau technique', titleFor('skill_level', tool.skill_level)], ['Modèle de prix', titleFor('pricing_model', tool.pricing_model)]]
       .map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${escapeHtml(value || 'Non renseigné')}</strong></div>`).join('');
     const source = tool.sources?.[0];
     const documented = cases.filter((item) => item.evidence_level === 'documented' || item.evidence_level === 'experience').length;

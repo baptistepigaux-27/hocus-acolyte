@@ -173,3 +173,4 @@ a { color: inherit; }
 .tool-family { padding-bottom: 40px; }
 .tool-family + .tool-family { border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 18%, transparent); }
 .tool-method, .tool-cases { margin-top: 24px; }
+.explore-detail-page .explore-catalog { width: auto; padding-bottom: 0; }
