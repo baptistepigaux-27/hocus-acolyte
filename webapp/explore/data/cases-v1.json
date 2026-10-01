@@ -4484,9 +4484,9 @@
     "title": "MUFG — Installer une base IA dans un groupe bancaire",
     "short_description": "MUFG déploie ChatGPT Enterprise auprès de 35 000 employés et prépare des expériences clients financières assistées par IA.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Donner à un groupe bancaire une base d’usage IA commune tout en préparant des expériences financières plus personnalisées.",
     "ai_pattern": [
       "generation",
@@ -4572,7 +4572,17 @@
         "change_type": "created",
         "summary": "Added from the public MUFG/OpenAI case study.",
         "source_ref": "https://openai.com/index/mufg/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-chatgpt-enterprise"
     ]
   },
   {
@@ -4583,9 +4593,9 @@
     "title": "Morgan Stanley — Rendre la connaissance financière interrogeable",
     "short_description": "Morgan Stanley combine recherche interne, synthèse et évaluation continue pour aider ses conseillers financiers.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Permettre aux conseillers de retrouver rapidement une information fiable dans un corpus financier qui s’étend à grande échelle.",
     "ai_pattern": [
       "retrieval",
@@ -4680,7 +4690,18 @@
         "change_type": "created",
         "summary": "Added from the public Morgan Stanley/OpenAI case study.",
         "source_ref": "https://openai.com/index/morgan-stanley/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt",
+      "tool-whisper"
     ]
   },
   {
@@ -4691,9 +4712,9 @@
     "title": "Gradient Labs — Automatiser le support financier complexe",
     "short_description": "Gradient Labs construit une plateforme de support qui suit des procédures opératoires dans des environnements financiers régulés.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Automatiser des demandes de support financier complexes sans limiter l’agent aux questions les plus simples.",
     "ai_pattern": [
       "orchestration",
@@ -4787,7 +4808,17 @@
         "change_type": "created",
         "summary": "Added from the public Gradient Labs/Anthropic case study.",
         "source_ref": "https://www.anthropic.com/customers/gradient-labs"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-claude"
     ]
   },
   {
@@ -4798,9 +4829,9 @@
     "title": "Campfire — Accélérer la clôture comptable",
     "short_description": "Campfire intègre Claude à son logiciel comptable pour réduire le temps passé sur la clôture, le rapprochement et le reporting.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les équipes comptables perdaient du temps dans des tâches complexes et répétitives malgré l’automatisation classique.",
     "ai_pattern": [
       "extraction",
@@ -4899,7 +4930,17 @@
         "change_type": "created",
         "summary": "Added from the public Campfire/Anthropic case study.",
         "source_ref": "https://www.anthropic.com/customers/campfire"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-claude"
     ]
   },
   {
@@ -4910,9 +4951,9 @@
     "title": "Klarna — Faire passer le support client en conversation",
     "short_description": "Klarna utilise un assistant IA pour le service client, les retours et les remboursements à grande échelle.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Répondre à un volume mondial de demandes de shopping et de paiement sans allonger le temps d’attente.",
     "ai_pattern": [
       "orchestration",
@@ -5018,7 +5059,18 @@
         "change_type": "created",
         "summary": "Added from the public Klarna/OpenAI case study.",
         "source_ref": "https://openai.com/index/klarna/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt",
+      "tool-chatgpt-enterprise"
     ]
   },
   {
@@ -5029,9 +5081,9 @@
     "title": "Wayfair — Fiabiliser le catalogue et le support fournisseur",
     "short_description": "Wayfair intègre des modèles dans ses systèmes catalogue et fournisseur pour corriger des attributs et automatiser des tickets.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Maintenir la qualité de millions de fiches produits et traiter les demandes fournisseurs à l’échelle d’un catalogue massif.",
     "ai_pattern": [
       "extraction",
@@ -5127,7 +5179,18 @@
         "change_type": "created",
         "summary": "Added from the public Wayfair/OpenAI case study.",
         "source_ref": "https://openai.com/index/wayfair/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt",
+      "tool-chatgpt-enterprise"
     ]
   },
   {
@@ -5138,9 +5201,9 @@
     "title": "Zalando — Personnaliser la découverte produit",
     "short_description": "Zalando améliore son assistant de shopping pour recommander des produits dans 25 marchés et plusieurs langues.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Aider les clients à transformer une intention de style ou d’occasion en produits pertinents dans un catalogue très large.",
     "ai_pattern": [
       "recommendation",
@@ -5240,7 +5303,17 @@
         "change_type": "created",
         "summary": "Added from the public Zalando/OpenAI case study.",
         "source_ref": "https://openai.com/index/zalando/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt"
     ]
   },
   {
@@ -5251,9 +5324,9 @@
     "title": "Lowe’s — Mettre l’expertise projet dans chaque rayon",
     "short_description": "Lowe’s utilise Mylow et Mylow Companion pour guider les clients et les vendeurs dans des projets de rénovation complexes.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les clients et les équipes de magasin doivent naviguer dans des projets complexes et des catalogues très larges sans toujours avoir l’expertise au bon moment.",
     "ai_pattern": [
       "retrieval",
@@ -5336,7 +5409,17 @@
         "change_type": "created",
         "summary": "Added from the public Lowe’s/OpenAI case study.",
         "source_ref": "https://openai.com/index/lowes/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt"
     ]
   },
   {
@@ -5347,9 +5430,9 @@
     "title": "OTTO — Transformer la recherche en conseil vocal",
     "short_description": "OTTO déploie un assistant vocal couvrant environ 19 millions de produits et plusieurs catégories de conseil.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "La recherche catalogue répond mal aux besoins des clients qui ne savent pas encore exactement quoi acheter.",
     "ai_pattern": [
       "multimodal",
@@ -5444,7 +5527,17 @@
         "change_type": "created",
         "summary": "Added from the public OTTO/Google Cloud case study.",
         "source_ref": "https://cloud.google.com/customers/otto-voice-shopping-ai"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-google-cloud"
     ]
   },
   {
@@ -5455,9 +5548,9 @@
     "title": "Choco — Automatiser la saisie des commandes alimentaires",
     "short_description": "Choco transforme des commandes reçues sous des formats hétérogènes en opérations de distribution traitables par des agents.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les commandes arrivent par e-mail, SMS, messages vocaux, images ou notes manuscrites, ce qui crée un goulot d’étranglement manuel.",
     "ai_pattern": [
       "extraction",
@@ -5557,7 +5650,17 @@
         "change_type": "created",
         "summary": "Added from the public Choco/OpenAI case study.",
         "source_ref": "https://openai.com/index/choco/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt"
     ]
   },
   {
@@ -5568,9 +5671,9 @@
     "title": "Rolls-Royce — Passer du diagnostic moteur à la maintenance préventive",
     "short_description": "Rolls-Royce combine données industrielles, IA générative et machine learning pour améliorer la conception, la production et la surveillance des moteurs.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Réduire les arrêts non planifiés et accélérer le diagnostic dans des opérations industrielles complexes.",
     "ai_pattern": [
       "monitoring",
@@ -5665,7 +5768,17 @@
         "change_type": "created",
         "summary": "Added from the public Rolls-Royce/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/23201-rolls-royce-azure-databricks"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure"
     ]
   },
   {
@@ -5676,9 +5789,9 @@
     "title": "Michelin — Faire circuler la connaissance industrielle",
     "short_description": "Michelin combine chatbot interne et Copilot pour la synthèse, la recherche d’information et la qualification de données.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Permettre à des équipes réparties de retrouver et qualifier une expertise industrielle dispersée entre ateliers, R&D, logistique et fonctions support.",
     "ai_pattern": [
       "retrieval",
@@ -5762,7 +5875,18 @@
         "change_type": "created",
         "summary": "Added from the public Michelin/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/20836-michelin-azure-open-ai-service"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure-openai",
+      "tool-microsoft-365-copilot"
     ]
   },
   {
@@ -5773,9 +5897,9 @@
     "title": "Scania — Déployer l’IA dans une organisation d’ingénieurs",
     "short_description": "Scania équipe ses équipes mondiales de ChatGPT Enterprise pour apprendre, construire et améliorer les workflows techniques.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Faire adopter des usages IA utiles par une organisation technique mondiale sans réduire l’initiative à un pilote isolé.",
     "ai_pattern": [
       "generation",
@@ -5856,7 +5980,17 @@
         "change_type": "created",
         "summary": "Added from the public Scania/OpenAI case study.",
         "source_ref": "https://openai.com/index/scania/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-chatgpt-enterprise"
     ]
   },
   {
@@ -5867,9 +6001,9 @@
     "title": "Sight Machine — Replanifier la production en temps réel",
     "short_description": "Sight Machine utilise des données d’usine et des modèles d’optimisation pour recalculer les plannings de production.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les perturbations imposent de replanifier plusieurs fois par semaine à partir de réunions manuelles et d’expertise opérateur.",
     "ai_pattern": [
       "prediction",
@@ -5964,7 +6098,17 @@
         "change_type": "created",
         "summary": "Added from the public Sight Machine/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/26648-sight-machine-microsoft-foundry"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure-ai-foundry"
     ]
   },
   {
@@ -5975,9 +6119,9 @@
     "title": "ICG Build — Faire grandir une entreprise de construction avec un copilote",
     "short_description": "Cette équipe de cinq personnes utilise Microsoft 365 et Copilot pour structurer ses opérations et ses livrables clients.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Une très petite entreprise de construction doit produire des livrables professionnels et coordonner ses opérations avec peu de ressources.",
     "ai_pattern": [
       "generation",
@@ -6073,7 +6217,20 @@
         "change_type": "created",
         "summary": "Added from the public ICG Build/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/customers/story/1787382930597731942-icg-build-other-microsoft-forms-en-united-states"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365",
+      "tool-microsoft-365-copilot",
+      "tool-power-bi",
+      "tool-microsoft-teams"
     ]
   },
   {
@@ -6084,9 +6241,9 @@
     "title": "Kimley-Horn — Réduire la friction de coordination en AEC",
     "short_description": "Kimley-Horn utilise Copilot pour résumer les réunions, comparer les documents et tester des scénarios de conception.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "La coordination entre ingénieurs, planificateurs et équipes projet ralentit les décisions dans les projets d’infrastructure.",
     "ai_pattern": [
       "summarization",
@@ -6175,7 +6332,18 @@
         "change_type": "created",
         "summary": "Added from the public Kimley-Horn/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/26418-kimley-horn-microsoft-365"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-teams",
+      "tool-microsoft-365-copilot"
     ]
   },
   {
@@ -6186,9 +6354,9 @@
     "title": "WeSpeak — Répondre aux voyageurs et convertir les demandes",
     "short_description": "WeSpeak déploie des réceptionnistes IA pour répondre aux voyageurs, vérifier les disponibilités et générer des liens de paiement.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les hôtels perdent des réservations lorsque les équipes ne peuvent pas suivre les demandes sur plusieurs canaux à toute heure.",
     "ai_pattern": [
       "orchestration",
@@ -6291,7 +6459,18 @@
         "change_type": "created",
         "summary": "Added from the public WeSpeak/Google Cloud case study.",
         "source_ref": "https://cloud.google.com/customers/wespeak"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-gemini",
+      "tool-google-cloud"
     ]
   },
   {
@@ -6302,9 +6481,9 @@
     "title": "L’Oréal — Mettre le conseil beauté à l’échelle",
     "short_description": "L’Oréal Paris déploie Beauty Genius, un assistant beauté génératif disponible 24/7 et conçu pour répondre à l’échelle mondiale.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Reproduire une expérience de conseil personnalisée et disponible à tout moment sans perdre la sécurité ni la performance à grande échelle.",
     "ai_pattern": [
       "recommendation",
@@ -6391,7 +6570,17 @@
         "change_type": "created",
         "summary": "Added from the public L’Oréal/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/25570-loreal-azure-openai"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure-openai"
     ]
   },
   {
@@ -6402,9 +6591,9 @@
     "title": "Estée Lauder — Faire parler les études consommateurs",
     "short_description": "Estée Lauder a construit ConsumerIQ pour interroger des études, détecter des tendances et fournir des recommandations marketing sourcées.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les équipes produit et marketing disposent de beaucoup d’études, mais mettent trop de temps à retrouver une information exploitable et vérifiable.",
     "ai_pattern": [
       "retrieval",
@@ -6485,7 +6674,18 @@
         "change_type": "created",
         "summary": "Added from the public Estée Lauder/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/23488-the-estee-lauder-companies-microsoft-copilot-studio"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-copilot-studio",
+      "tool-azure-openai"
     ]
   },
   {
@@ -6496,9 +6696,9 @@
     "title": "Coca-Cola Andina — Donner une porte d’entrée IA aux RH",
     "short_description": "Coca-Cola Andina utilise un agent RH pour répondre aux questions personnalisées des employés sur les politiques et avantages.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les équipes RH répondent à des questions répétitives alors que les employés éloignés du siège ont du mal à trouver la bonne information.",
     "ai_pattern": [
       "retrieval",
@@ -6584,7 +6784,19 @@
         "change_type": "created",
         "summary": "Added from the public Coca-Cola Andina/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/26256-coca-cola-andina-microsoft-copilot-studio"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-copilot-studio",
+      "tool-microsoft-teams",
+      "tool-microsoft-entra"
     ]
   },
   {
@@ -6595,9 +6807,9 @@
     "title": "Cemex — Faire du self-service RH une conversation",
     "short_description": "Cemex a construit Consult HR pour donner aux employés un accès permanent aux politiques et déclencher certains tickets RH.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les demandes RH récurrentes passent par téléphone, e-mail et interactions directes, ce qui ralentit les réponses et duplique le travail.",
     "ai_pattern": [
       "retrieval",
@@ -6687,7 +6899,21 @@
         "change_type": "created",
         "summary": "Added from the public Cemex/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/26985-cemex-microsoft-copilot-studio"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-copilot-studio",
+      "tool-microsoft-teams",
+      "tool-servicenow",
+      "tool-sap-successfactors",
+      "tool-microsoft-365"
     ]
   },
   {
@@ -6698,9 +6924,9 @@
     "title": "CSX — Suivre un fret en langage naturel",
     "short_description": "CSX intègre un assistant IA à son portail pour suivre les expéditions et accéder aux services ferroviaires.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les clients doivent retrouver rapidement le statut d’un fret et des réponses logistiques dans un portail dense.",
     "ai_pattern": [
       "retrieval",
@@ -6792,7 +7018,18 @@
         "change_type": "created",
         "summary": "Added from the public CSX/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/24556-csx-microsoft-copilot-studio"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-copilot-studio",
+      "tool-azure-ai-foundry"
     ]
   },
   {
@@ -6803,9 +7040,9 @@
     "title": "C.H. Robinson — Traiter les demandes logistiques reçues par e-mail",
     "short_description": "C.H. Robinson utilise l’IA générative pour classer les demandes d’expédition, compléter les informations et lancer les étapes du transport.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Des dizaines de milliers de demandes arrivent chaque jour par e-mail et attendent un traitement manuel variable selon le cycle du chargement.",
     "ai_pattern": [
       "classification",
@@ -6902,7 +7139,19 @@
         "change_type": "created",
         "summary": "Added from the public C.H. Robinson/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/19575-ch-robinson-azure-ai-studio"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure-ai-foundry",
+      "tool-azure-openai",
+      "tool-azure"
     ]
   },
   {
@@ -6913,9 +7162,9 @@
     "title": "Hyundai Glovis — Organiser les précédents logistiques",
     "short_description": "Hyundai Glovis utilise Copilot pour retrouver des précédents, rédiger des réponses et contrôler la cohérence de données d’expédition.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les équipes recherchent manuellement des cas passés et échangent plusieurs fichiers pour traiter retards, douanes et performance d’expédition.",
     "ai_pattern": [
       "retrieval",
@@ -6996,7 +7245,19 @@
         "change_type": "created",
         "summary": "Added from the public Hyundai Glovis/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/25103-hyundai-glovis-microsoft-365"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-microsoft-teams",
+      "tool-microsoft-365"
     ]
   },
   {
@@ -7007,9 +7268,9 @@
     "title": "Logicall — Construire une source de vérité logistique",
     "short_description": "Logicall unifie données, intégrations et reporting pour donner une visibilité quasi temps réel à ses opérations logistiques.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Après plusieurs rapprochements d’entreprises, les données logistiques sont cloisonnées, peu fiables et difficiles à utiliser pour planifier.",
     "ai_pattern": [
       "extraction",
@@ -7093,7 +7354,20 @@
         "change_type": "created",
         "summary": "Added from the public Logicall/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/26718-logicall-azure"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-fabric",
+      "tool-power-bi",
+      "tool-microsoft-purview",
+      "tool-microsoft-entra"
     ]
   },
   {
@@ -7104,9 +7378,9 @@
     "title": "AD Ports Group — Orchestrer des agents pour le commerce maritime",
     "short_description": "AD Ports Group construit des agents pour optimiser les opérations de navires, de conteneurs et de terminaux.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Une activité portuaire mondiale doit coordonner des processus riches en données et réduire les tâches répétitives sans perdre la maîtrise opérationnelle.",
     "ai_pattern": [
       "prediction",
@@ -7210,7 +7484,19 @@
         "change_type": "created",
         "summary": "Added from the public AD Ports Group/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/25589-ad-ports-group-azure-ai-foundry"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure-ai-foundry",
+      "tool-copilot-studio",
+      "tool-microsoft-365-copilot"
     ]
   },
   {
@@ -7221,9 +7507,9 @@
     "title": "Swiss Post — Déployer le copilote dans une organisation logistique",
     "short_description": "Swiss Post accompagne 45 000 employés avec Copilot Chat, Copilot Microsoft 365 et une fabrique d’agents gouvernée.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Faire progresser l’usage de l’IA dans une organisation logistique tout en contrôlant le partage d’information et les risques de conformité.",
     "ai_pattern": [
       "generation",
@@ -7316,7 +7602,17 @@
         "change_type": "created",
         "summary": "Added from the public Swiss Post/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/25880-swiss-post-microsoft-365-copilot"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot"
     ]
   },
   {
@@ -7327,9 +7623,9 @@
     "title": "Uber — Aider les chauffeurs à mieux utiliser la marketplace",
     "short_description": "Uber expérimente des assistants IA pour aider chauffeurs et coursiers à comprendre leurs opportunités et réduire les frictions du support.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les chauffeurs doivent comprendre un marché temps réel complexe et accéder vite à des réponses adaptées à leur situation.",
     "ai_pattern": [
       "recommendation",
@@ -7411,7 +7707,17 @@
         "change_type": "created",
         "summary": "Added from the public Uber/OpenAI case study.",
         "source_ref": "https://openai.com/index/uber/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt"
     ]
   },
   {
@@ -7422,9 +7728,9 @@
     "title": "Zurich — Garder les données commerciales d’assurance à jour",
     "short_description": "Zurich utilise Copilot for Sales pour rapprocher e-mails, CRM et informations de relation dans l’assurance commerciale.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les équipes commerciales passent entre plusieurs applications, ce qui rend les données CRM incomplètes ou obsolètes.",
     "ai_pattern": [
       "extraction",
@@ -7508,7 +7814,20 @@
         "change_type": "created",
         "summary": "Added from the public Zurich/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/23452-zurich-schweiz-microsoft-365-copilot-for-sales"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-dynamics-365",
+      "tool-microsoft-365",
+      "tool-microsoft-teams"
     ]
   },
   {
@@ -7519,9 +7838,9 @@
     "title": "Newfront — Décharger les tâches administratives de l’assurance",
     "short_description": "Newfront applique Claude au support benefits, à la revue de contrats et à l’extraction de documents d’assurance.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les courtiers, équipes RH et juristes passent du temps à copier des données, répondre aux mêmes questions et relire des contrats.",
     "ai_pattern": [
       "retrieval",
@@ -7617,7 +7936,17 @@
         "change_type": "created",
         "summary": "Added from the public Newfront/Anthropic case study.",
         "source_ref": "https://www.anthropic.com/customers/newfront"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-claude"
     ]
   },
   {
@@ -7628,9 +7957,9 @@
     "title": "Nsure.com — Accélérer le traitement des demandes d’assurance",
     "short_description": "Nsure.com utilise l’IA pour prétraiter les demandes, soutenir les interactions clients et automatiser une partie des opérations d’assurance.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les demandes d’assurance nécessitent des contrôles manuels et des relances lorsque des informations manquent pour calculer un devis.",
     "ai_pattern": [
       "extraction",
@@ -7722,7 +8051,19 @@
         "change_type": "created",
         "summary": "Added from the public Nsure/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/1728829430186194098-nsure-power-platform-insurance-usa"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-power-platform",
+      "tool-copilot-studio",
+      "tool-microsoft-fabric"
     ]
   },
   {
@@ -7733,9 +8074,9 @@
     "title": "Oscar — Réduire le travail documentaire autour des claims",
     "short_description": "Oscar applique l’IA à la documentation clinique, à la lecture de résultats et à l’assistance au traitement des dossiers d’assurance santé.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les dossiers d’assurance santé mêlent conversations, résultats et variables contractuelles difficiles à synthétiser manuellement.",
     "ai_pattern": [
       "summarization",
@@ -7822,7 +8163,17 @@
         "change_type": "created",
         "summary": "Added from the public Oscar/OpenAI case study.",
         "source_ref": "https://openai.com/index/oscar/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt"
     ]
   },
   {
@@ -7833,9 +8184,9 @@
     "title": "Premera Blue Cross — Faire passer la revue de contrat de minutes à trois",
     "short_description": "Premera Blue Cross combine Copilot, Copilot Studio, formation et gouvernance pour accélérer la revue de contrats et les réponses internes.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Des équipes de santé passent trop de temps à lire, comparer et clarifier des documents contractuels et opérationnels.",
     "ai_pattern": [
       "comparison",
@@ -7922,7 +8273,19 @@
         "change_type": "created",
         "summary": "Added from the public Premera/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/26405-premera-blue-cross-microsoft-365"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-copilot-studio",
+      "tool-microsoft-365"
     ]
   },
   {
@@ -7933,9 +8296,9 @@
     "title": "AIA — Résumer les dossiers pour libérer le service client",
     "short_description": "AIA utilise Copilot pour résumer les conversations et les dossiers afin que les conseillers puissent se concentrer sur la relation.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les représentants doivent rechercher des informations dispersées dans des e-mails et des notes avant de pouvoir traiter un dossier client.",
     "ai_pattern": [
       "summarization",
@@ -8025,7 +8388,18 @@
         "change_type": "created",
         "summary": "Added from the public AIA/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/21062-aia-group-dynamics-365-customer-service"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-dynamics-365",
+      "tool-microsoft-365-copilot"
     ]
   },
   {
@@ -8036,9 +8410,9 @@
     "title": "amaise — Accélérer l’analyse des sinistres médicaux",
     "short_description": "L’insurtech amaise utilise l’IA pour analyser des données médicales non structurées et assister les spécialistes des sinistres.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les dossiers médicaux non structurés ralentissent l’évaluation des sinistres et mobilisent des spécialistes sur la lecture documentaire.",
     "ai_pattern": [
       "extraction",
@@ -8134,7 +8508,18 @@
         "change_type": "created",
         "summary": "Added from the public amaise/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/21393-legal-i-azure-open-ai-service"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure-openai",
+      "tool-azure-ai-foundry"
     ]
   },
   {
@@ -8145,9 +8530,9 @@
     "title": "SNÖ Hotels — Automatiser le check-in et le concierge",
     "short_description": "SNÖ Hotels relie un agent Copilot aux systèmes hôteliers pour permettre le check-in à distance et répondre aux demandes des clients.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Des hôtels indépendants doivent gérer des systèmes dispersés, des demandes de conciergerie et des opérations de réception avec des équipes limitées.",
     "ai_pattern": [
       "orchestration",
@@ -8244,7 +8629,20 @@
         "change_type": "created",
         "summary": "Added from the public SNÖ Hotels/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/25861-sno-hotels-dynamics-365-business-central"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-copilot-studio",
+      "tool-dynamics-365",
+      "tool-power-platform",
+      "tool-mcp"
     ]
   },
   {
@@ -8255,9 +8653,9 @@
     "title": "Booking.com — Passer de la recherche au voyage conversationnel",
     "short_description": "Booking.com combine les modèles OpenAI avec ses données de prix, disponibilité et hébergement pour planifier des voyages en conversation.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les voyageurs doivent assembler destinations, dates, avis et disponibilités à travers plusieurs interfaces avant de pouvoir réserver.",
     "ai_pattern": [
       "recommendation",
@@ -8348,7 +8746,17 @@
         "change_type": "created",
         "summary": "Added from the public Booking.com/OpenAI case study.",
         "source_ref": "https://openai.com/index/booking-com/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt"
     ]
   },
   {
@@ -8359,9 +8767,9 @@
     "title": "CapitaLand Investment — Donner un concierge IA aux hôtels",
     "short_description": "CapitaLand Investment utilise Azure OpenAI pour Cubby, un chatbot de voyage pour les clients d’Ascott, et pour ses fonctions internes.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Un groupe hôtelier doit répondre aux voyageurs tout en donnant à ses équipes une base de données et de rédaction commune.",
     "ai_pattern": [
       "retrieval",
@@ -8449,7 +8857,18 @@
         "change_type": "created",
         "summary": "Added from the public CapitaLand/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/1750108992835776308-capitaland-azure-other-en-singapore"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-azure-openai",
+      "tool-bing-search-api"
     ]
   },
   {
@@ -8460,9 +8879,9 @@
     "title": "Hyatt — Donner une base IA commune aux équipes hôtelières",
     "short_description": "Hyatt rend ChatGPT Enterprise disponible à ses équipes corporate et hôtelières pour réduire les tâches manuelles et améliorer l’expérience client.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les équipes corporate et terrain doivent coordonner des tâches manuelles tout en gardant le temps disponible pour l’expérience des clients.",
     "ai_pattern": [
       "generation",
@@ -8544,7 +8963,17 @@
         "change_type": "created",
         "summary": "Added from the public Hyatt/OpenAI case study.",
         "source_ref": "https://openai.com/index/hyatt-advances-ai-with-chatgpt-enterprise"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-chatgpt-enterprise"
     ]
   },
   {
@@ -8555,9 +8984,9 @@
     "title": "Virgin Atlantic — Relier les signaux du parcours client",
     "short_description": "Virgin Atlantic utilise ChatGPT Work pour rassembler recherche, planification produit et analytics autour du parcours aérien.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les signaux du parcours client sont répartis entre réservation, vol, expérience à bord et retours, ce qui ralentit les décisions produit.",
     "ai_pattern": [
       "retrieval",
@@ -8643,7 +9072,17 @@
         "change_type": "created",
         "summary": "Added from the public Virgin Atlantic/OpenAI case study.",
         "source_ref": "https://openai.com/index/virgin-atlantic/chatgpt-work/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-chatgpt-enterprise"
     ]
   },
   {
@@ -8654,9 +9093,9 @@
     "title": "Omio — Construire des trajets réservables par conversation",
     "short_description": "Omio combine données de transport et IA conversationnelle pour aider les voyageurs à découvrir et construire des itinéraires.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Planifier un trajet multimodal implique de comparer plusieurs opérateurs, horaires et contraintes dans des interfaces séparées.",
     "ai_pattern": [
       "recommendation",
@@ -8758,7 +9197,19 @@
         "change_type": "created",
         "summary": "Added from the public Omio/OpenAI case study.",
         "source_ref": "https://openai.com/index/omio/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt",
+      "tool-chatgpt-enterprise",
+      "tool-codex"
     ]
   },
   {
@@ -8769,9 +9220,9 @@
     "title": "Air India — Rendre les données opérationnelles racontables",
     "short_description": "Air India utilise Copilot dans Teams pour interpréter les données de ponctualité, les difficultés opérationnelles et les décisions d’équipe.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les données de vol et d’opération sont difficiles à transformer en décisions partagées sans dépendre de quelques experts capables de les interpréter.",
     "ai_pattern": [
       "summarization",
@@ -8852,7 +9303,18 @@
         "change_type": "created",
         "summary": "Added from the public Air India/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/1750059518785857549-airindia-microsoft-teams-travel-and-transportation-en-india"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-microsoft-teams"
     ]
   },
   {
@@ -8863,9 +9325,9 @@
     "title": "Lotte Hotels — Faire des équipes des citizen developers",
     "short_description": "Lotte Hotels & Resorts utilise Power Platform, chatbots et OCR pour automatiser ses opérations et préparer des services clients connectés.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Une chaîne hôtelière doit faire évoluer ses opérations et son service client sans attendre que chaque automatisation passe par une équipe centrale.",
     "ai_pattern": [
       "orchestration",
@@ -8949,7 +9411,19 @@
         "change_type": "created",
         "summary": "Added from the public Lotte Hotels/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/1804624062321190625-lotte-hotels-and-resorts-azure-ai-studio-travel-and-transportation-en-korea"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-power-platform",
+      "tool-azure-openai",
+      "tool-microsoft-teams"
     ]
   },
   {
@@ -8960,9 +9434,9 @@
     "title": "Talan — Outiller les recruteurs avec un copilote",
     "short_description": "Talan adapte Copilot aux équipes RH, recrutement, marketing et conseil, avec des usages de rédaction, recherche et synthèse de réunions.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les recruteurs et consultants passent du temps à rédiger, chercher et prendre des notes au lieu de se concentrer sur les échanges.",
     "ai_pattern": [
       "generation",
@@ -9056,7 +9530,19 @@
         "change_type": "created",
         "summary": "Added from the public Talan/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/24169-talan-microsoft-365-copilot"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-microsoft-teams",
+      "tool-microsoft-purview"
     ]
   },
   {
@@ -9067,9 +9553,9 @@
     "title": "Presidio — Industrialiser le copilote dans les services IT",
     "short_description": "Presidio déploie Copilot dans les équipes commerciales, ingénierie et IT, puis construit des copilotes pour les tickets et les notes de frais.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Un prestataire de services numériques veut gagner du temps en interne tout en développant une offre crédible pour ses propres clients.",
     "ai_pattern": [
       "generation",
@@ -9166,7 +9652,19 @@
         "change_type": "created",
         "summary": "Added from the public Presidio/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/19401-presidio-network-solutions-microsoft-365-copilot"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-copilot-studio",
+      "tool-azure-openai"
     ]
   },
   {
@@ -9177,9 +9675,9 @@
     "title": "Capita — Passer du copilote à l’agent de service",
     "short_description": "Capita déploie Copilot et des agents pour accélérer ses processus internes et améliorer les services opérés pour ses clients.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Une entreprise de services B2B doit traiter des processus complexes plus vite tout en maintenant la qualité, la conformité et la capacité de livraison.",
     "ai_pattern": [
       "orchestration",
@@ -9281,7 +9779,18 @@
         "change_type": "created",
         "summary": "Added from the public Capita/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/25164-capita-microsoft-copilot-studio"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-copilot-studio"
     ]
   },
   {
@@ -9292,9 +9801,9 @@
     "title": "Stratagem — Mettre les opérations retail en conversation",
     "short_description": "Stratagem utilise Gemini Enterprise pour réduire la friction de ses missions de supply chain, d’entrepôt et de livraison retail.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Une société de conseil en transformation retail doit analyser des opérations complexes et servir plus de clients sans gonfler les équipes.",
     "ai_pattern": [
       "retrieval",
@@ -9381,7 +9890,18 @@
         "change_type": "created",
         "summary": "Added from the public Stratagem/Google Cloud case study.",
         "source_ref": "https://cloud.google.com/customers/stratagem"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-gemini-enterprise",
+      "tool-google-cloud"
     ]
   },
   {
@@ -9392,9 +9912,9 @@
     "title": "WSP — Donner du temps aux ingénieurs et scientifiques",
     "short_description": "WSP étend Microsoft 365 Copilot à des dizaines de milliers de professionnels de l’AEC et teste des cycles de validation plus rapides.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les équipes d’architecture, ingénierie et construction doivent gagner en vitesse sans diluer le jugement technique ni la responsabilité publique.",
     "ai_pattern": [
       "summarization",
@@ -9483,7 +10003,18 @@
         "change_type": "created",
         "summary": "Added from the public WSP/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/26012-wsp-microsoft-365-copilot"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-copilot-studio"
     ]
   },
   {
@@ -9494,9 +10025,9 @@
     "title": "Danone — Relier agents RH et order-to-cash",
     "short_description": "Danone déploie Copilot et des agents autonomes pour l’upskilling, les processus RH et le traitement des commandes.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Un groupe mondial veut renforcer les compétences IA et réduire les erreurs dans des opérations RH et order-to-cash très distribuées.",
     "ai_pattern": [
       "orchestration",
@@ -9580,7 +10111,19 @@
         "change_type": "created",
         "summary": "Added from the public Danone/Microsoft case study.",
         "source_ref": "https://www.microsoft.com/en/customers/story/25506-danone-microsoft-365-copilot"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-microsoft-365-copilot",
+      "tool-copilot-studio",
+      "tool-microsoft-teams"
     ]
   },
   {
@@ -9591,9 +10134,9 @@
     "title": "MediConCen — Extraire les données des claims médicaux",
     "short_description": "MediConCen orchestre des instances Gemini pour extraire les données de dossiers médicaux et accélérer le traitement des claims.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Les assureurs doivent lire des fichiers et des données médicales hétérogènes, alors que l’OCR seul ne comprend ni ne résume suffisamment le contenu.",
     "ai_pattern": [
       "extraction",
@@ -9695,7 +10238,20 @@
         "change_type": "created",
         "summary": "Added from the public MediConCen/Google Cloud case study.",
         "source_ref": "https://cloud.google.com/customers/mediconcen"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-gemini",
+      "tool-vertex-ai",
+      "tool-google-cloud",
+      "tool-google-document-ai"
     ]
   },
   {
@@ -9706,9 +10262,9 @@
     "title": "AXA Switzerland — Passer de la donnée à l’assurance augmentée",
     "short_description": "AXA Switzerland réduit les temps de requête et de traitement grâce à une plateforme data, tout en gardant les assistants directs sous supervision humaine.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-09-19T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "problem": "Un assureur historique doit rendre ses données exploitables pour améliorer tarification, gestion des dommages et marketing sans exposer directement le client à des réponses non contrôlées.",
     "ai_pattern": [
       "retrieval",
@@ -9799,7 +10355,17 @@
         "change_type": "created",
         "summary": "Added from the public AXA Switzerland/Google Cloud case study.",
         "source_ref": "https://cloud.google.com/customers/axa-switzerland-ai"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-google-cloud"
     ]
   },
   {
@@ -9810,9 +10376,9 @@
     "title": "Nous Research — Autonovel, de l’idée au livre",
     "short_description": "Un pipeline Hermes orchestre la conception, la rédaction, la révision et l’export d’un roman complet.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -10013,7 +10579,18 @@
         "change_type": "created",
         "summary": "Ajouté depuis le projet open source officiel Autonovel de Nous Research.",
         "source_ref": "https://github.com/NousResearch/autonovel"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-hermes-agent",
+      "tool-claude"
     ]
   },
   {
@@ -10024,9 +10601,9 @@
     "title": "Nous Research — Faire évoluer les skills de Hermes",
     "short_description": "Une boucle DSPy + GEPA teste et améliore des skills, prompts et descriptions d’outils de Hermes sous contraintes.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -10208,7 +10785,19 @@
         "change_type": "created",
         "summary": "Ajouté depuis le projet open source officiel Self-Evolution de Nous Research.",
         "source_ref": "https://github.com/NousResearch/hermes-agent-self-evolution"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-hermes-agent",
+      "tool-dspy",
+      "tool-gepa"
     ]
   },
   {
@@ -10219,9 +10808,9 @@
     "title": "Nous Research — Hermes comme employé géré dans Paperclip",
     "short_description": "Un adaptateur fait fonctionner Hermes comme un agent géré, affectable à des tâches et capable de reprendre son contexte.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -10406,7 +10995,19 @@
         "change_type": "created",
         "summary": "Ajouté depuis l’adaptateur Paperclip open source de Nous Research.",
         "source_ref": "https://github.com/NousResearch/hermes-paperclip-adapter"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-hermes-agent",
+      "tool-paperclip",
+      "tool-mcp"
     ]
   },
   {
@@ -10417,9 +11018,9 @@
     "title": "Amenti Labs — Piloter des expériences avec Hermes Lab",
     "short_description": "Hermes Lab tient le journal d’expériences autonomes : planifier, tester, comparer et proposer la suite.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -10613,7 +11214,17 @@
         "change_type": "created",
         "summary": "Ajouté depuis le projet Hermes Lab et son archive communautaire publique.",
         "source_ref": "https://github.com/amenti-labs/hermes-lab"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-hermes-agent"
     ]
   },
   {
@@ -11822,9 +12433,9 @@
     "title": "Hermes Agent France — Agent géré pour emails, relances et échéances",
     "short_description": "Une offre française déploie Hermes comme assistant persistant, avec préparation des actions et validation humaine avant envoi.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -12010,7 +12621,17 @@
         "change_type": "created",
         "summary": "Ajouté depuis la présentation publique d'un service français fondé sur Hermes Agent.",
         "source_ref": "https://hermesagentfrance.com/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-hermes-agent"
     ]
   },
   {
@@ -12021,9 +12642,9 @@
     "title": "Carrefour — Prévoir la demande et ajuster les stocks",
     "short_description": "Une plateforme d'IA et de machine learning aide Carrefour à anticiper la demande et à affiner les commandes fournisseurs.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "group"
     ],
@@ -12196,7 +12817,17 @@
         "change_type": "created",
         "summary": "Ajouté depuis la publication officielle de Carrefour sur la prévision de demande.",
         "source_ref": "https://www.carrefour.com/fr/news/carrefour-optimise-sa-supply-chain-grace-lintelligence-artificielle"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-sas-viya"
     ]
   },
   {
@@ -12387,9 +13018,9 @@
     "title": "Berger-Levrault — Détecter les anomalies d'équipements avec BL Predict",
     "short_description": "Une plateforme IoT française combine capteurs, détection d'anomalies et modèles adaptatifs pour la maintenance d'équipements.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "eti"
     ],
@@ -12570,7 +13201,17 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche DGE de BL Predict par Berger-Levrault.",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-bl-predict"
     ]
   },
   {
@@ -12581,9 +13222,9 @@
     "title": "Colas — Détecter les défauts routiers par computer vision",
     "short_description": "INFRACARE analyse des images de routes prises par des caméras embarquées pour repérer fissures, nids-de-poule et faïençage.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "enterprise"
     ],
@@ -12757,7 +13398,17 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche DGE du projet INFRACARE de Colas.",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-yolo"
     ]
   },
   {
@@ -13513,9 +14164,9 @@
     "title": "MP DATA — Industrialiser la maintenance prédictive dans l'énergie",
     "short_description": "Un prestataire français décrit des modèles statistiques et de machine learning pour les actifs éoliens et photovoltaïques.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -13698,7 +14349,17 @@
         "change_type": "created",
         "summary": "Ajouté depuis le cas client anonymisé publié par MP DATA.",
         "source_ref": "https://www.mpdata.fr/fr/cas-clients/maintenance-predictive-eolien-photovoltaique/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-aveva-pi"
     ]
   },
   {
@@ -13709,7 +14370,7 @@
     "title": "Ville de Plaisir — Confier la moitié de l’accueil téléphonique à un agent vocal",
     "short_description": "Une commune de 31 000 habitants fait répondre un agent vocal à la moitié de ses appels et transfère le reste aux services.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -13893,7 +14554,17 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Smart City Mag.",
         "source_ref": "https://www.smartcitymag.fr/article/1227/la-ville-de-plaisir-met-de-l-ia-dans-son-accueil-telephonique"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-yelda"
     ]
   },
   {
@@ -13904,7 +14575,7 @@
     "title": "Albert France Services — Arrêter un assistant public qui répondait faux",
     "short_description": "L’assistant IA des conseillers France Services n’a pas été généralisé après des réponses inexactes ; l’État repart sur un nouvel outil.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -14076,7 +14747,17 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Presse-citron.",
         "source_ref": "https://www.presse-citron.net/pourquoi-letat-francais-a-t-il-freine-son-assistant-ia-albert/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-mistral"
     ]
   },
   {
@@ -14087,7 +14768,7 @@
     "title": "Hello bank! — Diviser par trois les renvois vers un conseiller",
     "short_description": "La banque en ligne passe d’un chatbot fiable mais limité à un assistant d’IA générative pour son million de clients.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -14260,7 +14941,18 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis CIO.",
         "source_ref": "https://www.cio-online.com/actualites/lire-hello-bank-generalise-son-chatbot-dope-a-la-genai-a-son-million-de-clients-16909.html"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-mistral",
+      "tool-giskard"
     ]
   },
   {
@@ -14604,7 +15296,7 @@
     "title": "leboncoin — Retrouver l’information interne avec l’assistant Ada",
     "short_description": "Un assistant interne retrouve l’information dispersée entre Confluence et Backstage ; un salarié sur deux l’utilise régulièrement.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -14765,7 +15457,18 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Thiga.",
         "source_ref": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-confluence",
+      "tool-backstage"
     ]
   },
   {
@@ -14776,7 +15479,7 @@
     "title": "Back Market — Laisser l’équipe fraude construire ses propres agents",
     "short_description": "Des experts métier, non ingénieurs, assemblent en une semaine un orchestrateur d’agents qui évalue les dossiers suspects.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -14973,7 +15676,18 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Dust.",
         "source_ref": "https://dust.tt/customers/back-markets-fraud-team-builds-ai-detection-system-in-one-week-contributing"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-dust",
+      "tool-confluence"
     ]
   },
   {
@@ -15149,7 +15863,7 @@
     "title": "Veolia — Passer d’un assistant interne à une place de marché d’agents",
     "short_description": "Secure GPT réunit plus de 214 assistants et agents ; 58 000 salariés l’utilisent plus de deux fois par jour.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -15329,7 +16043,19 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis LeMagIT.",
         "source_ref": "https://www.lemagit.fr/etude/Secure-GPT-comment-Veolia-passe-de-lIA-generative-a-lIA-agentique"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-amazon-bedrock",
+      "tool-azure-openai",
+      "tool-vertex-ai"
     ]
   },
   {
@@ -15340,7 +16066,7 @@
     "title": "Nabla — Rédiger le compte rendu de consultation pendant que le médecin écoute",
     "short_description": "Un assistant transcrit la consultation et rédige compte rendu, courriers et consignes ; le médecin vérifie avant tout envoi.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -15516,7 +16242,17 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Egora.",
         "source_ref": "https://www.egora.fr/actus-pro/sante-numerique/gagner-entre-une-et-deux-heures-par-jour-deux-plateformes-utilisent-lia"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-nabla"
     ]
   },
   {
@@ -15527,7 +16263,7 @@
     "title": "Walmart — Négocier avec les petits fournisseurs par un agent autonome",
     "short_description": "Un agent négocie par écrit avec des fournisseurs de longue traîne, dans des limites fixées par les acheteurs.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -15706,7 +16442,17 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Talking Logistics (d’après Harvard Business Review).",
         "source_ref": "https://talkinglogistics.com/2023/05/01/negotiating-with-a-chatbot-a-walmart-procurement-case-study/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-pactum"
     ]
   },
   {
@@ -15717,7 +16463,7 @@
     "title": "SUEZ — Supprimer les contrôles manuels des demandes d’achat",
     "short_description": "Un agent prend en charge la revue des demandes d’achat ; l’éditeur annonce 80 % de contrôles manuels en moins.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -15881,7 +16627,17 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Pactum.",
         "source_ref": "https://pactum.com/clients"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-pactum"
     ]
   },
   {
@@ -15892,7 +16648,7 @@
     "title": "A&O Shearman — Déployer l’IA juridique dans un cabinet international",
     "short_description": "Le cabinet a déployé Harvey, construit ContractMatrix pour la négociation de contrats, puis des agents pour des dossiers complexes.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -16060,7 +16816,18 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis A&O Shearman.",
         "source_ref": "https://www.aoshearman.com/en/news/ao-shearman-and-harvey-to-roll-out-agentic-ai-agents-targeting-complex-legal-workflows"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-harvey",
+      "tool-contractmatrix"
     ]
   },
   {
@@ -16229,7 +16996,7 @@
     "title": "EDF — Construire un moteur de recherche documentaire sur des modèles souverains",
     "short_description": "La R&D d’EDF et Illuin ont testé un moteur RAG sur 2 000 documents : un modèle ouvert affiné rivalise avec GPT-4.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -16390,7 +17157,17 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis LeMagIT.",
         "source_ref": "https://www.lemagit.fr/etude/La-RD-dEDF-se-branche-sur-lIA-generative"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-llama"
     ]
   },
   {
@@ -16401,7 +17178,7 @@
     "title": "Stripe — Migrer du code à grande échelle avec un agent de développement",
     "short_description": "Stripe équipe 1 370 ingénieurs d’un agent de code et migre 10 000 lignes de Scala vers Java en quatre jours.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
     "updated_at": "2026-10-01T00:00:00Z",
     "company_size": [
@@ -16578,7 +17355,17 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Anthropic.",
         "source_ref": "https://claude.com/customers/stripe"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
       }
+    ],
+    "tool_ids": [
+      "tool-claude-code"
     ]
   }
 ]
