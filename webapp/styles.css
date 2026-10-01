@@ -850,8 +850,12 @@ body.module-mode .topbar-navigation, body.module-mode .status-dot, body.module-m
 @media (max-width: 600px) { .mw-behind, .mw-pinned { grid-template-columns: 1fr; } .mw-note:nth-of-type(n+4), .mw-card:nth-child(n+4) { display: none; } }
 
 /* ===== Opus Lab 35 — Le hero vivant ===== */
-.hero-metier { position: relative; }
-.hero-metier.is-typing::after { content: ""; display: inline-block; width: .06em; height: .8em; margin-left: .04em; background: var(--terra); vertical-align: baseline; animation: eq-blink .7s steps(1) infinite; }
+/* Emplacement réservé à la phrase la plus longue : la frappe ne déplace rien (CLS nul). */
+.hero-metier-slot { position: relative; display: inline-block; }
+.hero-metier-ghost { visibility: hidden; }
+.hero-metier-slot .hero-metier { position: absolute; left: 0; top: 0; width: 100%; }
+.hero-metier.is-typing { border-right: .06em solid var(--terra); animation: hero-caret .7s steps(1) infinite; }
+@keyframes hero-caret { 50% { border-right-color: transparent; } }
 .hero-ask { position: relative; max-width: 640px; margin-top: 26px; }
 .hero-ask-label { display: block; margin-bottom: 8px; color: var(--ink); font: 700 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .hero-ask-field { display: flex; align-items: center; gap: 10px; padding: 6px 6px 6px 14px; border: 2px solid var(--ink); background: #fff; box-shadow: 6px 6px 0 var(--terra); transition: box-shadow .2s ease, transform .2s ease; }
