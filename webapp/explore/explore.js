@@ -148,7 +148,7 @@
         <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par secteur, fonction ou taille d’entreprise, puis ouvrez une fiche.</p>
         <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
       </div>
-      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p>77 cas documentés par une source publique, 41 cas types et 2 retours d’expérience. Les inconnues et les limites restent visibles.</p></aside>
+      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p><span id="case-mix">93 cas documentés par une source publique, 41 cas types et 2 retours d’expérience.</span> Les inconnues et les limites restent visibles.</p></aside>
     </section>
     <section class="explore-catalog" aria-labelledby="catalog-title">
       <div class="explore-catalog-head"><div><p class="explore-kicker">LE CATALOGUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur et le type d’IA. Les filtres se combinent.</p></div>
@@ -190,6 +190,9 @@
     }
     empty.hidden = visible.length > 0;
     $('#case-count').textContent = `${state.cases.length} cas`;
+    const byEvidence = (level) => state.cases.filter((c) => (c.evidence_level || c.evidence) === level).length;
+    const [documented, pattern, experience] = ['documented', 'pattern', 'experience'].map(byEvidence);
+    $('#case-mix').textContent = `${documented} cas documentés par une source publique, ${pattern} cas types et ${experience} retour${experience > 1 ? 's' : ''} d’expérience.`;
     renderActiveFilters();
   }
 
