@@ -164,3 +164,12 @@ a { color: inherit; }
 .sky-legend em { color: var(--explore-ink); font-style: normal; font-weight: 700; }
 .sky-legend small { flex-basis: 100%; font-size: 10px; text-transform: none; letter-spacing: 0; }
 @media (max-width: 760px) { .sky-frame { height: 440px; } }
+
+/* ===== Carte des outils (/acolyte/outils/) ===== */
+.detail-tool-links a { padding: 7px 9px; border: 1px solid var(--explore-petrol); background: var(--explore-petrol); color: #fff; font: 10px var(--explore-mono); text-decoration: none; }
+.detail-tool-links a:hover, .detail-tool-links a:focus-visible { background: transparent; color: var(--explore-petrol); }
+.tool-count { padding: 4px 6px; border: 1px solid currentColor; font: 9px var(--explore-mono); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.tool-count-large { display: block; font-size: clamp(30px, 3.7vw, 48px); line-height: .95; letter-spacing: -.05em; }
+.tool-family { padding-bottom: 40px; }
+.tool-family + .tool-family { border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 18%, transparent); }
+.tool-method, .tool-cases { margin-top: 24px; }

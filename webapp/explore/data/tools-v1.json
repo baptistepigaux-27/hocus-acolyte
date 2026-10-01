@@ -1,0 +1,1816 @@
+[
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-openai-gpt",
+    "name": "Modèles GPT",
+    "vendor": "OpenAI",
+    "vendor_country": "US",
+    "family": "model",
+    "description": "Famille de grands modèles de langage d’OpenAI (GPT-4, GPT-4o…), accessibles par API ou via ChatGPT.",
+    "use_when": [
+      "Tâches générales de rédaction, de synthèse et de raisonnement"
+    ],
+    "avoid_when": [
+      "Données qui ne peuvent pas quitter une infrastructure maîtrisée"
+    ],
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "api",
+      "cloud-platform"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "GPT-4",
+      "GPT-4o",
+      "GPT-4o mini",
+      "OpenAI models",
+      "OpenAI API"
+    ],
+    "sources": [
+      {
+        "title": "Modèles GPT — page officielle",
+        "url": "https://platform.openai.com/docs/models"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-claude",
+    "name": "Claude",
+    "vendor": "Anthropic",
+    "vendor_country": "US",
+    "family": "model",
+    "description": "Famille de grands modèles de langage d’Anthropic, accessibles par API, application et clouds partenaires.",
+    "use_when": [
+      "Analyse de longs documents, rédaction, code et agents"
+    ],
+    "avoid_when": [
+      "Données qui ne peuvent pas quitter une infrastructure maîtrisée"
+    ],
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "api",
+      "saas",
+      "cloud-platform"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Claude",
+      "Claude Opus pour la revue"
+    ],
+    "sources": [
+      {
+        "title": "Claude — page officielle",
+        "url": "https://www.anthropic.com/claude"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-gemini",
+    "name": "Gemini",
+    "vendor": "Google",
+    "vendor_country": "US",
+    "family": "model",
+    "description": "Famille de modèles multimodaux de Google, disponibles par API et dans Google Cloud.",
+    "use_when": [
+      "Usages multimodaux (texte, image, audio) dans l’écosystème Google"
+    ],
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "api",
+      "cloud-platform"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Gemini"
+    ],
+    "sources": [
+      {
+        "title": "Gemini — page officielle",
+        "url": "https://deepmind.google/models/gemini/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-mistral",
+    "name": "Modèles Mistral",
+    "vendor": "Mistral AI",
+    "vendor_country": "FR",
+    "family": "model",
+    "description": "Modèles de langage d’un éditeur français, ouverts ou commerciaux, utilisables par API européenne ou auto-hébergés.",
+    "use_when": [
+      "Exigence de souveraineté ou d’hébergement européen",
+      "Déploiement sur site"
+    ],
+    "avoid_when": [
+      "Besoin d’un écosystème bureautique intégré prêt à l’emploi"
+    ],
+    "skill_level": "dev",
+    "license": "open-weights",
+    "hosting": [
+      "api",
+      "eu-region",
+      "self-hosted"
+    ],
+    "data_residency": "API hébergée dans l’UE ; poids ouverts déployables sur site pour certains modèles",
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Mistral AI",
+      "Modèles Mistral pour la version suivante"
+    ],
+    "sources": [
+      {
+        "title": "Modèles Mistral — page officielle",
+        "url": "https://mistral.ai/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-llama",
+    "name": "Llama",
+    "vendor": "Meta",
+    "vendor_country": "US",
+    "family": "model",
+    "description": "Famille de modèles à poids ouverts de Meta, que l’on peut affiner et héberger soi-même.",
+    "use_when": [
+      "Affinage sur un corpus propre",
+      "Données sensibles à garder en interne"
+    ],
+    "avoid_when": [
+      "Équipe sans compétences ML ni infrastructure GPU"
+    ],
+    "skill_level": "ml",
+    "license": "open-weights",
+    "hosting": [
+      "self-hosted",
+      "on-prem",
+      "cloud-platform"
+    ],
+    "pricing_model": "free",
+    "aliases": [
+      "LLaMa 2 (13B, 70B)"
+    ],
+    "sources": [
+      {
+        "title": "Llama — page officielle",
+        "url": "https://www.llama.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-microsoft-365-copilot",
+    "name": "Microsoft 365 Copilot",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "office-copilot",
+    "description": "Assistant d’IA intégré à Word, Excel, Outlook, Teams et aux données Microsoft 365 de l’entreprise.",
+    "use_when": [
+      "Organisation déjà sur Microsoft 365",
+      "Gains individuels de rédaction et de synthèse"
+    ],
+    "avoid_when": [
+      "Données documentaires mal rangées ou droits d’accès mal tenus"
+    ],
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Microsoft 365 Copilot",
+      "Copilot",
+      "Copilot Chat",
+      "Microsoft Copilot",
+      "Microsoft 365 Copilot for Sales"
+    ],
+    "sources": [
+      {
+        "title": "Microsoft 365 Copilot — page officielle",
+        "url": "https://www.microsoft.com/microsoft-365/copilot"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-chatgpt-enterprise",
+    "name": "ChatGPT Enterprise",
+    "vendor": "OpenAI",
+    "vendor_country": "US",
+    "family": "office-copilot",
+    "description": "Version entreprise de ChatGPT, avec administration, confidentialité des données et connecteurs.",
+    "use_when": [
+      "Assistant généraliste pour tous les salariés"
+    ],
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "ChatGPT Enterprise",
+      "ChatGPT",
+      "ChatGPT Work"
+    ],
+    "sources": [
+      {
+        "title": "ChatGPT Enterprise — page officielle",
+        "url": "https://openai.com/chatgpt/enterprise/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-gemini-enterprise",
+    "name": "Gemini Enterprise",
+    "vendor": "Google",
+    "vendor_country": "US",
+    "family": "office-copilot",
+    "description": "Offre d’agents et d’assistant Gemini pour l’entreprise, reliée aux données de Google Workspace et d’autres sources.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Gemini Enterprise"
+    ],
+    "sources": [
+      {
+        "title": "Gemini Enterprise — page officielle",
+        "url": "https://cloud.google.com/gemini-enterprise"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-copilot-studio",
+    "name": "Copilot Studio",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Outil low-code de Microsoft pour créer des agents et des assistants reliés aux données et aux applications de l’entreprise.",
+    "use_when": [
+      "Agents internes dans un environnement Microsoft"
+    ],
+    "avoid_when": [
+      "Logique métier complexe qui demande du code et des tests"
+    ],
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "subscription",
+    "aliases": [
+      "Copilot Studio"
+    ],
+    "sources": [
+      {
+        "title": "Copilot Studio — page officielle",
+        "url": "https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-claude-code",
+    "name": "Claude Code",
+    "vendor": "Anthropic",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Agent de développement en ligne de commande qui lit, modifie et teste du code dans un dépôt.",
+    "use_when": [
+      "Migrations, refactorisations et tâches de code répétitives"
+    ],
+    "avoid_when": [
+      "Absence de tests et de relecture humaine du code produit"
+    ],
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "desktop",
+      "api"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Claude Code"
+    ],
+    "sources": [
+      {
+        "title": "Claude Code — page officielle",
+        "url": "https://www.anthropic.com/claude-code"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-codex",
+    "name": "Codex",
+    "vendor": "OpenAI",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Agent de développement d’OpenAI qui écrit, corrige et teste du code.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "desktop",
+      "saas"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Codex"
+    ],
+    "sources": [
+      {
+        "title": "Codex — page officielle",
+        "url": "https://openai.com/codex/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-hermes-agent",
+    "name": "Hermes Agent",
+    "vendor": "Nous Research",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Agent open source qui exécute des tâches avec des outils, des compétences réutilisables et une mémoire persistante.",
+    "use_when": [
+      "Agent personnel ou d’équipe auto-hébergé"
+    ],
+    "avoid_when": [
+      "Besoin d’un support éditeur et d’un SLA"
+    ],
+    "skill_level": "dev",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "Hermes Agent"
+    ],
+    "sources": [
+      {
+        "title": "Hermes Agent — page officielle",
+        "url": "https://hermes-agent.nousresearch.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-paperclip",
+    "name": "Paperclip",
+    "vendor": "Communauté open source",
+    "vendor_country": "community",
+    "family": "harness-agent",
+    "description": "Plan de contrôle open source pour faire travailler plusieurs agents comme une équipe : organigramme, budgets, tickets tracés.",
+    "skill_level": "dev",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "Paperclip"
+    ],
+    "sources": [
+      {
+        "title": "What is Paperclip AI?",
+        "url": "https://paperclip.inc/blog/what-is-paperclip-ai"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-dust",
+    "name": "Dust",
+    "vendor": "Dust",
+    "vendor_country": "FR",
+    "family": "harness-agent",
+    "description": "Plateforme française pour créer des agents reliés aux outils de l’entreprise, utilisable par des équipes non techniques.",
+    "use_when": [
+      "Équipes métier qui construisent leurs propres agents"
+    ],
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Dust"
+    ],
+    "sources": [
+      {
+        "title": "Dust — page officielle",
+        "url": "https://dust.tt/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-mcp",
+    "name": "Model Context Protocol (MCP)",
+    "vendor": "Anthropic",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Protocole ouvert, initié par Anthropic, qui permet à un modèle ou un agent d’accéder à des outils et des données via des serveurs standardisés.",
+    "use_when": [
+      "Relier un agent aux systèmes de l’entreprise sans intégration propriétaire"
+    ],
+    "skill_level": "dev",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "MCP",
+      "MCP server"
+    ],
+    "sources": [
+      {
+        "title": "Model Context Protocol (MCP) — page officielle",
+        "url": "https://modelcontextprotocol.io/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-dspy",
+    "name": "DSPy",
+    "vendor": "Stanford NLP (open source)",
+    "vendor_country": "community",
+    "family": "harness-agent",
+    "description": "Cadre open source pour programmer des chaînes de modèles et optimiser leurs prompts automatiquement.",
+    "skill_level": "ml",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "DSPy"
+    ],
+    "sources": [
+      {
+        "title": "DSPy — page officielle",
+        "url": "https://dspy.ai/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-gepa",
+    "name": "GEPA",
+    "vendor": "GEPA (open source)",
+    "vendor_country": "community",
+    "family": "eval-observability",
+    "description": "Optimiseur open source qui fait évoluer prompts et composants d’un agent par réflexion sur ses essais.",
+    "skill_level": "ml",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "GEPA"
+    ],
+    "sources": [
+      {
+        "title": "gepa-ai/gepa sur GitHub",
+        "url": "https://github.com/gepa-ai/gepa"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-pactum",
+    "name": "Pactum",
+    "vendor": "Pactum",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Agents de négociation et d’achats autonomes, qui négocient avec les fournisseurs dans des limites fixées par les acheteurs.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "Pactum"
+    ],
+    "sources": [
+      {
+        "title": "Pactum — page officielle",
+        "url": "https://pactum.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-harvey",
+    "name": "Harvey",
+    "vendor": "Harvey",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Plateforme d’IA juridique pour la recherche, la revue de documents et des agents de dossiers complexes.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "Harvey"
+    ],
+    "sources": [
+      {
+        "title": "Harvey — page officielle",
+        "url": "https://www.harvey.ai/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-contractmatrix",
+    "name": "ContractMatrix",
+    "vendor": "A&O Shearman",
+    "vendor_country": "GB",
+    "family": "harness-agent",
+    "description": "Outil de revue et de négociation de contrats développé par le cabinet A&O Shearman avec Harvey et Microsoft.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "ContractMatrix"
+    ],
+    "sources": [
+      {
+        "title": "A&O Shearman — annonce ContractMatrix et agents Harvey",
+        "url": "https://www.aoshearman.com/en/news/ao-shearman-and-harvey-to-roll-out-agentic-ai-agents-targeting-complex-legal-workflows"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-nabla",
+    "name": "Nabla",
+    "vendor": "Nabla",
+    "vendor_country": "FR",
+    "family": "harness-agent",
+    "description": "Assistant de consultation qui transcrit l’échange médecin-patient et rédige compte rendu, courriers et consignes.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "subscription",
+    "aliases": [
+      "Nabla"
+    ],
+    "sources": [
+      {
+        "title": "Nabla — page officielle",
+        "url": "https://www.nabla.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-yelda",
+    "name": "Yelda",
+    "vendor": "Yelda",
+    "vendor_country": "FR",
+    "family": "harness-agent",
+    "description": "Agents vocaux et conversationnels pour l’accueil téléphonique et le service client.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "subscription",
+    "aliases": [
+      "Callbot Yelda (Optimus)"
+    ],
+    "sources": [
+      {
+        "title": "Yelda — page officielle",
+        "url": "https://www.yelda.ai/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-power-platform",
+    "name": "Power Platform",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "automation",
+    "description": "Outils low-code de Microsoft pour créer des applications (Power Apps) et automatiser des flux (Power Automate).",
+    "use_when": [
+      "Automatiser des flux simples dans un environnement Microsoft"
+    ],
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Power Platform",
+      "Power Apps",
+      "Power Automate"
+    ],
+    "sources": [
+      {
+        "title": "Power Platform — page officielle",
+        "url": "https://www.microsoft.com/power-platform"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-azure-openai",
+    "name": "Azure OpenAI",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "model",
+    "secondary_families": [
+      "hosting"
+    ],
+    "description": "Modèles d’OpenAI servis dans le cloud Azure, avec les contrôles de sécurité et de région de Microsoft.",
+    "use_when": [
+      "Utiliser les modèles OpenAI dans un cadre contractuel Azure"
+    ],
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform",
+      "eu-region"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Azure OpenAI Service",
+      "Azure OpenAI"
+    ],
+    "sources": [
+      {
+        "title": "Azure OpenAI — page officielle",
+        "url": "https://azure.microsoft.com/products/ai-services/openai-service"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-azure-ai-foundry",
+    "name": "Azure AI Foundry",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "secondary_families": [
+      "hosting"
+    ],
+    "description": "Plateforme Azure pour construire, évaluer et déployer des applications et des agents d’IA.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Azure AI Foundry",
+      "Microsoft Foundry",
+      "Azure AI"
+    ],
+    "sources": [
+      {
+        "title": "Azure AI Foundry — page officielle",
+        "url": "https://azure.microsoft.com/products/ai-foundry"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-azure",
+    "name": "Microsoft Azure",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "hosting",
+    "description": "Cloud de Microsoft : calcul, bases de données et services sectoriels.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform",
+      "eu-region"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Azure Cosmos DB",
+      "Azure SQL Database",
+      "Microsoft Cloud for Manufacturing"
+    ],
+    "sources": [
+      {
+        "title": "Microsoft Azure — page officielle",
+        "url": "https://azure.microsoft.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-google-cloud",
+    "name": "Google Cloud",
+    "vendor": "Google",
+    "vendor_country": "US",
+    "family": "hosting",
+    "description": "Cloud de Google : calcul, conteneurs (Cloud Run), données et services d’IA.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform",
+      "eu-region"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Google Cloud",
+      "Cloud Run"
+    ],
+    "sources": [
+      {
+        "title": "Google Cloud — page officielle",
+        "url": "https://cloud.google.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-vertex-ai",
+    "name": "Vertex AI",
+    "vendor": "Google",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "secondary_families": [
+      "hosting"
+    ],
+    "description": "Plateforme de Google Cloud pour utiliser, affiner et déployer des modèles d’IA.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Vertex AI",
+      "Google Vertex AI"
+    ],
+    "sources": [
+      {
+        "title": "Vertex AI — page officielle",
+        "url": "https://cloud.google.com/vertex-ai"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-google-document-ai",
+    "name": "Document AI",
+    "vendor": "Google",
+    "vendor_country": "US",
+    "family": "vision-speech",
+    "description": "Service de Google Cloud qui extrait des données structurées de documents scannés.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Document AI"
+    ],
+    "sources": [
+      {
+        "title": "Document AI — page officielle",
+        "url": "https://cloud.google.com/document-ai"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-amazon-bedrock",
+    "name": "Amazon Bedrock",
+    "vendor": "Amazon Web Services",
+    "vendor_country": "US",
+    "family": "model",
+    "secondary_families": [
+      "hosting"
+    ],
+    "description": "Service d’AWS qui donne accès à plusieurs familles de modèles par une même API.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform",
+      "eu-region"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "AWS Bedrock"
+    ],
+    "sources": [
+      {
+        "title": "Amazon Bedrock — page officielle",
+        "url": "https://aws.amazon.com/bedrock/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-bing-search-api",
+    "name": "API de recherche Bing",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "knowledge-rag",
+    "description": "Accès programmatique à la recherche web de Microsoft, utilisé pour ancrer des réponses sur le web.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "api"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Bing search"
+    ],
+    "sources": [
+      {
+        "title": "API de recherche Bing — page officielle",
+        "url": "https://www.microsoft.com/bing/apis"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-microsoft-fabric",
+    "name": "Microsoft Fabric",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "data-platform",
+    "description": "Plateforme de données de Microsoft : ingestion, entrepôt, analyse et Power BI.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "usage-based",
+    "aliases": [
+      "Microsoft Fabric"
+    ],
+    "sources": [
+      {
+        "title": "Microsoft Fabric — page officielle",
+        "url": "https://www.microsoft.com/microsoft-fabric"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-microsoft-purview",
+    "name": "Microsoft Purview",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "data-platform",
+    "description": "Gouvernance, classification et protection des données dans l’environnement Microsoft.",
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Microsoft Purview"
+    ],
+    "sources": [
+      {
+        "title": "Microsoft Purview — page officielle",
+        "url": "https://www.microsoft.com/security/business/microsoft-purview"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-power-bi",
+    "name": "Power BI",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "data-platform",
+    "description": "Outil de tableaux de bord et d’analyse de Microsoft.",
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas",
+      "desktop"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Power BI"
+    ],
+    "sources": [
+      {
+        "title": "Power BI — page officielle",
+        "url": "https://www.microsoft.com/power-platform/products/power-bi"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-sas-viya",
+    "name": "SAS Viya",
+    "vendor": "SAS",
+    "vendor_country": "US",
+    "family": "classic-ml",
+    "description": "Plateforme d’analytique et de machine learning de SAS, utilisée notamment pour la prévision.",
+    "skill_level": "ml",
+    "license": "proprietary",
+    "hosting": [
+      "cloud-platform",
+      "on-prem"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "SAS Viya"
+    ],
+    "sources": [
+      {
+        "title": "SAS Viya — page officielle",
+        "url": "https://www.sas.com/viya"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-aveva-pi",
+    "name": "AVEVA PI System",
+    "vendor": "AVEVA",
+    "vendor_country": "GB",
+    "family": "data-platform",
+    "description": "Historien de données industrielles (ex-OSIsoft PI) qui collecte les mesures des capteurs et des équipements.",
+    "skill_level": "dev",
+    "license": "proprietary",
+    "hosting": [
+      "on-prem",
+      "cloud-platform"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "PI / OSIsoft"
+    ],
+    "sources": [
+      {
+        "title": "AVEVA PI System — page officielle",
+        "url": "https://www.aveva.com/en/products/aveva-pi-system/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-whisper",
+    "name": "Whisper",
+    "vendor": "OpenAI",
+    "vendor_country": "US",
+    "family": "vision-speech",
+    "description": "Modèle open source de reconnaissance vocale et de transcription.",
+    "skill_level": "ml",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted",
+      "api"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "Whisper"
+    ],
+    "sources": [
+      {
+        "title": "openai/whisper sur GitHub",
+        "url": "https://github.com/openai/whisper"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-yolo",
+    "name": "YOLO (Ultralytics)",
+    "vendor": "Ultralytics",
+    "vendor_country": "US",
+    "family": "vision-speech",
+    "description": "Famille de modèles de détection d’objets en temps réel sur des images et des vidéos.",
+    "skill_level": "ml",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "YOLOv8"
+    ],
+    "sources": [
+      {
+        "title": "YOLO (Ultralytics) — page officielle",
+        "url": "https://docs.ultralytics.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-giskard",
+    "name": "Giskard",
+    "vendor": "Giskard",
+    "vendor_country": "FR",
+    "family": "eval-observability",
+    "description": "Outil français de test et d’évaluation des modèles et agents d’IA : erreurs, biais, failles de sécurité.",
+    "use_when": [
+      "Tester un assistant avant et après sa mise en service"
+    ],
+    "skill_level": "dev",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted",
+      "saas"
+    ],
+    "pricing_model": "subscription",
+    "aliases": [
+      "Giskard (évaluation)"
+    ],
+    "sources": [
+      {
+        "title": "Giskard — page officielle",
+        "url": "https://www.giskard.ai/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-bl-predict",
+    "name": "BL Predict",
+    "vendor": "Berger-Levrault",
+    "vendor_country": "FR",
+    "family": "classic-ml",
+    "description": "Solution de maintenance prédictive qui détecte les anomalies d’équipements à partir de données de capteurs.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "BL Predict"
+    ],
+    "sources": [
+      {
+        "title": "Berger-Levrault",
+        "url": "https://www.berger-levrault.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-microsoft-teams",
+    "name": "Microsoft Teams",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "business-app",
+    "description": "Messagerie et visioconférence de Microsoft, souvent utilisée comme point d’entrée des assistants internes.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Microsoft Teams",
+      "Teams"
+    ],
+    "sources": [
+      {
+        "title": "Microsoft Teams — page officielle",
+        "url": "https://www.microsoft.com/microsoft-teams"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-microsoft-365",
+    "name": "Microsoft 365",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "business-app",
+    "description": "Suite bureautique et collaborative de Microsoft (Outlook, Excel, SharePoint, OneDrive…).",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Microsoft 365",
+      "Outlook",
+      "Excel",
+      "SharePoint",
+      "OneDrive"
+    ],
+    "sources": [
+      {
+        "title": "Microsoft 365 — page officielle",
+        "url": "https://www.microsoft.com/microsoft-365"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-microsoft-entra",
+    "name": "Microsoft Entra ID",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "business-app",
+    "description": "Gestion des identités et des accès de Microsoft.",
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Microsoft Entra",
+      "Microsoft Entra ID"
+    ],
+    "sources": [
+      {
+        "title": "Microsoft Entra ID — page officielle",
+        "url": "https://www.microsoft.com/security/business/identity-access/microsoft-entra-id"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-dynamics-365",
+    "name": "Dynamics 365",
+    "vendor": "Microsoft",
+    "vendor_country": "US",
+    "family": "business-app",
+    "description": "Applications de gestion de Microsoft : relation client, service, ventes, ERP (Business Central).",
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Dynamics 365 Customer Service",
+      "Dynamics 365 Sales",
+      "Business Central"
+    ],
+    "sources": [
+      {
+        "title": "Dynamics 365 — page officielle",
+        "url": "https://www.microsoft.com/dynamics-365"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-sap-successfactors",
+    "name": "SAP SuccessFactors",
+    "vendor": "SAP",
+    "vendor_country": "DE",
+    "family": "business-app",
+    "description": "Suite RH de SAP : administration du personnel, talents, paie.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "SAP SuccessFactors"
+    ],
+    "sources": [
+      {
+        "title": "SAP SuccessFactors — page officielle",
+        "url": "https://www.sap.com/products/hcm/about-successfactors.html"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-servicenow",
+    "name": "ServiceNow",
+    "vendor": "ServiceNow",
+    "vendor_country": "US",
+    "family": "business-app",
+    "description": "Plateforme de gestion des demandes et des flux de service (IT, RH, client).",
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "ServiceNow"
+    ],
+    "sources": [
+      {
+        "title": "ServiceNow — page officielle",
+        "url": "https://www.servicenow.com/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-confluence",
+    "name": "Confluence",
+    "vendor": "Atlassian",
+    "vendor_country": "AU",
+    "family": "knowledge-rag",
+    "description": "Wiki d’entreprise d’Atlassian, fréquemment utilisé comme source de connaissance pour les assistants.",
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Confluence"
+    ],
+    "sources": [
+      {
+        "title": "Confluence — page officielle",
+        "url": "https://www.atlassian.com/software/confluence"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-backstage",
+    "name": "Backstage",
+    "vendor": "Spotify (open source, CNCF)",
+    "vendor_country": "community",
+    "family": "knowledge-rag",
+    "description": "Portail open source pour les développeurs : catalogue des services, documentation technique.",
+    "skill_level": "dev",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "Backstage"
+    ],
+    "sources": [
+      {
+        "title": "Backstage — page officielle",
+        "url": "https://backstage.io/"
+      }
+    ],
+    "verified_at": "2026-10-01",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  }
+]

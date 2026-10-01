@@ -22,6 +22,13 @@
     evidence_level: { documented: 'Documenté', experience: 'Expérience', pattern: 'Cas type', concept: 'Concept' },
     confidence: { high: 'Élevée', medium: 'Moyenne', low: 'Faible', unknown: 'Non renseignée' },
     value_type: { productivity: 'Productivité', quality: 'Qualité', speed: 'Vitesse', cost: 'Coût', revenue: 'Revenu', risk: 'Risque', knowledge: 'Connaissance', decision: 'Décision', unknown: 'Non renseigné' },
+    tool_family: { model: 'Modèles', 'harness-agent': 'Harnais et agents', automation: 'Automatisation', 'knowledge-rag': 'Connaissance et RAG', 'classic-ml': 'Machine learning classique', 'vision-speech': 'Vision et parole', 'eval-observability': 'Évaluation et observabilité', 'office-copilot': 'Copilotes bureautiques', hosting: 'Hébergement et cloud', 'data-platform': 'Plateformes de données', 'business-app': 'Applications métier' },
+    license: { proprietary: 'Propriétaire', 'open-weights': 'Poids ouverts', 'open-source': 'Open source', unknown: 'Non renseignée' },
+    hosting: { saas: 'SaaS', api: 'API', 'cloud-platform': 'Plateforme cloud', 'eu-region': 'Région UE disponible', secnumcloud: 'SecNumCloud', 'self-hosted': 'Auto-hébergeable', 'on-prem': 'Sur site', desktop: 'Poste de travail', unknown: 'Non renseigné' },
+    skill_level: { 'no-code': 'Sans code', 'low-code': 'Low-code', dev: 'Développeur', ml: 'Data science / ML', unknown: 'Non renseigné' },
+    pricing_model: { free: 'Gratuit', 'open-source': 'Open source (gratuit, hors infrastructure)', 'per-seat': 'Par utilisateur', 'usage-based': 'À l’usage', subscription: 'Abonnement', 'enterprise-quote': 'Sur devis', included: 'Inclus dans une offre', unknown: 'Non renseigné' },
+    country: { US: 'États-Unis', FR: 'France', GB: 'Royaume-Uni', DE: 'Allemagne', AU: 'Australie', community: 'Communauté open source' },
+    tool_ids: {},
     ai_pattern: { generation: 'Génération', summarization: 'Synthèse', retrieval: 'Recherche', extraction: 'Extraction', classification: 'Classification', comparison: 'Comparaison', scoring: 'Scoring', recommendation: 'Recommandation', orchestration: 'Orchestration', monitoring: 'Veille', prediction: 'Prédiction', coding: 'Code', multimodal: 'Multimodal', other: 'Autre', unknown: 'Non renseigné' }
   };
   const filterConfig = [
@@ -31,8 +38,24 @@
     ['solution_type', 'Type de solution'],
     ['autonomy_level', 'Autonomie'],
     ['evidence_level', 'Niveau de preuve'],
-    ['value_type', 'Type de valeur']
+    ['value_type', 'Type de valeur'],
+    ['tool_ids', 'Outil cité']
   ];
+  /* Carte des outils : l'ordre des familles suit le rôle dans un système, du modèle à l'application métier. */
+  const familyOrder = ['model', 'office-copilot', 'harness-agent', 'automation', 'knowledge-rag', 'classic-ml', 'vision-speech', 'eval-observability', 'data-platform', 'hosting', 'business-app'];
+  const familyCopy = {
+    model: 'Les grands modèles de langage, propriétaires ou ouverts, et les services qui les donnent à utiliser.',
+    'office-copilot': 'Les assistants intégrés aux outils de bureau et à la messagerie de l’entreprise.',
+    'harness-agent': 'Ce qui fait travailler un modèle : agents, plateformes d’agents, protocoles et outils métier spécialisés.',
+    automation: 'Les outils qui enchaînent des étapes et relient les applications entre elles.',
+    'knowledge-rag': 'Les sources de connaissance et la recherche qui nourrissent les réponses.',
+    'classic-ml': 'Prévision, scoring et détection d’anomalies, souvent sans grand modèle de langage.',
+    'vision-speech': 'Lire une image, un document scanné ou une voix.',
+    'eval-observability': 'Tester, mesurer et améliorer un système d’IA avant et après sa mise en service.',
+    'data-platform': 'Collecter, gouverner et analyser les données dont l’IA dépend.',
+    hosting: 'Les clouds et les plateformes où tournent les modèles et les applications.',
+    'business-app': 'Les applications métier dans lesquelles l’IA s’insère.'
+  };
   const evidenceCopy = {
     documented: 'Cas publiquement documenté, avec entreprise identifiable et source.',
     experience: 'Expérience réelle reformulée ou anonymisée.',
@@ -41,11 +64,15 @@
   };
   const evidenceColors = { documented: 'documented', experience: 'experience', pattern: 'pattern', concept: 'concept' };
   const PAGE = 12;
-  const state = { cases: [], query: '', filters: {}, detail: null, filtersOpen: false, limit: PAGE };
+  const state = { cases: [], tools: [], toolsById: {}, query: '', filters: {}, detail: null, filtersOpen: false, limit: PAGE };
   /* Acolyte V2 : chaque fiche a sa page, /acolyte/cas/{slug}/ (pré-rendue pour les moteurs de recherche). */
   const base = root.dataset.root || '../';
   const caseHref = (item) => `${base}cas/${encodeURIComponent(item.slug || item.id)}/`;
   const exploreHref = `${base}explore/`;
+  /* Carte des outils : /acolyte/outils/ et une page par outil, /acolyte/outils/{slug}/ (pré-rendue elle aussi). */
+  const toolSlug = (tool) => String(tool.id).replace(/^tool-/, '');
+  const toolHref = (tool) => `${base}outils/${encodeURIComponent(toolSlug(tool))}/`;
+  const toolsHref = `${base}outils/`;
   let sky = null;
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
@@ -100,7 +127,8 @@
     if (!query) return true;
     const haystack = [
       item.title, item.short_description, item.problem, item.industry, item.industry_raw,
-      ...valuesFor(item, 'business_function'), ...valuesFor(item, 'ai_pattern'), ...valuesFor(item, 'solution_type')
+      ...valuesFor(item, 'business_function'), ...valuesFor(item, 'ai_pattern'), ...valuesFor(item, 'solution_type'),
+      ...valuesFor(item, 'tool_ids').map((id) => state.toolsById[id]?.name)
     ].join(' ').toLocaleLowerCase('fr');
     return haystack.includes(query);
   }
@@ -146,12 +174,12 @@
         <p class="explore-kicker">CATALOGUE · 136 CAS D’USAGE</p>
         <h1>Les cas d’usage de l’IA, avant les promesses.</h1>
         <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par secteur, fonction ou taille d’entreprise, puis ouvrez une fiche.</p>
-        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
+        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="${toolsHref}">La carte des outils →</a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
       </div>
       <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p><span id="case-mix">93 cas documentés par une source publique, 41 cas types et 2 retours d’expérience.</span> Les inconnues et les limites restent visibles.</p></aside>
     </section>
     <section class="explore-catalog" aria-labelledby="catalog-title">
-      <div class="explore-catalog-head"><div><p class="explore-kicker">LE CATALOGUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur et le type d’IA. Les filtres se combinent.</p></div>
+      <div class="explore-catalog-head"><div><p class="explore-kicker">LE CATALOGUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur, le type d’IA et les outils cités. Les filtres se combinent.</p></div>
       <section class="sky" id="case-sky" aria-label="Le ciel des cas"></section>
       <div class="explore-toolbar"><label class="explore-search"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher dans les cas</span><input id="case-search" type="search" autocomplete="off" placeholder="Rechercher un problème, une fonction, un secteur…" value="${escapeHtml(state.query)}"></label><button class="explore-filter-toggle" id="filter-toggle" type="button" aria-expanded="${state.filtersOpen}">Filtres <span aria-hidden="true">＋</span></button><button class="explore-reset" id="reset-filters" type="button">Réinitialiser</button></div><div class="explore-active-filters" id="active-filters" aria-live="polite"></div>
       <div class="explore-catalog-layout ${state.filtersOpen ? 'filters-open' : ''}">
@@ -324,7 +352,9 @@
     const architecture = renderTextList(item.architecture_pattern);
     const dataMarkup = hasAny(item.data_required, item.data_sources) ? renderTextList(item.data_required) || renderTextList(item.data_sources) : '';
     const toolsMarkup = hasAny(item.tools, item.models, item.integrations, item.systems_involved) ? renderTextList([...(item.tools || []), ...(item.models || []), ...(item.integrations || []), ...(item.systems_involved || [])]) : '';
-    const mechanismSupport = [dataMarkup ? `<div><p class="detail-sub-label">Données et entrées</p>${dataMarkup}</div>` : '', toolsMarkup ? `<div><p class="detail-sub-label">Outils et systèmes</p>${toolsMarkup}</div>` : ''].join('');
+    const namedTools = valuesFor(item, 'tool_ids').map((id) => state.toolsById[id]).filter(Boolean);
+    const namedToolsMarkup = namedTools.length ? `<div class="detail-pills detail-tool-links">${namedTools.map((tool) => `<a href="${toolHref(tool)}">${escapeHtml(tool.name)} <b aria-hidden="true">→</b></a>`).join('')}</div>` : '';
+    const mechanismSupport = [dataMarkup ? `<div><p class="detail-sub-label">Données et entrées</p>${dataMarkup}</div>` : '', namedToolsMarkup ? `<div><p class="detail-sub-label">Outils nommés · voir la carte des outils</p>${namedToolsMarkup}</div>` : '', toolsMarkup ? `<div><p class="detail-sub-label">Outils et systèmes cités par la source</p>${toolsMarkup}</div>` : ''].join('');
     const mechanism = `<div class="detail-pills">${labelForArray('ai_pattern', item.ai_pattern).map((value) => `<span>${escapeHtml(value)}</span>`).join('')}</div>${item.workflow?.length ? renderTextList(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : '<p class="detail-quiet">Le schéma indique le pattern mobilisé, sans déroulé opérationnel plus détaillé.</p>'}${mechanismSupport}`;
     const impactMarkup = [resultList, expectedValue ? `<div><p class="detail-sub-label">Valeur attendue dans la fiche</p>${expectedValue}</div>` : '', item.business_impact?.length ? `<div><p class="detail-sub-label">Type d’impact envisagé</p>${renderTextList(item.business_impact)}</div>` : ''].join('');
     const prerequisites = renderTextList([item.delivery_scope, item.complexity && `Complexité : ${item.complexity}`, item.technical_feasibility && `Faisabilité technique : ${item.technical_feasibility}`, item.organizational_feasibility && `Faisabilité organisationnelle : ${item.organizational_feasibility}`, item.data_readiness && `Maturité data : ${item.data_readiness}`, item.maturity_required && `Maturité requise : ${item.maturity_required}`]);
@@ -334,8 +364,59 @@
     root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p><small>La preuve décrit le statut du cas, pas une garantie de résultat.</small></div></header><div class="detail-facts">${detailFacts(item)}</div><section class="detail-editorial-intro"><div><p class="detail-label">ANALYSE ACOLYTE</p><h2>Pourquoi ce cas mérite d’être regardé</h2></div><p class="detail-editorial-copy">${escapeHtml(editorialWhy(item))}</p></section><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir de la source', renderTextList(item.lessons_learned)) : ''}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
   }
 
+  const toolCases = (tool) => state.cases.filter((item) => valuesFor(item, 'tool_ids').includes(tool.id));
+  const evidenceRank = { documented: 0, experience: 1, concept: 2, pattern: 3 };
+  const byEvidenceThenTitle = (a, b) => (evidenceRank[a.evidence_level] ?? 9) - (evidenceRank[b.evidence_level] ?? 9) || a.title.localeCompare(b.title, 'fr');
+  const formatDate = (value) => { const date = new Date(`${value}T12:00:00Z`); return Number.isNaN(date.getTime()) ? value : date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }); };
+  const casesLabel = (count) => `${count} cas`;
+
+  function vendorMix() {
+    const mentions = { us: 0, europe: 0, other: 0 };
+    const europe = new Set(['FR', 'DE', 'GB', 'IT', 'ES', 'NL', 'BE', 'CH', 'SE', 'DK', 'FI', 'NO', 'IE', 'AT', 'PT', 'PL', 'LU']);
+    state.cases.forEach((item) => valuesFor(item, 'tool_ids').forEach((id) => {
+      const country = state.toolsById[id]?.vendor_country;
+      if (!country) return;
+      mentions[country === 'US' ? 'us' : europe.has(country) ? 'europe' : 'other'] += 1;
+    }));
+    const total = mentions.us + mentions.europe + mentions.other || 1;
+    return { us: Math.round((100 * mentions.us) / total), europe: Math.round((100 * mentions.europe) / total) };
+  }
+
+  function toolCard(tool) {
+    const count = toolCases(tool).length;
+    return `<article class="explore-card tool-card"><a class="explore-card-link" href="${toolHref(tool)}"><div class="explore-card-top"><span class="explore-card-number">${escapeHtml(tool.vendor.toLocaleUpperCase('fr'))}</span><span class="tool-count">${escapeHtml(casesLabel(count))}</span></div><h3>${escapeHtml(tool.name)}</h3><p class="explore-card-problem">${escapeHtml(tool.description)}</p><div class="explore-card-meta"><span><b>Hébergement</b>${escapeHtml(formatList(tool.hosting, 'hosting'))}</span><span><b>Origine</b>${escapeHtml(titleFor('country', tool.vendor_country))}</span><span><b>Licence</b>${escapeHtml(titleFor('license', tool.license))}</span><span><b>Niveau</b>${escapeHtml(titleFor('skill_level', tool.skill_level))}</span></div><span class="explore-card-open">Voir l’outil <b aria-hidden="true">→</b></span></a></article>`;
+  }
+
+  function renderToolsIndex() {
+    const mix = vendorMix();
+    const families = familyOrder.map((family) => ({ family, tools: state.tools.filter((tool) => tool.family === family).sort((a, b) => toolCases(b).length - toolCases(a).length || a.name.localeCompare(b.name, 'fr')) })).filter(({ tools }) => tools.length);
+    root.innerHTML = `<section class="explore-hero">
+      <div class="explore-hero-copy">
+        <p class="explore-kicker">CARTE DES OUTILS · ${state.tools.length} OUTILS NOMMÉS</p>
+        <h1>Les outils de l’IA, vus depuis les cas.</h1>
+        <p class="explore-lead">Les outils cités dans les fiches du catalogue, rangés par rôle dans un système. Pour chacun : à quoi il sert, quand l’éviter, et les cas qui l’utilisent vraiment.</p>
+        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${exploreHref}">Partir des cas <span aria-hidden="true">→</span></a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
+      </div>
+      <aside class="explore-hero-note"><span>À LIRE AVANT</span><strong>${mix.us} % américains</strong><p>${mix.us} % des mentions d’outils dans les fiches renvoient à des éditeurs américains, ${mix.europe} % à des éditeurs européens. La carte reflète les cas publiés, pas le marché. Acolyte ne classe pas les outils et n’est affilié à aucun éditeur.</p></aside>
+    </section>
+    ${families.map(({ family, tools }) => `<section class="explore-catalog tool-family" id="famille-${escapeHtml(family)}" aria-labelledby="famille-${escapeHtml(family)}-title"><div class="explore-catalog-head"><div><p class="explore-kicker">${escapeHtml(String(tools.length))} OUTIL${tools.length > 1 ? 'S' : ''}</p><h2 id="famille-${escapeHtml(family)}-title">${escapeHtml(titleFor('tool_family', family))}</h2></div><p class="explore-catalog-intro">${escapeHtml(familyCopy[family] || '')}</p></div><div class="explore-card-grid">${tools.map(toolCard).join('')}</div></section>`).join('')}
+    <section class="detail-undocumented tool-method"><p class="detail-label">MÉTHODE</p><p>Un outil figure ici s’il est nommé dans au moins une fiche du catalogue. Les libellés génériques (« modèle IA », « recherche sémantique ») et les systèmes construits en interne par l’entreprise d’un cas ne sont pas des outils. Chaque fiche porte sa source officielle et sa date de vérification ; les offres et les prix évoluent vite.</p></section>`;
+  }
+
+  function renderTool(tool) {
+    const cases = toolCases(tool).sort(byEvidenceThenTitle);
+    const siblings = state.tools.filter((other) => other.family === tool.family && other.id !== tool.id).sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+    const facts = [['Éditeur', tool.vendor], ['Origine', titleFor('country', tool.vendor_country)], ['Famille', titleFor('tool_family', tool.family)], ['Licence', titleFor('license', tool.license)], ['Hébergement', formatList(tool.hosting, 'hosting')], ['Niveau technique', titleFor('skill_level', tool.skill_level)], ['Modèle de prix', titleFor('pricing_model', tool.pricing_model)]]
+      .map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${escapeHtml(value || 'Non renseigné')}</strong></div>`).join('');
+    const source = tool.sources?.[0];
+    const documented = cases.filter((item) => item.evidence_level === 'documented' || item.evidence_level === 'experience').length;
+    root.innerHTML = `<div class="explore-detail-page tool-detail-page"><a class="detail-back" href="${toolsHref}">← La carte des outils</a><header class="explore-detail-hero"><div><p class="explore-kicker">OUTIL · ${escapeHtml(titleFor('tool_family', tool.family).toLocaleUpperCase('fr'))}</p><h1>${escapeHtml(tool.name)}</h1><p class="explore-detail-lead">${escapeHtml(tool.description)}</p></div><div class="detail-proof-panel"><strong class="tool-count-large">${escapeHtml(casesLabel(cases.length))}</strong><p>${documented} documenté${documented > 1 ? 's' : ''} par une source publique ou un retour d’expérience.</p><small>Vérifié le ${escapeHtml(formatDate(tool.verified_at))}.</small></div></header><div class="detail-facts">${facts}</div><div class="detail-layout"><div class="detail-main">${tool.use_when?.length ? renderSection('Quand l’utiliser', renderTextList(tool.use_when)) : ''}${tool.avoid_when?.length ? renderSection('Quand l’éviter', renderTextList(tool.avoid_when)) : ''}${tool.data_residency ? renderSection('Données et hébergement', `<p class="detail-prose">${escapeHtml(tool.data_residency)}</p>`) : ''}${source ? renderSection('Source', `<div class="detail-source"><p class="detail-sub-label">Page officielle</p><strong>${escapeHtml(source.title)}</strong><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">Ouvrir la source ↗</a><small>Informations vérifiées le ${escapeHtml(formatDate(tool.verified_at))} ; les offres et les prix évoluent vite.</small></div>`) : ''}<section class="detail-undocumented"><p class="detail-label">LECTURE</p><p>Acolyte ne classe pas les outils et n’est affilié à aucun éditeur. Le bon outil dépend du problème, des données et des contraintes : il se choisit après le cas d’usage, pas avant.</p></section></div></div>${cases.length ? `<section class="explore-catalog tool-cases" aria-labelledby="tool-cases-title"><div class="explore-catalog-head"><div><p class="explore-kicker">DANS LE CATALOGUE</p><h2 id="tool-cases-title">Les cas qui l’utilisent</h2></div><p class="explore-catalog-intro">Les cas documentés d’abord. Chaque fiche dit ce qui est prouvé et ce qui ne l’est pas.</p></div><div class="explore-card-grid">${cases.map(card).join('')}</div></section>` : ''}<section class="detail-hocus" aria-labelledby="tool-hocus-title"><div class="detail-hocus-head"><p class="detail-label">ET CHEZ VOUS ?</p><h2 id="tool-hocus-title">Choisir l’outil après le problème</h2><p>Un outil ne fait pas un cas d’usage. HOCUS part de vos données, de vos équipes et de vos contraintes, puis choisit les briques.</p></div><div class="detail-hocus-grid"><a class="detail-hocus-card is-entry" href="/works/diagnostic/"><span>1 · POINT DE DÉPART</span><strong>Diagnostic Data &amp; IA</strong><p>Identifier les cas qui ont du sens chez vous, avec quelles données, et ce qu’ils rapporteraient.</p><b>Découvrir ↗</b></a><a class="detail-hocus-card" href="mailto:hello@hocus.works?subject=${encodeURIComponent(`Acolyte — ${tool.name}`)}"><span>2 · EN PARLER</span><strong>Écrire à HOCUS</strong><p>Une question sur cet outil ou sur votre situation.</p><b>hello@hocus.works ↗</b></a></div></section>${siblings.length ? `<section class="detail-related"><div><p class="detail-label">MÊME FAMILLE</p><h2>${escapeHtml(titleFor('tool_family', tool.family))}</h2></div><div class="detail-related-grid">${siblings.slice(0, 6).map((other) => `<a href="${toolHref(other)}"><span>${escapeHtml(other.vendor)}</span><strong>${escapeHtml(other.name)}</strong><small>${escapeHtml(casesLabel(toolCases(other).length))} · ${escapeHtml(titleFor('license', other.license))}</small></a>`).join('')}</div></section>` : ''}</div>`;
+  }
+
   function render() {
     readRoute();
+    if (root.dataset.tool) { const own = state.toolsById[root.dataset.tool]; if (own) renderTool(own); return; }
+    if (root.dataset.view === 'tools') { renderToolsIndex(); return; }
     if (root.dataset.case) { const own = state.cases.find((candidate) => candidate.id === root.dataset.case); if (own) renderDetail(own); return; }
     if (state.detail) { const legacy = state.cases.find((candidate) => candidate.id === state.detail); if (legacy) { window.location.replace(caseHref(legacy)); return; } }
     const item = state.detail ? state.cases.find((candidate) => candidate.id === state.detail) : null;
@@ -383,8 +464,19 @@
   window.ACOLYTE_HOCUS_FOR = hocusFor;
   /* Page de fiche pré-rendue : tout est déjà dans le HTML, pas besoin de charger le corpus. */
   if (root.dataset.prerendered === 'true') return;
-  fetch(root.dataset.src || 'data/cases-v1.json')
-    .then((response) => { if (!response.ok) throw new Error(`Dataset unavailable (${response.status})`); return response.json(); })
-    .then((cases) => { state.cases = cases; render(); })
+  const casesSrc = root.dataset.src || 'data/cases-v1.json';
+  const toolsSrc = root.dataset.tools || casesSrc.replace(/cases-v1\.json$/, 'tools-v1.json');
+  Promise.all([
+    fetch(casesSrc).then((response) => { if (!response.ok) throw new Error(`Dataset unavailable (${response.status})`); return response.json(); }),
+    /* Le référentiel des outils enrichit le catalogue ; s'il manque, les cas restent consultables. */
+    fetch(toolsSrc).then((response) => (response.ok ? response.json() : [])).catch(() => [])
+  ])
+    .then(([cases, tools]) => {
+      state.cases = cases;
+      state.tools = tools;
+      state.toolsById = Object.fromEntries(tools.map((tool) => [tool.id, tool]));
+      labels.tool_ids = Object.fromEntries(tools.map((tool) => [tool.id, tool.name]));
+      render();
+    })
     .catch((error) => { root.innerHTML = `<div class="explore-error"><strong>Le corpus n’a pas pu être chargé.</strong><p>${escapeHtml(error.message)}</p><a class="explore-button" href="${base}">Retour à Acolyte</a></div>`; });
 })();
