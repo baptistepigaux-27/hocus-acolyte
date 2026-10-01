@@ -143,7 +143,7 @@
   function renderCatalogShell() {
     root.innerHTML = `<section class="explore-hero">
       <div class="explore-hero-copy">
-        <p class="explore-kicker">CATALOGUE · 120 CAS D’USAGE</p>
+        <p class="explore-kicker">CATALOGUE · 136 CAS D’USAGE</p>
         <h1>Les cas d’usage de l’IA, avant les promesses.</h1>
         <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par secteur, fonction ou taille d’entreprise, puis ouvrez une fiche.</p>
         <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>

@@ -13700,5 +13700,2885 @@
         "source_ref": "https://www.mpdata.fr/fr/cas-clients/maintenance-predictive-eolien-photovoltaique/"
       }
     ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-plaisir-callbot",
+    "slug": "real-plaisir-callbot",
+    "title": "Ville de Plaisir — Confier la moitié de l’accueil téléphonique à un agent vocal",
+    "short_description": "Une commune de 31 000 habitants fait répondre un agent vocal à la moitié de ses appels et transfère le reste aux services.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "public-sector",
+    "industry_raw": "Collectivité territoriale",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "France",
+      "Yvelines"
+    ],
+    "problem": "Le standard reçoit 200 à 400 appels par jour et laisse beaucoup d’appels sans réponse, alors que les agents d’accueil ont besoin de temps pour les demandes complexes.",
+    "ai_pattern": [
+      "classification",
+      "retrieval",
+      "orchestration"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "company_size_raw": "Commune d’environ 31 000 habitants (Yvelines)",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Transfert vers un agent pour toute demande non résolue"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Décrocher et comprendre la demande",
+        "actor": "agent",
+        "input": [
+          "Appel d’un usager"
+        ],
+        "output": [
+          "Intention identifiée"
+        ],
+        "action": "Reconnaître la demande en langage naturel."
+      },
+      {
+        "order": 2,
+        "label": "Répondre aux demandes simples",
+        "actor": "agent",
+        "input": [
+          "Intention",
+          "informations municipales"
+        ],
+        "output": [
+          "Réponse vocale en moins de 2 minutes"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Transférer ou rappeler",
+        "actor": "workflow",
+        "input": [
+          "Demande non résolue"
+        ],
+        "output": [
+          "Transfert au service ou e-mail de rappel hors horaires"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Traiter les cas complexes",
+        "actor": "human",
+        "input": [
+          "Appel transféré"
+        ],
+        "output": [
+          "Réponse de l’agent d’accueil"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Réponse immédiate aux demandes courantes",
+      "Transfert qualifié vers le bon service"
+    ],
+    "data_required": [
+      "Informations pratiques de la mairie",
+      "Annuaire des services",
+      "Horaires"
+    ],
+    "data_sources": [
+      {
+        "name": "Base d’informations municipales",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "Callbot Yelda (Optimus)"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Répondre à plus d’usagers, y compris hors des pics."
+      },
+      {
+        "type": "productivity",
+        "description": "Libérer l’accueil pour les demandes complexes."
+      }
+    ],
+    "value_type": [
+      "quality",
+      "productivity"
+    ],
+    "business_impact": [
+      "accueil des usagers",
+      "charge des agents d’accueil"
+    ],
+    "results": [
+      {
+        "text": "L’agent vocal répond directement à 50 % des appels, avec un taux de compréhension moyen de 86 %.",
+        "observed": true
+      },
+      {
+        "text": "Les agents d’accueil consacrent plus de temps aux demandes complexes.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Appels traités par l’agent vocal",
+        "value": "50",
+        "unit": "%"
+      },
+      {
+        "name": "Taux de compréhension moyen",
+        "value": "86",
+        "unit": "%"
+      },
+      {
+        "name": "Volume d’appels quotidien",
+        "value": "200-400",
+        "unit": "appels/jour"
+      }
+    ],
+    "limitations": [
+      "Les chiffres sont communiqués par la commune et le prestataire en 2023 ; le protocole de mesure n’est pas publié."
+    ],
+    "risks": [
+      "Usagers mal à l’aise avec un agent vocal",
+      "Demande mal comprise et mal orientée"
+    ],
+    "lessons_learned": [
+      "Le déploiement a été progressif : d’abord une demi-journée par semaine, puis les matinées, avant la généralisation.",
+      "Les habitants ont choisi le nom de l’agent, ce qui a aidé à le faire accepter."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.smartcitymag.fr/article/1227/la-ville-de-plaisir-met-de-l-ia-dans-son-accueil-telephonique",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Chiffres repris tels que publiés par Smart City Mag (mars 2023)."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-plaisir-callbot",
+        "source_type": "public-source",
+        "title": "La ville de Plaisir met de l’IA dans son accueil téléphonique",
+        "publisher": "Smart City Mag",
+        "reference": "https://www.smartcitymag.fr/article/1227/la-ville-de-plaisir-met-de-l-ia-dans-son-accueil-telephonique",
+        "url": "https://www.smartcitymag.fr/article/1227/la-ville-de-plaisir-met-de-l-ia-dans-son-accueil-telephonique",
+        "published_at": "2023-03-29",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Smart City Mag.",
+        "source_ref": "https://www.smartcitymag.fr/article/1227/la-ville-de-plaisir-met-de-l-ia-dans-son-accueil-telephonique"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-albert-france-services",
+    "slug": "real-albert-france-services",
+    "title": "Albert France Services — Arrêter un assistant public qui répondait faux",
+    "short_description": "L’assistant IA des conseillers France Services n’a pas été généralisé après des réponses inexactes ; l’État repart sur un nouvel outil.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "public-sector",
+    "industry_raw": "Administration centrale",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les conseillers France Services doivent répondre vite et juste à des démarches administratives très variées, à partir de sources officielles.",
+    "ai_pattern": [
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Administration de l’État (Dinum)",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Le conseiller valide chaque réponse avant de la donner à l’usager"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Poser la question de l’usager",
+        "actor": "human",
+        "input": [
+          "Démarche administrative"
+        ],
+        "output": [
+          "Question"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Chercher dans les sources officielles",
+        "actor": "copilot",
+        "input": [
+          "Question",
+          "sources administratives"
+        ],
+        "output": [
+          "Réponse proposée"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Vérifier avant de répondre",
+        "actor": "human",
+        "input": [
+          "Réponse proposée"
+        ],
+        "output": [
+          "Réponse à l’usager"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Réponse appuyée sur des sources officielles"
+    ],
+    "data_required": [
+      "Fiches pratiques administratives",
+      "Sources réglementaires"
+    ],
+    "data_sources": [
+      {
+        "name": "Sources officielles de l’administration",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "Albert (Dinum)",
+      "Modèles Mistral pour la version suivante"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "Aider les conseillers à répondre plus vite."
+      },
+      {
+        "type": "quality",
+        "description": "Fonder les réponses sur des sources fiables."
+      }
+    ],
+    "value_type": [
+      "speed",
+      "quality"
+    ],
+    "business_impact": [
+      "service aux usagers",
+      "charge des conseillers"
+    ],
+    "results": [
+      {
+        "text": "Le pilote a été mené dans 48 maisons France Services.",
+        "observed": true
+      },
+      {
+        "text": "La Dinum a renoncé à généraliser cette version après des problèmes techniques et des réponses inexactes signalés notamment par les syndicats.",
+        "observed": true
+      },
+      {
+        "text": "Un nouvel assistant fondé sur les modèles Mistral est testé par 10 000 agents publics.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Maisons France Services du pilote",
+        "value": "48",
+        "unit": "sites"
+      },
+      {
+        "name": "Agents testant l’assistant suivant",
+        "value": "10000",
+        "unit": "agents"
+      }
+    ],
+    "limitations": [
+      "Les sources publiques ne détaillent ni le taux d’erreur mesuré ni la méthode d’évaluation du pilote."
+    ],
+    "risks": [
+      "Réponse inexacte transmise à un usager",
+      "Perte de confiance des conseillers"
+    ],
+    "failure_modes": [
+      "Réponses inexactes sur des démarches administratives",
+      "Dysfonctionnements techniques pendant le pilote"
+    ],
+    "lessons_learned": [
+      "Un pilote qui s’arrête est un résultat : il évite de généraliser un outil qui n’est pas fiable.",
+      "Dans le service public, l’exactitude passe avant la vitesse ; l’évaluation doit précéder la généralisation."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.presse-citron.net/pourquoi-letat-francais-a-t-il-freine-son-assistant-ia-albert/",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Cas d’échec documenté ; informations AFP reprises par Presse-citron (janvier 2026)."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-albert-france-services",
+        "source_type": "public-source",
+        "title": "Pourquoi l’État français a-t-il freiné son assistant IA « Albert » ?",
+        "publisher": "Presse-citron",
+        "reference": "https://www.presse-citron.net/pourquoi-letat-francais-a-t-il-freine-son-assistant-ia-albert/",
+        "url": "https://www.presse-citron.net/pourquoi-letat-francais-a-t-il-freine-son-assistant-ia-albert/",
+        "published_at": "2026-01-13",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Presse-citron.",
+        "source_ref": "https://www.presse-citron.net/pourquoi-letat-francais-a-t-il-freine-son-assistant-ia-albert/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-hello-bank-helloiz",
+    "slug": "real-hello-bank-helloiz",
+    "title": "Hello bank! — Diviser par trois les renvois vers un conseiller",
+    "short_description": "La banque en ligne passe d’un chatbot fiable mais limité à un assistant d’IA générative pour son million de clients.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "finance",
+    "industry_raw": "Banque de détail en ligne",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "L’ancien chatbot cherchait dans 600 questions-réponses : précis, mais incapable de suivre une conversation ; trop de demandes finissaient chez un conseiller.",
+    "ai_pattern": [
+      "classification",
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "company_size_raw": "Banque en ligne de BNP Paribas, plus d’un million de clients",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Escalade vers un conseiller pour les cas complexes"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Comprendre la demande",
+        "actor": "model",
+        "input": [
+          "Message du client"
+        ],
+        "output": [
+          "Intention reconnue parmi 25 besoins"
+        ],
+        "action": "Interpréter et reformuler la demande si elle est ambiguë."
+      },
+      {
+        "order": 2,
+        "label": "Répondre ou orienter vers l’action",
+        "actor": "agent",
+        "input": [
+          "Intention",
+          "base de connaissance"
+        ],
+        "output": [
+          "Réponse ou parcours en libre-service"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Passer la main",
+        "actor": "human",
+        "input": [
+          "Cas complexe"
+        ],
+        "output": [
+          "Prise en charge par un conseiller"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Réponses contextualisées",
+      "Orientation vers 25 actions en libre-service"
+    ],
+    "data_required": [
+      "Base de connaissance client",
+      "Intentions de transaction"
+    ],
+    "data_sources": [
+      {
+        "name": "Base de connaissance Hello bank!",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "data_sensitivity": "personal",
+    "tools": [
+      "Mistral AI",
+      "Giskard (évaluation)"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Absorber la croissance sans augmenter d’autant les conseillers."
+      },
+      {
+        "type": "quality",
+        "description": "Garder la précision tout en suivant la conversation."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "quality"
+    ],
+    "business_impact": [
+      "service client",
+      "charge des conseillers"
+    ],
+    "results": [
+      {
+        "text": "Depuis le lancement du 19 janvier 2026, le taux de renvoi vers un conseiller a été divisé par trois.",
+        "observed": true
+      },
+      {
+        "text": "L’assistant identifie 25 besoins qu’il oriente seul ; environ 70 % des réponses s’appuient sur Mistral.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Réduction du taux de renvoi vers un conseiller",
+        "value": "3",
+        "unit": "x"
+      },
+      {
+        "name": "Besoins traités en libre-service",
+        "value": "25",
+        "unit": "intentions"
+      },
+      {
+        "name": "Clients couverts",
+        "value": "1000000",
+        "unit": "clients"
+      }
+    ],
+    "limitations": [
+      "Le résultat est communiqué par la banque ; la mesure de satisfaction propre à l’assistant n’est pas publiée."
+    ],
+    "risks": [
+      "Réponse erronée sur une opération bancaire",
+      "Données personnelles dans la conversation"
+    ],
+    "lessons_learned": [
+      "Passer à l’IA générative ne veut pas dire renoncer à la fiabilité : l’assistant garde des garde-fous testés par un spécialiste.",
+      "Le bon indicateur d’un assistant de service client est le taux de renvoi, pas le nombre de conversations."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.cio-online.com/actualites/lire-hello-bank-generalise-son-chatbot-dope-a-la-genai-a-son-million-de-clients-16909.html",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Chiffres repris de CIO (mars 2026), confirmés par le communiqué BNP Paribas de décembre 2025."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-hello-bank-helloiz",
+        "source_type": "public-source",
+        "title": "Hello Bank généralise son chatbot dopé à la GenAI à son million de clients",
+        "publisher": "CIO",
+        "reference": "https://www.cio-online.com/actualites/lire-hello-bank-generalise-son-chatbot-dope-a-la-genai-a-son-million-de-clients-16909.html",
+        "url": "https://www.cio-online.com/actualites/lire-hello-bank-generalise-son-chatbot-dope-a-la-genai-a-son-million-de-clients-16909.html",
+        "published_at": "2026-03-18",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis CIO.",
+        "source_ref": "https://www.cio-online.com/actualites/lire-hello-bank-generalise-son-chatbot-dope-a-la-genai-a-son-million-de-clients-16909.html"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-leboncoin-markus-support",
+    "slug": "real-leboncoin-markus-support",
+    "title": "leboncoin — Faire rédiger la première réponse au support par un agent",
+    "short_description": "Un agent prépare la réponse à 40 % des tickets, mais la moitié des tickets traités sont rouverts.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "retail",
+    "industry_raw": "Marketplace de petites annonces",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Le support de la première marketplace française reçoit un très grand volume de tickets répétitifs.",
+    "ai_pattern": [
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Un conseiller reprend tout ticket inadapté ou rouvert"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Lire le ticket",
+        "actor": "agent",
+        "input": [
+          "Ticket utilisateur",
+          "données du compte"
+        ],
+        "output": [
+          "Contexte du ticket"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Rédiger une réponse",
+        "actor": "agent",
+        "input": [
+          "Documentation interne",
+          "contexte"
+        ],
+        "output": [
+          "Réponse signalée comme générée par l’IA"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Reprendre la main si besoin",
+        "actor": "human",
+        "input": [
+          "Ticket inadapté ou rouvert"
+        ],
+        "output": [
+          "Réponse d’un conseiller"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Première réponse rédigée",
+      "Tickets inadaptés transmis à un humain"
+    ],
+    "data_required": [
+      "Documentation interne du support",
+      "Données utilisateur"
+    ],
+    "data_sources": [
+      {
+        "name": "Documentation du support leboncoin",
+        "access": "read",
+        "sensitivity": "internal"
+      },
+      {
+        "name": "Données des comptes utilisateurs",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "tools": [
+      "Agent Markus"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Traiter une part des tickets sans rédaction manuelle."
+      }
+    ],
+    "value_type": [
+      "productivity"
+    ],
+    "business_impact": [
+      "service client",
+      "délai de réponse"
+    ],
+    "results": [
+      {
+        "text": "L’agent Markus traite 40 % de l’ensemble des tickets.",
+        "observed": true
+      },
+      {
+        "text": "Environ 50 % des tickets traités sont rouverts ; un conseiller reprend alors la main.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Part des tickets traités par l’agent",
+        "value": "40",
+        "unit": "%"
+      },
+      {
+        "name": "Taux de réouverture",
+        "value": "50",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "Le taux de réouverture élevé montre que l’agent ne résout pas encore seul une grande partie des demandes."
+    ],
+    "risks": [
+      "Réponse hors sujet",
+      "Frustration de l’utilisateur obligé de relancer"
+    ],
+    "lessons_learned": [
+      "Un volume traité ne suffit pas : il faut le lire avec le taux de réouverture.",
+      "Indiquer clairement qu’une réponse vient de l’IA fait partie du dispositif."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Cas décrit par Thiga à partir d’échanges avec leboncoin."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-leboncoin-markus-support",
+        "source_type": "public-source",
+        "title": "leboncoin: how AI is transforming France’s top marketplace",
+        "publisher": "Thiga",
+        "reference": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+        "url": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Thiga.",
+        "source_ref": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-leboncoin-ad-generation",
+    "slug": "real-leboncoin-ad-generation",
+    "title": "leboncoin — Aider les vendeurs à rédiger leur annonce",
+    "short_description": "Les annonces enrichies automatiquement performent plus de 20 % mieux, et le vendeur valide toujours avant publication.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "retail",
+    "industry_raw": "Marketplace de petites annonces",
+    "business_function": [
+      "product"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Beaucoup d’annonces sont incomplètes ou peu descriptives, ce qui nuit à la vente.",
+    "ai_pattern": [
+      "generation",
+      "multimodal"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Le vendeur valide l’annonce avant publication"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Partir des éléments du vendeur",
+        "actor": "human",
+        "input": [
+          "Photos",
+          "informations saisies"
+        ],
+        "output": [
+          "Brouillon d’annonce"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Enrichir l’annonce",
+        "actor": "model",
+        "input": [
+          "Brouillon"
+        ],
+        "output": [
+          "Description et champs proposés"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Valider ou modifier",
+        "actor": "human",
+        "input": [
+          "Proposition"
+        ],
+        "output": [
+          "Annonce publiée"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Annonce plus complète",
+      "Description proposée"
+    ],
+    "data_required": [
+      "Informations saisies par le vendeur"
+    ],
+    "data_sources": [
+      {
+        "name": "Saisie du vendeur",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "tools": [
+      "IA générative intégrée au dépôt d’annonce"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "Des annonces plus performantes."
+      }
+    ],
+    "value_type": [
+      "revenue"
+    ],
+    "business_impact": [
+      "qualité des annonces",
+      "conversion"
+    ],
+    "results": [
+      {
+        "text": "Les annonces générées automatiquement performent plus de 20 % mieux.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Performance des annonces générées",
+        "value": "+20",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "La source ne précise pas l’indicateur de performance retenu (vues, contacts ou ventes)."
+    ],
+    "risks": [
+      "Description inexacte de l’objet",
+      "Uniformisation du ton des annonces"
+    ],
+    "lessons_learned": [
+      "Le vendeur n’est jamais obligé de publier la proposition : l’IA prépare, l’humain décide."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Cas décrit par Thiga ; indicateur exact de performance non précisé."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-leboncoin-ad-generation",
+        "source_type": "public-source",
+        "title": "leboncoin: how AI is transforming France’s top marketplace",
+        "publisher": "Thiga",
+        "reference": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+        "url": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Thiga.",
+        "source_ref": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-leboncoin-ada-knowledge",
+    "slug": "real-leboncoin-ada-knowledge",
+    "title": "leboncoin — Retrouver l’information interne avec l’assistant Ada",
+    "short_description": "Un assistant interne retrouve l’information dispersée entre Confluence et Backstage ; un salarié sur deux l’utilise régulièrement.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "retail",
+    "industry_raw": "Marketplace de petites annonces",
+    "business_function": [
+      "it-data",
+      "general-management"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "L’information utile aux équipes est dispersée entre plusieurs outils internes et difficile à retrouver.",
+    "ai_pattern": [
+      "retrieval",
+      "summarization"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Poser une question",
+        "actor": "human",
+        "input": [
+          "Besoin d’information"
+        ],
+        "output": [
+          "Question"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Chercher dans les outils internes",
+        "actor": "copilot",
+        "input": [
+          "Confluence",
+          "Backstage"
+        ],
+        "output": [
+          "Réponse et sources"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Utiliser la réponse",
+        "actor": "human",
+        "input": [
+          "Réponse"
+        ],
+        "output": [
+          "Tâche réalisée"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Réponse fondée sur la documentation interne"
+    ],
+    "data_required": [
+      "Documentation Confluence",
+      "Catalogue technique Backstage"
+    ],
+    "data_sources": [
+      {
+        "name": "Confluence",
+        "access": "read",
+        "sensitivity": "internal"
+      },
+      {
+        "name": "Backstage",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Assistant interne Ada",
+      "Confluence",
+      "Backstage"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réaliser plus vite les tâches qui demandent de chercher une information."
+      },
+      {
+        "type": "knowledge",
+        "description": "Rendre la documentation interne utilisable."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "knowledge"
+    ],
+    "business_impact": [
+      "productivité des équipes",
+      "accès à la connaissance"
+    ],
+    "results": [
+      {
+        "text": "Un salarié sur deux utilise Ada régulièrement.",
+        "observed": true
+      },
+      {
+        "text": "Selon des enquêtes internes, certaines tâches sont réalisées jusqu’à 70 % plus vite.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Salariés utilisateurs réguliers",
+        "value": "50",
+        "unit": "%"
+      },
+      {
+        "name": "Gain de temps déclaré sur certaines tâches",
+        "value": "70",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "Le gain de 70 % est déclaré dans des enquêtes internes, pas mesuré sur les tâches."
+    ],
+    "risks": [
+      "Documentation obsolète reprise telle quelle"
+    ],
+    "lessons_learned": [
+      "Un assistant interne vaut d’abord par l’adoption : la moitié des salariés l’utilise régulièrement."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Cas décrit par Thiga ; gain déclaré par enquête interne."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-leboncoin-ada-knowledge",
+        "source_type": "public-source",
+        "title": "leboncoin: how AI is transforming France’s top marketplace",
+        "publisher": "Thiga",
+        "reference": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+        "url": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Thiga.",
+        "source_ref": "https://www.media.thiga.co/en/en/leboncoin-how-frances-largest-marketplace-transformed-itself-with-ai"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-back-market-fraud-agents",
+    "slug": "real-back-market-fraud-agents",
+    "title": "Back Market — Laisser l’équipe fraude construire ses propres agents",
+    "short_description": "Des experts métier, non ingénieurs, assemblent en une semaine un orchestrateur d’agents qui évalue les dossiers suspects.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "retail",
+    "industry_raw": "E-commerce de produits reconditionnés",
+    "business_function": [
+      "finance",
+      "customer-service"
+    ],
+    "geography": [
+      "France",
+      "Europe"
+    ],
+    "problem": "Les fraudeurs changent vite de méthode ; l’équipe fraude dépendait des développeurs pour adapter ses règles.",
+    "ai_pattern": [
+      "classification",
+      "comparison",
+      "orchestration"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Les experts fraude décident et maintiennent les modèles de fraude"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Recevoir une réclamation",
+        "actor": "system",
+        "input": [
+          "Réclamation client"
+        ],
+        "output": [
+          "Dossier à évaluer"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Évaluer chaque dimension",
+        "actor": "agent",
+        "input": [
+          "Adresse",
+          "distance livraison-retour",
+          "historique client",
+          "incidents de suivi et de paiement",
+          "messages"
+        ],
+        "output": [
+          "Signaux de risque par sous-agent"
+        ],
+        "action": "Des sous-agents spécialisés évaluent chacun une dimension."
+      },
+      {
+        "order": 3,
+        "label": "Comparer aux modèles de fraude connus",
+        "actor": "agent",
+        "input": [
+          "Messages",
+          "modèles de fraude dans Confluence"
+        ],
+        "output": [
+          "Correspondances"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Décider et mettre à jour",
+        "actor": "human",
+        "input": [
+          "Évaluation"
+        ],
+        "output": [
+          "Décision",
+          "nouveaux modèles de fraude"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Évaluation multi-critères des dossiers",
+      "Mise à jour rapide face aux nouvelles fraudes"
+    ],
+    "data_required": [
+      "Historique client",
+      "Données de livraison et de retour",
+      "Incidents de paiement",
+      "Messages des réclamations"
+    ],
+    "data_sources": [
+      {
+        "name": "Données de commandes et de retours",
+        "access": "read",
+        "sensitivity": "personal"
+      },
+      {
+        "name": "Page Confluence des modèles de fraude",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "data_sensitivity": "personal",
+    "tools": [
+      "Dust",
+      "Confluence"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Réduire les pertes liées à la fraude."
+      },
+      {
+        "type": "speed",
+        "description": "S’adapter aux nouvelles fraudes en moins d’un jour."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "speed"
+    ],
+    "business_impact": [
+      "pertes évitées",
+      "autonomie de l’équipe fraude"
+    ],
+    "results": [
+      {
+        "text": "L’équipe a construit le système en une semaine et l’adapte en moins d’un jour à une nouvelle méthode de fraude.",
+        "observed": true
+      },
+      {
+        "text": "L’analyse des réclamations par IA aurait évité près de 100 000 € de fraude en cinq mois ; le programme global vise plus de 1,2 M€ d’économies par an.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Fraude évitée par l’analyse des réclamations",
+        "value": "100000",
+        "unit": "€ sur 5 mois"
+      },
+      {
+        "name": "Économies annuelles visées par le programme",
+        "value": "1200000",
+        "unit": "€"
+      },
+      {
+        "name": "Délai de construction",
+        "value": "1",
+        "unit": "semaine"
+      }
+    ],
+    "limitations": [
+      "Le cas est publié par l’éditeur de l’outil ; les 1,2 M€ sont une projection pour l’ensemble du programme, pas pour les seuls agents."
+    ],
+    "risks": [
+      "Faux positifs sur des clients légitimes",
+      "Données personnelles exposées aux agents"
+    ],
+    "lessons_learned": [
+      "Quand le métier peut mettre à jour lui-même la connaissance (une page Confluence), l’agent suit le rythme des fraudeurs.",
+      "L’orchestration de sous-agents spécialisés rend chaque critère lisible et vérifiable."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://dust.tt/customers/back-markets-fraud-team-builds-ai-detection-system-in-one-week-contributing",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Cas client publié par Dust ; 1,2 M€ = projection du programme global."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-back-market-fraud-agents",
+        "source_type": "public-source",
+        "title": "Back Market’s fraud team builds AI detection system in one week",
+        "publisher": "Dust",
+        "reference": "https://dust.tt/customers/back-markets-fraud-team-builds-ai-detection-system-in-one-week-contributing",
+        "url": "https://dust.tt/customers/back-markets-fraud-team-builds-ai-detection-system-in-one-week-contributing",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Dust.",
+        "source_ref": "https://dust.tt/customers/back-markets-fraud-team-builds-ai-detection-system-in-one-week-contributing"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-engie-storage-rag",
+    "slug": "real-engie-storage-rag",
+    "title": "Engie — Analyser les dossiers de construction de stockage d’électricité",
+    "short_description": "Une IA générative qui cite ses sources analyse les dossiers d’implantation de batteries et fait gagner 50 à 100 heures par projet.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "other",
+    "industry_raw": "Énergie",
+    "business_function": [
+      "operations"
+    ],
+    "geography": [
+      "France",
+      "International"
+    ],
+    "problem": "Chaque projet de stockage d’électricité s’accompagne de dossiers de construction volumineux à analyser avant l’implantation.",
+    "ai_pattern": [
+      "retrieval",
+      "extraction",
+      "summarization"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Les équipes projet vérifient les réponses sourcées"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Charger les dossiers du projet",
+        "actor": "human",
+        "input": [
+          "Dossiers de construction"
+        ],
+        "output": [
+          "Corpus du projet"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Interroger avec citations",
+        "actor": "copilot",
+        "input": [
+          "Corpus du projet",
+          "question"
+        ],
+        "output": [
+          "Réponse reliée aux documents sources"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Vérifier et décider",
+        "actor": "human",
+        "input": [
+          "Réponse sourcée"
+        ],
+        "output": [
+          "Analyse du projet"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Réponses sourcées sur les dossiers",
+      "Analyse accélérée des projets d’implantation"
+    ],
+    "data_required": [
+      "Dossiers de construction des unités de stockage"
+    ],
+    "data_sources": [
+      {
+        "name": "Dossiers de projets de stockage",
+        "access": "read",
+        "sensitivity": "confidential"
+      }
+    ],
+    "tools": [
+      "IA générative de type RAG"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Gagner 50 à 100 heures de travail par projet."
+      },
+      {
+        "type": "speed",
+        "description": "Accélérer le développement des projets de stockage."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "speed"
+    ],
+    "business_impact": [
+      "délai de développement des projets",
+      "charge des équipes projet"
+    ],
+    "results": [
+      {
+        "text": "L’IA fait gagner entre 50 et 100 heures de travail par projet d’implantation.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps gagné par projet d’implantation",
+        "value": "50-100",
+        "unit": "heures"
+      }
+    ],
+    "limitations": [
+      "L’article complet est payant ; le nombre de projets concernés et la validation humaine ne sont pas détaillés dans la partie publique."
+    ],
+    "risks": [
+      "Information manquée dans un dossier",
+      "Citation mal interprétée"
+    ],
+    "lessons_learned": [
+      "Sur des dossiers techniques, le traçage des sources est ce qui rend la réponse utilisable."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.larevuedudigital.com/stockage-de-lelectricite-lia-generative-outil-dacceleration-cle-chez-engie/",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Chiffre lu dans l’introduction publique de l’article (octobre 2025)."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-engie-storage-rag",
+        "source_type": "public-source",
+        "title": "Stockage de l’électricité : l’IA générative outil d’accélération clé chez Engie",
+        "publisher": "La Revue du Digital",
+        "reference": "https://www.larevuedudigital.com/stockage-de-lelectricite-lia-generative-outil-dacceleration-cle-chez-engie/",
+        "url": "https://www.larevuedudigital.com/stockage-de-lelectricite-lia-generative-outil-dacceleration-cle-chez-engie/",
+        "published_at": "2025-10-03",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis La Revue du Digital.",
+        "source_ref": "https://www.larevuedudigital.com/stockage-de-lelectricite-lia-generative-outil-dacceleration-cle-chez-engie/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-veolia-secure-gpt",
+    "slug": "real-veolia-secure-gpt",
+    "title": "Veolia — Passer d’un assistant interne à une place de marché d’agents",
+    "short_description": "Secure GPT réunit plus de 214 assistants et agents ; 58 000 salariés l’utilisent plus de deux fois par jour.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "other",
+    "industry_raw": "Services à l’environnement (eau, déchets, énergie)",
+    "business_function": [
+      "general-management",
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France",
+      "International"
+    ],
+    "problem": "Un groupe de 213 000 salariés dans 57 pays veut ouvrir l’IA générative à tous sans multiplier les outils ni exposer ses données.",
+    "ai_pattern": [
+      "generation",
+      "retrieval",
+      "orchestration"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Ouvrir un assistant sécurisé à tous",
+        "actor": "system",
+        "input": [
+          "Modèles du marché"
+        ],
+        "output": [
+          "Secure GPT"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Former par des ambassadeurs",
+        "actor": "human",
+        "input": [
+          "400 ambassadeurs IA"
+        ],
+        "output": [
+          "13 000 salariés formés"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Créer des assistants métier",
+        "actor": "workflow",
+        "input": [
+          "Prompts",
+          "documents",
+          "API"
+        ],
+        "output": [
+          "Assistants simples, RAG ou multi-agents"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Publier dans la place de marché",
+        "actor": "system",
+        "input": [
+          "Assistants validés"
+        ],
+        "output": [
+          "Catalogue partagé entre entités"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Assistant généraliste sécurisé",
+      "Catalogue d’assistants et d’agents métier"
+    ],
+    "data_required": [
+      "Documents métier",
+      "Données structurées via API"
+    ],
+    "data_sources": [
+      {
+        "name": "Documents et applications des entités Veolia",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Secure GPT",
+      "AWS Bedrock",
+      "Azure OpenAI",
+      "Google Vertex AI"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Rédaction, traduction, recherche et synthèse."
+      },
+      {
+        "type": "knowledge",
+        "description": "Réutiliser les assistants d’une entité à l’autre."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "knowledge"
+    ],
+    "business_impact": [
+      "adoption de l’IA",
+      "réutilisation des cas d’usage"
+    ],
+    "results": [
+      {
+        "text": "En avril 2025, 58 000 salariés de 41 entités utilisaient Secure GPT plus de deux fois par jour.",
+        "observed": true
+      },
+      {
+        "text": "Plus de 214 assistants étaient disponibles, de l’analyse de bassins versants à l’évaluation de conformité à l’AI Act.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Utilisateurs actifs quotidiens",
+        "value": "58000",
+        "unit": "salariés"
+      },
+      {
+        "name": "Assistants disponibles",
+        "value": "214",
+        "unit": "assistants"
+      },
+      {
+        "name": "Salariés formés",
+        "value": "13000",
+        "unit": "salariés"
+      }
+    ],
+    "limitations": [
+      "Les sources décrivent l’adoption, pas les gains métier mesurés de chaque assistant."
+    ],
+    "risks": [
+      "Prolifération d’assistants peu maintenus",
+      "Coûts d’usage des modèles"
+    ],
+    "lessons_learned": [
+      "L’adoption à grande échelle repose sur un réseau d’ambassadeurs autant que sur l’outil.",
+      "Une place de marché évite de reconstruire le même assistant dans chaque entité."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.lemagit.fr/etude/Secure-GPT-comment-Veolia-passe-de-lIA-generative-a-lIA-agentique",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Chiffres d’avril 2025 rapportés par LeMagIT."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-veolia-secure-gpt",
+        "source_type": "public-source",
+        "title": "Secure GPT : comment Veolia passe de l’IA générative à l’IA agentique",
+        "publisher": "LeMagIT",
+        "reference": "https://www.lemagit.fr/etude/Secure-GPT-comment-Veolia-passe-de-lIA-generative-a-lIA-agentique",
+        "url": "https://www.lemagit.fr/etude/Secure-GPT-comment-Veolia-passe-de-lIA-generative-a-lIA-agentique",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis LeMagIT.",
+        "source_ref": "https://www.lemagit.fr/etude/Secure-GPT-comment-Veolia-passe-de-lIA-generative-a-lIA-agentique"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-nabla-consultation-scribe",
+    "slug": "real-nabla-consultation-scribe",
+    "title": "Nabla — Rédiger le compte rendu de consultation pendant que le médecin écoute",
+    "short_description": "Un assistant transcrit la consultation et rédige compte rendu, courriers et consignes ; le médecin vérifie avant tout envoi.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "tpe",
+      "enterprise"
+    ],
+    "industry": "healthcare",
+    "industry_raw": "Santé — médecine de ville et hôpital",
+    "business_function": [
+      "operations"
+    ],
+    "geography": [
+      "France",
+      "International"
+    ],
+    "problem": "La saisie des comptes rendus et des courriers prend au médecin un temps pris sur la consultation et sur sa journée.",
+    "ai_pattern": [
+      "summarization",
+      "generation",
+      "extraction"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Médecins libéraux et établissements de santé",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Le médecin vérifie et valide chaque document"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Écouter la consultation",
+        "actor": "copilot",
+        "input": [
+          "Échange médecin-patient"
+        ],
+        "output": [
+          "Transcription"
+        ],
+        "action": "L’audio est supprimé après transcription."
+      },
+      {
+        "order": 2,
+        "label": "Structurer le compte rendu",
+        "actor": "model",
+        "input": [
+          "Transcription",
+          "spécialité"
+        ],
+        "output": [
+          "Compte rendu structuré",
+          "courrier",
+          "consignes patient"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Vérifier et valider",
+        "actor": "human",
+        "input": [
+          "Documents proposés"
+        ],
+        "output": [
+          "Dossier validé"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Compte rendu structuré",
+      "Courrier au médecin traitant",
+      "Consignes en langage simple pour le patient"
+    ],
+    "data_required": [
+      "Conversation de consultation"
+    ],
+    "data_sources": [
+      {
+        "name": "Audio de consultation (supprimé après transcription)",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "data_sensitivity": "personal",
+    "tools": [
+      "Nabla"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le temps administratif du médecin."
+      },
+      {
+        "type": "quality",
+        "description": "Des comptes rendus plus complets et homogènes."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "quality"
+    ],
+    "business_impact": [
+      "temps médical",
+      "qualité de la documentation"
+    ],
+    "results": [
+      {
+        "text": "Nabla est utilisé par plus de 30 000 médecins dans le monde, dont 3 000 en France.",
+        "observed": true
+      },
+      {
+        "text": "Le cofondateur annonce un gain d’une à deux heures par jour pour les médecins.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Médecins utilisateurs",
+        "value": "30000",
+        "unit": "médecins"
+      },
+      {
+        "name": "Médecins utilisateurs en France",
+        "value": "3000",
+        "unit": "médecins"
+      },
+      {
+        "name": "Gain annoncé par le cofondateur",
+        "value": "1-2",
+        "unit": "heures/jour"
+      }
+    ],
+    "limitations": [
+      "À vérifier : le gain d’une à deux heures par jour est annoncé par le cofondateur de Nabla ; aucune mesure indépendante n’est citée.",
+      "Le médecin doit vérifier chaque document avant de le partager."
+    ],
+    "risks": [
+      "Erreur médicale dans le compte rendu",
+      "Données de santé"
+    ],
+    "lessons_learned": [
+      "Dans le soin, la validation par le médecin n’est pas une option : elle fait partie du produit."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.egora.fr/actus-pro/sante-numerique/gagner-entre-une-et-deux-heures-par-jour-deux-plateformes-utilisent-lia",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Article Egora ; nombre d’utilisateurs à actualiser (chiffres de 2024). À VÉRIFIER — le gain d’une à deux heures par jour est annoncé par le cofondateur de Nabla ; aucune mesure indépendante n’est citée."
+    },
+    "confidence": "low",
+    "sources": [
+      {
+        "id": "source-nabla-consultation-scribe",
+        "source_type": "public-source",
+        "title": "Gagner « entre une et deux heures par jour » : deux plateformes utilisent l’IA",
+        "publisher": "Egora",
+        "reference": "https://www.egora.fr/actus-pro/sante-numerique/gagner-entre-une-et-deux-heures-par-jour-deux-plateformes-utilisent-lia",
+        "url": "https://www.egora.fr/actus-pro/sante-numerique/gagner-entre-une-et-deux-heures-par-jour-deux-plateformes-utilisent-lia",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "low"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Egora.",
+        "source_ref": "https://www.egora.fr/actus-pro/sante-numerique/gagner-entre-une-et-deux-heures-par-jour-deux-plateformes-utilisent-lia"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-walmart-pactum-negotiation",
+    "slug": "real-walmart-pactum-negotiation",
+    "title": "Walmart — Négocier avec les petits fournisseurs par un agent autonome",
+    "short_description": "Un agent négocie par écrit avec des fournisseurs de longue traîne, dans des limites fixées par les acheteurs.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "retail",
+    "industry_raw": "Grande distribution",
+    "business_function": [
+      "procurement"
+    ],
+    "geography": [
+      "Canada",
+      "États-Unis"
+    ],
+    "problem": "Des milliers de petits contrats fournisseurs ne sont jamais renégociés, faute de temps pour les acheteurs.",
+    "ai_pattern": [
+      "generation",
+      "comparison",
+      "orchestration"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "bounded-autonomous",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Les acheteurs fixent les concessions autorisées avant la négociation"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Fixer le cadre",
+        "actor": "human",
+        "input": [
+          "Objectifs d’achat",
+          "concessions possibles"
+        ],
+        "output": [
+          "Paramètres de négociation"
+        ],
+        "action": "Par exemple : paiement plus rapide contre baisse de prix.",
+        "human_gate": true
+      },
+      {
+        "order": 2,
+        "label": "Négocier par écrit",
+        "actor": "agent",
+        "input": [
+          "Paramètres",
+          "conditions actuelles"
+        ],
+        "output": [
+          "Proposition d’accord"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Conclure ou passer la main",
+        "actor": "workflow",
+        "input": [
+          "Accord ou échec"
+        ],
+        "output": [
+          "Contrat mis à jour ou dossier transmis à un acheteur"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Accords renégociés",
+      "Délais de paiement allongés"
+    ],
+    "data_required": [
+      "Contrats fournisseurs",
+      "Conditions de paiement",
+      "Volumes d’achat"
+    ],
+    "data_sources": [
+      {
+        "name": "Contrats et conditions fournisseurs",
+        "access": "read",
+        "sensitivity": "confidential"
+      }
+    ],
+    "tools": [
+      "Pactum"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Économies sur les dépenses renégociées."
+      },
+      {
+        "type": "productivity",
+        "description": "Négocier là où aucun acheteur n’avait le temps."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "productivity"
+    ],
+    "business_impact": [
+      "achats de longue traîne",
+      "trésorerie"
+    ],
+    "results": [
+      {
+        "text": "Lors du pilote canadien, l’agent a conclu un accord avec 64 % des fournisseurs invités, pour un objectif de 20 %, en 11 jours en moyenne.",
+        "observed": true
+      },
+      {
+        "text": "Walmart a obtenu en moyenne 1,5 % d’économies sur les dépenses négociées et des délais de paiement portés à 35 jours en moyenne.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Fournisseurs ayant conclu un accord",
+        "value": "64",
+        "unit": "%"
+      },
+      {
+        "name": "Économies moyennes",
+        "value": "1.5",
+        "unit": "%"
+      },
+      {
+        "name": "Délai moyen de négociation",
+        "value": "11",
+        "unit": "jours"
+      },
+      {
+        "name": "Délai de paiement moyen obtenu",
+        "value": "35",
+        "unit": "jours"
+      }
+    ],
+    "limitations": [
+      "À vérifier : les chiffres du pilote canadien (64 % d’accords, 1,5 % d’économies) viennent de Harvard Business Review (novembre 2022), lu via Talking Logistics ; d’autres sources donnent 68 à 72 % d’accords et 3 % d’économies sur un déploiement plus large, et Pactum annonce 82 % de fournisseurs préférant l’agent.",
+      "Les chiffres portent sur un pilote de 89 fournisseurs au Canada (2022)."
+    ],
+    "risks": [
+      "Dégradation de la relation fournisseur",
+      "Concession hors du cadre fixé"
+    ],
+    "lessons_learned": [
+      "L’autonomie est sûre quand le cadre est fixé avant : l’agent négocie dans des limites décidées par les acheteurs.",
+      "L’IA rend rentable une négociation que personne ne faisait."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://talkinglogistics.com/2023/05/01/negotiating-with-a-chatbot-a-walmart-procurement-case-study/",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Pilote Walmart Canada décrit par HBR (nov. 2022). À VÉRIFIER — les chiffres du pilote canadien (64 % d’accords, 1,5 % d’économies) viennent de Harvard Business Review (novembre 2022), lu via Talking Logistics ; d’autres sources donnent 68 à 72 % d’accords et 3 % d’économies sur un déploiement plus large, et Pactum annonce 82 % de fournisseurs préférant l’agent."
+    },
+    "confidence": "low",
+    "sources": [
+      {
+        "id": "source-walmart-pactum-negotiation",
+        "source_type": "public-source",
+        "title": "Negotiating With A Chatbot: A Walmart Procurement Case Study",
+        "publisher": "Talking Logistics (d’après Harvard Business Review)",
+        "reference": "https://talkinglogistics.com/2023/05/01/negotiating-with-a-chatbot-a-walmart-procurement-case-study/",
+        "url": "https://talkinglogistics.com/2023/05/01/negotiating-with-a-chatbot-a-walmart-procurement-case-study/",
+        "published_at": "2023-05-01",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "low"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Talking Logistics (d’après Harvard Business Review).",
+        "source_ref": "https://talkinglogistics.com/2023/05/01/negotiating-with-a-chatbot-a-walmart-procurement-case-study/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-suez-pactum-requisitions",
+    "slug": "real-suez-pactum-requisitions",
+    "title": "SUEZ — Supprimer les contrôles manuels des demandes d’achat",
+    "short_description": "Un agent prend en charge la revue des demandes d’achat ; l’éditeur annonce 80 % de contrôles manuels en moins.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "other",
+    "industry_raw": "Services à l’environnement (eau, déchets)",
+    "business_function": [
+      "procurement"
+    ],
+    "geography": [
+      "France",
+      "International"
+    ],
+    "problem": "Chaque demande d’achat passe par une revue manuelle qui allonge le cycle et occupe les acheteurs.",
+    "ai_pattern": [
+      "classification",
+      "comparison",
+      "orchestration"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Les acheteurs traitent les demandes signalées"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Recevoir la demande d’achat",
+        "actor": "system",
+        "input": [
+          "Demande d’achat"
+        ],
+        "output": [
+          "Demande à contrôler"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Contrôler la demande",
+        "actor": "agent",
+        "input": [
+          "Demande",
+          "règles d’achat"
+        ],
+        "output": [
+          "Demande validée ou signalée"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Traiter les exceptions",
+        "actor": "human",
+        "input": [
+          "Demande signalée"
+        ],
+        "output": [
+          "Décision de l’acheteur"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Demandes contrôlées automatiquement",
+      "Exceptions transmises aux acheteurs"
+    ],
+    "data_required": [
+      "Demandes d’achat",
+      "Règles et politiques d’achat"
+    ],
+    "data_sources": [
+      {
+        "name": "Système de demandes d’achat",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Pactum"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire les revues manuelles."
+      },
+      {
+        "type": "speed",
+        "description": "Raccourcir le cycle des demandes d’achat."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "speed"
+    ],
+    "business_impact": [
+      "cycle achat",
+      "charge des acheteurs"
+    ],
+    "results": [
+      {
+        "text": "Pactum annonce 80 % de revues manuelles de demandes d’achat supprimées chez SUEZ.",
+        "observed": true
+      },
+      {
+        "text": "Pactum annonce des cycles de demande d’achat 90 % plus courts.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Revues manuelles supprimées",
+        "value": "80",
+        "unit": "%"
+      },
+      {
+        "name": "Réduction du cycle des demandes d’achat",
+        "value": "90",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "À vérifier : les deux chiffres (80 % et 90 %) sont publiés uniquement par l’éditeur Pactum, sans périmètre ni date ; à recouper avec une source SUEZ.",
+      "Le périmètre (pays, entités, volumes) et la date ne sont pas indiqués."
+    ],
+    "risks": [
+      "Demande non conforme validée à tort"
+    ],
+    "lessons_learned": [
+      "Les achats se prêtent aux agents quand les règles sont explicites et les exceptions renvoyées à un humain."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://pactum.com/clients",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Page clients Pactum. À VÉRIFIER — les deux chiffres (80 % et 90 %) sont publiés uniquement par l’éditeur Pactum, sans périmètre ni date ; à recouper avec une source SUEZ."
+    },
+    "confidence": "low",
+    "sources": [
+      {
+        "id": "source-suez-pactum-requisitions",
+        "source_type": "public-source",
+        "title": "Customer story: How SUEZ eliminated manual requisition checks",
+        "publisher": "Pactum",
+        "reference": "https://pactum.com/clients",
+        "url": "https://pactum.com/clients",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "low"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Pactum.",
+        "source_ref": "https://pactum.com/clients"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-ao-shearman-harvey",
+    "slug": "real-ao-shearman-harvey",
+    "title": "A&O Shearman — Déployer l’IA juridique dans un cabinet international",
+    "short_description": "Le cabinet a déployé Harvey, construit ContractMatrix pour la négociation de contrats, puis des agents pour des dossiers complexes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "services-b2b",
+    "industry_raw": "Cabinet d’avocats",
+    "business_function": [
+      "other"
+    ],
+    "geography": [
+      "Royaume-Uni",
+      "États-Unis",
+      "International"
+    ],
+    "problem": "Les avocats passent des heures sur des analyses répétitives : revue de contrats, notifications de concentrations, revue de prêts.",
+    "ai_pattern": [
+      "retrieval",
+      "comparison",
+      "generation",
+      "orchestration"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Les avocats relisent et valident toute analyse"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Charger le dossier",
+        "actor": "human",
+        "input": [
+          "Contrats",
+          "pièces du dossier"
+        ],
+        "output": [
+          "Dossier à analyser"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Analyser en plusieurs étapes",
+        "actor": "agent",
+        "input": [
+          "Dossier",
+          "règles juridiques"
+        ],
+        "output": [
+          "Analyse et projet de rédaction"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Relire et engager le cabinet",
+        "actor": "human",
+        "input": [
+          "Analyse"
+        ],
+        "output": [
+          "Conseil validé"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Revue de contrats",
+      "Analyses de notification de concentrations, cybersécurité, constitution de fonds, revue de prêts"
+    ],
+    "data_required": [
+      "Contrats",
+      "Modèles du cabinet",
+      "Pièces des dossiers"
+    ],
+    "data_sources": [
+      {
+        "name": "Dossiers clients et modèles du cabinet",
+        "access": "read",
+        "sensitivity": "confidential"
+      }
+    ],
+    "data_sensitivity": "confidential",
+    "tools": [
+      "Harvey",
+      "ContractMatrix",
+      "Microsoft"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le temps passé sur les analyses répétitives."
+      },
+      {
+        "type": "revenue",
+        "description": "Vendre ContractMatrix aux directions juridiques."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "revenue"
+    ],
+    "business_impact": [
+      "productivité des avocats",
+      "nouvelle offre"
+    ],
+    "results": [
+      {
+        "text": "En avril 2025, le cabinet a lancé avec Harvey des agents pour l’analyse de notifications de concentrations, la cybersécurité, la constitution de fonds et la revue de prêts.",
+        "observed": true
+      },
+      {
+        "text": "Selon le cabinet, ces agents font en quelques minutes ce qui prenait plusieurs heures.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Domaines couverts par les premiers agents",
+        "value": "4",
+        "unit": "domaines"
+      }
+    ],
+    "limitations": [
+      "À vérifier : les chiffres d’usage (3 500 avocats et 40 000 requêtes pendant l’essai de Harvey, plus de 2 000 avocats sur ContractMatrix chaque jour, environ 7 h gagnées par négociation de contrat) viennent de sources secondaires et ne figurent pas dans le communiqué du cabinet.",
+      "Les gains sont annoncés par le cabinet, sans mesure publiée."
+    ],
+    "risks": [
+      "Erreur juridique engageant le cabinet",
+      "Confidentialité des dossiers clients"
+    ],
+    "lessons_learned": [
+      "Un cabinet peut transformer un outil interne en produit vendu à ses clients.",
+      "Les agents ciblent des analyses longues et normées, pas le conseil lui-même."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.aoshearman.com/en/news/ao-shearman-and-harvey-to-roll-out-agentic-ai-agents-targeting-complex-legal-workflows",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Communiqué A&O Shearman d’avril 2025. À VÉRIFIER — les chiffres d’usage (3 500 avocats et 40 000 requêtes pendant l’essai de Harvey, plus de 2 000 avocats sur ContractMatrix chaque jour, environ 7 h gagnées par négociation de contrat) viennent de sources secondaires et ne figurent pas dans le communiqué du cabinet."
+    },
+    "confidence": "low",
+    "sources": [
+      {
+        "id": "source-ao-shearman-harvey",
+        "source_type": "public-source",
+        "title": "A&O Shearman and Harvey to roll out agentic AI agents targeting complex legal workflows",
+        "publisher": "A&O Shearman",
+        "reference": "https://www.aoshearman.com/en/news/ao-shearman-and-harvey-to-roll-out-agentic-ai-agents-targeting-complex-legal-workflows",
+        "url": "https://www.aoshearman.com/en/news/ao-shearman-and-harvey-to-roll-out-agentic-ai-agents-targeting-complex-legal-workflows",
+        "published_at": "2025-04-06",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "low"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis A&O Shearman.",
+        "source_ref": "https://www.aoshearman.com/en/news/ao-shearman-and-harvey-to-roll-out-agentic-ai-agents-targeting-complex-legal-workflows"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-air-canada-chatbot-liability",
+    "slug": "real-air-canada-chatbot-liability",
+    "title": "Air Canada — Être tenu responsable de ce que dit son chatbot",
+    "short_description": "Le chatbot a inventé une règle de remboursement ; le tribunal a jugé que la compagnie répondait de ses réponses.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "transport-logistics",
+    "industry_raw": "Transport aérien",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "Canada"
+    ],
+    "problem": "Un client a suivi la réponse du chatbot sur le tarif décès, qui contredisait la politique réelle de la compagnie.",
+    "ai_pattern": [
+      "generation",
+      "retrieval"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Poser une question au chatbot",
+        "actor": "human",
+        "input": [
+          "Question sur le tarif décès"
+        ],
+        "output": [
+          "Question"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Répondre sans contrôle",
+        "actor": "agent",
+        "input": [
+          "Question"
+        ],
+        "output": [
+          "Réponse contraire à la politique réelle"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Contester et juger",
+        "actor": "human",
+        "input": [
+          "Réclamation du client"
+        ],
+        "output": [
+          "Décision du tribunal"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Réponses automatiques aux voyageurs"
+    ],
+    "data_required": [
+      "Politiques tarifaires de la compagnie"
+    ],
+    "data_sources": [
+      {
+        "name": "Pages de politique tarifaire",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "Chatbot du site web"
+    ],
+    "expected_value": [
+      {
+        "type": "risk",
+        "description": "Leçon : contrôler ce que l’assistant affirme au nom de l’entreprise."
+      }
+    ],
+    "value_type": [
+      "risk"
+    ],
+    "business_impact": [
+      "responsabilité juridique",
+      "confiance des clients"
+    ],
+    "results": [
+      {
+        "text": "Le chatbot a indiqué qu’un remboursement au tarif décès pouvait être demandé dans les 90 jours après le voyage, ce que la politique réelle excluait.",
+        "observed": true
+      },
+      {
+        "text": "En février 2024, le tribunal civil de Colombie-Britannique a condamné Air Canada à rembourser 650,88 $ CA, plus intérêts et frais.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Montant accordé",
+        "value": "650.88",
+        "unit": "$ CA"
+      }
+    ],
+    "limitations": [
+      "Le montant est faible ; la portée du cas tient au principe de responsabilité retenu."
+    ],
+    "risks": [
+      "Information inventée présentée comme règle officielle",
+      "Responsabilité juridique de l’entreprise"
+    ],
+    "failure_modes": [
+      "Le chatbot a affirmé une règle de remboursement qui n’existait pas",
+      "Aucune vérification des réponses contre la politique officielle"
+    ],
+    "lessons_learned": [
+      "Une entreprise ne peut pas présenter son chatbot comme une « entité distincte » : il fait partie de son site et elle répond de ses réponses.",
+      "Un assistant client doit s’appuyer sur la politique officielle et dire quand il ne sait pas."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.manatt.com/insights/newsletters/advertising-law/ai-gone-wild-airline-has-to-honor-a-refund-policy",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Décision Moffatt v. Air Canada, 2024 BCCRT 149 ; analyse du cabinet Manatt."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-air-canada-chatbot-liability",
+        "source_type": "public-source",
+        "title": "AI Gone Wild: Airline Has to Honor a Refund Policy Its Chatbot Fabricated",
+        "publisher": "Manatt, Phelps & Phillips",
+        "reference": "https://www.manatt.com/insights/newsletters/advertising-law/ai-gone-wild-airline-has-to-honor-a-refund-policy",
+        "url": "https://www.manatt.com/insights/newsletters/advertising-law/ai-gone-wild-airline-has-to-honor-a-refund-policy",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Manatt, Phelps & Phillips.",
+        "source_ref": "https://www.manatt.com/insights/newsletters/advertising-law/ai-gone-wild-airline-has-to-honor-a-refund-policy"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-edf-rd-rag-search",
+    "slug": "real-edf-rd-rag-search",
+    "title": "EDF — Construire un moteur de recherche documentaire sur des modèles souverains",
+    "short_description": "La R&D d’EDF et Illuin ont testé un moteur RAG sur 2 000 documents : un modèle ouvert affiné rivalise avec GPT-4.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "other",
+    "industry_raw": "Énergie",
+    "business_function": [
+      "it-data",
+      "operations"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Certaines bases documentaires, comme celles du nucléaire, sont trop sensibles pour être envoyées à un modèle externe.",
+    "ai_pattern": [
+      "retrieval",
+      "summarization"
+    ],
+    "solution_type": "knowledge",
+    "autonomy_level": "assisted",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Les experts évaluent la qualité des réponses"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Préparer le corpus",
+        "actor": "system",
+        "input": [
+          "2 000 documents de types variés"
+        ],
+        "output": [
+          "Corpus indexé"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Affiner un modèle ouvert",
+        "actor": "model",
+        "input": [
+          "Corpus",
+          "LLaMa 2 13B et 70B"
+        ],
+        "output": [
+          "Modèle spécialisé"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Évaluer face à GPT-4",
+        "actor": "human",
+        "input": [
+          "Réponses"
+        ],
+        "output": [
+          "Évaluation : précision, exhaustivité, factualité"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Moteur de recherche documentaire",
+      "Évaluation comparée des modèles"
+    ],
+    "data_required": [
+      "Documents techniques internes"
+    ],
+    "data_sources": [
+      {
+        "name": "Bases documentaires EDF",
+        "access": "read",
+        "sensitivity": "restricted"
+      }
+    ],
+    "data_sensitivity": "restricted",
+    "tools": [
+      "LLaMa 2 (13B, 70B)",
+      "Illuin Technology"
+    ],
+    "expected_value": [
+      {
+        "type": "knowledge",
+        "description": "Interroger des documents sensibles sans les exposer."
+      },
+      {
+        "type": "risk",
+        "description": "Garder la maîtrise des données critiques."
+      }
+    ],
+    "value_type": [
+      "knowledge",
+      "risk"
+    ],
+    "business_impact": [
+      "accès à la connaissance technique",
+      "souveraineté des données"
+    ],
+    "results": [
+      {
+        "text": "En 2023, EDF et Illuin ont construit un moteur de recherche documentaire de type RAG sur 2 000 documents.",
+        "observed": true
+      },
+      {
+        "text": "Un modèle LLaMa 2 13B affiné rivalise avec GPT-4 sur trois critères : précision, exhaustivité et factualité.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Documents du corpus",
+        "value": "2000",
+        "unit": "documents"
+      }
+    ],
+    "limitations": [
+      "À vérifier : d’autres sources, non primaires (un cabinet de conseil), évoquent un portail d’IA générative ouvert à environ 160 000 salariés et plus de 400 cas d’usage ; à confirmer par une source EDF ou presse avant de l’ajouter à la fiche.",
+      "Il s’agit d’un projet de R&D ; la source ne dit pas s’il est passé en production."
+    ],
+    "risks": [
+      "Coût de l’affinage et de l’hébergement",
+      "Évaluation limitée à un corpus test"
+    ],
+    "lessons_learned": [
+      "Un petit modèle ouvert, affiné sur le bon corpus, peut suffire là où l’on croit avoir besoin du plus grand modèle.",
+      "Pour des données critiques, la souveraineté est une contrainte de conception, pas une option."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.lemagit.fr/etude/La-RD-dEDF-se-branche-sur-lIA-generative",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Projet R&D EDF × Illuin décrit par LeMagIT (juillet 2024). À VÉRIFIER — d’autres sources, non primaires (un cabinet de conseil), évoquent un portail d’IA générative ouvert à environ 160 000 salariés et plus de 400 cas d’usage ; à confirmer par une source EDF ou presse avant de l’ajouter à la fiche."
+    },
+    "confidence": "low",
+    "sources": [
+      {
+        "id": "source-edf-rd-rag-search",
+        "source_type": "public-source",
+        "title": "La R&D d’EDF se branche sur l’IA générative",
+        "publisher": "LeMagIT",
+        "reference": "https://www.lemagit.fr/etude/La-RD-dEDF-se-branche-sur-lIA-generative",
+        "url": "https://www.lemagit.fr/etude/La-RD-dEDF-se-branche-sur-lIA-generative",
+        "published_at": "2024-07-02",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "low"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis LeMagIT.",
+        "source_ref": "https://www.lemagit.fr/etude/La-RD-dEDF-se-branche-sur-lIA-generative"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-stripe-claude-code-migration",
+    "slug": "real-stripe-claude-code-migration",
+    "title": "Stripe — Migrer du code à grande échelle avec un agent de développement",
+    "short_description": "Stripe équipe 1 370 ingénieurs d’un agent de code et migre 10 000 lignes de Scala vers Java en quatre jours.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-01T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "software",
+    "industry_raw": "Fintech — infrastructure de paiement",
+    "business_function": [
+      "it-data"
+    ],
+    "geography": [
+      "États-Unis",
+      "International"
+    ],
+    "problem": "Les migrations de code sont longues, répétitives et mobilisent des ingénieurs pendant des semaines.",
+    "ai_pattern": [
+      "coding",
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "human_in_the_loop": {
+      "required": true,
+      "points": [
+        "Les ingénieurs relisent et testent le code avant fusion"
+      ]
+    },
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Donner le contexte",
+        "actor": "human",
+        "input": [
+          "Documentation",
+          "exemples de code",
+          "modèles d’architecture"
+        ],
+        "output": [
+          "Consignes de migration"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Migrer le code",
+        "actor": "agent",
+        "input": [
+          "Code Scala",
+          "consignes"
+        ],
+        "output": [
+          "Code Java proposé"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Relire et tester",
+        "actor": "human",
+        "input": [
+          "Code proposé"
+        ],
+        "output": [
+          "Code fusionné"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Code migré",
+      "Agent disponible sur tous les postes"
+    ],
+    "data_required": [
+      "Code source",
+      "Documentation interne"
+    ],
+    "data_sources": [
+      {
+        "name": "Dépôts de code Stripe",
+        "access": "read",
+        "sensitivity": "confidential"
+      }
+    ],
+    "tools": [
+      "Claude Code"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "Réaliser en jours ce qui prenait des semaines."
+      },
+      {
+        "type": "productivity",
+        "description": "Libérer les ingénieurs des tâches de migration."
+      }
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "business_impact": [
+      "vitesse de développement",
+      "dette technique"
+    ],
+    "results": [
+      {
+        "text": "Claude Code est déployé auprès de 1 370 ingénieurs, préinstallé sur chaque poste.",
+        "observed": true
+      },
+      {
+        "text": "10 000 lignes de Scala ont été migrées vers Java en quatre jours, contre une estimation d’environ dix semaines-ingénieur à la main.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Ingénieurs équipés",
+        "value": "1370",
+        "unit": "ingénieurs"
+      },
+      {
+        "name": "Lignes migrées",
+        "value": "10000",
+        "unit": "lignes"
+      },
+      {
+        "name": "Durée de la migration",
+        "value": "4",
+        "unit": "jours"
+      },
+      {
+        "name": "Estimation manuelle",
+        "value": "10",
+        "unit": "semaines-ingénieur"
+      }
+    ],
+    "limitations": [
+      "À vérifier : les chiffres (1 370 ingénieurs, 10 000 lignes en 4 jours, estimation de 10 semaines) sont publiés par Anthropic, éditeur de l’outil, sans source Stripe indépendante.",
+      "La source ne détaille ni l’effort de relecture ni le taux de corrections après migration."
+    ],
+    "risks": [
+      "Régressions introduites par le code généré",
+      "Sécurité de la chaîne d’installation de l’outil"
+    ],
+    "lessons_learned": [
+      "Stripe présente l’agent comme « un ingénieur compétent qui ne connaît pas le contexte métier » : c’est ce contexte que les équipes doivent fournir.",
+      "Un binaire signé et une installation sans configuration ont levé les objections de sécurité."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://claude.com/customers/stripe",
+      "captured_at": "2026-10-01T00:00:00Z",
+      "captured_by": "case-base-enrichment-web-2026-10-01",
+      "transformation_notes": "Page client Anthropic. À VÉRIFIER — les chiffres (1 370 ingénieurs, 10 000 lignes en 4 jours, estimation de 10 semaines) sont publiés par Anthropic, éditeur de l’outil, sans source Stripe indépendante."
+    },
+    "confidence": "low",
+    "sources": [
+      {
+        "id": "source-stripe-claude-code-migration",
+        "source_type": "public-source",
+        "title": "Stripe Claude Code case study",
+        "publisher": "Anthropic",
+        "reference": "https://claude.com/customers/stripe",
+        "url": "https://claude.com/customers/stripe",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "low"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-01T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Anthropic.",
+        "source_ref": "https://claude.com/customers/stripe"
+      }
+    ]
   }
 ]

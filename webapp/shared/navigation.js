@@ -50,7 +50,7 @@
           <div class="site-nav-columns site-nav-columns-single">
             <div class="site-nav-subgroup">
               <h3>Explorer</h3>
-              <a class="site-nav-compact-link" data-global-section="explore" href="${href('explore/')}"><b>01</b><span>Catalogue des cas</span><small>120 cas d’usage, avec leur niveau de preuve</small></a>
+              <a class="site-nav-compact-link" data-global-section="explore" href="${href('explore/')}"><b>01</b><span>Catalogue des cas</span><small>136 cas d’usage, avec leur niveau de preuve</small></a>
               <a class="site-nav-compact-link module-launcher-link" data-module="cases" href="${href('', '?module=cases&amp;journey=pme&amp;slide=3')}"><b>02</b><span>Cas réels</span><small>Architectures, sources et résultats</small></a>
               <a class="site-nav-compact-link module-launcher-link" data-module="agent-lab" href="${href('', '?module=agent-lab&amp;journey=pme&amp;slide=3')}"><b>03</b><span>Labo agent</span><small>Outils, permissions et validation humaine</small></a>
               <a class="site-nav-compact-link module-launcher-link" data-module="memory-map" href="${href('', '?module=memory-map&amp;journey=pme&amp;slide=3')}"><b>04</b><span>Carte de la mémoire</span><small>Contexte, recherche et mémoire durable</small></a>
