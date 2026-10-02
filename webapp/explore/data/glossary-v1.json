@@ -668,12 +668,12 @@
     },
     {
       "slug": "validation-humaine",
-      "term": "Validation humaine (human gate)",
+      "term": "Validation humaine",
       "group": "systemes",
       "aliases": [
-        "human gate",
         "humain dans la boucle",
-        "human in the loop"
+        "human in the loop",
+        "point de validation"
       ],
       "short": "Un point du processus où une personne vérifie et approuve avant que le système continue ou agisse.",
       "definition": [
