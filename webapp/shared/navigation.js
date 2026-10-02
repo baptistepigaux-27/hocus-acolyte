@@ -52,9 +52,10 @@
               <h3>Explorer</h3>
               <a class="site-nav-compact-link" data-global-section="explore" href="${href('explore/')}"><b>01</b><span>Catalogue des cas</span><small>136 cas d’usage, avec leur niveau de preuve</small></a>
               <a class="site-nav-compact-link" data-global-section="tools" href="${href('outils/')}"><b>02</b><span>Carte des outils</span><small>Les outils cités par les cas, rangés par rôle</small></a>
-              <a class="site-nav-compact-link module-launcher-link" data-module="cases" href="${href('', '?module=cases&amp;journey=pme&amp;slide=3')}"><b>03</b><span>Cas réels</span><small>Architectures, sources et résultats</small></a>
-              <a class="site-nav-compact-link module-launcher-link" data-module="agent-lab" href="${href('', '?module=agent-lab&amp;journey=pme&amp;slide=3')}"><b>04</b><span>Labo agent</span><small>Outils, permissions et validation humaine</small></a>
-              <a class="site-nav-compact-link module-launcher-link" data-module="memory-map" href="${href('', '?module=memory-map&amp;journey=pme&amp;slide=3')}"><b>05</b><span>Carte de la mémoire</span><small>Contexte, recherche et mémoire durable</small></a>
+              <a class="site-nav-compact-link" data-global-section="glossary" href="${href('glossaire/')}"><b>03</b><span>Glossaire</span><small>Les mots de l’IA, reliés aux cas</small></a>
+              <a class="site-nav-compact-link module-launcher-link" data-module="cases" href="${href('', '?module=cases&amp;journey=pme&amp;slide=3')}"><b>04</b><span>Cas réels</span><small>Architectures, sources et résultats</small></a>
+              <a class="site-nav-compact-link module-launcher-link" data-module="agent-lab" href="${href('', '?module=agent-lab&amp;journey=pme&amp;slide=3')}"><b>05</b><span>Labo agent</span><small>Outils, permissions et validation humaine</small></a>
+              <a class="site-nav-compact-link module-launcher-link" data-module="memory-map" href="${href('', '?module=memory-map&amp;journey=pme&amp;slide=3')}"><b>06</b><span>Carte de la mémoire</span><small>Contexte, recherche et mémoire durable</small></a>
             </div>
           </div>
         </div>
@@ -93,6 +94,6 @@
 
   const path = window.location.pathname;
   const params = new URLSearchParams(window.location.search);
-  const section = path.includes('/outils/') ? 'tools' : path.includes('/explore/') || path.includes('/cas/') ? 'explore' : params.has('journey') ? 'journey' : 'index';
+  const section = path.includes('/glossaire/') ? 'glossary' : path.includes('/outils/') ? 'tools' : path.includes('/explore/') || path.includes('/cas/') ? 'explore' : params.has('journey') ? 'journey' : 'index';
   nav.querySelectorAll(`[data-global-section="${section}"]`).forEach((link) => link.setAttribute('aria-current', 'page'));
 })();

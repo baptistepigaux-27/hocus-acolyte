@@ -64,7 +64,7 @@
   };
   const evidenceColors = { documented: 'documented', experience: 'experience', pattern: 'pattern', concept: 'concept' };
   const PAGE = 12;
-  const state = { cases: [], tools: [], toolsById: {}, query: '', filters: {}, detail: null, filtersOpen: false, limit: PAGE };
+  const state = { cases: [], tools: [], toolsById: {}, glossary: { groups: {}, terms: [] }, query: '', filters: {}, detail: null, filtersOpen: false, limit: PAGE };
   /* Acolyte V2 : chaque fiche a sa page, /acolyte/cas/{slug}/ (pré-rendue pour les moteurs de recherche). */
   const base = root.dataset.root || '../';
   const caseHref = (item) => `${base}cas/${encodeURIComponent(item.slug || item.id)}/`;
@@ -73,6 +73,9 @@
   const toolSlug = (tool) => String(tool.id).replace(/^tool-/, '');
   const toolHref = (tool) => `${base}outils/${encodeURIComponent(toolSlug(tool))}/`;
   const toolsHref = `${base}outils/`;
+  /* Glossaire : /acolyte/glossaire/ et une page par terme, /acolyte/glossaire/{slug}/ (pré-rendue). */
+  const termHref = (term) => `${base}glossaire/${encodeURIComponent(term.slug)}/`;
+  const glossaryHref = `${base}glossaire/`;
   let sky = null;
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
@@ -174,7 +177,7 @@
         <p class="explore-kicker">CATALOGUE · 136 CAS D’USAGE</p>
         <h1>Les cas d’usage de l’IA, avant les promesses.</h1>
         <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par secteur, fonction ou taille d’entreprise, puis ouvrez une fiche.</p>
-        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="${toolsHref}">La carte des outils →</a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
+        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="${toolsHref}">La carte des outils →</a><a class="explore-text-link" href="${glossaryHref}">Le glossaire →</a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
       </div>
       <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p><span id="case-mix">93 cas documentés par une source publique, 41 cas types et 2 retours d’expérience.</span> Les inconnues et les limites restent visibles.</p></aside>
     </section>
@@ -295,7 +298,8 @@
   }
 
   function detailFacts(item) {
-    return [['Taille', formatList(item.company_size, 'company_size')], ['Secteur', titleFor('industry', item.industry)], ['Fonction', formatList(item.business_function, 'business_function')], ['Solution', titleFor('solution_type', item.solution_type)], ['Autonomie', titleFor('autonomy_level', item.autonomy_level)], ['Preuve', titleFor('evidence_level', item.evidence_level)]].map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${escapeHtml(value || 'Non renseigné')}</strong></div>`).join('');
+    const linked = { Solution: ['solution_type', item.solution_type], Autonomie: ['autonomy_level', item.autonomy_level] };
+    return [['Taille', formatList(item.company_size, 'company_size')], ['Secteur', titleFor('industry', item.industry)], ['Fonction', formatList(item.business_function, 'business_function')], ['Solution', titleFor('solution_type', item.solution_type)], ['Autonomie', titleFor('autonomy_level', item.autonomy_level)], ['Preuve', titleFor('evidence_level', item.evidence_level)]].map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${linked[label] && value ? termLink(linked[label][0], linked[label][1], value) : escapeHtml(value || 'Non renseigné')}</strong></div>`).join('');
   }
 
   function relatedCases(item) {
@@ -355,7 +359,7 @@
     const namedTools = valuesFor(item, 'tool_ids').map((id) => state.toolsById[id]).filter(Boolean);
     const namedToolsMarkup = namedTools.length ? `<div class="detail-pills detail-tool-links">${namedTools.map((tool) => `<a href="${toolHref(tool)}">${escapeHtml(tool.name)} <b aria-hidden="true">→</b></a>`).join('')}</div>` : '';
     const mechanismSupport = [dataMarkup ? `<div><p class="detail-sub-label">Données et entrées</p>${dataMarkup}</div>` : '', namedToolsMarkup ? `<div><p class="detail-sub-label">Outils nommés · voir la carte des outils</p>${namedToolsMarkup}</div>` : '', toolsMarkup ? `<div><p class="detail-sub-label">Outils et systèmes cités par la source</p>${toolsMarkup}</div>` : ''].join('');
-    const mechanism = `<div class="detail-pills">${labelForArray('ai_pattern', item.ai_pattern).map((value) => `<span>${escapeHtml(value)}</span>`).join('')}</div>${item.workflow?.length ? renderTextList(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : '<p class="detail-quiet">Le schéma indique le pattern mobilisé, sans déroulé opérationnel plus détaillé.</p>'}${mechanismSupport}`;
+    const mechanism = `<div class="detail-pills">${valuesFor(item, 'ai_pattern').map((value) => { const term = termFor('ai_pattern', value); return term ? `<a class="glossary-pill" href="${termHref(term)}">${escapeHtml(titleFor('ai_pattern', value))}</a>` : `<span>${escapeHtml(titleFor('ai_pattern', value))}</span>`; }).join('')}</div>${item.workflow?.length ? renderTextList(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : '<p class="detail-quiet">Le schéma indique le pattern mobilisé, sans déroulé opérationnel plus détaillé.</p>'}${mechanismSupport}`;
     const impactMarkup = [resultList, expectedValue ? `<div><p class="detail-sub-label">Valeur attendue dans la fiche</p>${expectedValue}</div>` : '', item.business_impact?.length ? `<div><p class="detail-sub-label">Type d’impact envisagé</p>${renderTextList(item.business_impact)}</div>` : ''].join('');
     const prerequisites = renderTextList([item.delivery_scope, item.complexity && `Complexité : ${item.complexity}`, item.technical_feasibility && `Faisabilité technique : ${item.technical_feasibility}`, item.organizational_feasibility && `Faisabilité organisationnelle : ${item.organizational_feasibility}`, item.data_readiness && `Maturité data : ${item.data_readiness}`, item.maturity_required && `Maturité requise : ${item.maturity_required}`]);
     const limitations = renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]);
@@ -369,6 +373,7 @@
   const byEvidenceThenTitle = (a, b) => (evidenceRank[a.evidence_level] ?? 9) - (evidenceRank[b.evidence_level] ?? 9) || a.title.localeCompare(b.title, 'fr');
   const formatDate = (value) => { const date = new Date(`${value}T12:00:00Z`); return Number.isNaN(date.getTime()) ? value : date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }); };
   const casesLabel = (count) => `${count} cas`;
+  const clipText = (text, max) => { const t = String(text || ''); return t.length <= max ? t : `${t.slice(0, max - 1).replace(/\s+\S*$/, '')}…`; };
 
   function vendorMix() {
     const mentions = { us: 0, europe: 0, other: 0 };
@@ -380,6 +385,55 @@
     }));
     const total = mentions.us + mentions.europe + mentions.other || 1;
     return { us: Math.round((100 * mentions.us) / total), europe: Math.round((100 * mentions.europe) / total) };
+  }
+
+  /* Terme du glossaire qui explique une valeur de taxonomie (le plus spécifique d'abord). */
+  function termFor(field, value) {
+    const candidates = state.glossary.terms.filter((term) => asArray(term.maps?.[field]).includes(value));
+    return candidates.sort((a, b) => asArray(a.maps[field]).length - asArray(b.maps[field]).length)[0] || null;
+  }
+  const termLink = (field, value, label) => { const term = termFor(field, value); return term ? `<a class="glossary-link" href="${termHref(term)}">${escapeHtml(label)}</a>` : escapeHtml(label); };
+
+  function termCases(term) {
+    const maps = term.maps || {};
+    const families = new Set(asArray(maps.tool_family));
+    const licenses = new Set(asArray(maps.license));
+    return state.cases.filter((item) => {
+      const tools = valuesFor(item, 'tool_ids').map((id) => state.toolsById[id]).filter(Boolean);
+      return asArray(maps.case_ids).includes(item.id)
+        || valuesFor(item, 'ai_pattern').some((value) => asArray(maps.ai_pattern).includes(value))
+        || asArray(maps.solution_type).includes(item.solution_type)
+        || asArray(maps.autonomy_level).includes(item.autonomy_level)
+        || (maps.human_gate && item.human_in_the_loop?.required)
+        || tools.some((tool) => asArray(maps.tool_ids).includes(tool.id) || families.has(tool.family) || licenses.has(tool.license));
+    });
+  }
+  const termTools = (term) => state.tools.filter((tool) => asArray(term.maps?.tool_ids).includes(tool.id) || asArray(term.maps?.tool_family).includes(tool.family) || asArray(term.maps?.license).includes(tool.license));
+
+  function renderGlossaryIndex() {
+    const groups = Object.entries(state.glossary.groups || {});
+    const terms = state.glossary.terms;
+    root.innerHTML = `<section class="explore-hero">
+      <div class="explore-hero-copy">
+        <p class="explore-kicker">GLOSSAIRE · ${terms.length} TERMES</p>
+        <h1>Les mots de l’IA, expliqués par les cas.</h1>
+        <p class="explore-lead">LLM, RAG, agent, validation humaine, niveau d’autonomie : les termes employés dans les parcours, le catalogue et la carte des outils. Chacun renvoie aux cas et aux outils qui le rendent concret.</p>
+        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="${exploreHref}">Le catalogue des cas →</a><a class="explore-text-link" href="${toolsHref}">La carte des outils →</a></div>
+      </div>
+      <aside class="explore-hero-note"><span>LE PRINCIPE</span><strong>Court et concret</strong><p>Une définition sans jargon, ce que cela change en pratique, les confusions fréquentes, et les cas du catalogue qui l’illustrent.</p></aside>
+    </section>
+    ${groups.map(([group, label]) => { const list = terms.filter((term) => term.group === group).sort((a, b) => a.term.localeCompare(b.term, 'fr')); return list.length ? `<section class="explore-catalog glossary-group" id="${escapeHtml(group)}" aria-labelledby="${escapeHtml(group)}-title"><div class="explore-catalog-head"><div><p class="explore-kicker">${list.length} TERMES</p><h2 id="${escapeHtml(group)}-title">${escapeHtml(label)}</h2></div></div><div class="glossary-grid">${list.map((term) => `<a class="glossary-card" href="${termHref(term)}"><strong>${escapeHtml(term.term)}</strong><p>${escapeHtml(term.short)}</p><span>${termCases(term).length ? `${escapeHtml(casesLabel(termCases(term).length))} liés` : 'Notion transverse'} <b aria-hidden="true">→</b></span></a>`).join('')}</div></section>` : ''; }).join('')}`;
+  }
+
+  function renderTerm(term) {
+    const bySlug = Object.fromEntries(state.glossary.terms.map((item) => [item.slug, item]));
+    const cases = termCases(term).sort(byEvidenceThenTitle);
+    const tools = termTools(term).sort((a, b) => toolCases(b).length - toolCases(a).length || a.name.localeCompare(b.name, 'fr'));
+    const related = asArray(term.related).map((slug) => bySlug[slug]).filter(Boolean);
+    const filterKey = ['solution_type', 'autonomy_level'].find((key) => asArray(term.maps?.[key]).length === 1);
+    const exploreLink = filterKey ? `${exploreHref}?${filterKey}=${encodeURIComponent(term.maps[filterKey][0])}` : exploreHref;
+    const groupLabel = state.glossary.groups?.[term.group] || '';
+    root.innerHTML = `<div class="explore-detail-page glossary-term-page"><a class="detail-back" href="${glossaryHref}">← Le glossaire</a><header class="explore-detail-hero"><div><p class="explore-kicker">GLOSSAIRE · ${escapeHtml(groupLabel.toLocaleUpperCase('fr'))}</p><h1>${escapeHtml(term.term)}</h1><p class="explore-detail-lead">${escapeHtml(term.short)}</p></div><div class="detail-proof-panel">${cases.length ? `<strong class="tool-count-large">${escapeHtml(casesLabel(cases.length))}</strong><p>du catalogue illustrent ce terme${tools.length ? `, avec ${tools.length} outil${tools.length > 1 ? 's' : ''} de la carte` : ''}.</p>` : `<strong class="tool-count-large">Transverse</strong><p>Une notion qui concerne tous les cas plutôt que quelques-uns. <a href="${exploreHref}">Parcourir le catalogue →</a></p>`}${term.aliases?.length ? `<small>Aussi : ${escapeHtml(term.aliases.join(' · '))}</small>` : ''}</div></header><div class="detail-layout"><div class="detail-main">${renderSection('Définition', term.definition.map((paragraph) => `<p class="detail-prose">${escapeHtml(paragraph)}</p>`).join(''))}${term.in_practice?.length ? renderSection('En pratique', renderTextList(term.in_practice)) : ''}${term.confusions?.length ? renderSection('À ne pas confondre', `<ul class="detail-list">${term.confusions.map((item) => `<li><b>${escapeHtml(item.term)}</b> : ${escapeHtml(item.difference)}</li>`).join('')}</ul>`) : ''}${tools.length ? renderSection('Outils liés', `<div class="detail-pills detail-tool-links">${tools.slice(0, 10).map((tool) => `<a href="${toolHref(tool)}">${escapeHtml(tool.name)} <b aria-hidden="true">→</b></a>`).join('')}</div>`) : ''}</div></div>${cases.length ? `<section class="explore-catalog tool-cases" aria-labelledby="term-cases-title"><div class="explore-catalog-head"><div><p class="explore-kicker">DANS LE CATALOGUE</p><h2 id="term-cases-title">Des cas pour le voir à l’œuvre</h2></div><p class="explore-catalog-intro">${cases.length > 6 ? `Six cas sur ${cases.length}, les documentés d’abord. <a href="${exploreLink}">Voir le catalogue →</a>` : 'Les cas documentés d’abord.'}</p></div><div class="explore-card-grid">${cases.slice(0, 6).map(card).join('')}</div></section>` : ''}${related.length ? `<section class="detail-related"><div><p class="detail-label">TERMES LIÉS</p><h2>Continuer la lecture.</h2></div><div class="detail-related-grid">${related.map((item) => `<a href="${termHref(item)}"><span>${escapeHtml(state.glossary.groups?.[item.group] || '')}</span><strong>${escapeHtml(item.term)}</strong><small>${escapeHtml(clipText(item.short, 90))}</small></a>`).join('')}</div></section>` : ''}<section class="detail-hocus" aria-labelledby="term-hocus-title"><div class="detail-hocus-head"><p class="detail-label">ET CHEZ VOUS ?</p><h2 id="term-hocus-title">Passer du mot au cas d’usage</h2><p>Comprendre le vocabulaire est un début. HOCUS part de vos données et de vos équipes pour identifier ce qui a du sens chez vous.</p></div><div class="detail-hocus-grid"><a class="detail-hocus-card is-entry" href="/works/diagnostic/"><span>1 · POINT DE DÉPART</span><strong>Diagnostic Data &amp; IA</strong><p>Les cas qui ont du sens chez vous, avec quelles données, et ce qu’ils rapporteraient.</p><b>Découvrir ↗</b></a><a class="detail-hocus-card" href="mailto:hello@hocus.works?subject=${encodeURIComponent(`Acolyte — ${term.term}`)}"><span>2 · EN PARLER</span><strong>Écrire à HOCUS</strong><p>Une question sur ce terme ou sur votre situation.</p><b>hello@hocus.works ↗</b></a></div></section></div>`;
   }
 
   function toolCard(tool) {
@@ -395,7 +449,7 @@
         <p class="explore-kicker">CARTE DES OUTILS · ${state.tools.length} OUTILS NOMMÉS</p>
         <h1>Les outils de l’IA, vus depuis les cas.</h1>
         <p class="explore-lead">Les outils cités dans les fiches du catalogue, rangés par rôle dans un système. Pour chacun : à quoi il sert, quand l’éviter, et les cas qui l’utilisent vraiment.</p>
-        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${exploreHref}">Partir des cas <span aria-hidden="true">→</span></a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
+        <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${exploreHref}">Partir des cas <span aria-hidden="true">→</span></a><a class="explore-text-link" href="${glossaryHref}">Le glossaire →</a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
       </div>
       <aside class="explore-hero-note"><span>À LIRE AVANT</span><strong>${mix.us} % américains</strong><p>${mix.us} % des mentions d’outils dans les fiches renvoient à des éditeurs américains, ${mix.europe} % à des éditeurs européens. La carte reflète les cas publiés, pas le marché. Acolyte ne classe pas les outils et n’est affilié à aucun éditeur.</p></aside>
     </section>
@@ -417,6 +471,8 @@
     readRoute();
     if (root.dataset.tool) { const own = state.toolsById[root.dataset.tool]; if (own) renderTool(own); return; }
     if (root.dataset.view === 'tools') { renderToolsIndex(); return; }
+    if (root.dataset.term) { const own = state.glossary.terms.find((term) => term.slug === root.dataset.term); if (own) renderTerm(own); return; }
+    if (root.dataset.view === 'glossary') { renderGlossaryIndex(); return; }
     if (root.dataset.case) { const own = state.cases.find((candidate) => candidate.id === root.dataset.case); if (own) renderDetail(own); return; }
     if (state.detail) { const legacy = state.cases.find((candidate) => candidate.id === state.detail); if (legacy) { window.location.replace(caseHref(legacy)); return; } }
     const item = state.detail ? state.cases.find((candidate) => candidate.id === state.detail) : null;
@@ -466,12 +522,15 @@
   if (root.dataset.prerendered === 'true') return;
   const casesSrc = root.dataset.src || 'data/cases-v1.json';
   const toolsSrc = root.dataset.tools || casesSrc.replace(/cases-v1\.json$/, 'tools-v1.json');
+  const glossarySrc = casesSrc.replace(/cases-v1\.json$/, 'glossary-v1.json');
   Promise.all([
     fetch(casesSrc).then((response) => { if (!response.ok) throw new Error(`Dataset unavailable (${response.status})`); return response.json(); }),
     /* Le référentiel des outils enrichit le catalogue ; s'il manque, les cas restent consultables. */
-    fetch(toolsSrc).then((response) => (response.ok ? response.json() : [])).catch(() => [])
+    fetch(toolsSrc).then((response) => (response.ok ? response.json() : [])).catch(() => []),
+    fetch(glossarySrc).then((response) => (response.ok ? response.json() : null)).catch(() => null)
   ])
-    .then(([cases, tools]) => {
+    .then(([cases, tools, glossary]) => {
+      if (glossary?.terms) state.glossary = glossary;
       state.cases = cases;
       state.tools = tools;
       state.toolsById = Object.fromEntries(tools.map((tool) => [tool.id, tool]));

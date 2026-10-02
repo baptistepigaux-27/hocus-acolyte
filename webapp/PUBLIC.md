@@ -8,6 +8,7 @@ retoucher, puis pré-rend une page par fiche sous `cas/{slug}/`).
   `shared/acolyte-o.png` (source haute définition du logo).
 - `cas/_template.html` est le gabarit des pages de fiche ; il n'est pas publié.
 - `outils/_template.html` est le gabarit des pages outils (`outils/{slug}/`) ; il n’est pas publié.
+- `glossaire/_template.html` est le gabarit des pages du glossaire (`glossaire/{slug}/`) ; il n’est pas publié.
 - Les liens vers HOCUS (`/`, `/works/diagnostic/`, `/works/`, `/atelier/…`)
   sont absolus : ils visent le site qui héberge Acolyte.
 - `explore/explore.js` porte la correspondance fiche → offre HOCUS

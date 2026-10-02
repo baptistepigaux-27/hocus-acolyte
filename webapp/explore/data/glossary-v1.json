@@ -1,0 +1,1149 @@
+{
+  "groups": {
+    "bases": "Les bases",
+    "systemes": "Les systèmes",
+    "taches": "Ce que fait l’IA",
+    "mise-en-oeuvre": "La mise en œuvre"
+  },
+  "terms": [
+    {
+      "slug": "llm",
+      "term": "Grand modèle de langage (LLM)",
+      "group": "bases",
+      "aliases": [
+        "LLM",
+        "modèle de langage",
+        "large language model",
+        "IA générative"
+      ],
+      "short": "Un modèle entraîné sur d’immenses volumes de texte pour prédire la suite d’un texte, ce qui lui permet de rédiger, résumer, traduire ou raisonner.",
+      "definition": [
+        "Un grand modèle de langage, ou LLM (large language model), est un réseau de neurones entraîné à prédire le mot suivant sur des quantités massives de textes. À force, il apprend des régularités de langue, de faits et de raisonnement assez riches pour répondre à des questions, rédiger ou transformer un texte.",
+        "Il ne consulte pas une base de faits : il génère la réponse la plus plausible. C’est ce qui le rend polyvalent, et ce qui explique qu’il puisse se tromper avec aplomb."
+      ],
+      "in_practice": [
+        "Il sert de moteur aux assistants, aux copilotes et aux agents.",
+        "Seul, il ne connaît ni vos documents ni vos données : il faut les lui fournir dans le contexte ou par une recherche (RAG).",
+        "On y accède par une application, une API ou en l’hébergeant soi-même pour les modèles ouverts."
+      ],
+      "confusions": [
+        {
+          "term": "Assistant ou chatbot",
+          "difference": "le LLM est le moteur ; l’assistant est l’application construite autour, avec son interface, ses règles et ses sources."
+        }
+      ],
+      "related": [
+        "prompt",
+        "contexte",
+        "hallucination",
+        "poids-ouverts",
+        "token"
+      ],
+      "maps": {
+        "tool_family": [
+          "model"
+        ]
+      }
+    },
+    {
+      "slug": "prompt",
+      "term": "Prompt",
+      "group": "bases",
+      "aliases": [
+        "consigne",
+        "prompt système",
+        "prompt engineering"
+      ],
+      "short": "La consigne donnée au modèle : la tâche, le contexte utile, le format attendu et les limites à respecter.",
+      "definition": [
+        "Le prompt est le texte d’entrée qui dit au modèle ce qu’il doit faire. Il peut tenir en une phrase ou comporter des pages : rôle, exemples, documents à utiliser, format de sortie, interdits.",
+        "Dans un système en production, l’essentiel du prompt est écrit une fois par l’équipe (prompt système) et complété automatiquement à chaque demande avec les données utiles."
+      ],
+      "in_practice": [
+        "Un bon prompt dit le but, donne le contexte et précise le format attendu.",
+        "Les consignes stables gagnent à être versionnées et testées comme du code.",
+        "Un prompt ne remplace pas des données à jour : il les encadre."
+      ],
+      "confusions": [],
+      "related": [
+        "llm",
+        "contexte",
+        "evaluation"
+      ],
+      "maps": {}
+    },
+    {
+      "slug": "contexte",
+      "term": "Contexte (fenêtre de contexte)",
+      "group": "bases",
+      "aliases": [
+        "fenêtre de contexte",
+        "context window"
+      ],
+      "short": "Tout ce que le modèle voit au moment de répondre : la consigne, la conversation, les documents fournis. Sa taille est limitée.",
+      "definition": [
+        "Le contexte est l’ensemble du texte transmis au modèle pour une réponse : instructions, échanges précédents, extraits de documents, résultats d’outils. La fenêtre de contexte est sa taille maximale, mesurée en tokens.",
+        "Le modèle ne garde rien d’une demande à l’autre par lui-même : ce qui n’est pas dans le contexte n’existe pas pour lui. D’où l’importance de choisir ce qu’on y met."
+      ],
+      "in_practice": [
+        "Plus de contexte n’est pas toujours mieux : des documents hors sujet dégradent la réponse.",
+        "La mémoire d’un assistant consiste souvent à réinjecter dans le contexte ce qui a été retenu.",
+        "La recherche (RAG) sert à sélectionner les bons extraits pour le contexte."
+      ],
+      "confusions": [
+        {
+          "term": "Mémoire",
+          "difference": "le contexte est temporaire, le temps d’une réponse ; la mémoire est ce qu’un système conserve et réinjecte d’une session à l’autre."
+        }
+      ],
+      "related": [
+        "token",
+        "memoire",
+        "rag",
+        "prompt"
+      ],
+      "maps": {}
+    },
+    {
+      "slug": "token",
+      "term": "Token",
+      "group": "bases",
+      "aliases": [
+        "jeton",
+        "tokens"
+      ],
+      "short": "L’unité de texte que lit et produit un modèle, souvent un morceau de mot. Elle sert à mesurer la taille du contexte et le coût d’usage.",
+      "definition": [
+        "Un modèle ne lit pas des mots mais des tokens : des fragments de texte, de quelques lettres à un mot entier. En français, un mot représente en moyenne un peu plus d’un token.",
+        "Les API facturent généralement au nombre de tokens envoyés et reçus, et la fenêtre de contexte s’exprime en tokens."
+      ],
+      "in_practice": [
+        "Le coût d’un usage dépend du volume de texte traité, pas du nombre de questions.",
+        "Envoyer de longs documents à chaque demande coûte cher : on sélectionne les extraits utiles."
+      ],
+      "confusions": [],
+      "related": [
+        "contexte",
+        "llm"
+      ],
+      "maps": {}
+    },
+    {
+      "slug": "hallucination",
+      "term": "Hallucination",
+      "group": "bases",
+      "aliases": [
+        "réponse inventée",
+        "confabulation"
+      ],
+      "short": "Une réponse fausse produite avec assurance par un modèle : un fait, une source ou une règle qui n’existe pas.",
+      "definition": [
+        "On parle d’hallucination quand un modèle invente une information plausible mais fausse : une référence, un chiffre, une clause, une procédure. Elle découle de son fonctionnement, qui génère la suite la plus probable plutôt que de vérifier un fait.",
+        "Elle se réduit, sans disparaître, en fournissant les bonnes sources, en exigeant des citations, en évaluant le système et en gardant une validation humaine là où l’erreur coûte cher."
+      ],
+      "in_practice": [
+        "Demander à l’assistant de citer ses sources permet de vérifier vite.",
+        "Un assistant client doit pouvoir dire qu’il ne sait pas plutôt qu’inventer.",
+        "L’entreprise reste responsable de ce que dit son assistant (voir le cas Air Canada)."
+      ],
+      "confusions": [],
+      "related": [
+        "rag",
+        "evaluation",
+        "validation-humaine",
+        "provenance"
+      ],
+      "maps": {
+        "case_ids": [
+          "case-real-air-canada-chatbot-liability",
+          "case-real-albert-france-services"
+        ]
+      }
+    },
+    {
+      "slug": "poids-ouverts",
+      "term": "Modèle ouvert (poids ouverts)",
+      "group": "bases",
+      "aliases": [
+        "open weights",
+        "modèle open source",
+        "modèle ouvert"
+      ],
+      "short": "Un modèle dont les paramètres sont publiés : on peut le télécharger, l’héberger soi-même et l’adapter.",
+      "definition": [
+        "Un modèle à poids ouverts met à disposition ses paramètres entraînés. On peut le faire tourner sur sa propre infrastructure, sans envoyer ses données à un éditeur, et l’affiner sur ses propres textes. Llama ou certains modèles Mistral en sont des exemples.",
+        "« Ouvert » ne veut pas toujours dire open source au sens strict : les données et le code d’entraînement ne sont pas forcément publiés, et la licence peut restreindre certains usages."
+      ],
+      "in_practice": [
+        "Utile quand les données ne peuvent pas quitter l’entreprise.",
+        "Demande des compétences et une infrastructure (souvent des GPU) pour l’hébergement.",
+        "Lire la licence avant un usage commercial."
+      ],
+      "confusions": [
+        {
+          "term": "Open source",
+          "difference": "un logiciel open source publie son code ; un modèle à poids ouverts publie ses paramètres, pas forcément ses données ni sa recette d’entraînement."
+        }
+      ],
+      "related": [
+        "llm",
+        "affinage",
+        "souverainete"
+      ],
+      "maps": {
+        "license": [
+          "open-weights",
+          "open-source"
+        ],
+        "tool_family": [
+          "model"
+        ]
+      }
+    },
+    {
+      "slug": "multimodal",
+      "term": "Multimodal",
+      "group": "bases",
+      "aliases": [
+        "vision",
+        "voix",
+        "OCR"
+      ],
+      "short": "Un modèle ou un système qui traite plusieurs types de contenus : texte, image, son, vidéo, document scanné.",
+      "definition": [
+        "Un modèle multimodal accepte en entrée, ou produit en sortie, autre chose que du texte : il décrit une photo, lit un document scanné, transcrit une voix ou analyse un schéma.",
+        "Dans les cas d’usage, cela ouvre la lecture de factures et de formulaires, l’inspection visuelle ou l’accueil vocal."
+      ],
+      "in_practice": [
+        "La qualité dépend beaucoup de celle des images ou des enregistrements.",
+        "Pour une tâche visuelle précise et répétitive, un modèle de vision spécialisé reste souvent plus fiable et moins cher."
+      ],
+      "confusions": [],
+      "related": [
+        "llm",
+        "extraction"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "multimodal"
+        ],
+        "tool_family": [
+          "vision-speech"
+        ]
+      }
+    },
+    {
+      "slug": "affinage",
+      "term": "Affinage (fine-tuning)",
+      "group": "bases",
+      "aliases": [
+        "fine-tuning",
+        "fine tuning",
+        "spécialisation d’un modèle"
+      ],
+      "short": "Ré-entraîner un modèle existant sur ses propres exemples pour l’adapter à un vocabulaire, un style ou une tâche.",
+      "definition": [
+        "L’affinage consiste à poursuivre l’entraînement d’un modèle déjà entraîné, sur un jeu d’exemples choisi : questions-réponses métier, documents techniques, style maison. Le modèle intègre ces régularités dans ses paramètres.",
+        "C’est plus lourd qu’une recherche documentaire (RAG) : il faut des exemples de qualité, du calcul et un suivi des versions. On y vient quand le RAG et le prompt ne suffisent pas."
+      ],
+      "in_practice": [
+        "Pour apporter des connaissances à jour, le RAG est presque toujours plus simple.",
+        "L’affinage sert plutôt à un format, un ton ou une tâche très spécifique.",
+        "Un petit modèle affiné peut rivaliser avec un grand modèle généraliste sur un corpus donné (cas EDF)."
+      ],
+      "confusions": [
+        {
+          "term": "RAG",
+          "difference": "le RAG va chercher l’information au moment de la question ; l’affinage modifie le modèle lui-même."
+        }
+      ],
+      "related": [
+        "rag",
+        "poids-ouverts",
+        "llm"
+      ],
+      "maps": {
+        "tool_ids": [
+          "tool-llama"
+        ]
+      }
+    },
+    {
+      "slug": "embedding",
+      "term": "Embedding (représentation vectorielle)",
+      "group": "bases",
+      "aliases": [
+        "vecteur",
+        "base vectorielle",
+        "recherche sémantique"
+      ],
+      "short": "Une suite de nombres qui représente le sens d’un texte : deux textes proches ont des embeddings proches. C’est la base de la recherche sémantique.",
+      "definition": [
+        "Un embedding transforme un texte, une image ou un produit en vecteur de nombres. La distance entre deux vecteurs reflète leur proximité de sens, même sans mots en commun.",
+        "On calcule les embeddings de tous les documents à l’avance, on les range dans une base vectorielle, puis on retrouve les plus proches d’une question : c’est la recherche sémantique utilisée par le RAG."
+      ],
+      "in_practice": [
+        "Permet de retrouver « congés payés » en cherchant « vacances ».",
+        "Sert aussi à la recommandation et au regroupement de documents."
+      ],
+      "confusions": [],
+      "related": [
+        "rag",
+        "base-de-connaissance",
+        "recommandation"
+      ],
+      "maps": {
+        "tool_family": [
+          "knowledge-rag"
+        ]
+      }
+    },
+    {
+      "slug": "api",
+      "term": "API",
+      "group": "bases",
+      "aliases": [
+        "interface de programmation"
+      ],
+      "short": "Une interface qui permet à un logiciel d’appeler un service, par exemple d’envoyer un texte à un modèle et de recevoir sa réponse.",
+      "definition": [
+        "Une API (interface de programmation) est le point d’entrée technique d’un service. Pour l’IA, c’est la façon la plus courante d’utiliser un modèle dans une application : le programme envoie la consigne et les données, le service renvoie la réponse.",
+        "Elle s’oppose à l’usage par une interface prête à l’emploi (ChatGPT, Copilot) : plus de travail, mais plus de contrôle sur les données, le format et l’intégration."
+      ],
+      "in_practice": [
+        "Facturation à l’usage, en tokens.",
+        "Vérifier où les données sont traitées et si elles servent à entraîner les modèles."
+      ],
+      "confusions": [],
+      "related": [
+        "token",
+        "llm"
+      ],
+      "maps": {}
+    },
+    {
+      "slug": "assistant",
+      "term": "Assistant conversationnel (chatbot)",
+      "group": "systemes",
+      "aliases": [
+        "chatbot",
+        "assistant IA",
+        "agent conversationnel"
+      ],
+      "short": "Une application qui répond en langage naturel, à partir d’un modèle et, souvent, de sources de l’entreprise.",
+      "definition": [
+        "Un assistant conversationnel est l’application la plus simple construite sur un modèle : une interface de discussion, des consignes, et parfois un accès à des documents ou à quelques actions.",
+        "Les anciens chatbots suivaient des arbres de questions prédéfinis ; les assistants actuels comprennent des formulations libres, au prix d’un contrôle plus difficile des réponses."
+      ],
+      "in_practice": [
+        "Le premier usage d’un assistant interne est souvent de retrouver une information.",
+        "Côté client, mesurer le taux de renvoi vers un humain plutôt que le nombre de conversations (cas Hello bank!)."
+      ],
+      "confusions": [
+        {
+          "term": "Agent",
+          "difference": "un assistant répond ; un agent agit, en enchaînant des étapes et en utilisant des outils."
+        }
+      ],
+      "related": [
+        "copilote",
+        "agent",
+        "llm"
+      ],
+      "maps": {
+        "tool_family": [
+          "office-copilot"
+        ]
+      }
+    },
+    {
+      "slug": "copilote",
+      "term": "Copilote",
+      "group": "systemes",
+      "aliases": [
+        "copilot",
+        "assistant intégré"
+      ],
+      "short": "Un assistant intégré à l’outil de travail qui prépare, propose ou rédige, l’humain gardant la main sur chaque résultat.",
+      "definition": [
+        "Un copilote travaille à côté de la personne, dans son outil : il prépare un mail, résume une réunion, propose une réponse ou un code. La personne relit, corrige et décide.",
+        "Dans Acolyte, « copilote » désigne ce niveau de solution : le gain vient de la préparation et de la vitesse, sans délégation d’action."
+      ],
+      "in_practice": [
+        "Le travail se déplace vers la vérification et l’itération.",
+        "C’est souvent le premier pas, avant une chaîne automatisée ou un agent."
+      ],
+      "confusions": [
+        {
+          "term": "Agent",
+          "difference": "le copilote propose et l’humain exécute ; l’agent exécute lui-même des étapes dans un cadre donné."
+        }
+      ],
+      "related": [
+        "assistant",
+        "agent",
+        "autonomie"
+      ],
+      "maps": {
+        "solution_type": [
+          "copilot"
+        ]
+      }
+    },
+    {
+      "slug": "agent",
+      "term": "Agent",
+      "group": "systemes",
+      "aliases": [
+        "agent IA",
+        "IA agentique",
+        "agentic AI"
+      ],
+      "short": "Un système qui poursuit un objectif en plusieurs étapes : il planifie, utilise des outils, observe le résultat et recommence, dans des limites fixées.",
+      "definition": [
+        "Un agent combine un modèle et des outils : rechercher, lire un fichier, appeler une application, écrire dans un système. Il décide lui-même de la prochaine étape en fonction de ce qu’il observe, jusqu’à atteindre l’objectif ou une limite.",
+        "Sa valeur vient de l’enchaînement d’actions ; son risque aussi. Un agent utile a des permissions précises, des points de validation et une trace de ce qu’il a fait."
+      ],
+      "in_practice": [
+        "Commencer par un agent supervisé, qui prépare et soumet ses actions.",
+        "Donner le moins de permissions possible, puis élargir.",
+        "Journaliser chaque action pour pouvoir expliquer et corriger."
+      ],
+      "confusions": [
+        {
+          "term": "Chaîne automatisée",
+          "difference": "une chaîne suit des étapes prévues à l’avance ; un agent choisit ses étapes en cours de route."
+        }
+      ],
+      "related": [
+        "outils-permissions",
+        "validation-humaine",
+        "autonomie",
+        "orchestration",
+        "mcp"
+      ],
+      "maps": {
+        "solution_type": [
+          "agent"
+        ],
+        "tool_family": [
+          "harness-agent"
+        ]
+      }
+    },
+    {
+      "slug": "workflow",
+      "term": "Chaîne automatisée (workflow)",
+      "group": "systemes",
+      "aliases": [
+        "workflow",
+        "automatisation",
+        "pipeline"
+      ],
+      "short": "Une suite d’étapes prévues à l’avance, dont certaines confiées à l’IA : lire, extraire, classer, router, avec des exceptions renvoyées à un humain.",
+      "definition": [
+        "Une chaîne automatisée enchaîne des étapes définies : recevoir un document, en extraire les données, les vérifier, les enregistrer, prévenir quelqu’un en cas d’écart. L’IA intervient sur certaines étapes, mais le chemin est fixé.",
+        "C’est souvent le meilleur compromis entre gain et maîtrise : prévisible, testable, et plus simple à expliquer qu’un agent."
+      ],
+      "in_practice": [
+        "Bien adaptée aux flux répétitifs : factures, commandes, demandes entrantes.",
+        "La qualité dépend du traitement des exceptions autant que du cas nominal."
+      ],
+      "confusions": [
+        {
+          "term": "Agent",
+          "difference": "la chaîne suit un chemin prévu ; l’agent décide de son chemin."
+        }
+      ],
+      "related": [
+        "agent",
+        "orchestration",
+        "extraction",
+        "validation-humaine"
+      ],
+      "maps": {
+        "solution_type": [
+          "workflow"
+        ],
+        "tool_family": [
+          "automation"
+        ]
+      }
+    },
+    {
+      "slug": "orchestration",
+      "term": "Orchestration",
+      "group": "systemes",
+      "aliases": [
+        "multi-agents",
+        "orchestrateur"
+      ],
+      "short": "La coordination de plusieurs modèles, agents ou outils pour mener une tâche de bout en bout : qui fait quoi, dans quel ordre, avec quels contrôles.",
+      "definition": [
+        "Orchestrer, c’est organiser le travail entre plusieurs composants : un agent qui collecte, un autre qui analyse, un outil qui vérifie, un humain qui valide. L’orchestrateur répartit les tâches, transmet les résultats et gère les erreurs.",
+        "Les systèmes multi-agents en sont la forme la plus poussée : chaque agent a un rôle étroit et contrôlable."
+      ],
+      "in_practice": [
+        "Des rôles étroits rendent chaque étape vérifiable (cas Back Market).",
+        "L’orchestration doit garder une trace de bout en bout."
+      ],
+      "confusions": [],
+      "related": [
+        "agent",
+        "workflow",
+        "outils-permissions"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "orchestration"
+        ]
+      }
+    },
+    {
+      "slug": "base-de-connaissance",
+      "term": "Base de connaissance",
+      "group": "systemes",
+      "aliases": [
+        "knowledge base",
+        "base documentaire",
+        "connaissance"
+      ],
+      "short": "L’ensemble organisé des documents et informations de l’entreprise qu’un assistant peut interroger.",
+      "definition": [
+        "Une base de connaissance rassemble les sources qu’un système d’IA a le droit de consulter : procédures, contrats, fiches produits, historique de tickets, wiki. Sa qualité conditionne celle des réponses.",
+        "Dans Acolyte, la solution « base de connaissance » désigne les cas où la valeur vient surtout de rendre une connaissance existante retrouvable."
+      ],
+      "in_practice": [
+        "Commencer par trier : documents obsolètes et doublons dégradent les réponses.",
+        "Les droits d’accès doivent suivre ceux des documents d’origine."
+      ],
+      "confusions": [],
+      "related": [
+        "rag",
+        "embedding",
+        "memoire",
+        "provenance"
+      ],
+      "maps": {
+        "solution_type": [
+          "knowledge"
+        ],
+        "tool_family": [
+          "knowledge-rag"
+        ]
+      }
+    },
+    {
+      "slug": "rag",
+      "term": "RAG (génération augmentée par la recherche)",
+      "group": "systemes",
+      "aliases": [
+        "retrieval-augmented generation",
+        "recherche augmentée",
+        "génération augmentée"
+      ],
+      "short": "Une technique qui va chercher les passages pertinents dans vos documents avant de faire répondre le modèle, en s’appuyant sur eux.",
+      "definition": [
+        "Le RAG (retrieval-augmented generation) combine une recherche et une génération. À chaque question, le système retrouve les extraits les plus pertinents dans une base de connaissance, les place dans le contexte, puis demande au modèle de répondre à partir de ces extraits.",
+        "C’est la façon la plus courante de faire travailler un modèle sur les documents d’une entreprise, sans le ré-entraîner, avec des réponses qui peuvent citer leurs sources."
+      ],
+      "in_practice": [
+        "Les réponses ne valent que ce que valent les documents retrouvés.",
+        "Afficher les sources permet de vérifier et réduit le risque d’hallucination.",
+        "La recherche peut être sémantique (embeddings), par mots-clés, ou les deux."
+      ],
+      "confusions": [
+        {
+          "term": "Affinage",
+          "difference": "le RAG cherche l’information au moment de la question ; l’affinage modifie le modèle."
+        }
+      ],
+      "related": [
+        "base-de-connaissance",
+        "embedding",
+        "contexte",
+        "hallucination",
+        "affinage"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "retrieval"
+        ],
+        "tool_family": [
+          "knowledge-rag"
+        ]
+      }
+    },
+    {
+      "slug": "memoire",
+      "term": "Mémoire",
+      "group": "systemes",
+      "aliases": [
+        "mémoire persistante",
+        "mémoire durable"
+      ],
+      "short": "Ce qu’un assistant ou un agent conserve d’une session à l’autre : préférences, décisions, faits appris, historique.",
+      "definition": [
+        "Un modèle n’a pas de mémoire propre entre deux demandes. La mémoire d’un système est donc construite : on enregistre certaines informations (une préférence, une décision, un résumé d’échange) et on les réinjecte dans le contexte quand elles sont utiles.",
+        "Bien conçue, elle évite de tout réexpliquer ; mal tenue, elle propage des informations obsolètes ou sensibles."
+      ],
+      "in_practice": [
+        "Distinguer ce qui est retenu automatiquement de ce que l’utilisateur valide.",
+        "Prévoir comment consulter, corriger et effacer ce qui a été retenu."
+      ],
+      "confusions": [
+        {
+          "term": "Contexte",
+          "difference": "le contexte est ce que le modèle voit pour une réponse ; la mémoire est ce qui est conservé et réinjecté."
+        }
+      ],
+      "related": [
+        "contexte",
+        "base-de-connaissance",
+        "agent"
+      ],
+      "maps": {}
+    },
+    {
+      "slug": "outils-permissions",
+      "term": "Outils et permissions",
+      "group": "systemes",
+      "aliases": [
+        "tool use",
+        "appel d’outils",
+        "permissions",
+        "function calling"
+      ],
+      "short": "Les actions qu’un modèle ou un agent a le droit d’effectuer (chercher, lire, écrire, envoyer) et les limites qui les encadrent.",
+      "definition": [
+        "Un modèle ne peut agir sur le monde qu’à travers des outils : une recherche, une lecture de fichier, une écriture dans un logiciel, l’envoi d’un message. Chaque outil est une capacité, et chaque capacité un risque.",
+        "Les permissions précisent ce que l’agent peut faire seul, ce qu’il doit soumettre à validation, et ce qui lui est interdit. C’est le principal levier de maîtrise d’un agent."
+      ],
+      "in_practice": [
+        "Lecture d’abord, écriture ensuite, et jamais sans trace.",
+        "Une action irréversible (paiement, envoi, suppression) passe par une validation humaine."
+      ],
+      "confusions": [],
+      "related": [
+        "agent",
+        "mcp",
+        "validation-humaine",
+        "autonomie"
+      ],
+      "maps": {
+        "case_ids": [
+          "case-real-walmart-pactum-negotiation",
+          "case-real-back-market-fraud-agents",
+          "case-real-stripe-claude-code-migration"
+        ]
+      }
+    },
+    {
+      "slug": "mcp",
+      "term": "MCP (Model Context Protocol)",
+      "group": "systemes",
+      "aliases": [
+        "Model Context Protocol",
+        "serveur MCP"
+      ],
+      "short": "Un protocole ouvert qui standardise la façon dont un modèle ou un agent se connecte à des outils et à des sources de données.",
+      "definition": [
+        "MCP définit une manière commune d’exposer des outils et des données à un modèle : un « serveur MCP » décrit ce qu’il sait faire (chercher dans un wiki, lire un ticket, interroger une base), et tout assistant compatible peut l’utiliser.",
+        "L’intérêt est d’éviter de refaire une intégration propriétaire pour chaque couple assistant-application."
+      ],
+      "in_practice": [
+        "Un même serveur MCP peut servir plusieurs assistants.",
+        "Les permissions et l’authentification restent à concevoir avec soin."
+      ],
+      "confusions": [],
+      "related": [
+        "outils-permissions",
+        "agent"
+      ],
+      "maps": {
+        "tool_ids": [
+          "tool-mcp"
+        ]
+      }
+    },
+    {
+      "slug": "validation-humaine",
+      "term": "Validation humaine (human gate)",
+      "group": "systemes",
+      "aliases": [
+        "human gate",
+        "humain dans la boucle",
+        "human in the loop"
+      ],
+      "short": "Un point du processus où une personne vérifie et approuve avant que le système continue ou agisse.",
+      "definition": [
+        "La validation humaine est une étape où le système s’arrête pour soumettre son travail à quelqu’un : un brouillon à relire, une action à approuver, un cas douteux à trancher. Elle est placée là où l’erreur coûte cher.",
+        "Elle n’est pas un aveu de faiblesse : c’est ce qui permet d’augmenter l’autonomie sur le reste du processus sans perdre le contrôle."
+      ],
+      "in_practice": [
+        "Placer la validation sur les actions irréversibles et les cas à risque, pas partout.",
+        "Rendre la vérification rapide : sources visibles, écarts signalés."
+      ],
+      "confusions": [],
+      "related": [
+        "autonomie",
+        "agent",
+        "outils-permissions"
+      ],
+      "maps": {
+        "human_gate": true
+      }
+    },
+    {
+      "slug": "autonomie",
+      "term": "Niveau d’autonomie",
+      "group": "systemes",
+      "aliases": [
+        "autonomie",
+        "assisté",
+        "semi-autonome",
+        "agent supervisé",
+        "autonome borné"
+      ],
+      "short": "Jusqu’où un système agit seul : de l’assistance qui propose à l’autonomie bornée qui agit dans des limites fixées.",
+      "definition": [
+        "Acolyte classe chaque cas selon quatre niveaux. Assisté : le système propose, l’humain fait. Semi-autonome : il exécute certaines étapes, l’humain garde les décisions. Agent supervisé : il enchaîne les actions et soumet les plus sensibles. Autonome borné : il agit seul dans un cadre décidé à l’avance.",
+        "Le bon niveau dépend du coût d’une erreur, de la qualité des données et de la confiance acquise, pas de la technologie disponible."
+      ],
+      "in_practice": [
+        "Commencer bas et monter au fil des preuves.",
+        "L’autonomie bornée suppose des limites explicites (montants, périmètres, durées)."
+      ],
+      "confusions": [],
+      "related": [
+        "validation-humaine",
+        "agent",
+        "copilote"
+      ],
+      "maps": {
+        "autonomy_level": [
+          "supervised-agent",
+          "bounded-autonomous"
+        ]
+      }
+    },
+    {
+      "slug": "extraction",
+      "term": "Extraction",
+      "group": "taches",
+      "aliases": [
+        "extraction de données",
+        "lecture de documents"
+      ],
+      "short": "Lire un document ou un message et en tirer des données structurées : montants, dates, références, clauses.",
+      "definition": [
+        "L’extraction transforme un contenu non structuré (facture, contrat, e-mail, formulaire scanné) en champs exploitables par un logiciel. Les modèles de langage la rendent possible sur des formats variés, sans gabarit fixe.",
+        "C’est l’une des tâches les plus rentables : elle supprime de la saisie et alimente une chaîne automatisée."
+      ],
+      "in_practice": [
+        "Vérifier les champs critiques ou les faibles niveaux de confiance.",
+        "Mesurer le taux d’erreur sur un échantillon réel avant de généraliser."
+      ],
+      "confusions": [],
+      "related": [
+        "workflow",
+        "multimodal",
+        "classification"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "extraction"
+        ]
+      }
+    },
+    {
+      "slug": "classification",
+      "term": "Classification",
+      "group": "taches",
+      "aliases": [
+        "catégorisation",
+        "tri",
+        "routage"
+      ],
+      "short": "Ranger un élément dans une catégorie : type de demande, urgence, motif, risque de fraude.",
+      "definition": [
+        "Classer, c’est attribuer une étiquette à un élément : un ticket à un service, un e-mail à un motif, une transaction à un niveau de risque. Le machine learning classique le fait depuis longtemps sur des données structurées ; les modèles de langage le font sur du texte libre.",
+        "La classification sert souvent d’aiguillage dans une chaîne automatisée."
+      ],
+      "in_practice": [
+        "Définir des catégories claires et stables avant d’automatiser.",
+        "Suivre les erreurs par catégorie, pas seulement la moyenne."
+      ],
+      "confusions": [],
+      "related": [
+        "extraction",
+        "scoring",
+        "workflow"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "classification"
+        ]
+      }
+    },
+    {
+      "slug": "synthese",
+      "term": "Synthèse",
+      "group": "taches",
+      "aliases": [
+        "résumé",
+        "compte rendu",
+        "summarization"
+      ],
+      "short": "Condenser un ou plusieurs contenus longs en l’essentiel : compte rendu, résumé de dossier, points à décider.",
+      "definition": [
+        "La synthèse réduit un contenu à ce qui compte pour un lecteur donné : un dossier client avant un appel, une réunion en décisions et actions, un rapport en points clés.",
+        "C’est un usage très répandu des copilotes, à condition de pouvoir vérifier ce qui a été retenu ou omis."
+      ],
+      "in_practice": [
+        "Préciser pour qui et pour quoi on résume.",
+        "Garder un lien vers la source pour vérifier un point."
+      ],
+      "confusions": [],
+      "related": [
+        "copilote",
+        "rag"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "summarization"
+        ]
+      }
+    },
+    {
+      "slug": "recommandation",
+      "term": "Recommandation",
+      "group": "taches",
+      "aliases": [
+        "système de recommandation",
+        "next best action",
+        "recommandation produit"
+      ],
+      "short": "Proposer l’élément le plus pertinent pour une personne ou une situation : produit, contenu, action suivante.",
+      "definition": [
+        "Un système de recommandation estime ce qui a le plus de chances d’intéresser ou d’aider : le prochain produit, l’article à lire, la meilleure action pour un conseiller. Il s’appuie sur l’historique, les similarités entre éléments et le contexte.",
+        "Netflix, Spotify ou Pinterest en sont des exemples classiques ; en entreprise, on parle aussi de « prochaine meilleure action »."
+      ],
+      "in_practice": [
+        "Mesurer l’effet réel (clics, ventes, résolution), pas seulement la pertinence perçue.",
+        "Sans historique, partir des caractéristiques des produits."
+      ],
+      "confusions": [],
+      "related": [
+        "scoring",
+        "embedding",
+        "ml-classique"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "recommendation"
+        ]
+      }
+    },
+    {
+      "slug": "scoring",
+      "term": "Scoring",
+      "group": "taches",
+      "aliases": [
+        "score",
+        "notation",
+        "priorisation"
+      ],
+      "short": "Attribuer une note à chaque élément pour le prioriser : probabilité d’achat, risque de départ, opportunité d’un appel d’offres.",
+      "definition": [
+        "Le scoring calcule un score, souvent une probabilité, pour classer des éléments : clients à risque, prospects à appeler, dossiers à traiter en premier. Il s’appuie en général sur du machine learning classique et des données historiques.",
+        "Un score n’a de valeur que s’il est expliqué et branché sur une décision : qui appelle qui, dans quel ordre."
+      ],
+      "in_practice": [
+        "Un score explicable est mieux adopté qu’un score précis mais opaque.",
+        "Le recalculer régulièrement : les comportements changent."
+      ],
+      "confusions": [],
+      "related": [
+        "prediction",
+        "ml-classique",
+        "classification"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "scoring"
+        ]
+      }
+    },
+    {
+      "slug": "prediction",
+      "term": "Prédiction",
+      "group": "taches",
+      "aliases": [
+        "prévision",
+        "forecast",
+        "maintenance prédictive"
+      ],
+      "short": "Estimer une valeur future à partir des données passées : demande, panne, délai, consommation.",
+      "definition": [
+        "La prédiction estime ce qui va se passer : les ventes de la semaine prochaine, la panne probable d’un équipement, l’heure d’arrivée d’un trajet. Elle relève surtout du machine learning classique et des statistiques, bien avant les modèles de langage.",
+        "Sa valeur se mesure à la décision qu’elle améliore : commander juste, intervenir avant la panne."
+      ],
+      "in_practice": [
+        "Demande un historique propre et suffisamment long.",
+        "Prévoir comment la prédiction est utilisée et par qui."
+      ],
+      "confusions": [],
+      "related": [
+        "ml-classique",
+        "scoring"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "prediction"
+        ]
+      }
+    },
+    {
+      "slug": "ml-classique",
+      "term": "Machine learning classique",
+      "group": "taches",
+      "aliases": [
+        "machine learning",
+        "apprentissage automatique",
+        "ML"
+      ],
+      "short": "Les modèles statistiques et d’apprentissage entraînés sur des données structurées pour prévoir, classer ou détecter des anomalies, souvent sans modèle de langage.",
+      "definition": [
+        "Le machine learning classique regroupe les techniques entraînées sur des tableaux de données : régressions, arbres de décision, forêts aléatoires, gradient boosting, détection d’anomalies. Il alimente depuis des années la prévision, le scoring, la détection de fraude ou la maintenance prédictive.",
+        "Pour ces tâches, il reste souvent plus précis, moins cher et plus explicable qu’un grand modèle de langage."
+      ],
+      "in_practice": [
+        "Le bon réflexe : ne pas utiliser un LLM pour un problème de chiffres.",
+        "La qualité des données compte plus que le choix de l’algorithme."
+      ],
+      "confusions": [],
+      "related": [
+        "prediction",
+        "scoring",
+        "classification"
+      ],
+      "maps": {
+        "tool_family": [
+          "classic-ml"
+        ],
+        "ai_pattern": [
+          "prediction",
+          "scoring"
+        ]
+      }
+    },
+    {
+      "slug": "poc",
+      "term": "POC (preuve de concept)",
+      "group": "mise-en-oeuvre",
+      "aliases": [
+        "proof of concept",
+        "preuve de concept",
+        "pilote"
+      ],
+      "short": "Un essai court et limité pour vérifier qu’une idée fonctionne et vaut la peine, avant d’investir dans un déploiement.",
+      "definition": [
+        "Un POC teste une hypothèse sur un périmètre réduit : quelques semaines, un jeu de données réel, une question claire (« l’extraction atteint-elle 95 % de champs corrects ? »). Il se termine par une décision : continuer, ajuster ou arrêter.",
+        "Un POC qui s’arrête est un bon résultat s’il évite un projet inutile."
+      ],
+      "in_practice": [
+        "Fixer le critère de réussite avant de commencer.",
+        "Tester sur de vraies données, pas sur des exemples choisis."
+      ],
+      "confusions": [],
+      "related": [
+        "industrialisation",
+        "evaluation"
+      ],
+      "maps": {
+        "case_ids": [
+          "case-real-albert-france-services",
+          "case-real-walmart-pactum-negotiation",
+          "case-real-edf-rd-rag-search"
+        ]
+      }
+    },
+    {
+      "slug": "industrialisation",
+      "term": "Industrialisation",
+      "group": "mise-en-oeuvre",
+      "aliases": [
+        "mise en production",
+        "passage à l’échelle",
+        "déploiement"
+      ],
+      "short": "Passer d’un prototype qui marche à un système fiable en production : intégration, sécurité, suivi, maintenance, adoption.",
+      "definition": [
+        "Industrialiser, c’est tout ce qui sépare une démonstration d’un outil utilisé chaque jour : connexion aux systèmes réels, gestion des droits, tests, surveillance de la qualité, coûts maîtrisés, formation des équipes.",
+        "C’est souvent là que se joue la valeur, et là que beaucoup de projets d’IA s’arrêtent."
+      ],
+      "in_practice": [
+        "Prévoir dès le POC qui maintiendra le système.",
+        "Mesurer la qualité en continu, pas seulement au lancement."
+      ],
+      "confusions": [],
+      "related": [
+        "poc",
+        "evaluation",
+        "gouvernance-ia-act"
+      ],
+      "maps": {
+        "case_ids": [
+          "case-real-veolia-secure-gpt",
+          "case-real-stripe-claude-code-migration"
+        ]
+      }
+    },
+    {
+      "slug": "evaluation",
+      "term": "Évaluation (evals)",
+      "group": "mise-en-oeuvre",
+      "aliases": [
+        "evals",
+        "tests",
+        "benchmark"
+      ],
+      "short": "Mesurer la qualité d’un système d’IA sur des cas tests représentatifs, avant et après chaque changement.",
+      "definition": [
+        "Évaluer, c’est constituer un jeu de cas avec les réponses attendues et mesurer régulièrement ce que fait le système : exactitude, sources correctes, refus quand il le faut, cas limites. On parle d’« evals ».",
+        "Sans évaluation, on ne sait pas si un changement de modèle ou de prompt améliore ou dégrade le système."
+      ],
+      "in_practice": [
+        "Partir de vrais cas, y compris les erreurs déjà constatées.",
+        "Relancer l’évaluation à chaque changement de modèle, de prompt ou de sources."
+      ],
+      "confusions": [],
+      "related": [
+        "hallucination",
+        "poc",
+        "industrialisation"
+      ],
+      "maps": {
+        "tool_family": [
+          "eval-observability"
+        ]
+      }
+    },
+    {
+      "slug": "niveau-de-preuve",
+      "term": "Niveau de preuve",
+      "group": "mise-en-oeuvre",
+      "aliases": [
+        "preuve",
+        "cas documenté",
+        "cas type"
+      ],
+      "short": "Ce qui permet de croire un cas d’usage : documenté par une source publique, retour d’expérience, cas type ou simple concept.",
+      "definition": [
+        "Acolyte distingue quatre niveaux. Documenté : entreprise identifiable et source publique. Retour d’expérience : cas réel reformulé ou anonymisé. Cas type : situation fréquente, pas un client précis. Concept : proposition non prouvée.",
+        "Un résultat chiffré reste celui de sa source : annoncé par l’entreprise, par l’éditeur de l’outil, ou mesuré de façon indépendante."
+      ],
+      "in_practice": [
+        "Se demander qui publie le chiffre, et sur quel périmètre.",
+        "Un cas type aide à cadrer, il ne prouve rien."
+      ],
+      "confusions": [],
+      "related": [
+        "provenance"
+      ],
+      "maps": {}
+    },
+    {
+      "slug": "provenance",
+      "term": "Provenance et traçabilité",
+      "group": "mise-en-oeuvre",
+      "aliases": [
+        "traçabilité",
+        "sources",
+        "journalisation"
+      ],
+      "short": "Savoir d’où vient une information ou une décision : quelle source, quelle étape, quel modèle, quelle validation.",
+      "definition": [
+        "La provenance relie chaque réponse ou action à son origine : le document cité, la version du modèle, l’étape de la chaîne, la personne qui a validé. La traçabilité permet de rejouer et d’expliquer ce qui s’est passé.",
+        "C’est une exigence de qualité, de confiance et, de plus en plus, de conformité."
+      ],
+      "in_practice": [
+        "Afficher les sources à côté des réponses.",
+        "Garder un journal des actions des agents."
+      ],
+      "confusions": [],
+      "related": [
+        "niveau-de-preuve",
+        "rag",
+        "gouvernance-ia-act"
+      ],
+      "maps": {
+        "case_ids": [
+          "case-real-engie-storage-rag"
+        ]
+      }
+    },
+    {
+      "slug": "souverainete",
+      "term": "Souveraineté des données",
+      "group": "mise-en-oeuvre",
+      "aliases": [
+        "hébergement souverain",
+        "SecNumCloud",
+        "données en Europe"
+      ],
+      "short": "Garder la maîtrise de l’endroit où sont traitées ses données et du droit qui s’y applique.",
+      "definition": [
+        "Utiliser un modèle par API revient à envoyer ses données à un prestataire. La souveraineté pose les questions : où sont-elles traitées, sous quel droit, sont-elles conservées ou réutilisées ?",
+        "Les réponses vont d’une région européenne chez un grand cloud à un hébergement qualifié SecNumCloud ou à un modèle ouvert sur ses propres serveurs, avec des coûts et des compétences différents."
+      ],
+      "in_practice": [
+        "Classer ses données par sensibilité avant de choisir l’hébergement.",
+        "Vérifier les clauses de conservation et de réutilisation des données."
+      ],
+      "confusions": [],
+      "related": [
+        "poids-ouverts",
+        "gouvernance-ia-act"
+      ],
+      "maps": {
+        "tool_family": [
+          "hosting"
+        ]
+      }
+    },
+    {
+      "slug": "gouvernance-ia-act",
+      "term": "Gouvernance et AI Act",
+      "group": "mise-en-oeuvre",
+      "aliases": [
+        "AI Act",
+        "règlement européen sur l’IA",
+        "RGPD",
+        "conformité"
+      ],
+      "short": "Les règles, rôles et contrôles qui encadrent l’usage de l’IA dans l’entreprise, dont le règlement européen sur l’IA.",
+      "definition": [
+        "La gouvernance de l’IA définit qui décide des usages, quelles données sont autorisées, comment les systèmes sont testés et suivis, et qui répond en cas d’erreur.",
+        "Le règlement européen sur l’intelligence artificielle (AI Act) classe les systèmes selon leur niveau de risque et fixe des obligations croissantes, appliquées par étapes ; il s’ajoute au RGPD pour les données personnelles."
+      ],
+      "in_practice": [
+        "Recenser les usages existants, y compris les outils utilisés sans cadre.",
+        "Identifier les usages à risque élevé (recrutement, crédit, santé…) avant de les déployer."
+      ],
+      "confusions": [],
+      "related": [
+        "provenance",
+        "souverainete",
+        "validation-humaine"
+      ],
+      "maps": {
+        "case_ids": [
+          "case-real-air-canada-chatbot-liability",
+          "case-real-veolia-secure-gpt"
+        ]
+      }
+    }
+  ]
+}

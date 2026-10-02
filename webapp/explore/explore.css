@@ -174,3 +174,15 @@ a { color: inherit; }
 .tool-family + .tool-family { border-top: 1px solid currentColor; border-top-color: color-mix(in srgb, currentColor 18%, transparent); }
 .tool-method, .tool-cases { margin-top: 24px; }
 .explore-detail-page .explore-catalog { width: auto; padding-bottom: 0; }
+
+/* ===== Glossaire (/acolyte/glossaire/) ===== */
+.glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.glossary-card { display: flex; flex-direction: column; gap: 8px; padding: 18px; border: 1px solid var(--explore-line, rgba(17, 24, 32, .18)); color: inherit; text-decoration: none; transition: border-color .2s ease, transform .2s ease; }
+.glossary-card:hover, .glossary-card:focus-visible { border-color: var(--explore-petrol); transform: translateY(-2px); }
+.glossary-card strong { font-size: 19px; line-height: 1.1; letter-spacing: -.02em; }
+.glossary-card p { margin: 0; font-size: 14px; line-height: 1.45; opacity: .78; }
+.glossary-card span { margin-top: auto; color: var(--explore-petrol); font: 10px var(--explore-mono); letter-spacing: .06em; text-transform: uppercase; }
+.glossary-group { padding-bottom: 40px; }
+.glossary-link { color: inherit; text-decoration: underline; text-decoration-color: var(--explore-petrol); text-underline-offset: 3px; }
+.glossary-pill { padding: 7px 9px; border: 1px solid var(--explore-petrol); color: var(--explore-petrol); font: 10px var(--explore-mono); text-decoration: none; }
+.glossary-pill:hover, .glossary-pill:focus-visible { background: var(--explore-petrol); color: #fff; }
