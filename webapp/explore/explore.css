@@ -186,3 +186,4 @@ a { color: inherit; }
 .glossary-link { color: inherit; text-decoration: underline; text-decoration-color: var(--explore-petrol); text-underline-offset: 3px; }
 .glossary-pill { padding: 7px 9px; border: 1px solid var(--explore-petrol); color: var(--explore-petrol); font: 10px var(--explore-mono); text-decoration: none; }
 .glossary-pill:hover, .glossary-pill:focus-visible { background: var(--explore-petrol); color: #fff; }
+.glossary-term-page .detail-prose + .detail-prose { margin-top: 12px; }

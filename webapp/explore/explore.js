@@ -390,7 +390,9 @@
   /* Terme du glossaire qui explique une valeur de taxonomie (le plus spécifique d'abord). */
   function termFor(field, value) {
     const candidates = state.glossary.terms.filter((term) => asArray(term.maps?.[field]).includes(value));
-    return candidates.sort((a, b) => asArray(a.maps[field]).length - asArray(b.maps[field]).length)[0] || null;
+    const best = candidates.sort((a, b) => asArray(a.maps[field]).length - asArray(b.maps[field]).length)[0];
+    /* Toute valeur d'autonomie renvoie au terme qui présente l'échelle complète. */
+    return best || (field === 'autonomy_level' ? state.glossary.terms.find((term) => term.slug === 'autonomie') : null) || null;
   }
   const termLink = (field, value, label) => { const term = termFor(field, value); return term ? `<a class="glossary-link" href="${termHref(term)}">${escapeHtml(label)}</a>` : escapeHtml(label); };
 
