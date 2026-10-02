@@ -1126,7 +1126,7 @@
       "short": "Les règles, rôles et contrôles qui encadrent l’usage de l’IA dans l’entreprise, dont le règlement européen sur l’IA.",
       "definition": [
         "La gouvernance de l’IA définit qui décide des usages, quelles données sont autorisées, comment les systèmes sont testés et suivis, et qui répond en cas d’erreur.",
-        "Le règlement européen sur l’intelligence artificielle (AI Act) classe les systèmes selon leur niveau de risque et fixe des obligations croissantes, appliquées par étapes ; il s’ajoute au RGPD pour les données personnelles."
+        "Le règlement européen sur l’intelligence artificielle (AI Act) classe les systèmes selon leur niveau de risque et fixe des obligations appliquées par étapes : pratiques interdites depuis février 2025, transparence depuis août 2026, systèmes à haut risque à partir de décembre 2027 depuis l’omnibus de 2026. Il s’ajoute au RGPD pour les données personnelles."
       ],
       "in_practice": [
         "Recenser les usages existants, y compris les outils utilisés sans cadre.",
@@ -1143,7 +1143,13 @@
           "case-real-air-canada-chatbot-liability",
           "case-real-veolia-secure-gpt"
         ]
-      }
+      },
+      "links": [
+        {
+          "label": "Le cadre : AI Act et RGPD",
+          "path": "cadre/"
+        }
+      ]
     }
   ]
 }
