@@ -9,6 +9,7 @@ const index = cases.map((c) => ({
   id: c.id, slug: c.slug || c.id, title: c.title, short: clip(c.short_description || c.problem, 150),
   evidence: c.evidence_level, solution: c.solution_type, autonomy: c.autonomy_level,
   functions: [].concat(c.business_function || []), industry: c.industry, sizes: [].concat(c.company_size || []),
+  ...(c.outcome ? { outcome: c.outcome } : {}),
 }));
 await writeFile('webapp/explore/data/cases-index.json', JSON.stringify(index));
 console.log(`cases-index.json : ${index.length} cas`);

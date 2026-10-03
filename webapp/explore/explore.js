@@ -19,6 +19,7 @@
     },
     solution_type: { copilot: 'Copilote', knowledge: 'Base de connaissance', workflow: 'Chaîne automatisée', agent: 'Agent', product: 'Produit', unknown: 'Non renseigné' },
     autonomy_level: { assisted: 'Assisté', 'semi-autonomous': 'Semi-autonome', 'supervised-agent': 'Agent supervisé', 'bounded-autonomous': 'Autonome borné', unknown: 'Non renseigné' },
+    outcome: { positive: 'Résultat positif', mixed: 'Résultat mitigé', setback: 'Échec ou revers' },
     evidence_level: { documented: 'Documenté', experience: 'Expérience', pattern: 'Cas type', concept: 'Concept' },
     confidence: { high: 'Élevée', medium: 'Moyenne', low: 'Faible', unknown: 'Non renseignée' },
     value_type: { productivity: 'Productivité', quality: 'Qualité', speed: 'Vitesse', cost: 'Coût', revenue: 'Revenu', risk: 'Risque', knowledge: 'Connaissance', decision: 'Décision', unknown: 'Non renseigné' },
@@ -38,6 +39,7 @@
     ['solution_type', 'Type de solution'],
     ['autonomy_level', 'Autonomie'],
     ['evidence_level', 'Niveau de preuve'],
+    ['outcome', 'Résultat'],
     ['value_type', 'Type de valeur'],
     ['tool_ids', 'Outil cité']
   ];
@@ -89,6 +91,7 @@
   function valuesFor(item, field) { return asArray(item[field]).filter((value) => value !== null && value !== undefined && value !== ''); }
   function hasFilter(item, field, value) { return value === 'all' || valuesFor(item, field).includes(value); }
   function formatList(value, field) { return labelForArray(field, value).join(' · '); }
+  const outcomeBadge = (item) => item.outcome === 'setback' || item.outcome === 'mixed' ? `<span class="outcome-badge outcome-${item.outcome}">${escapeHtml(titleFor('outcome', item.outcome))}</span>` : '';
   function proofBadge(level, extraClass = '') {
     const key = evidenceColors[level] || 'unknown';
     return `<span class="proof-badge proof-${key} ${extraClass}" title="${escapeHtml(evidenceCopy[level] || 'Niveau de preuve non renseigné.')}"><i aria-hidden="true"></i>${escapeHtml(titleFor('evidence_level', level))}</span>`;
@@ -174,12 +177,12 @@
   function renderCatalogShell() {
     root.innerHTML = `<section class="explore-hero">
       <div class="explore-hero-copy">
-        <p class="explore-kicker">CATALOGUE · 136 CAS D’USAGE</p>
+        <p class="explore-kicker">CATALOGUE · 145 CAS D’USAGE</p>
         <h1>Les cas d’usage de l’IA, avant les promesses.</h1>
         <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par secteur, fonction ou taille d’entreprise, puis ouvrez une fiche.</p>
         <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="${toolsHref}">La carte des outils →</a><a class="explore-text-link" href="${glossaryHref}">Le glossaire →</a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
       </div>
-      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p><span id="case-mix">93 cas documentés par une source publique, 41 cas types et 2 retours d’expérience.</span> Les inconnues et les limites restent visibles.</p></aside>
+      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p><span id="case-mix">102 cas documentés par une source publique, 41 cas types et 2 retours d’expérience.</span> Les inconnues et les limites restent visibles.</p></aside>
     </section>
     <section class="explore-catalog" aria-labelledby="catalog-title">
       <div class="explore-catalog-head"><div><p class="explore-kicker">LE CATALOGUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur, le type d’IA et les outils cités. Les filtres se combinent.</p></div>
@@ -200,7 +203,7 @@
   function card(item) {
     const functionLabel = formatList(item.business_function, 'business_function') || 'Fonction non renseignée';
     const industryLabel = titleFor('industry', item.industry);
-    return `<article class="explore-card"><a class="explore-card-link" href="${caseHref(item)}"><div class="explore-card-top"><span class="explore-card-number">${escapeHtml(kindLabel(item))}</span>${proofBadge(item.evidence_level)}</div><h3>${escapeHtml(item.title)}</h3><p class="explore-card-problem">${escapeHtml(item.short_description || item.problem)}</p><div class="explore-card-meta"><span><b>Secteur</b>${escapeHtml(industryLabel)}</span><span><b>Fonction</b>${escapeHtml(functionLabel)}</span><span><b>Solution</b>${escapeHtml(titleFor('solution_type', item.solution_type))}</span><span><b>Autonomie</b>${escapeHtml(titleFor('autonomy_level', item.autonomy_level))}</span></div><span class="explore-card-open">Ouvrir la fiche <b aria-hidden="true">→</b></span></a></article>`;
+    return `<article class="explore-card"><a class="explore-card-link" href="${caseHref(item)}"><div class="explore-card-top"><span class="explore-card-number">${escapeHtml(kindLabel(item))}</span><span class="explore-card-badges">${outcomeBadge(item)}${proofBadge(item.evidence_level)}</span></div><h3>${escapeHtml(item.title)}</h3><p class="explore-card-problem">${escapeHtml(item.short_description || item.problem)}</p><div class="explore-card-meta"><span><b>Secteur</b>${escapeHtml(industryLabel)}</span><span><b>Fonction</b>${escapeHtml(functionLabel)}</span><span><b>Solution</b>${escapeHtml(titleFor('solution_type', item.solution_type))}</span><span><b>Autonomie</b>${escapeHtml(titleFor('autonomy_level', item.autonomy_level))}</span></div><span class="explore-card-open">Ouvrir la fiche <b aria-hidden="true">→</b></span></a></article>`;
   }
 
   function renderResults() {
@@ -391,7 +394,7 @@
     const limitations = renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]);
     const related = relatedCases(item);
     const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(provenanceLabel(item.provenance?.source_type))}</p>${item.provenance?.source_type === 'internal-note' ? '<small>Cas type construit par HOCUS à partir des parcours Acolyte.</small>' : `<small>${escapeHtml(item.provenance?.source_ref || '')}</small>`}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong><p>Le niveau de preuve et la confiance ne remplacent pas une revue du contexte.</p></section></div>`;
-    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p><small>La preuve décrit le statut du cas, pas une garantie de résultat.</small></div></header><div class="detail-facts">${detailFacts(item)}</div><section class="detail-editorial-intro"><div><p class="detail-label">ANALYSE ACOLYTE</p><h2>Pourquoi ce cas mérite d’être regardé</h2></div><p class="detail-editorial-copy">${escapeHtml(editorialWhy(item))}</p></section><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir de la source', renderTextList(item.lessons_learned)) : ''}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
+    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}${outcomeBadge(item)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p><small>La preuve décrit le statut du cas, pas une garantie de résultat.</small></div></header><div class="detail-facts">${detailFacts(item)}</div><section class="detail-editorial-intro"><div><p class="detail-label">ANALYSE ACOLYTE</p><h2>Pourquoi ce cas mérite d’être regardé</h2></div><p class="detail-editorial-copy">${escapeHtml(editorialWhy(item))}</p></section><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir de la source', renderTextList(item.lessons_learned)) : ''}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
   }
 
   const toolCases = (tool) => state.cases.filter((item) => valuesFor(item, 'tool_ids').includes(tool.id));

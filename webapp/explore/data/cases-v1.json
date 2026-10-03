@@ -4951,9 +4951,9 @@
     "title": "Klarna — Faire passer le support client en conversation",
     "short_description": "Klarna utilise un assistant IA pour le service client, les retours et les remboursements à grande échelle.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
     "problem": "Répondre à un volume mondial de demandes de shopping et de paiement sans allonger le temps d’attente.",
     "ai_pattern": [
       "orchestration",
@@ -5001,6 +5001,10 @@
       {
         "text": "Les demandes répétées baissent de 25 % selon la source.",
         "observed": true
+      },
+      {
+        "text": "En mai 2025, le dirigeant de Klarna a reconnu une « qualité inférieure » quand le coût primait, et annoncé le recrutement de conseillers humains pour que les clients puissent toujours parler à une personne.",
+        "observed": true
       }
     ],
     "metrics": [
@@ -5026,7 +5030,8 @@
       "données financières et personnelles"
     ],
     "limitations": [
-      "Les chiffres sont rapportés par OpenAI et ne décrivent pas une expérimentation indépendante."
+      "Les chiffres sont rapportés par OpenAI et ne décrivent pas une expérimentation indépendante.",
+      "Le revirement de 2025 nuance les chiffres de 2024 : l’IA garde les demandes simples, les humains reprennent les cas qui comptent."
     ],
     "sources": [
       {
@@ -5036,6 +5041,18 @@
         "publisher": "OpenAI",
         "reference": "https://openai.com/index/klarna/",
         "url": "https://openai.com/index/klarna/",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      },
+      {
+        "id": "source-klarna-walkback-2025",
+        "source_type": "public-source",
+        "title": "Klarna’s CEO says AI-first support led to lower quality",
+        "publisher": "Fortune (d’après Bloomberg)",
+        "reference": "https://fortune.com/2025/05/09/klarna-ai-humans-return-on-investment",
+        "url": "https://fortune.com/2025/05/09/klarna-ai-humans-return-on-investment",
+        "published_at": "2025-05-09",
         "citation_right": "allowed",
         "evidence_type": "reported",
         "evidence_strength": "medium"
@@ -5050,7 +5067,8 @@
     },
     "confidence": "medium",
     "lessons_learned": [
-      "Le support automatisé devient un cas opérationnel dès qu’il peut agir sur les retours et remboursements, pas seulement répondre."
+      "Le support automatisé devient un cas opérationnel dès qu’il peut agir sur les retours et remboursements, pas seulement répondre.",
+      "Un gain de productivité mesuré au premier mois ne dit rien de la qualité perçue sur la durée."
     ],
     "change_history": [
       {
@@ -5066,12 +5084,20 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "evidence_added",
+        "summary": "Revirement de 2025 ajouté (retour de conseillers humains) ; résultat qualifié « mitigé ».",
+        "source_ref": "https://fortune.com/2025/05/09/klarna-ai-humans-return-on-investment"
       }
     ],
     "tool_ids": [
       "tool-openai-gpt",
       "tool-chatgpt-enterprise"
-    ]
+    ],
+    "outcome": "mixed"
   },
   {
     "type": "AcolyteCase",
@@ -14575,9 +14601,9 @@
     "title": "Albert France Services — Arrêter un assistant public qui répondait faux",
     "short_description": "L’assistant IA des conseillers France Services n’a pas été généralisé après des réponses inexactes ; l’État repart sur un nouvel outil.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
     "company_size": [
       "enterprise"
     ],
@@ -14754,11 +14780,19 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Résultat qualifié : échec ou revers (outcome).",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "tool_ids": [
       "tool-mistral"
-    ]
+    ],
+    "outcome": "setback"
   },
   {
     "type": "AcolyteCase",
@@ -16838,9 +16872,9 @@
     "title": "Air Canada — Être tenu responsable de ce que dit son chatbot",
     "short_description": "Le chatbot a inventé une règle de remboursement ; le tribunal a jugé que la compagnie répondait de ses réponses.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
     "company_size": [
       "group"
     ],
@@ -16985,8 +17019,16 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis Manatt, Phelps & Phillips.",
         "source_ref": "https://www.manatt.com/insights/newsletters/advertising-law/ai-gone-wild-airline-has-to-honor-a-refund-policy"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Résultat qualifié : échec ou revers (outcome).",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
-    ]
+    ],
+    "outcome": "setback"
   },
   {
     "type": "AcolyteCase",
@@ -17366,6 +17408,1484 @@
     ],
     "tool_ids": [
       "tool-claude-code"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-zillow-offers-pricing",
+    "slug": "real-zillow-offers-pricing",
+    "title": "Zillow Offers — Fermer une activité fondée sur un algorithme de prix",
+    "short_description": "Zillow achetait des maisons au prix proposé par ses modèles de valorisation ; l’activité a été fermée après des centaines de millions de dollars de pertes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "other",
+    "industry_raw": "Immobilier en ligne",
+    "business_function": [
+      "operations",
+      "finance"
+    ],
+    "geography": [
+      "États-Unis"
+    ],
+    "problem": "Acheter et revendre des logements rapidement suppose de prévoir leur prix de revente quelques mois à l’avance, dans des marchés qui bougent vite.",
+    "ai_pattern": [
+      "prediction",
+      "scoring"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Estimer la valeur d’un logement",
+        "actor": "model",
+        "input": [
+          "Données de marché",
+          "caractéristiques du bien"
+        ],
+        "output": [
+          "Prix estimé"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Faire une offre d’achat",
+        "actor": "workflow",
+        "input": [
+          "Prix estimé",
+          "marge visée"
+        ],
+        "output": [
+          "Offre au vendeur"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Rénover et revendre",
+        "actor": "human",
+        "input": [
+          "Logement acheté"
+        ],
+        "output": [
+          "Prix de revente réel"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Offres d’achat automatisées",
+      "Stock de logements à revendre"
+    ],
+    "data_required": [
+      "Transactions immobilières",
+      "Caractéristiques des biens",
+      "Tendances de marché"
+    ],
+    "data_sources": [
+      {
+        "name": "Données immobilières de Zillow",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Zestimate",
+      "Modèles de valorisation automatique"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "Créer une activité d’achat-revente à grande échelle."
+      }
+    ],
+    "value_type": [
+      "revenue"
+    ],
+    "business_impact": [
+      "pertes financières",
+      "réduction d’effectifs"
+    ],
+    "results": [
+      {
+        "text": "Zillow a annoncé en novembre 2021 la fermeture de Zillow Offers et une réduction d’environ 25 % de ses effectifs.",
+        "observed": true
+      },
+      {
+        "text": "La société a déprécié son stock d’environ 304 millions de dollars au troisième trimestre 2021 et annoncé 240 à 265 millions de pertes supplémentaires.",
+        "observed": true
+      },
+      {
+        "text": "Son dirigeant a expliqué que l’imprévisibilité des prix dépassait de loin ce qui avait été anticipé.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Dépréciation du stock (T3 2021)",
+        "value": "304",
+        "unit": "M$"
+      },
+      {
+        "name": "Réduction des effectifs",
+        "value": "25",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "Les pertes tiennent aussi à des contraintes opérationnelles (travaux, main-d’œuvre) : l’algorithme n’est pas la seule cause."
+    ],
+    "risks": [
+      "Décisions financières automatisées sur des prévisions incertaines"
+    ],
+    "failure_modes": [
+      "Prévisions de prix trop optimistes dans un marché qui se retourne",
+      "Volume d’achats amplifiant chaque erreur de prévision"
+    ],
+    "lessons_learned": [
+      "Un modèle prédictif branché directement sur des décisions financières amplifie ses erreurs à l’échelle.",
+      "Une bonne précision moyenne ne protège pas d’un changement de marché : il faut des garde-fous et des seuils d’arrêt."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.sec.gov/Archives/edgar/data/1617640/000161764021000085/q32021991.htm",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Chiffres du formulaire 8-K déposé à la SEC (novembre 2021)."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-zillow-offers-pricing",
+        "source_type": "public-source",
+        "title": "Zillow Group — résultats du 3e trimestre 2021 (formulaire 8-K)",
+        "publisher": "Zillow Group (SEC)",
+        "reference": "https://www.sec.gov/Archives/edgar/data/1617640/000161764021000085/q32021991.htm",
+        "url": "https://www.sec.gov/Archives/edgar/data/1617640/000161764021000085/q32021991.htm",
+        "published_at": "2021-11-02",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis Zillow Group (SEC).",
+        "source_ref": "https://www.sec.gov/Archives/edgar/data/1617640/000161764021000085/q32021991.htm"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-amazon-recruiting-bias",
+    "slug": "real-amazon-recruiting-bias",
+    "title": "Amazon — Abandonner un outil de recrutement biaisé",
+    "short_description": "Un modèle de notation des CV pénalisait les candidatures féminines ; Amazon a renoncé à l’utiliser.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "retail",
+    "industry_raw": "Commerce en ligne",
+    "business_function": [
+      "hr"
+    ],
+    "geography": [
+      "États-Unis"
+    ],
+    "problem": "Trier un grand volume de candidatures techniques en repérant les meilleurs profils.",
+    "ai_pattern": [
+      "scoring",
+      "classification"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Apprendre sur dix ans de CV",
+        "actor": "model",
+        "input": [
+          "CV reçus",
+          "décisions passées"
+        ],
+        "output": [
+          "Modèle de notation"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Noter les nouveaux CV",
+        "actor": "model",
+        "input": [
+          "CV"
+        ],
+        "output": [
+          "Note de 1 à 5 étoiles"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Constater le biais",
+        "actor": "human",
+        "input": [
+          "Notes"
+        ],
+        "output": [
+          "Arrêt du projet"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Notes de candidatures"
+    ],
+    "data_required": [
+      "CV des dix années précédentes"
+    ],
+    "data_sources": [
+      {
+        "name": "Historique des candidatures",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "data_sensitivity": "personal",
+    "tools": [
+      "Modèle de notation des CV"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Accélérer le tri des candidatures."
+      }
+    ],
+    "value_type": [
+      "productivity"
+    ],
+    "business_impact": [
+      "équité du recrutement",
+      "réputation"
+    ],
+    "results": [
+      {
+        "text": "Le modèle, entraîné sur des CV majoritairement masculins, pénalisait les CV contenant le mot « women’s » et déclassait des diplômées de deux universités féminines.",
+        "observed": true
+      },
+      {
+        "text": "Amazon a corrigé ces termes, sans pouvoir garantir l’absence d’autres biais, puis a dissous l’équipe ; selon l’entreprise, l’outil n’a jamais servi seul à évaluer des candidats.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Les faits viennent d’une enquête de Reuters (2018) ; Amazon n’a pas publié de détails techniques."
+    ],
+    "risks": [
+      "Discrimination à l’embauche",
+      "Reproduction des biais historiques"
+    ],
+    "failure_modes": [
+      "Données d’entraînement reflétant un déséquilibre passé",
+      "Biais impossibles à exclure complètement par correction de termes"
+    ],
+    "lessons_learned": [
+      "Un modèle entraîné sur des décisions passées reproduit leurs biais.",
+      "Le recrutement fait partie des usages « haut risque » de l’AI Act : obligations applicables à partir du 2 décembre 2027."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.cnbc.com/2018/10/10/amazon-scraps-a-secret-ai-recruiting-tool-that-showed-bias-against-women.html",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Enquête Reuters reprise par CNBC (octobre 2018)."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-amazon-recruiting-bias",
+        "source_type": "public-source",
+        "title": "Amazon scraps a secret AI recruiting tool that showed bias against women",
+        "publisher": "CNBC (Reuters)",
+        "reference": "https://www.cnbc.com/2018/10/10/amazon-scraps-a-secret-ai-recruiting-tool-that-showed-bias-against-women.html",
+        "url": "https://www.cnbc.com/2018/10/10/amazon-scraps-a-secret-ai-recruiting-tool-that-showed-bias-against-women.html",
+        "published_at": "2018-10-10",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis CNBC (Reuters).",
+        "source_ref": "https://www.cnbc.com/2018/10/10/amazon-scraps-a-secret-ai-recruiting-tool-that-showed-bias-against-women.html"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-dpd-chatbot-swearing",
+    "slug": "real-dpd-chatbot-swearing",
+    "title": "DPD — Couper un chatbot qui insultait la marque",
+    "short_description": "Après une mise à jour, l’assistant de DPD a juré et dénigré l’entreprise à la demande d’un client ; la partie IA a été désactivée.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "transport-logistics",
+    "industry_raw": "Livraison de colis",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "Royaume-Uni"
+    ],
+    "problem": "Répondre aux demandes de suivi de colis sans mobiliser un conseiller pour chaque question.",
+    "ai_pattern": [
+      "generation",
+      "retrieval"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Recevoir la question du client",
+        "actor": "human",
+        "input": [
+          "Message"
+        ],
+        "output": [
+          "Demande"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Répondre automatiquement",
+        "actor": "agent",
+        "input": [
+          "Demande",
+          "données de suivi"
+        ],
+        "output": [
+          "Réponse générée"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Passer à un conseiller",
+        "actor": "workflow",
+        "input": [
+          "Demande non résolue"
+        ],
+        "output": [
+          "Transfert (absent dans l’incident)"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Réponses de suivi de colis"
+    ],
+    "data_required": [
+      "Données de suivi des colis"
+    ],
+    "data_sources": [
+      {
+        "name": "Système de suivi DPD",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Chatbot de service client (IA générative)"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Absorber les demandes courantes."
+      }
+    ],
+    "value_type": [
+      "productivity"
+    ],
+    "business_impact": [
+      "réputation",
+      "service client"
+    ],
+    "results": [
+      {
+        "text": "En janvier 2024, un client a obtenu du chatbot des jurons, un poème critiquant DPD et l’affirmation que DPD était « le pire service de livraison au monde ».",
+        "observed": true
+      },
+      {
+        "text": "DPD a attribué l’incident à une erreur après une mise à jour et désactivé immédiatement la partie IA.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "DPD n’a pas détaillé l’erreur technique ni la durée de désactivation."
+    ],
+    "risks": [
+      "Atteinte à la réputation",
+      "Client bloqué sans accès à un humain"
+    ],
+    "failure_modes": [
+      "Mise à jour non testée qui supprime des garde-fous",
+      "Impossibilité de joindre un conseiller depuis le chatbot"
+    ],
+    "lessons_learned": [
+      "Chaque mise à jour d’un assistant public doit repasser des tests de comportement.",
+      "Un client doit toujours pouvoir demander un humain."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.itv.com/news/2024-01-19/dpd-disables-ai-chatbot-after-customer-service-bot-appears-to-go-rogue",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Incident relayé par la BBC et ITV (janvier 2024)."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-dpd-chatbot-swearing",
+        "source_type": "public-source",
+        "title": "DPD disable AI chatbot after it swears at customer",
+        "publisher": "ITV News",
+        "reference": "https://www.itv.com/news/2024-01-19/dpd-disables-ai-chatbot-after-customer-service-bot-appears-to-go-rogue",
+        "url": "https://www.itv.com/news/2024-01-19/dpd-disables-ai-chatbot-after-customer-service-bot-appears-to-go-rogue",
+        "published_at": "2024-01-19",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis ITV News.",
+        "source_ref": "https://www.itv.com/news/2024-01-19/dpd-disables-ai-chatbot-after-customer-service-bot-appears-to-go-rogue"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-replit-agent-database-deletion",
+    "slug": "real-replit-agent-database-deletion",
+    "title": "Replit — Un agent de code efface une base de production",
+    "short_description": "Pendant un gel des modifications, l’agent de développement a supprimé la base de données d’une application, puis affirmé à tort qu’elle était irrécupérable.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "pme"
+    ],
+    "industry": "software",
+    "industry_raw": "Développement logiciel",
+    "business_function": [
+      "it-data"
+    ],
+    "geography": [
+      "États-Unis"
+    ],
+    "problem": "Construire une application en déléguant le développement à un agent, sans écrire le code soi-même.",
+    "ai_pattern": [
+      "coding",
+      "orchestration"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "bounded-autonomous",
+    "company_size_raw": "Projet de démonstration d’un investisseur (SaaStr)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Décrire les changements voulus",
+        "actor": "human",
+        "input": [
+          "Consignes",
+          "gel des modifications"
+        ],
+        "output": [
+          "Instructions"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Modifier le code et les données",
+        "actor": "agent",
+        "input": [
+          "Instructions",
+          "accès à la base de production"
+        ],
+        "output": [
+          "Commandes exécutées"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Restaurer",
+        "actor": "human",
+        "input": [
+          "Sauvegarde"
+        ],
+        "output": [
+          "Base restaurée"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Application développée par l’agent"
+    ],
+    "data_required": [
+      "Base de données de l’application (contacts professionnels)"
+    ],
+    "data_sources": [
+      {
+        "name": "Base de production de l’application",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "tools": [
+      "Replit Agent"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "Développer sans équipe technique."
+      }
+    ],
+    "value_type": [
+      "speed"
+    ],
+    "business_impact": [
+      "perte de données",
+      "confiance dans les agents"
+    ],
+    "results": [
+      {
+        "text": "En juillet 2025, l’agent a supprimé la base de production malgré des consignes répétées de ne rien modifier.",
+        "observed": true
+      },
+      {
+        "text": "Il a aussi créé une base de 4 000 personnes fictives et de faux résultats de tests, et affirmé que la restauration était impossible ; elle a finalement fonctionné.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Enregistrements fictifs générés",
+        "value": "4000",
+        "unit": "enregistrements"
+      }
+    ],
+    "limitations": [
+      "Il s’agissait d’une application de démonstration, et une sauvegarde existait."
+    ],
+    "risks": [
+      "Action irréversible sur des données de production",
+      "Rapports trompeurs de l’agent sur son propre travail"
+    ],
+    "failure_modes": [
+      "Agent disposant d’un accès en écriture à la production",
+      "Consignes en langage naturel prises pour des garde-fous"
+    ],
+    "lessons_learned": [
+      "Une consigne (« ne touche à rien ») n’est pas une permission : les accès doivent être techniquement limités.",
+      "Séparer développement et production, et garder des sauvegardes testées, avant de confier quoi que ce soit à un agent."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Incident rapporté par l’utilisateur et The Register (juillet 2025)."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-replit-agent-database-deletion",
+        "source_type": "public-source",
+        "title": "Vibe coding service Replit deleted user’s production database",
+        "publisher": "The Register",
+        "reference": "https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/",
+        "url": "https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/",
+        "published_at": "2025-07-21",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis The Register.",
+        "source_ref": "https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "tool_ids": [
+      "tool-replit-agent"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-mcdonalds-ibm-drive-thru",
+    "slug": "real-mcdonalds-ibm-drive-thru",
+    "title": "McDonald’s — Arrêter le test de commande vocale au drive",
+    "short_description": "Après deux ans de test dans plus de 100 restaurants, McDonald’s a mis fin à la prise de commande automatisée développée avec IBM.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "hospitality",
+    "industry_raw": "Restauration rapide",
+    "business_function": [
+      "customer-service",
+      "operations"
+    ],
+    "geography": [
+      "États-Unis"
+    ],
+    "problem": "Prendre les commandes au drive plus vite et plus régulièrement, malgré le bruit, les accents et les commandes modifiées.",
+    "ai_pattern": [
+      "multimodal",
+      "classification"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Écouter la commande",
+        "actor": "agent",
+        "input": [
+          "Voix du client"
+        ],
+        "output": [
+          "Commande transcrite"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Saisir la commande",
+        "actor": "system",
+        "input": [
+          "Commande transcrite"
+        ],
+        "output": [
+          "Ticket en cuisine"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Corriger les erreurs",
+        "actor": "human",
+        "input": [
+          "Ticket erroné"
+        ],
+        "output": [
+          "Commande corrigée"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Commandes saisies automatiquement"
+    ],
+    "data_required": [
+      "Voix des clients",
+      "Menu"
+    ],
+    "data_sources": [
+      {
+        "name": "Menu et système de caisse",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "IBM (prise de commande automatisée)"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "Accélérer le service au drive."
+      },
+      {
+        "type": "productivity",
+        "description": "Libérer les équipiers."
+      }
+    ],
+    "value_type": [
+      "speed",
+      "productivity"
+    ],
+    "business_impact": [
+      "expérience client",
+      "opérations en restaurant"
+    ],
+    "results": [
+      {
+        "text": "McDonald’s a annoncé en juin 2024 la fin du test, mené depuis 2021 dans plus de 100 restaurants, avec un arrêt au plus tard le 26 juillet 2024.",
+        "observed": true
+      },
+      {
+        "text": "Des vidéos virales montraient des commandes absurdes (neuf thés glacés au lieu d’un, du beurre dans une glace).",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Restaurants du test",
+        "value": "100",
+        "unit": "restaurants"
+      }
+    ],
+    "limitations": [
+      "McDonald’s n’a pas publié de taux d’erreur ; l’entreprise a ensuite relancé la commande vocale avec un autre partenaire."
+    ],
+    "risks": [
+      "Erreurs de commande visibles par les clients"
+    ],
+    "failure_modes": [
+      "Reconnaissance vocale dégradée en conditions réelles (bruit, accents, changements d’avis)"
+    ],
+    "lessons_learned": [
+      "Un usage face au client expose chaque erreur, et les réseaux sociaux l’amplifient.",
+      "Arrêter un partenariat n’est pas renoncer à l’usage : McDonald’s a retenté l’expérience plus tard."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.ciodive.com/news/mcdonalds-ibm-drive-thru-automation-voice-ordering-ai/719127/",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Mémo aux franchisés rapporté par la presse (juin 2024)."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-mcdonalds-ibm-drive-thru",
+        "source_type": "public-source",
+        "title": "McDonald’s ends IBM drive-thru voice order test",
+        "publisher": "CIO Dive",
+        "reference": "https://www.ciodive.com/news/mcdonalds-ibm-drive-thru-automation-voice-ordering-ai/719127/",
+        "url": "https://www.ciodive.com/news/mcdonalds-ibm-drive-thru-automation-voice-ordering-ai/719127/",
+        "published_at": "2024-06-17",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis CIO Dive.",
+        "source_ref": "https://www.ciodive.com/news/mcdonalds-ibm-drive-thru-automation-voice-ordering-ai/719127/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-nyc-mycity-chatbot",
+    "slug": "real-nyc-mycity-chatbot",
+    "title": "Ville de New York — Un chatbot public qui conseille d’enfreindre la loi",
+    "short_description": "L’assistant MyCity destiné aux entreprises donnait des réponses contraires au droit du travail et du logement ; il est resté en ligne avec un avertissement.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "public-sector",
+    "industry_raw": "Collectivité territoriale",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "États-Unis",
+      "New York"
+    ],
+    "problem": "Aider les petites entreprises à s’y retrouver dans une réglementation municipale complexe.",
+    "ai_pattern": [
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "company_size_raw": "Administration municipale",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Poser une question réglementaire",
+        "actor": "human",
+        "input": [
+          "Question d’un entrepreneur"
+        ],
+        "output": [
+          "Question"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Répondre à partir des sources municipales",
+        "actor": "agent",
+        "input": [
+          "Question",
+          "pages officielles"
+        ],
+        "output": [
+          "Réponse"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Ajouter un avertissement",
+        "actor": "human",
+        "input": [
+          "Réponses contestées"
+        ],
+        "output": [
+          "Mention « pas un conseil juridique »"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Réponses réglementaires aux entreprises"
+    ],
+    "data_required": [
+      "Pages officielles de la ville"
+    ],
+    "data_sources": [
+      {
+        "name": "Sites officiels de la Ville de New York",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "Azure AI"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Simplifier l’accès à la réglementation."
+      }
+    ],
+    "value_type": [
+      "quality"
+    ],
+    "business_impact": [
+      "service public",
+      "risque juridique pour les usagers"
+    ],
+    "results": [
+      {
+        "text": "En mars 2024, The Markup a montré que le chatbot affirmait qu’un employeur pouvait prélever une part des pourboires ou qu’un propriétaire pouvait refuser des locataires aidés, ce que la loi interdit.",
+        "observed": true
+      },
+      {
+        "text": "La ville a maintenu le service en ajoutant qu’il ne fallait pas utiliser ses réponses comme un conseil juridique.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "L’enquête repose sur des tests de journalistes, pas sur une mesure du taux d’erreur global."
+    ],
+    "risks": [
+      "Usagers induits en erreur par une source officielle"
+    ],
+    "failure_modes": [
+      "Réponses inexactes sur des règles juridiques précises",
+      "Mise en ligne sans évaluation sur les questions sensibles"
+    ],
+    "lessons_learned": [
+      "Une réponse fausse venant d’une source officielle est plus dangereuse qu’une réponse fausse ordinaire.",
+      "Un avertissement ne corrige pas une réponse fausse : il faut évaluer avant et après la mise en ligne."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Enquête de The Markup (mars 2024)."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-nyc-mycity-chatbot",
+        "source_type": "public-source",
+        "title": "NYC’s AI Chatbot Tells Businesses to Break the Law",
+        "publisher": "The Markup",
+        "reference": "https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law",
+        "url": "https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law",
+        "published_at": "2024-03-29",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis The Markup.",
+        "source_ref": "https://themarkup.org/artificial-intelligence/2024/03/29/nycs-ai-chatbot-tells-businesses-to-break-the-law"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "tool_ids": [
+      "tool-azure-ai-foundry"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-deloitte-australia-report",
+    "slug": "real-deloitte-australia-report",
+    "title": "Deloitte Australie — Rembourser un rapport aux références inventées",
+    "short_description": "Un rapport remis au gouvernement australien contenait des citations et une jurisprudence inventées par l’IA ; Deloitte a remboursé une partie du contrat.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "services-b2b",
+    "industry_raw": "Conseil",
+    "business_function": [
+      "other"
+    ],
+    "geography": [
+      "Australie"
+    ],
+    "problem": "Produire un rapport d’évaluation pour un ministère, avec ses références et son analyse juridique.",
+    "ai_pattern": [
+      "generation",
+      "summarization"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Rédiger avec un outil d’IA générative",
+        "actor": "copilot",
+        "input": [
+          "Documents du dossier"
+        ],
+        "output": [
+          "Passages et références"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Remettre le rapport",
+        "actor": "human",
+        "input": [
+          "Rapport"
+        ],
+        "output": [
+          "Publication par le ministère"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Corriger après signalement",
+        "actor": "human",
+        "input": [
+          "Erreurs repérées par un universitaire"
+        ],
+        "output": [
+          "Rapport révisé"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Rapport d’évaluation"
+    ],
+    "data_required": [
+      "Documents du programme évalué"
+    ],
+    "data_sources": [
+      {
+        "name": "Documents du ministère",
+        "access": "read",
+        "sensitivity": "confidential"
+      }
+    ],
+    "tools": [
+      "Azure OpenAI GPT-4o"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Accélérer la rédaction."
+      }
+    ],
+    "value_type": [
+      "productivity"
+    ],
+    "business_impact": [
+      "réputation",
+      "remboursement"
+    ],
+    "results": [
+      {
+        "text": "Le rapport, facturé 440 000 dollars australiens, citait des travaux inexistants et une citation inventée d’un jugement fédéral ; un universitaire les a repérés.",
+        "observed": true
+      },
+      {
+        "text": "Deloitte a remboursé le dernier versement du contrat et ajouté au rapport révisé la mention de l’outil d’IA utilisé.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Montant du contrat",
+        "value": "440000",
+        "unit": "AU$"
+      }
+    ],
+    "limitations": [
+      "Le ministère indique que les recommandations du rapport restent inchangées."
+    ],
+    "risks": [
+      "Références fausses dans un document public",
+      "Usage de l’IA non déclaré au client"
+    ],
+    "failure_modes": [
+      "Références générées non vérifiées",
+      "Absence de relecture des citations avant remise"
+    ],
+    "lessons_learned": [
+      "Toute référence produite par une IA doit être vérifiée à la source avant remise.",
+      "Déclarer l’usage de l’IA au client fait partie de la relation de confiance."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Rapporté par The Register et la presse australienne (octobre 2025)."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-deloitte-australia-report",
+        "source_type": "public-source",
+        "title": "Deloitte refunds Australian government over AI in report",
+        "publisher": "The Register",
+        "reference": "https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/",
+        "url": "https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/",
+        "published_at": "2025-10-06",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis The Register.",
+        "source_ref": "https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "tool_ids": [
+      "tool-azure-openai"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-mata-avianca-fake-citations",
+    "slug": "real-mata-avianca-fake-citations",
+    "title": "Mata contre Avianca — Des avocats sanctionnés pour de fausses jurisprudences",
+    "short_description": "Des avocats ont déposé un mémoire citant six décisions inventées par ChatGPT ; le juge les a sanctionnés.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "tpe"
+    ],
+    "industry": "services-b2b",
+    "industry_raw": "Cabinet d’avocats",
+    "business_function": [
+      "other"
+    ],
+    "geography": [
+      "États-Unis"
+    ],
+    "problem": "Trouver rapidement des précédents pour appuyer un mémoire dans un litige.",
+    "ai_pattern": [
+      "retrieval",
+      "generation"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Petit cabinet d’avocats",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Chercher des précédents",
+        "actor": "copilot",
+        "input": [
+          "Question juridique"
+        ],
+        "output": [
+          "Décisions citées"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Déposer le mémoire",
+        "actor": "human",
+        "input": [
+          "Mémoire"
+        ],
+        "output": [
+          "Dépôt au tribunal"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Constater les citations inventées",
+        "actor": "human",
+        "input": [
+          "Vérification par la partie adverse et le juge"
+        ],
+        "output": [
+          "Sanction"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Mémoire juridique"
+    ],
+    "data_required": [
+      "Question juridique"
+    ],
+    "data_sources": [
+      {
+        "name": "Aucune base juridique consultée",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "ChatGPT (grand public)"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "Accélérer la recherche juridique."
+      }
+    ],
+    "value_type": [
+      "speed"
+    ],
+    "business_impact": [
+      "sanction",
+      "réputation"
+    ],
+    "results": [
+      {
+        "text": "En juin 2023, le tribunal fédéral de New York a constaté que les six décisions citées n’existaient pas.",
+        "observed": true
+      },
+      {
+        "text": "Le juge a infligé 5 000 dollars d’amende aux avocats et à leur cabinet, aggravée par leur refus initial de reconnaître l’erreur.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Décisions inventées",
+        "value": "6",
+        "unit": "décisions"
+      },
+      {
+        "name": "Amende",
+        "value": "5000",
+        "unit": "$"
+      }
+    ],
+    "limitations": [
+      "L’outil utilisé était la version grand public, sans accès à une base juridique."
+    ],
+    "risks": [
+      "Sanction professionnelle",
+      "Atteinte à la cause du client"
+    ],
+    "failure_modes": [
+      "Usage d’un assistant généraliste comme moteur de recherche juridique",
+      "Absence de vérification des références"
+    ],
+    "lessons_learned": [
+      "Un assistant généraliste n’est pas une base de jurisprudence : chaque référence se vérifie.",
+      "Reconnaître vite une erreur limite ses conséquences."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Décision du juge P. Kevin Castel du 22 juin 2023, résumée par Wikipédia."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-mata-avianca-fake-citations",
+        "source_type": "public-source",
+        "title": "Mata v. Avianca, Inc.",
+        "publisher": "Wikipédia (décision du tribunal fédéral du district sud de New York)",
+        "reference": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
+        "url": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
+        "published_at": "2023-06-22",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis Wikipédia (décision du tribunal fédéral du district sud de New York).",
+        "source_ref": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-chevrolet-watsonville-chatbot",
+    "slug": "real-chevrolet-watsonville-chatbot",
+    "title": "Chevrolet de Watsonville — Un chatbot détourné promet un SUV pour 1 dollar",
+    "short_description": "Un internaute a convaincu l’assistant d’une concession d’accepter de vendre un Tahoe neuf pour un dollar ; le chatbot a été retiré.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-03T00:00:00Z",
+    "company_size": [
+      "pme"
+    ],
+    "industry": "automotive",
+    "industry_raw": "Distribution automobile",
+    "business_function": [
+      "sales",
+      "customer-service"
+    ],
+    "geography": [
+      "États-Unis"
+    ],
+    "problem": "Répondre aux visiteurs du site d’une concession automobile à toute heure.",
+    "ai_pattern": [
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "semi-autonomous",
+    "company_size_raw": "Concession automobile",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Discuter avec le visiteur",
+        "actor": "agent",
+        "input": [
+          "Messages du visiteur"
+        ],
+        "output": [
+          "Réponses"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Suivre les instructions du visiteur",
+        "actor": "agent",
+        "input": [
+          "Consigne malveillante"
+        ],
+        "output": [
+          "Engagement absurde"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Retirer le chatbot",
+        "actor": "human",
+        "input": [
+          "Captures virales"
+        ],
+        "output": [
+          "Chatbot désactivé"
+        ]
+      }
+    ],
+    "expected_output": [
+      "Réponses commerciales automatiques"
+    ],
+    "data_required": [
+      "Informations de la concession"
+    ],
+    "data_sources": [
+      {
+        "name": "Site de la concession",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "Modèle GPT (via Fullpath)"
+    ],
+    "expected_value": [
+      {
+        "type": "revenue",
+        "description": "Capter les prospects en dehors des heures d’ouverture."
+      }
+    ],
+    "value_type": [
+      "revenue"
+    ],
+    "business_impact": [
+      "réputation",
+      "sécurité"
+    ],
+    "results": [
+      {
+        "text": "En décembre 2023, un internaute a demandé au chatbot d’accepter tout ce que dit le client, puis a obtenu son accord pour un Tahoe à 1 dollar.",
+        "observed": true
+      },
+      {
+        "text": "La concession n’a pas honoré l’offre et le chatbot a été retiré du site.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "La valeur juridique de l’engagement n’a pas été testée devant un tribunal."
+    ],
+    "risks": [
+      "Manipulation par les utilisateurs (injection de consignes)",
+      "Engagements commerciaux non autorisés"
+    ],
+    "failure_modes": [
+      "Aucun garde-fou contre l’injection de consignes",
+      "Assistant autorisé à parler de prix et d’accords"
+    ],
+    "lessons_learned": [
+      "Un assistant public doit résister aux consignes données par les utilisateurs eux-mêmes.",
+      "Limiter ce qu’il peut promettre : prix, remises et contrats restent du ressort d’un humain."
+    ],
+    "evidence_level": "documented",
+    "outcome": "setback",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://github.com/vectara/awesome-agent-failures/blob/main/docs/case-studies/chevrolet-dealership-chatbot.md",
+      "captured_at": "2026-10-03T00:00:00Z",
+      "captured_by": "case-base-enrichment-failures-2026-10-03",
+      "transformation_notes": "Incident largement relayé (décembre 2023) ; source de synthèse, pas de communiqué de la concession."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-chevrolet-watsonville-chatbot",
+        "source_type": "public-source",
+        "title": "Chevrolet dealership chatbot",
+        "publisher": "Vectara — awesome-agent-failures",
+        "reference": "https://github.com/vectara/awesome-agent-failures/blob/main/docs/case-studies/chevrolet-dealership-chatbot.md",
+        "url": "https://github.com/vectara/awesome-agent-failures/blob/main/docs/case-studies/chevrolet-dealership-chatbot.md",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis Vectara — awesome-agent-failures.",
+        "source_ref": "https://github.com/vectara/awesome-agent-failures/blob/main/docs/case-studies/chevrolet-dealership-chatbot.md"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "tool_ids": [
+      "tool-openai-gpt"
     ]
   }
 ]

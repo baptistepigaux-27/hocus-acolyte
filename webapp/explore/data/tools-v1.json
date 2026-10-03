@@ -26,7 +26,8 @@
       "GPT-4o",
       "GPT-4o mini",
       "OpenAI models",
-      "OpenAI API"
+      "OpenAI API",
+      "Modèle GPT (via Fullpath)"
     ],
     "sources": [
       {
@@ -920,7 +921,8 @@
     "pricing_model": "usage-based",
     "aliases": [
       "Azure OpenAI Service",
-      "Azure OpenAI"
+      "Azure OpenAI",
+      "Azure OpenAI GPT-4o"
     ],
     "sources": [
       {
@@ -1810,6 +1812,47 @@
         "changed_at": "2026-10-01T00:00:00Z",
         "change_type": "created",
         "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-replit-agent",
+    "name": "Replit Agent",
+    "vendor": "Replit",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "description": "Agent de développement intégré à la plateforme Replit, qui construit et modifie une application à partir de consignes en langage naturel.",
+    "use_when": [
+      "Prototyper une application rapidement, sur un environnement isolé"
+    ],
+    "avoid_when": [
+      "Accès en écriture à des données de production sans séparation ni sauvegarde"
+    ],
+    "skill_level": "low-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "subscription",
+    "aliases": [
+      "Replit Agent"
+    ],
+    "sources": [
+      {
+        "title": "Replit Agent — page officielle",
+        "url": "https://replit.com/ai"
+      }
+    ],
+    "verified_at": "2026-10-03",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-03T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté avec le lot des échecs du 03/10/2026."
       }
     ]
   }

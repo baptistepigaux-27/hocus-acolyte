@@ -156,7 +156,10 @@
       "maps": {
         "case_ids": [
           "case-real-air-canada-chatbot-liability",
-          "case-real-albert-france-services"
+          "case-real-albert-france-services",
+          "case-real-mata-avianca-fake-citations",
+          "case-real-deloitte-australia-report",
+          "case-real-nyc-mycity-chatbot"
         ]
       }
     },
@@ -634,7 +637,8 @@
         "case_ids": [
           "case-real-walmart-pactum-negotiation",
           "case-real-back-market-fraud-agents",
-          "case-real-stripe-claude-code-migration"
+          "case-real-stripe-claude-code-migration",
+          "case-real-replit-agent-database-deletion"
         ]
       }
     },
@@ -1027,6 +1031,10 @@
       "maps": {
         "tool_family": [
           "eval-observability"
+        ],
+        "case_ids": [
+          "case-real-dpd-chatbot-swearing",
+          "case-real-nyc-mycity-chatbot"
         ]
       }
     },
@@ -1141,7 +1149,8 @@
       "maps": {
         "case_ids": [
           "case-real-air-canada-chatbot-liability",
-          "case-real-veolia-secure-gpt"
+          "case-real-veolia-secure-gpt",
+          "case-real-amazon-recruiting-bias"
         ]
       },
       "links": [

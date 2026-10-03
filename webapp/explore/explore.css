@@ -247,3 +247,10 @@ a { color: inherit; }
 .risk-high { color: #c4553a; } .risk-limited { color: var(--explore-brass); } .risk-minimal { color: var(--explore-petrol); }
 @media (max-width: 860px) { .cadre-levels { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cadre-timeline li { grid-template-columns: 1fr; } .cadre-timeline time { grid-row: auto; } }
 @media (max-width: 520px) { .cadre-levels { grid-template-columns: 1fr; } }
+
+/* ===== Résultat des cas : échec ou revers, mitigé ===== */
+.explore-card-badges { display: inline-flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.outcome-badge { display: inline-flex; align-items: center; width: fit-content; padding: 4px 6px; border: 1px solid currentColor; font: 9px var(--explore-mono); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.outcome-setback { color: #c4553a; }
+.outcome-mixed { color: var(--explore-brass); }
+.detail-proof-panel .outcome-badge { margin-top: 8px; }
