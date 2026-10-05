@@ -18887,5 +18887,1209 @@
     "tool_ids": [
       "tool-openai-gpt"
     ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-thales-datx-data-quality",
+    "slug": "real-thales-datx-data-quality",
+    "title": "Thales — Contrôler la qualité d’un référentiel de 5 millions de composants",
+    "short_description": "La plateforme DATX combine statistiques, clustering et classification pour repérer valeurs aberrantes, données manquantes, documents non conformes et mauvais appariements.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "industry",
+    "industry_raw": "Industrie aéronautique, défense et électronique",
+    "business_function": [
+      "it-data",
+      "operations"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Un référentiel de plus de 5 millions de composants, utilisé de la conception à la maintenance, doit rester fiable alors que de nouveaux articles arrivent en continu.",
+    "ai_pattern": [
+      "classification",
+      "monitoring"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Grande entreprise (plus de 5 000 employés)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Détecter les valeurs aberrantes",
+        "actor": "model",
+        "input": [
+          "Caractéristiques des articles"
+        ],
+        "output": [
+          "Valeurs suspectes"
+        ],
+        "action": "Méthodes statistiques (IQR) et clustering (DBSCAN)."
+      },
+      {
+        "order": 2,
+        "label": "Mesurer la complétude",
+        "actor": "system",
+        "input": [
+          "Articles par catégorie et caractéristique"
+        ],
+        "output": [
+          "Zones de données manquantes"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Classer les documents et les appariements",
+        "actor": "model",
+        "input": [
+          "Fiches techniques PDF",
+          "numéros de pièce"
+        ],
+        "output": [
+          "Fiches non conformes au RGPD",
+          "appariements douteux"
+        ],
+        "action": "Règles et régression logistique ; classifieur binaire d’appariement."
+      },
+      {
+        "order": 4,
+        "label": "Valider et corriger",
+        "actor": "human",
+        "input": [
+          "Anomalies détectées"
+        ],
+        "output": [
+          "Corrections par les experts métier"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Indicateurs de qualité des données",
+      "Anomalies à corriger",
+      "Documents exclus de la production"
+    ],
+    "data_required": [
+      "5 millions d’articles et leurs caractéristiques",
+      "Environ deux millions de fiches techniques PDF",
+      "Correspondances numéro de pièce – fiche technique"
+    ],
+    "data_sources": [
+      {
+        "name": "Base de composants DATX",
+        "access": "read",
+        "sensitivity": "internal"
+      },
+      {
+        "name": "Fiches techniques des fabricants",
+        "access": "read",
+        "sensitivity": "mixed"
+      }
+    ],
+    "tools": [
+      "IQR (écart interquartile)",
+      "DBSCAN",
+      "Régression logistique",
+      "IA générative (expérimentations)"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Fiabiliser les données fournies aux équipes du groupe."
+      },
+      {
+        "type": "risk",
+        "description": "Exclure les documents non conformes au RGPD."
+      },
+      {
+        "type": "productivity",
+        "description": "Prioriser le travail des contrôleurs."
+      }
+    ],
+    "value_type": [
+      "quality",
+      "risk",
+      "productivity"
+    ],
+    "business_impact": [
+      "qualité des données",
+      "conformité",
+      "charge de contrôle manuel"
+    ],
+    "results": [
+      {
+        "text": "Sur environ deux millions de documents, les fiches non conformes au RGPD ont été détectées et exclues de la production en moins de 3 jours.",
+        "observed": true
+      },
+      {
+        "text": "Le classifieur d’appariement entre numéro de pièce et fiche technique, entraîné sur 8 500 paires, atteint une précision de plus de 77 %.",
+        "observed": true
+      },
+      {
+        "text": "Les valeurs aberrantes détectées sont validées par des experts métier avant correction.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Documents analysés pour la conformité RGPD",
+        "value": "2000000",
+        "unit": "documents"
+      },
+      {
+        "name": "Délai d’exclusion des fiches non conformes",
+        "value": "3",
+        "unit": "jours (maximum)"
+      },
+      {
+        "name": "Précision du classifieur d’appariement",
+        "value": "77",
+        "unit": "% (plus de)"
+      },
+      {
+        "name": "Articles du référentiel",
+        "value": "5000000",
+        "unit": "articles"
+      }
+    ],
+    "limitations": [
+      "Le chatbot de validation, l’extraction des caractéristiques par IA générative (prévue d’ici fin 2025) et le score de criticité REACH/RoHS sont présentés comme des expérimentations, pas comme des résultats.",
+      "La source ne chiffre ni le nombre d’anomalies corrigées ni le temps gagné par les contrôleurs."
+    ],
+    "risks": [
+      "Faux positifs qui surchargent les experts",
+      "Précision d’appariement encore limitée (77 %)"
+    ],
+    "lessons_learned": [
+      "La qualité des données se traite par angles complémentaires : crédibilité, complétude, conformité, cohérence.",
+      "Des méthodes statistiques simples (IQR, DBSCAN) suffisent à faire remonter les anomalies ; l’expert reste celui qui valide."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-10-05T00:00:00Z",
+      "captured_by": "case-base-enrichment-dge-2026-10-05",
+      "transformation_notes": "Cas Thales extrait de la fiche officielle DGE AI for Efficiency. Résultats observés : 2 M de documents traités en moins de 3 jours, précision de plus de 77 % sur l’appariement. Les usages d’IA générative sont décrits comme expérimentaux ou prévus et ne sont pas comptés comme résultats."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-thales-datx-data-quality",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — DATX - AI-powered Data Quality Factory",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ],
+    "architecture_pattern": [
+      "DONNÉES ARTICLES",
+      "STATISTIQUES + CLUSTERING",
+      "CLASSIFICATION",
+      "VALIDATION EXPERT",
+      "KPI QUALITÉ"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-air-liquide-lim-supply-optimization",
+    "slug": "real-air-liquide-lim-supply-optimization",
+    "title": "Air Liquide — Optimiser ensemble production et livraisons",
+    "short_description": "L’optimiseur LIM enchaîne prévision de la demande, clustering des clients et programmation linéaire pour proposer un plan de la production à la livraison.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "industry",
+    "industry_raw": "Gaz industriels",
+    "business_function": [
+      "supply",
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France",
+      "Europe",
+      "International"
+    ],
+    "problem": "Planifier la production de produits liquides et leurs livraisons aux clients, sous de nombreuses contraintes, à partir de données dispersées entre production, distribution et transport.",
+    "ai_pattern": [
+      "prediction",
+      "recommendation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Grande entreprise (plus de 5 000 employés)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Prévoir la demande",
+        "actor": "model",
+        "input": [
+          "Historique de distribution et de ventes",
+          "historique de livraisons"
+        ],
+        "output": [
+          "Prévision de demande"
+        ],
+        "action": "Machine learning."
+      },
+      {
+        "order": 2,
+        "label": "Regrouper les clients",
+        "actor": "model",
+        "input": [
+          "Données clients et livraisons"
+        ],
+        "output": [
+          "Segments de clients"
+        ],
+        "action": "Clustering."
+      },
+      {
+        "order": 3,
+        "label": "Calculer le plan optimal",
+        "actor": "system",
+        "input": [
+          "Prévisions",
+          "contraintes de production et de transport"
+        ],
+        "output": [
+          "Plan de production et de livraison"
+        ],
+        "action": "Programmation linéaire en nombres mixtes."
+      },
+      {
+        "order": 4,
+        "label": "Réviser et décider",
+        "actor": "human",
+        "input": [
+          "Plan proposé",
+          "prévisions"
+        ],
+        "output": [
+          "Plan retenu par les dispatchers"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Plan de production et de livraison",
+      "Prévisions révisées par les dispatchers"
+    ],
+    "data_required": [
+      "Données de distribution et de ventes (Industrial Merchant)",
+      "Système SCADA de la production primaire",
+      "Données du Truck Loading System",
+      "Historique des livraisons et de l’approvisionnement"
+    ],
+    "data_sources": [
+      {
+        "name": "Systèmes de production, de vente et de livraison Air Liquide",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Machine learning",
+      "Programmation linéaire en nombres mixtes",
+      "SCADA"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Réaliser des économies ou éviter des coûts."
+      },
+      {
+        "type": "decision",
+        "description": "Améliorer la planification de la supply chain."
+      },
+      {
+        "type": "risk",
+        "description": "Réduire l’empreinte carbone des livraisons."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "decision",
+      "risk"
+    ],
+    "business_impact": [
+      "supply chain",
+      "coûts logistiques",
+      "empreinte carbone"
+    ],
+    "results": [
+      {
+        "text": "Le PoC a été transformé en MVP, que le projet vise à répliquer dans plusieurs entités en Europe et à l’international.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Objectif d’adoption (semaines où LIM sert à planifier)",
+        "value": "80",
+        "unit": "% minimum, idéalement plus de 90 %"
+      },
+      {
+        "name": "Objectif d’amélioration des prévisions après révision",
+        "value": "2-3",
+        "unit": "%"
+      },
+      {
+        "name": "Objectif de temps d’exécution de l’optimiseur",
+        "value": "5",
+        "unit": "minutes (maximum)"
+      },
+      {
+        "name": "Objectif de pays adoptants hors Europe",
+        "value": "2",
+        "unit": "pays (minimum)"
+      }
+    ],
+    "limitations": [
+      "Tous les chiffres publiés sont des objectifs ; aucune économie ni réduction d’empreinte carbone n’est chiffrée.",
+      "Le clustering et l’optimisation sous contraintes n’ont pas de catégorie dédiée dans la taxonomie Acolyte : ils sont décrits dans le mécanisme."
+    ],
+    "risks": [
+      "Plan inadapté si les prévisions dérivent",
+      "Adoption insuffisante par les planificateurs"
+    ],
+    "lessons_learned": [
+      "Une bonne partie de la valeur de l’IA en supply chain vient de l’enchaînement prévision puis optimisation, pas d’un modèle de langage.",
+      "Mesurer l’adoption (part des semaines où l’outil sert vraiment) dit plus que la précision seule."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-10-05T00:00:00Z",
+      "captured_by": "case-base-enrichment-dge-2026-10-05",
+      "transformation_notes": "Cas Air Liquide extrait de la fiche officielle DGE AI for Efficiency. Toutes les métriques (adoption, précision, temps d’exécution, pays) sont des objectifs publiés, pas des résultats ; aucune performance n’est déduite. Clustering et programmation linéaire conservés dans architecture_pattern faute de pattern canonique."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-air-liquide-lim-supply-optimization",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — LIM: Combined Primary Production and Customer Delivery Optimization",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ],
+    "architecture_pattern": [
+      "HISTORIQUE",
+      "PRÉVISION ML",
+      "CLUSTERING CLIENTS",
+      "OPTIMISATION (PLNE)",
+      "PLAN RÉVISÉ PAR LES DISPATCHERS"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-3wayste-robotic-waste-sorting",
+    "slug": "real-3wayste-robotic-waste-sorting",
+    "title": "3WAYSTE — Trier les déchets avec vision et bras robotiques",
+    "short_description": "Une arche de vision identifie et localise les matériaux sur un convoyeur ; des bras robotiques retirent les éléments indésirables.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
+    "company_size": [
+      "tpe"
+    ],
+    "industry": "other",
+    "industry_raw": "Tri et valorisation des déchets",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Améliorer la pureté des matériaux triés et la productivité du contrôle qualité dans un centre de tri, en réaffectant les opérateurs à des tâches à plus forte valeur.",
+    "ai_pattern": [
+      "multimodal",
+      "classification"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "semi-autonomous",
+    "company_size_raw": "Micro entreprise (moins de 10 employés)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Scanner le flux de déchets",
+        "actor": "model",
+        "input": [
+          "Images du convoyeur"
+        ],
+        "output": [
+          "Matériaux identifiés, position, niveau de certitude"
+        ],
+        "action": "IA intégrée à une arche de vision."
+      },
+      {
+        "order": 2,
+        "label": "Extraire les indésirables",
+        "actor": "system",
+        "input": [
+          "Détections"
+        ],
+        "output": [
+          "Éléments retirés par aspiration"
+        ],
+        "action": "Bras robotiques pilotés par l’IA."
+      },
+      {
+        "order": 3,
+        "label": "Contrôler la précision",
+        "actor": "human",
+        "input": [
+          "Résultats de l’IA"
+        ],
+        "output": [
+          "Vérification humaine comparée au système"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Flux de matériaux plus purs",
+      "Base de données de matériaux auto-apprenante"
+    ],
+    "data_required": [
+      "Images du flux de déchets"
+    ],
+    "data_sources": [
+      {
+        "name": "Images de l’arche de vision",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Computer vision",
+      "Bras robotiques"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Améliorer la pureté des matériaux triés."
+      },
+      {
+        "type": "productivity",
+        "description": "Augmenter la productivité du contrôle qualité."
+      }
+    ],
+    "value_type": [
+      "quality",
+      "productivity"
+    ],
+    "business_impact": [
+      "qualité du tri",
+      "conditions de travail",
+      "économie circulaire"
+    ],
+    "results": [
+      {
+        "text": "La précision du système est suivie par une vérification humaine comparée aux résultats de l’IA.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Objectif de détection",
+        "value": "95",
+        "unit": "% des éléments, précision moyenne supérieure à 95 %"
+      },
+      {
+        "name": "Objectif de prises réussies",
+        "value": "33",
+        "unit": "prises par minute (plus de)"
+      }
+    ],
+    "limitations": [
+      "Les chiffres de détection et de prises sont des objectifs ; aucun résultat mesuré n’est publié.",
+      "L’affirmation selon laquelle ce contrôle qualité robotisé n’avait jamais été réalisé en France ni à l’étranger vient de l’entreprise."
+    ],
+    "risks": [
+      "Objets difficiles à saisir (humides, très grands ou très petits)",
+      "Erreurs de détection qui dégradent la pureté"
+    ],
+    "lessons_learned": [
+      "L’IA physique ajoute une contrainte que les cas logiciels n’ont pas : il faut que la détection soit juste et que le geste réussisse.",
+      "Une micro-entreprise peut porter un projet d’IA industrielle quand le problème est étroit et bien mesuré."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-10-05T00:00:00Z",
+      "captured_by": "case-base-enrichment-dge-2026-10-05",
+      "transformation_notes": "Cas 3WAYSTE extrait de la fiche officielle DGE AI for Efficiency. Les taux (95 %, 33 prises par minute) sont des objectifs ; aucune performance réelle n’est publiée ni déduite."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-3wayste-robotic-waste-sorting",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — AI TO IMPROVE IMPROVING WASTE DIVERSION FROM LANDFILL",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ],
+    "architecture_pattern": [
+      "ARCHE DE VISION",
+      "IDENTIFICATION + POSITION",
+      "BRAS ROBOTIQUES",
+      "VÉRIFICATION HUMAINE"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-360learning-ai-course-authoring",
+    "slug": "real-360learning-ai-course-authoring",
+    "title": "360Learning — Transformer le savoir des experts en formations",
+    "short_description": "Un expert charge un document ; l’IA propose un cours et des questions, contextualisés par les formations existantes de l’organisation, que l’expert relit.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "software",
+    "industry_raw": "Logiciel de formation (learning platform)",
+    "business_function": [
+      "hr",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Permettre à des experts métier sans expérience pédagogique de partager leur savoir sous forme de formations, sans perdre le contrôle de la qualité et de la conformité.",
+    "ai_pattern": [
+      "generation",
+      "retrieval"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Entreprise de taille intermédiaire (250-5 000 employés)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Charger un document ou un prompt",
+        "actor": "human",
+        "input": [
+          "Fiche, transcription vidéo, document de l’expert"
+        ],
+        "output": [
+          "Demande de cours ou de questions"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Contextualiser",
+        "actor": "system",
+        "input": [
+          "Formations existantes de l’organisation"
+        ],
+        "output": [
+          "Contexte et jargon de l’organisation"
+        ],
+        "action": "Retrieval-Augmented Generation."
+      },
+      {
+        "order": 3,
+        "label": "Générer cours et quiz",
+        "actor": "copilot",
+        "input": [
+          "Document",
+          "contexte",
+          "paramètres définis par les responsables formation"
+        ],
+        "output": [
+          "Activités, images et questions proposées"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Relire et publier",
+        "actor": "human",
+        "input": [
+          "Propositions"
+        ],
+        "output": [
+          "Formation publiée par l’expert"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Questions de quiz suggérées",
+      "Cours complets à relire",
+      "Paramètres de conformité appliqués aux générations"
+    ],
+    "data_required": [
+      "Contenus de formation existants de l’organisation",
+      "Documents et transcriptions fournis par les experts"
+    ],
+    "data_sources": [
+      {
+        "name": "Bibliothèque de formations de l’organisation cliente",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Large Language Models (LLMs)",
+      "Retrieval-Augmented Generation"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Créer une formation en quelques minutes."
+      },
+      {
+        "type": "knowledge",
+        "description": "Transmettre le savoir des experts internes."
+      },
+      {
+        "type": "quality",
+        "description": "Garder le contrôle sur le ton et la conformité."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "knowledge",
+      "quality"
+    ],
+    "business_impact": [
+      "formation interne",
+      "transmission du savoir",
+      "onboarding"
+    ],
+    "results": [
+      {
+        "text": "Les fonctionnalités sont intégrées à l’outil de création de la plateforme ; l’expert relit et modifie chaque proposition avant publication.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "La source définit des critères de réussite (part de cours créés puis partagés avec l’IA, activation des auteurs à 30 jours, plateformes appliquant les paramètres définis par les responsables formation) sans publier de valeurs.",
+      "La modération des forums et la traduction automatique sont présentées comme des pistes."
+    ],
+    "risks": [
+      "Contenu de formation inexact ou non conforme",
+      "Uniformisation pédagogique"
+    ],
+    "lessons_learned": [
+      "Le RAG sur les formations existantes donne le vocabulaire de l’organisation, ce qu’un assistant généraliste n’a pas.",
+      "Laisser les responsables formation fixer les règles (ton, conformité, mise en page) rend la création décentralisée acceptable."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-10-05T00:00:00Z",
+      "captured_by": "case-base-enrichment-dge-2026-10-05",
+      "transformation_notes": "Cas 360Learning extrait de la fiche officielle DGE AI for Efficiency. La source décrit les fonctionnalités et des critères de réussite sans valeurs mesurées ; aucune performance n’est déduite."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-360learning-ai-course-authoring",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — AI powering up Collaborative Learning in the corporate world",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ],
+    "architecture_pattern": [
+      "DOCUMENT DE L’EXPERT",
+      "RAG SUR LES FORMATIONS",
+      "GÉNÉRATION COURS + QUIZ",
+      "RELECTURE PAR L’EXPERT"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-enedis-ariia-wasted-interventions",
+    "slug": "real-enedis-ariia-wasted-interventions",
+    "title": "Enedis — Repérer les interventions inutiles avant de déplacer un technicien",
+    "short_description": "Un modèle de langage français, enrichi du vocabulaire technique d’Enedis, analyse les commentaires des demandes d’intervention et signale chaque matin celles qui risquent d’être inutiles.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
+    "company_size": [
+      "enterprise"
+    ],
+    "industry": "other",
+    "industry_raw": "Distribution d’électricité",
+    "business_function": [
+      "operations",
+      "it-data"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Sur environ 2,5 millions de demandes d’intervention par an, certaines sont mal qualifiées et aboutissent à des déplacements inutiles chez les clients.",
+    "ai_pattern": [
+      "classification",
+      "monitoring"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Grande entreprise (plus de 5 000 employés)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Recevoir les demandes des fournisseurs",
+        "actor": "system",
+        "input": [
+          "Demandes d’intervention et commentaires textuels"
+        ],
+        "output": [
+          "Demandes à analyser"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Détecter les incohérences",
+        "actor": "model",
+        "input": [
+          "Commentaires",
+          "type d’intervention demandé"
+        ],
+        "output": [
+          "Interventions suspectées d’être mal classées"
+        ],
+        "action": "Traitement du langage naturel en français, enrichi du vocabulaire Enedis."
+      },
+      {
+        "order": 3,
+        "label": "Transmettre la liste du jour",
+        "actor": "workflow",
+        "input": [
+          "Interventions suspectes"
+        ],
+        "output": [
+          "Liste quotidienne aux équipes de gestion"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Rappeler, requalifier ou annuler",
+        "actor": "human",
+        "input": [
+          "Liste du jour"
+        ],
+        "output": [
+          "Intervention requalifiée ou annulée"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Liste quotidienne d’interventions potentiellement inutiles",
+      "Interventions requalifiées ou annulées"
+    ],
+    "data_required": [
+      "Demandes d’intervention et commentaires des fournisseurs d’électricité"
+    ],
+    "data_sources": [
+      {
+        "name": "Demandes d’intervention transmises par les fournisseurs",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "tools": [
+      "Traitement du langage naturel (modèle français enrichi)"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Éviter des déplacements inutiles."
+      },
+      {
+        "type": "quality",
+        "description": "Réduire l’insatisfaction des clients."
+      },
+      {
+        "type": "risk",
+        "description": "Réduire l’impact CO2 des déplacements."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "quality",
+      "risk"
+    ],
+    "business_impact": [
+      "interventions terrain",
+      "coûts de déplacement",
+      "satisfaction client"
+    ],
+    "results": [
+      {
+        "text": "En 2023, plus de 230 utilisateurs ont utilisé le système.",
+        "observed": true
+      },
+      {
+        "text": "65 000 interventions inutiles ont été évitées à l’échelle nationale, soit un gain de 3,7 millions d’euros de déplacements évités.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Interventions inutiles évitées (2023)",
+        "value": "65000",
+        "unit": "interventions"
+      },
+      {
+        "name": "Gain lié aux déplacements évités (2023)",
+        "value": "3.7",
+        "unit": "M€"
+      },
+      {
+        "name": "Utilisateurs (2023)",
+        "value": "230",
+        "unit": "utilisateurs (plus de)"
+      },
+      {
+        "name": "Demandes d’intervention annuelles",
+        "value": "2500000",
+        "unit": "demandes"
+      }
+    ],
+    "limitations": [
+      "Les chiffres sont publiés par Enedis via la DGE ; le mode de calcul du gain n’est pas détaillé."
+    ],
+    "risks": [
+      "Annulation à tort d’une intervention nécessaire",
+      "Données personnelles dans les commentaires"
+    ],
+    "lessons_learned": [
+      "Le texte libre saisi avec une demande contient souvent l’information qui manque à sa catégorie.",
+      "L’IA ne décide pas : elle produit chaque matin une liste courte que les équipes vérifient en rappelant le client."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-10-05T00:00:00Z",
+      "captured_by": "case-base-enrichment-dge-2026-10-05",
+      "transformation_notes": "Cas Enedis extrait de la fiche officielle DGE AI for Efficiency. Résultats 2023 publiés comme observés (65 000 interventions évitées, 3,7 M€, plus de 230 utilisateurs) ; méthode de calcul non détaillée."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-enedis-ariia-wasted-interventions",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — ARIIA, Detecting potential wasted interventions on customer premises with natural language processing",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ],
+    "architecture_pattern": [
+      "DEMANDES + COMMENTAIRES",
+      "NLP FRANÇAIS ENRICHI",
+      "LISTE QUOTIDIENNE",
+      "RAPPEL / REQUALIFICATION"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-alan-mo-medical-conversational-ai",
+    "slug": "real-alan-mo-medical-conversational-ai",
+    "title": "Alan — Tester un agent conversationnel médical en conditions réelles",
+    "short_description": "L’agent Mo, intégré à un service de conseil médical par messagerie, a été évalué par un essai randomisé, sous la supervision de médecins.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "healthcare",
+    "industry_raw": "Assurance santé et services médicaux",
+    "business_function": [
+      "customer-service"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Répondre aux questions médicales des membres d’un assureur santé avec clarté et sécurité, sans dégrader la qualité du conseil.",
+    "ai_pattern": [
+      "generation"
+    ],
+    "solution_type": "agent",
+    "autonomy_level": "supervised-agent",
+    "company_size_raw": "Entreprise de taille intermédiaire (250-5 000 employés)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Recevoir la question du patient",
+        "actor": "human",
+        "input": [
+          "Message dans le chat de conseil médical"
+        ],
+        "output": [
+          "Question"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Mener la conversation",
+        "actor": "agent",
+        "input": [
+          "Question",
+          "échange"
+        ],
+        "output": [
+          "Réponse et conseil médical"
+        ],
+        "action": "Agent conversationnel fondé sur un grand modèle de langage."
+      },
+      {
+        "order": 3,
+        "label": "Superviser et évaluer",
+        "actor": "human",
+        "input": [
+          "Conversations"
+        ],
+        "output": [
+          "Évaluation de sécurité par des médecins généralistes"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Conseils médicaux conversationnels",
+      "Évaluation médicale des conversations"
+    ],
+    "data_required": [
+      "Échanges de patients dans un service de conseil médical"
+    ],
+    "data_sources": [
+      {
+        "name": "Conversations du service de conseil médical",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "data_sensitivity": "personal",
+    "tools": [
+      "Mo (agent conversationnel médical)",
+      "Large Language Models (LLMs)"
+    ],
+    "expected_value": [
+      {
+        "type": "quality",
+        "description": "Des réponses plus claires pour les patients."
+      },
+      {
+        "type": "productivity",
+        "description": "Absorber une partie des demandes de conseil."
+      }
+    ],
+    "value_type": [
+      "quality",
+      "productivity"
+    ],
+    "business_impact": [
+      "expérience patient",
+      "sécurité médicale"
+    ],
+    "results": [
+      {
+        "text": "Essai randomisé de trois semaines sur 926 cas ; 298 interactions complètes menées par l’agent ont été évaluées par des médecins.",
+        "observed": true
+      },
+      {
+        "text": "Clarté perçue de 3,73 contre 3,62 sur 4, et satisfaction de 4,58 contre 4,42 sur 5, par rapport au service standard ; 81 % des répondants ont accepté l’agent.",
+        "observed": true
+      },
+      {
+        "text": "95 % des conversations ont été jugées « bonnes » ou « excellentes » par les médecins.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Cas de l’essai randomisé",
+        "value": "926",
+        "unit": "cas"
+      },
+      {
+        "name": "Interactions évaluées par des médecins",
+        "value": "298",
+        "unit": "interactions"
+      },
+      {
+        "name": "Conversations jugées bonnes ou excellentes",
+        "value": "95",
+        "unit": "%"
+      },
+      {
+        "name": "Satisfaction (agent contre standard)",
+        "value": "4,58 / 4,42",
+        "unit": "sur 5"
+      },
+      {
+        "name": "Taux d’acceptation",
+        "value": "81",
+        "unit": "% des répondants"
+      }
+    ],
+    "limitations": [
+      "Résultats issus d’un article des équipes du projet (arXiv), évalué sur trois semaines.",
+      "La sécurité repose sur la supervision par des médecins ; un conseil médical délivré par une IA peut relever de la réglementation des dispositifs médicaux, ce que la source ne discute pas."
+    ],
+    "risks": [
+      "Conseil médical erroné",
+      "Données de santé",
+      "Dépendance à la supervision médicale"
+    ],
+    "lessons_learned": [
+      "Dans la santé, la mesure de référence est l’évaluation par des médecins, pas seulement la satisfaction.",
+      "Un essai randomisé en conditions réelles apporte une preuve plus solide qu’une démonstration."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+      "captured_at": "2026-10-05T00:00:00Z",
+      "captured_by": "case-base-enrichment-dge-2026-10-05",
+      "transformation_notes": "La fiche DGE AI for Efficiency ne donne que l’en-tête du projet (Alan, ETI, « Mo: a conversational medical AI deployed in real life ») et renvoie à l’article arXiv 2411.12808, d’où proviennent tous les résultats (essai randomisé). Aucune performance n’est extrapolée au-delà de l’étude."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-alan-mo-medical-conversational-ai",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — Mo: a conversational medical AI deployed in real life",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      },
+      {
+        "id": "source-alan-mo-arxiv",
+        "source_type": "public-source",
+        "title": "Conversational Medical AI: Ready for Practice",
+        "publisher": "arXiv (2411.12808)",
+        "reference": "https://arxiv.org/abs/2411.12808",
+        "url": "https://arxiv.org/abs/2411.12808",
+        "published_at": "2024-11-19",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      }
+    ],
+    "architecture_pattern": [
+      "CHAT DE CONSEIL MÉDICAL",
+      "AGENT LLM",
+      "SUPERVISION MÉDICALE",
+      "ESSAI RANDOMISÉ"
+    ]
   }
 ]

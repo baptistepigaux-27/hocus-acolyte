@@ -50,7 +50,7 @@
           <div class="site-nav-columns site-nav-columns-single">
             <div class="site-nav-subgroup">
               <h3>Explorer</h3>
-              <a class="site-nav-compact-link" data-global-section="explore" href="${href('explore/')}"><b>01</b><span>Catalogue des cas</span><small>145 cas d’usage, avec leur niveau de preuve</small></a>
+              <a class="site-nav-compact-link" data-global-section="explore" href="${href('explore/')}"><b>01</b><span>Catalogue des cas</span><small>151 cas d’usage, avec leur niveau de preuve</small></a>
               <a class="site-nav-compact-link" data-global-section="tools" href="${href('outils/')}"><b>02</b><span>Carte des outils</span><small>Les outils cités par les cas, rangés par rôle</small></a>
               <a class="site-nav-compact-link" data-global-section="glossary" href="${href('glossaire/')}"><b>03</b><span>Glossaire</span><small>Les mots de l’IA, reliés aux cas</small></a>
               <a class="site-nav-compact-link" data-global-section="autodiagnostic" href="${href('autodiagnostic/')}"><b>04</b><span>Autodiagnostic</span><small>Votre entreprise est-elle prête ? 10 questions</small></a>
