@@ -930,7 +930,9 @@
       "related": [
         "prediction",
         "scoring",
-        "classification"
+        "classification",
+        "clustering",
+        "optimisation"
       ],
       "maps": {
         "tool_family": [
@@ -1159,6 +1161,80 @@
           "path": "cadre/"
         }
       ]
+    },
+    {
+      "slug": "clustering",
+      "term": "Regroupement (clustering)",
+      "group": "taches",
+      "aliases": [
+        "clustering",
+        "segmentation",
+        "regroupement",
+        "DBSCAN",
+        "k-means"
+      ],
+      "short": "Rassembler automatiquement des éléments qui se ressemblent, sans catégories fixées à l’avance : clients, équipements, documents.",
+      "definition": [
+        "Le clustering forme des groupes d’éléments proches à partir de leurs caractéristiques, sans qu’on lui dise quels groupes chercher. C’est un apprentissage « non supervisé » : il n’y a pas de réponses étiquetées au départ.",
+        "Il sert à segmenter des clients, à repérer des comportements atypiques (ce qui n’entre dans aucun groupe) ou à préparer une autre étape, comme une prévision par segment."
+      ],
+      "in_practice": [
+        "Les groupes obtenus doivent être interprétés par un expert : l’algorithme ne dit pas ce qu’ils signifient.",
+        "Un point isolé de tous les groupes est souvent une anomalie à vérifier (cas Thales, SNCF)."
+      ],
+      "confusions": [
+        {
+          "term": "Classification",
+          "difference": "la classification range dans des catégories connues à l’avance ; le clustering découvre les groupes."
+        }
+      ],
+      "related": [
+        "ml-classique",
+        "classification",
+        "prediction"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "clustering"
+        ]
+      }
+    },
+    {
+      "slug": "optimisation",
+      "term": "Optimisation sous contraintes",
+      "group": "taches",
+      "aliases": [
+        "recherche opérationnelle",
+        "programmation linéaire",
+        "optimisation",
+        "planification optimale",
+        "routage"
+      ],
+      "short": "Calculer la meilleure décision possible (un plan, une tournée, un planning) en respectant un ensemble de contraintes.",
+      "definition": [
+        "L’optimisation sous contraintes cherche, parmi toutes les solutions possibles, celle qui minimise un coût ou maximise un objectif tout en respectant des règles : capacités, délais, stocks, horaires. C’est le domaine de la recherche opérationnelle (programmation linéaire, en nombres entiers…).",
+        "Elle se combine souvent avec la prévision : on prévoit la demande, puis on calcule le plan optimal pour y répondre. Ce n’est pas de l’IA générative, et c’est souvent là que se trouvent les gains les plus mesurables."
+      ],
+      "in_practice": [
+        "La qualité du plan dépend des contraintes saisies : une contrainte oubliée donne un plan inapplicable.",
+        "Laisser les planificateurs réviser le plan proposé favorise l’adoption (cas Air Liquide)."
+      ],
+      "confusions": [
+        {
+          "term": "Prédiction",
+          "difference": "la prédiction estime ce qui va se passer ; l’optimisation décide de la meilleure réponse."
+        }
+      ],
+      "related": [
+        "prediction",
+        "ml-classique",
+        "recommandation"
+      ],
+      "maps": {
+        "ai_pattern": [
+          "optimization"
+        ]
+      }
     }
   ]
 }

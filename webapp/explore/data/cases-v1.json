@@ -6027,14 +6027,15 @@
     "title": "Sight Machine — Replanifier la production en temps réel",
     "short_description": "Sight Machine utilise des données d’usine et des modèles d’optimisation pour recalculer les plannings de production.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-19T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
     "problem": "Les perturbations imposent de replanifier plusieurs fois par semaine à partir de réunions manuelles et d’expertise opérateur.",
     "ai_pattern": [
       "prediction",
       "orchestration",
-      "recommendation"
+      "recommendation",
+      "optimization"
     ],
     "solution_type": "workflow",
     "autonomy_level": "semi-autonomous",
@@ -6131,6 +6132,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Patterns ajoutés après extension de la taxonomie : optimization.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "tool_ids": [
@@ -11854,9 +11862,9 @@
     "title": "Uber — Affiner l’ETA avec un modèle hybride",
     "short_description": "DeepETA combine un moteur de routage et un modèle de machine learning qui apprend l’écart entre l’ETA calculée et la réalité observée.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
     "company_size": [
       "enterprise"
     ],
@@ -11875,7 +11883,8 @@
     "ai_pattern": [
       "prediction",
       "orchestration",
-      "scoring"
+      "scoring",
+      "optimization"
     ],
     "solution_type": "product",
     "autonomy_level": "bounded-autonomous",
@@ -12044,6 +12053,13 @@
         "change_type": "created",
         "summary": "Ajouté depuis la documentation de production Uber sur DeepETA.",
         "source_ref": "https://www.uber.com/au/en/blog/deepeta-how-uber-predicts-arrival-times/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Patterns ajoutés après extension de la taxonomie : optimization.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ]
   },
@@ -12864,9 +12880,9 @@
     "title": "SNCF Voyageurs — Détecter les anomalies des trains par clustering",
     "short_description": "Un système combine statistiques de flotte et machine learning non supervisé pour repérer des comportements anormaux sur de nouveaux trains.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-09-21T00:00:00Z",
+    "updated_at": "2026-10-05T00:00:00Z",
     "company_size": [
       "enterprise"
     ],
@@ -12883,7 +12899,8 @@
     "ai_pattern": [
       "classification",
       "prediction",
-      "monitoring"
+      "monitoring",
+      "clustering"
     ],
     "solution_type": "workflow",
     "autonomy_level": "semi-autonomous",
@@ -13033,6 +13050,13 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche DGE du projet SNCF Voyageurs de maintenance par clustering.",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Patterns ajoutés après extension de la taxonomie : clustering.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ]
   },
@@ -18896,7 +18920,7 @@
     "title": "Thales — Contrôler la qualité d’un référentiel de 5 millions de composants",
     "short_description": "La plateforme DATX combine statistiques, clustering et classification pour repérer valeurs aberrantes, données manquantes, documents non conformes et mauvais appariements.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-05T00:00:00Z",
     "updated_at": "2026-10-05T00:00:00Z",
     "company_size": [
@@ -18914,7 +18938,8 @@
     "problem": "Un référentiel de plus de 5 millions de composants, utilisé de la conception à la maintenance, doit rester fiable alors que de nouveaux articles arrivent en continu.",
     "ai_pattern": [
       "classification",
-      "monitoring"
+      "monitoring",
+      "clustering"
     ],
     "solution_type": "workflow",
     "autonomy_level": "assisted",
@@ -19100,6 +19125,13 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Patterns ajoutés après extension de la taxonomie : clustering.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "architecture_pattern": [
@@ -19118,7 +19150,7 @@
     "title": "Air Liquide — Optimiser ensemble production et livraisons",
     "short_description": "L’optimiseur LIM enchaîne prévision de la demande, clustering des clients et programmation linéaire pour proposer un plan de la production à la livraison.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-05T00:00:00Z",
     "updated_at": "2026-10-05T00:00:00Z",
     "company_size": [
@@ -19139,7 +19171,9 @@
     "problem": "Planifier la production de produits liquides et leurs livraisons aux clients, sous de nombreuses contraintes, à partir de données dispersées entre production, distribution et transport.",
     "ai_pattern": [
       "prediction",
-      "recommendation"
+      "recommendation",
+      "clustering",
+      "optimization"
     ],
     "solution_type": "product",
     "autonomy_level": "assisted",
@@ -19272,8 +19306,7 @@
       }
     ],
     "limitations": [
-      "Tous les chiffres publiés sont des objectifs ; aucune économie ni réduction d’empreinte carbone n’est chiffrée.",
-      "Le clustering et l’optimisation sous contraintes n’ont pas de catégorie dédiée dans la taxonomie Acolyte : ils sont décrits dans le mécanisme."
+      "Tous les chiffres publiés sont des objectifs ; aucune économie ni réduction d’empreinte carbone n’est chiffrée."
     ],
     "risks": [
       "Plan inadapté si les prévisions dérivent",
@@ -19289,7 +19322,7 @@
       "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
       "captured_at": "2026-10-05T00:00:00Z",
       "captured_by": "case-base-enrichment-dge-2026-10-05",
-      "transformation_notes": "Cas Air Liquide extrait de la fiche officielle DGE AI for Efficiency. Toutes les métriques (adoption, précision, temps d’exécution, pays) sont des objectifs publiés, pas des résultats ; aucune performance n’est déduite. Clustering et programmation linéaire conservés dans architecture_pattern faute de pattern canonique."
+      "transformation_notes": "Cas Air Liquide extrait de la fiche officielle DGE AI for Efficiency. Toutes les métriques (adoption, précision, temps d’exécution, pays) sont des objectifs publiés, pas des résultats ; aucune performance n’est déduite. Clustering et programmation linéaire codés avec les patterns clustering et optimization (taxonomie étendue le 05/10/2026)."
     },
     "confidence": "high",
     "sources": [
@@ -19313,6 +19346,13 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Patterns ajoutés après extension de la taxonomie : clustering, optimization.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "architecture_pattern": [

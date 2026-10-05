@@ -30,7 +30,7 @@
     pricing_model: { free: 'Gratuit', 'open-source': 'Open source (gratuit, hors infrastructure)', 'per-seat': 'Par utilisateur', 'usage-based': 'À l’usage', subscription: 'Abonnement', 'enterprise-quote': 'Sur devis', included: 'Inclus dans une offre', unknown: 'Non renseigné' },
     country: { US: 'États-Unis', FR: 'France', GB: 'Royaume-Uni', DE: 'Allemagne', AU: 'Australie', community: 'Communauté open source' },
     tool_ids: {},
-    ai_pattern: { generation: 'Génération', summarization: 'Synthèse', retrieval: 'Recherche', extraction: 'Extraction', classification: 'Classification', comparison: 'Comparaison', scoring: 'Scoring', recommendation: 'Recommandation', orchestration: 'Orchestration', monitoring: 'Veille', prediction: 'Prédiction', coding: 'Code', multimodal: 'Multimodal', other: 'Autre', unknown: 'Non renseigné' }
+    ai_pattern: { generation: 'Génération', summarization: 'Synthèse', retrieval: 'Recherche', extraction: 'Extraction', classification: 'Classification', comparison: 'Comparaison', scoring: 'Scoring', recommendation: 'Recommandation', orchestration: 'Orchestration', monitoring: 'Veille', prediction: 'Prédiction', coding: 'Code', multimodal: 'Multimodal', clustering: 'Regroupement (clustering)', optimization: 'Optimisation sous contraintes', other: 'Autre', unknown: 'Non renseigné' }
   };
   const filterConfig = [
     ['company_size', 'Taille d’entreprise'],
