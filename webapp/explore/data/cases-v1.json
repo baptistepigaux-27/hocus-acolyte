@@ -19891,7 +19891,7 @@
     "title": "Alan — Tester un agent conversationnel médical en conditions réelles",
     "short_description": "L’agent Mo, intégré à un service de conseil médical par messagerie, a été évalué par un essai randomisé, sous la supervision de médecins.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-05T00:00:00Z",
     "updated_at": "2026-10-05T00:00:00Z",
     "company_size": [
@@ -20052,18 +20052,6 @@
     "confidence": "high",
     "sources": [
       {
-        "id": "source-alan-mo-medical-conversational-ai",
-        "source_type": "public-source",
-        "title": "IA au service de l'efficience — Mo: a conversational medical AI deployed in real life",
-        "publisher": "Direction générale des Entreprises",
-        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
-        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
-        "published_at": null,
-        "citation_right": "allowed",
-        "evidence_type": "reported",
-        "evidence_strength": "high"
-      },
-      {
         "id": "source-alan-mo-arxiv",
         "source_type": "public-source",
         "title": "Conversational Medical AI: Ready for Practice",
@@ -20071,6 +20059,18 @@
         "reference": "https://arxiv.org/abs/2411.12808",
         "url": "https://arxiv.org/abs/2411.12808",
         "published_at": "2024-11-19",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      },
+      {
+        "id": "source-alan-mo-medical-conversational-ai",
+        "source_type": "public-source",
+        "title": "IA au service de l'efficience — Mo: a conversational medical AI deployed in real life",
+        "publisher": "Direction générale des Entreprises",
+        "reference": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "url": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail",
+        "published_at": null,
         "citation_right": "allowed",
         "evidence_type": "reported",
         "evidence_strength": "high"
@@ -20083,6 +20083,13 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-05T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "L’article arXiv, d’où viennent les résultats, passe en première source ; la DGE reste la provenance.",
+        "source_ref": "https://arxiv.org/abs/2411.12808"
       }
     ],
     "architecture_pattern": [
