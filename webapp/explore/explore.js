@@ -30,6 +30,9 @@
     pricing_model: { free: 'Gratuit', 'open-source': 'Open source (gratuit, hors infrastructure)', 'per-seat': 'Par utilisateur', 'usage-based': 'À l’usage', subscription: 'Abonnement', 'enterprise-quote': 'Sur devis', included: 'Inclus dans une offre', unknown: 'Non renseigné' },
     country: { US: 'États-Unis', FR: 'France', GB: 'Royaume-Uni', DE: 'Allemagne', AU: 'Australie', community: 'Communauté open source' },
     tool_ids: {},
+    complexity: { low: 'Faible', medium: 'Moyenne', high: 'Forte', unknown: 'Non estimée' },
+    time_to_value: { days: 'Quelques jours', weeks: 'Quelques semaines', months: 'Plusieurs mois', unknown: 'Non estimé' },
+    delivery_scope: { 'quick-win': 'Gain rapide', structuring: 'Structurant', transformational: 'Transformant' },
     ai_pattern: { generation: 'Génération', summarization: 'Synthèse', retrieval: 'Recherche', extraction: 'Extraction', classification: 'Classification', comparison: 'Comparaison', scoring: 'Scoring', recommendation: 'Recommandation', orchestration: 'Orchestration', monitoring: 'Veille', prediction: 'Prédiction', coding: 'Code', multimodal: 'Multimodal', clustering: 'Regroupement (clustering)', optimization: 'Optimisation sous contraintes', other: 'Autre', unknown: 'Non renseigné' }
   };
   const filterConfig = [
@@ -41,7 +44,10 @@
     ['evidence_level', 'Niveau de preuve'],
     ['outcome', 'Résultat'],
     ['value_type', 'Type de valeur'],
-    ['tool_ids', 'Outil cité']
+    ['tool_ids', 'Outil cité'],
+    ['complexity', 'Complexité estimée'],
+    ['time_to_value', 'Délai estimé'],
+    ['delivery_scope', 'Portée estimée']
   ];
   /* Carte des outils : l'ordre des familles suit le rôle dans un système, du modèle à l'application métier. */
   const familyOrder = ['model', 'office-copilot', 'harness-agent', 'automation', 'knowledge-rag', 'classic-ml', 'vision-speech', 'eval-observability', 'data-platform', 'hosting', 'business-app'];
@@ -145,6 +151,8 @@
 
   function optionValues(field) {
     if (field === 'evidence_level') return ['documented', 'experience', 'pattern', 'concept'];
+    const ordinal = { complexity: ['low', 'medium', 'high'], time_to_value: ['days', 'weeks', 'months'], delivery_scope: ['quick-win', 'structuring', 'transformational'] };
+    if (ordinal[field]) { const present = new Set(state.cases.flatMap((item) => valuesFor(item, field))); return ordinal[field].filter((value) => present.has(value)); }
     const values = new Set(state.cases.flatMap((item) => valuesFor(item, field)));
     return [...values].sort((a, b) => titleFor(field, a).localeCompare(titleFor(field, b), 'fr'));
   }
@@ -269,6 +277,20 @@
     return '';
   }
 
+  /* « Pour se lancer » : la grille de déploiement estimée par Acolyte (lot 06), jamais présentée comme un fait de la source. */
+  function renderLaunch(item) {
+    if (item.assessment?.source !== 'acolyte-estimate') return '';
+    const facts = [
+      ['Complexité', titleFor('complexity', item.complexity)],
+      ['Délai de mise en valeur', titleFor('time_to_value', item.time_to_value)],
+      ['Exigence sur les données', titleFor('complexity', item.data_readiness)],
+      ['Faisabilité organisationnelle', titleFor('complexity', item.organizational_feasibility)],
+      ['Portée', formatList(item.delivery_scope, 'delivery_scope')],
+    ].filter(([, value]) => value && value !== 'Non renseigné');
+    const deps = asArray(item.dependencies);
+    return `<section class="detail-section detail-launch"><h2 class="detail-section-title">Pour se lancer · estimation Acolyte</h2><div class="detail-launch-grid">${facts.map(([label, value]) => `<div><small>${escapeHtml(label)}</small><strong>${escapeHtml(value)}</strong></div>`).join('')}</div>${deps.length ? `<p class="detail-sub-label">Ce qu’il faut réunir</p>${renderTextList(deps)}` : ''}<p class="detail-quiet">${escapeHtml(item.time_to_value_detail ? `Délai : ${item.time_to_value_detail}. ` : '')}Grille estimée par Acolyte à partir de la fiche ; elle se vérifie avec vos données et vos équipes. <a href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></p></section>`;
+  }
+
   function renderEditorial(item) {
     const points = editorialShows(item);
     if (!points.length) return '';
@@ -376,11 +398,10 @@
     const mechanismSupport = [dataMarkup ? `<div><p class="detail-sub-label">Données et entrées</p>${dataMarkup}</div>` : '', namedToolsMarkup ? `<div><p class="detail-sub-label">Outils nommés · voir la carte des outils</p>${namedToolsMarkup}</div>` : '', toolsMarkup ? `<div><p class="detail-sub-label">Outils et systèmes cités par la source</p>${toolsMarkup}</div>` : ''].join('');
     const mechanism = `<div class="detail-pills">${valuesFor(item, 'ai_pattern').map((value) => { const term = termFor('ai_pattern', value); return term ? `<a class="glossary-pill" href="${termHref(term)}">${escapeHtml(titleFor('ai_pattern', value))}</a>` : `<span>${escapeHtml(titleFor('ai_pattern', value))}</span>`; }).join('')}</div>${item.workflow?.length ? renderTextList(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : '<p class="detail-quiet">Le schéma indique le pattern mobilisé, sans déroulé opérationnel plus détaillé.</p>'}${mechanismSupport}`;
     const impactMarkup = [resultList, expectedValue ? `<div><p class="detail-sub-label">Valeur attendue dans la fiche</p>${expectedValue}</div>` : '', item.business_impact?.length ? `<div><p class="detail-sub-label">Type d’impact envisagé</p>${renderTextList(item.business_impact)}</div>` : ''].join('');
-    const prerequisites = renderTextList([item.delivery_scope, item.complexity && `Complexité : ${item.complexity}`, item.technical_feasibility && `Faisabilité technique : ${item.technical_feasibility}`, item.organizational_feasibility && `Faisabilité organisationnelle : ${item.organizational_feasibility}`, item.data_readiness && `Maturité data : ${item.data_readiness}`, item.maturity_required && `Maturité requise : ${item.maturity_required}`]);
     const limitations = renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]);
     const related = relatedCases(item);
     const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(provenanceLabel(item.provenance?.source_type))}</p>${item.provenance?.source_type === 'internal-note' ? '<small>Cas type construit par HOCUS à partir des parcours Acolyte.</small>' : `<small>${escapeHtml(item.provenance?.source_ref || '')}</small>`}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong></section></div>`;
-    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}${outcomeBadge(item)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p></div></header><div class="detail-facts">${detailFacts(item)}</div>${renderEssentials(item)}<div class="detail-layout"><div class="detail-main">${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
+    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}${outcomeBadge(item)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p></div></header><div class="detail-facts">${detailFacts(item)}</div>${renderEssentials(item)}<div class="detail-layout"><div class="detail-main">${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${renderLaunch(item)}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
   }
 
   const toolCases = (tool) => state.cases.filter((item) => valuesFor(item, 'tool_ids').includes(tool.id));

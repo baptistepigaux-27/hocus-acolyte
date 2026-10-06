@@ -262,3 +262,9 @@ a { color: inherit; }
 .detail-essentials dt { color: var(--explore-brass); font: 10px var(--explore-mono); letter-spacing: .07em; text-transform: uppercase; padding-top: 4px; }
 .detail-essentials dd { margin: 0; font-size: 17px; line-height: 1.45; }
 @media (max-width: 640px) { .detail-essentials div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ===== Pour se lancer (grille de déploiement estimée) ===== */
+.detail-launch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; margin-bottom: 18px; border: 1px solid var(--explore-line); background: var(--explore-line); }
+.detail-launch-grid div { display: grid; gap: 6px; padding: 14px; background: var(--explore-paper); }
+.detail-launch-grid small { color: var(--explore-brass); font: 9px var(--explore-mono); letter-spacing: .07em; text-transform: uppercase; }
+.detail-launch-grid strong { font-size: 16px; }

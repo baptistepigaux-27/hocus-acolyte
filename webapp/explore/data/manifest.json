@@ -1,8 +1,8 @@
 {
   "source_repo": "baptistepigaux-27/server-playbook",
   "source_file": "data/acolyte-cases-v1.json",
-  "source_revision": "707609a",
-  "source_sha256": "9476976fcb1d70fd7f78243048f22a0e65a1c8a72c0e3aa076d51d98b62ce395",
+  "source_revision": "a925beb",
+  "source_sha256": "8b00054d79c556f50c9ccaf411583fda5dcb45a4487b705bc05a380d10d08484",
   "record_count": 160,
   "generated_file": "webapp/explore/data/cases-v1.json",
   "tools_source_file": "data/acolyte-tools-v1.json",
