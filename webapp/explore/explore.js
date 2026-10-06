@@ -238,20 +238,19 @@
 
   function hasAny(...values) { return values.some((value) => asArray(value).some((item) => textValue(item))); }
 
-  /* Article et libellé du type de solution, accordés (« un agent », « une chaîne automatisée »). */
-  const solutionWithArticle = (item) => {
-    const label = titleFor('solution_type', item.solution_type).toLocaleLowerCase('fr');
-    return `${['workflow', 'knowledge'].includes(item.solution_type) ? 'une' : 'un'} ${label}`;
-  };
-
-  /* « L'essentiel » : trois repères propres à la fiche (problème, réponse, résultat clé), sans texte générique. */
+  /* « L'essentiel » : repères propres à la fiche (problème, réponse, type de solution, résultat clé), sans texte générique. */
+  const autonomyPhrase = { assisted: 'l’humain garde la décision', 'semi-autonomous': 'le système automatise certaines étapes', 'supervised-agent': 'le système agit sous supervision humaine', 'bounded-autonomous': 'le système agit seul dans un cadre fixé', unknown: 'niveau d’autonomie non précisé' };
+  /* Résultat clé : de préférence un résultat chiffré en euros, pourcentage ou multiple. */
+  function keyResult(item) {
+    const results = asArray(item.results).map(textValue).filter(Boolean);
+    return results.find((text) => /€|%|\beuros?\b|×|\bfois\b|\bmillions?\b|\bmilliards?\b/i.test(text)) || results[0] || '';
+  }
   function renderEssentials(item) {
-    const keyResult = textValue(item.results?.[0]);
-    const solution = `${solutionWithArticle(item)}, en autonomie « ${titleFor('autonomy_level', item.autonomy_level).toLocaleLowerCase('fr')} »`;
+    const solution = `${titleFor('solution_type', item.solution_type)} : ${autonomyPhrase[item.autonomy_level] || autonomyPhrase.unknown}.`;
     const rows = item.evidence_level === 'pattern'
-      ? [['La situation', item.problem || item.short_description], ['Une réponse possible', `${solution}. Cas type construit par HOCUS : il aide à cadrer une opportunité, il ne décrit pas un déploiement réel.`]]
-      : [['Le problème', item.problem || item.short_description], ['La réponse', `${item.short_description} (${solution}).`], ['Le résultat clé', keyResult || 'La source ne publie pas de résultat chiffré.']];
-    return `<section class="detail-editorial-intro"><div><p class="detail-label">L’ESSENTIEL</p><h2>Le cas en trois points</h2></div><dl class="detail-essentials">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('')}</dl></section>`;
+      ? [['La situation', item.problem || item.short_description], ['Une réponse possible', solution], ['À savoir', 'Cas type construit par HOCUS : il aide à cadrer une opportunité, il ne décrit pas un déploiement réel.']]
+      : [['Le problème', item.problem || item.short_description], ['La réponse', item.short_description], ['Le type de solution', solution], ['Le résultat clé', keyResult(item) || 'La source ne publie pas de résultat chiffré.']];
+    return `<section class="detail-editorial-intro"><div><p class="detail-label">L’ESSENTIEL</p><h2>Le cas en bref</h2></div><dl class="detail-essentials">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('')}</dl></section>`;
   }
 
   /* « Ce qu'il faut en retenir » : les leçons propres à la fiche ; à défaut (cas types), deux repères génériques. */
