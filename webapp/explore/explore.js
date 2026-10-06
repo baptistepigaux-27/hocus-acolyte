@@ -238,46 +238,31 @@
 
   function hasAny(...values) { return values.some((value) => asArray(value).some((item) => textValue(item))); }
 
-  function editorialWhy(item) {
-    if (item.id === 'case-real-qonto-human-gate') {
-      return 'Qonto illustre une architecture d’agent supervisé appliquée à une zone sensible : les opérations financières. L’agent prépare, rassemble les éléments et propose l’action ; l’utilisateur conserve le dernier mot avant toute exécution. Le cas est intéressant moins pour la sophistication technique que pour l’usage de la validation humaine comme mécanisme de contrôle.';
-    }
-    const functionLabel = formatList(item.business_function, 'business_function');
-    const solutionLabel = titleFor('solution_type', item.solution_type).toLowerCase();
-    const problem = item.problem || item.short_description;
-    if (item.evidence_level === 'pattern') {
-      return `Ce pattern ne décrit pas un déploiement client documenté. Il sert à cadrer un travail${functionLabel && functionLabel !== 'Non renseigné' ? ` côté ${functionLabel.toLowerCase()}` : ''} autour de « ${problem} ». Son intérêt est de rendre visibles les données, les outils et les risques à traiter avant de parler d’autonomie.`;
-    }
-    if (item.evidence_level === 'concept') {
-      return `Ce concept propose une manière de traiter « ${problem} » avec un ${solutionLabel}. Il est utile pour ouvrir une discussion de conception, pas pour faire passer une hypothèse pour un résultat observé.`;
-    }
-    if (item.evidence_level === 'experience') {
-      return `Cette expérience donne un point de vue concret sur « ${problem} » et sur la place d’un ${solutionLabel}. Elle mérite d’être lue comme un retour situé, avec son contexte et ses limites, plutôt que comme une recette universelle.`;
-    }
-    if (hasAny(item.results)) {
-      return `Ce cas documenté permet de regarder concrètement comment un ${solutionLabel} répond à « ${problem} ». Il est surtout utile pour séparer ce que la source rapporte de ce qu’Acolyte peut en déduire.`;
-    }
-    return `Ce cas documenté montre comment un ${solutionLabel} est mobilisé autour de « ${problem} ». Son intérêt tient à la situation décrite ; les éléments qui ne sont pas publiés restent volontairement hors champ.`;
+  /* Article et libellé du type de solution, accordés (« un agent », « une chaîne automatisée »). */
+  const solutionWithArticle = (item) => {
+    const label = titleFor('solution_type', item.solution_type).toLocaleLowerCase('fr');
+    return `${['workflow', 'knowledge'].includes(item.solution_type) ? 'une' : 'un'} ${label}`;
+  };
+
+  /* « L'essentiel » : trois repères propres à la fiche (problème, réponse, résultat clé), sans texte générique. */
+  function renderEssentials(item) {
+    const keyResult = textValue(item.results?.[0]);
+    const solution = `${solutionWithArticle(item)}, en autonomie « ${titleFor('autonomy_level', item.autonomy_level).toLocaleLowerCase('fr')} »`;
+    const rows = item.evidence_level === 'pattern'
+      ? [['La situation', item.problem || item.short_description], ['Une réponse possible', `${solution}. Cas type construit par HOCUS : il aide à cadrer une opportunité, il ne décrit pas un déploiement réel.`]]
+      : [['Le problème', item.problem || item.short_description], ['La réponse', `${item.short_description} (${solution}).`], ['Le résultat clé', keyResult || 'La source ne publie pas de résultat chiffré.']];
+    return `<section class="detail-editorial-intro"><div><p class="detail-label">L’ESSENTIEL</p><h2>Le cas en trois points</h2></div><dl class="detail-essentials">${rows.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('')}</dl></section>`;
   }
 
+  /* « Ce qu'il faut en retenir » : les leçons propres à la fiche ; à défaut (cas types), deux repères génériques. */
   function editorialShows(item) {
-    if (item.id === 'case-real-qonto-human-gate') {
-      return [
-        'Un agent utile n’a pas besoin d’être totalement autonome.',
-        'Dans un domaine sensible, la valeur peut venir surtout de la préparation et de l’orchestration.',
-        'La validation humaine permet d’augmenter l’autonomie sans supprimer le contrôle humain.'
-      ];
-    }
+    if (item.lessons_learned?.length) return item.lessons_learned;
     const points = [];
     if (item.autonomy_level === 'supervised-agent' || item.human_in_the_loop?.required) points.push('L’autonomie peut être progressive : le système prépare et l’humain garde la décision finale.');
     if (item.solution_type === 'knowledge' || valuesFor(item, 'ai_pattern').includes('retrieval')) points.push('La valeur peut venir de l’accès à une connaissance existante, pas nécessairement de la production de nouveau contenu.');
-    if (item.solution_type === 'copilot') points.push('Un copilote déplace le travail vers la préparation, la vérification et l’itération plutôt que vers un simple bouton “générer”.');
-    if (item.solution_type === 'workflow' || item.solution_type === 'agent') points.push('Le cas se lit comme une chaîne de travail : la qualité du résultat dépend aussi des étapes, des exceptions et du contrôle.');
-    if (hasAny(item.data_required, item.data_sources)) points.push('Les données et les outils sont une partie du cas, pas un détail d’implémentation à découvrir après la promesse.');
-    if (hasAny(item.risks, item.limitations)) points.push('Les risques rendent la proposition plus utile : ils indiquent où l’automatisation doit rester sous surveillance.');
-    if (item.evidence_level === 'pattern') points.push('Un pattern aide à cadrer une opportunité ; il ne constitue pas, à lui seul, une preuve de déploiement.');
-    if (item.evidence_level === 'concept') points.push('Un concept peut aider à explorer une direction, mais il doit rester séparé des cas éprouvés.');
-    return points.slice(0, 3);
+    if (item.solution_type === 'copilot') points.push('Un copilote déplace le travail vers la préparation et la vérification plutôt que vers un simple bouton « générer ».');
+    if (item.solution_type === 'workflow' || item.solution_type === 'agent') points.push('La qualité du résultat dépend des étapes, des exceptions et des points de contrôle.');
+    return points.slice(0, 2);
   }
 
   function editorialNote(item) {
@@ -287,7 +272,8 @@
 
   function renderEditorial(item) {
     const points = editorialShows(item);
-    return `<section class="detail-editorial-section"><p class="detail-label">ANALYSE ACOLYTE</p><h2>Ce que ce cas montre</h2><ul class="detail-analysis-list">${points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>${editorialNote(item) ? `<aside class="detail-acolyte-note"><strong>Note d’Acolyte</strong><p>${escapeHtml(editorialNote(item))}</p></aside>` : ''}</section>`;
+    if (!points.length) return '';
+    return `<section class="detail-editorial-section"><p class="detail-label">ANALYSE</p><h2>Ce qu’il faut en retenir</h2><ul class="detail-analysis-list">${points.map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>${editorialNote(item) ? `<aside class="detail-acolyte-note"><strong>Note d’Acolyte</strong><p>${escapeHtml(editorialNote(item))}</p></aside>` : ''}</section>`;
   }
 
   function renderUndocumented(item) {
@@ -297,7 +283,7 @@
     if (!hasAny(item.delivery_scope, item.complexity, item.technical_feasibility, item.organizational_feasibility, item.data_readiness, item.maturity_required)) missing.push('Prérequis de déploiement');
     if (!hasAny(item.results, item.expected_value, item.business_impact)) missing.push('Mesures de résultat ou d’impact');
     if (!hasAny(item.sources)) missing.push('Source primaire publiée');
-    return missing.length ? `<section class="detail-undocumented"><p class="detail-label">INFORMATIONS NON DOCUMENTÉES</p><p>La fiche ne permet pas d’aller plus loin sur :</p><ul class="detail-list">${missing.map((value) => `<li>${escapeHtml(value)}</li>`).join('')}</ul></section>` : '';
+    return missing.length ? `<section class="detail-undocumented"><p class="detail-label">CE QUE LA SOURCE NE PRÉCISE PAS</p><ul class="detail-list">${missing.map((value) => `<li>${escapeHtml(value)}</li>`).join('')}</ul></section>` : '';
   }
 
   function detailFacts(item) {
@@ -342,7 +328,7 @@
 
   function renderRisk(item) {
     const risk = riskReading(item);
-    return `<section class="detail-section detail-risk"><h2 class="detail-section-title">Cadre réglementaire · lecture indicative</h2><p class="risk-badge risk-${risk.level}">${escapeHtml(risk.label)}</p><p class="detail-prose">${escapeHtml(risk.text)}</p><p class="detail-quiet">Une lecture d’Acolyte à partir de la fiche, pas un avis juridique : le niveau dépend de votre usage réel. <a href="${base}cadre/#niveaux">Comprendre les niveaux de risque →</a></p></section>`;
+    return `<section class="detail-section detail-risk"><h2 class="detail-section-title">Cadre réglementaire · lecture indicative</h2><p class="risk-badge risk-${risk.level}">${escapeHtml(risk.label)}</p><p class="detail-prose">${escapeHtml(risk.text)}</p><p class="detail-quiet">Lecture indicative d’Acolyte, pas un avis juridique. <a href="${base}cadre/#niveaux">Comprendre les niveaux de risque →</a></p></section>`;
   }
 
   function provenanceLabel(type) {
@@ -394,8 +380,8 @@
     const prerequisites = renderTextList([item.delivery_scope, item.complexity && `Complexité : ${item.complexity}`, item.technical_feasibility && `Faisabilité technique : ${item.technical_feasibility}`, item.organizational_feasibility && `Faisabilité organisationnelle : ${item.organizational_feasibility}`, item.data_readiness && `Maturité data : ${item.data_readiness}`, item.maturity_required && `Maturité requise : ${item.maturity_required}`]);
     const limitations = renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]);
     const related = relatedCases(item);
-    const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(provenanceLabel(item.provenance?.source_type))}</p>${item.provenance?.source_type === 'internal-note' ? '<small>Cas type construit par HOCUS à partir des parcours Acolyte.</small>' : `<small>${escapeHtml(item.provenance?.source_ref || '')}</small>`}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong><p>Le niveau de preuve et la confiance ne remplacent pas une revue du contexte.</p></section></div>`;
-    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}${outcomeBadge(item)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p><small>La preuve décrit le statut du cas, pas une garantie de résultat.</small></div></header><div class="detail-facts">${detailFacts(item)}</div><section class="detail-editorial-intro"><div><p class="detail-label">ANALYSE ACOLYTE</p><h2>Pourquoi ce cas mérite d’être regardé</h2></div><p class="detail-editorial-copy">${escapeHtml(editorialWhy(item))}</p></section><div class="detail-layout"><div class="detail-main">${renderSection('Le problème traité', `<p class="detail-prose">${escapeHtml(item.problem || item.short_description || '')}</p>`)}${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${item.lessons_learned?.length ? renderSection('À retenir de la source', renderTextList(item.lessons_learned)) : ''}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
+    const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(provenanceLabel(item.provenance?.source_type))}</p>${item.provenance?.source_type === 'internal-note' ? '<small>Cas type construit par HOCUS à partir des parcours Acolyte.</small>' : `<small>${escapeHtml(item.provenance?.source_ref || '')}</small>`}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong></section></div>`;
+    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}${outcomeBadge(item)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p></div></header><div class="detail-facts">${detailFacts(item)}</div>${renderEssentials(item)}<div class="detail-layout"><div class="detail-main">${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${prerequisites ? renderSection('Prérequis', prerequisites) : ''}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
   }
 
   const toolCases = (tool) => state.cases.filter((item) => valuesFor(item, 'tool_ids').includes(tool.id));

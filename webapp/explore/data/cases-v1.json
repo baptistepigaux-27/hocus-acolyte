@@ -3744,12 +3744,12 @@
     "schema_version": "1.0",
     "id": "case-real-sharp-seed-memory",
     "slug": "real-sharp-seed-memory",
-    "title": "Sharp & Sharp Certified Seed — Connaissance",
+    "title": "Sharp & Sharp Certified Seed — Retrouver des décennies de registres agricoles au moment d’agir",
     "short_description": "Des décennies de registres agricoles existaient déjà, mais restaient difficiles à retrouver au moment où le travail se faisait.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-17T00:00:00Z",
-    "updated_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "problem": "Des décennies de registres agricoles existaient déjà, mais restaient difficiles à retrouver au moment où le travail se faisait.",
     "ai_pattern": [
       "retrieval"
@@ -3772,6 +3772,13 @@
         "change_type": "created",
         "summary": "Mapped from Real Case sharp-seed-memory during CASE_SCHEMA v1 validation.",
         "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "company_size": [
@@ -3829,12 +3836,12 @@
     "schema_version": "1.0",
     "id": "case-real-original-tamale-tool",
     "slug": "real-original-tamale-tool",
-    "title": "The Original Tamale Co. — Individu → Outil",
+    "title": "The Original Tamale Co. — Créer en un après-midi un outil pour trouver ses points de vente",
     "short_description": "Les clients avaient du mal à savoir sur quels marchés retrouver la marque, et l’entreprise voulait un outil de recherche sans attendre un projet logiciel complet.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-17T00:00:00Z",
-    "updated_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "problem": "Les clients avaient du mal à savoir sur quels marchés retrouver la marque, et l’entreprise voulait un outil de recherche sans attendre un projet logiciel complet.",
     "ai_pattern": [
       "unknown"
@@ -3857,6 +3864,13 @@
         "change_type": "created",
         "summary": "Mapped from Real Case original-tamale-tool during CASE_SCHEMA v1 validation.",
         "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "company_size": [
@@ -3915,12 +3929,12 @@
     "schema_version": "1.0",
     "id": "case-real-ris-support-memory",
     "slug": "real-ris-support-memory",
-    "title": "RIS d.o.o. — Connaissance + Processus",
+    "title": "RIS d.o.o. — Trier et traiter les demandes de support reçues par e-mail et téléphone",
     "short_description": "Les demandes de support arrivaient par email et téléphone, avec une forte charge de classification, de triage et de réponse répétitive.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-17T00:00:00Z",
-    "updated_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "problem": "Les demandes de support arrivaient par email et téléphone, avec une forte charge de classification, de triage et de réponse répétitive.",
     "ai_pattern": [
       "classification"
@@ -3943,6 +3957,13 @@
         "change_type": "created",
         "summary": "Mapped from Real Case ris-support-memory during CASE_SCHEMA v1 validation.",
         "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "company_size": [
@@ -4002,12 +4023,12 @@
     "schema_version": "1.0",
     "id": "case-real-plus-simple-document",
     "slug": "real-plus-simple-document",
-    "title": "+Simple — Processus",
+    "title": "+Simple — Accélérer le traitement des dossiers d’assurance",
     "short_description": "Le traitement documentaire et la validation des dossiers ralentissaient la relation avec les courtiers et les clients.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-17T00:00:00Z",
-    "updated_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "problem": "Le traitement documentaire et la validation des dossiers ralentissaient la relation avec les courtiers et les clients.",
     "ai_pattern": [
       "extraction",
@@ -4031,6 +4052,13 @@
         "change_type": "created",
         "summary": "Mapped from Real Case plus-simple-document during CASE_SCHEMA v1 validation.",
         "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "company_size": [
@@ -4096,12 +4124,12 @@
     "schema_version": "1.0",
     "id": "case-real-groupeactive-propale",
     "slug": "real-groupeactive-propale",
-    "title": "GroupeActive — Agent",
+    "title": "GroupeActive — Rédiger une proposition commerciale en deux heures au lieu d’une journée",
     "short_description": "Les experts perdaient une journée à rédiger des propositions commerciales, alors que la préparation de l’offre n’était pas leur cœur de métier.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-17T00:00:00Z",
-    "updated_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "problem": "Les experts perdaient une journée à rédiger des propositions commerciales, alors que la préparation de l’offre n’était pas leur cœur de métier.",
     "ai_pattern": [
       "unknown"
@@ -4124,6 +4152,13 @@
         "change_type": "created",
         "summary": "Mapped from Real Case groupeactive-propale during CASE_SCHEMA v1 validation.",
         "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "company_size": [
@@ -4188,12 +4223,12 @@
     "schema_version": "1.0",
     "id": "case-real-qonto-human-gate",
     "slug": "real-qonto-human-gate",
-    "title": "Qonto — Agent + Human Gate",
+    "title": "Qonto — Automatiser l’administratif financier, avec validation avant tout paiement",
     "short_description": "Les tâches administratives financières répétitives prennent du temps et touchent à des données et actions sensibles.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-17T00:00:00Z",
-    "updated_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "problem": "Les tâches administratives financières répétitives prennent du temps et touchent à des données et actions sensibles.",
     "ai_pattern": [
       "orchestration"
@@ -4216,6 +4251,13 @@
         "change_type": "created",
         "summary": "Mapped from Real Case qonto-human-gate during CASE_SCHEMA v1 validation.",
         "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "company_size": [
@@ -4282,12 +4324,12 @@
     "schema_version": "1.0",
     "id": "case-real-adria-communication",
     "slug": "real-adria-communication",
-    "title": "Adria P.A. — Connaissance / RAG",
+    "title": "Adria P.A. — Mieux traiter les demandes clients d’une concession automobile",
     "short_description": "Un concessionnaire Renault et Dacia devait mieux gérer un volume important de demandes clients et d’activités de service.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-09-17T00:00:00Z",
-    "updated_at": "2026-09-17T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "problem": "Un concessionnaire Renault et Dacia devait mieux gérer un volume important de demandes clients et d’activités de service.",
     "ai_pattern": [
       "unknown"
@@ -4310,6 +4352,13 @@
         "change_type": "created",
         "summary": "Mapped from Real Case adria-communication during CASE_SCHEMA v1 validation.",
         "source_ref": "hocus-acolyte/webapp/modules/real-cases/cases.js"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "company_size": [
@@ -10407,12 +10456,12 @@
     "schema_version": "1.0",
     "id": "case-real-nous-hermes-autonovel",
     "slug": "real-nous-hermes-autonovel",
-    "title": "Nous Research — Autonovel, de l’idée au livre",
-    "short_description": "Un pipeline Hermes orchestre la conception, la rédaction, la révision et l’export d’un roman complet.",
+    "title": "Nous Research — Écrire un roman complet avec une chaîne d’agents",
+    "short_description": "Une chaîne d’agents enchaîne conception, rédaction, révision et mise en forme d’un roman ; un premier livre de 19 chapitres a été produit.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -10620,6 +10669,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre, description) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "tool_ids": [
@@ -10632,12 +10688,12 @@
     "schema_version": "1.0",
     "id": "case-real-nous-hermes-self-evolution",
     "slug": "real-nous-hermes-self-evolution",
-    "title": "Nous Research — Faire évoluer les skills de Hermes",
-    "short_description": "Une boucle DSPy + GEPA teste et améliore des skills, prompts et descriptions d’outils de Hermes sous contraintes.",
+    "title": "Nous Research — Améliorer automatiquement les consignes d’un agent",
+    "short_description": "Une boucle de test compare des variantes des consignes et des compétences de l’agent Hermes, et retient celles qui donnent de meilleurs résultats.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -10826,6 +10882,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre, description) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "tool_ids": [
@@ -10839,12 +10902,12 @@
     "schema_version": "1.0",
     "id": "case-real-nous-hermes-paperclip-employee",
     "slug": "real-nous-hermes-paperclip-employee",
-    "title": "Nous Research — Hermes comme employé géré dans Paperclip",
-    "short_description": "Un adaptateur fait fonctionner Hermes comme un agent géré, affectable à des tâches et capable de reprendre son contexte.",
+    "title": "Nous Research — Confier des tâches à un agent comme à un collègue",
+    "short_description": "Un adaptateur permet d’attribuer des tâches à l’agent Hermes dans un outil de pilotage d’équipes d’agents, de suivre son travail et de lui faire reprendre le fil.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -11036,6 +11099,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre, description) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "tool_ids": [
@@ -11050,11 +11120,11 @@
     "id": "case-real-amenti-hermes-lab-experiments",
     "slug": "real-amenti-hermes-lab-experiments",
     "title": "Amenti Labs — Piloter des expériences avec Hermes Lab",
-    "short_description": "Hermes Lab tient le journal d’expériences autonomes : planifier, tester, comparer et proposer la suite.",
+    "short_description": "Hermes Lab tient le journal d’une série d’expériences menées par un agent : planifier les essais, les comparer et proposer la suite.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -11255,6 +11325,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (description) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "tool_ids": [
@@ -12472,12 +12549,12 @@
     "schema_version": "1.0",
     "id": "case-real-hermes-agent-france-managed-assistant",
     "slug": "real-hermes-agent-france-managed-assistant",
-    "title": "Hermes Agent France — Agent géré pour emails, relances et échéances",
+    "title": "Hermes Agent France — Confier e-mails, relances et échéances à un agent supervisé",
     "short_description": "Une offre française déploie Hermes comme assistant persistant, avec préparation des actions et validation humaine avant envoi.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "unknown"
     ],
@@ -12670,6 +12747,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Réécriture éditoriale (titre) en langage métier, sans changer les faits.",
+        "source_ref": "docs/acolyte-editorial-05.md"
       }
     ],
     "tool_ids": [

@@ -254,3 +254,11 @@ a { color: inherit; }
 .outcome-setback { color: #c4553a; }
 .outcome-mixed { color: var(--explore-brass); }
 .detail-proof-panel .outcome-badge { margin-top: 8px; }
+
+/* ===== L'essentiel (fiche cas) ===== */
+.detail-essentials { display: grid; gap: 14px; margin: 0; }
+.detail-essentials div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--explore-line); }
+.detail-essentials div:last-child { border-bottom: 0; padding-bottom: 0; }
+.detail-essentials dt { color: var(--explore-brass); font: 10px var(--explore-mono); letter-spacing: .07em; text-transform: uppercase; padding-top: 4px; }
+.detail-essentials dd { margin: 0; font-size: 17px; line-height: 1.45; }
+@media (max-width: 640px) { .detail-essentials div { grid-template-columns: 1fr; gap: 4px; } }
