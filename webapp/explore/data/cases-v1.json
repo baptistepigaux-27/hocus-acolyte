@@ -14214,13 +14214,13 @@
     "title": "MP DATA — Industrialiser la maintenance prédictive dans l'énergie",
     "short_description": "Un prestataire français décrit des modèles statistiques et de machine learning pour les actifs éoliens et photovoltaïques.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "unknown"
     ],
-    "industry": "other",
+    "industry": "energy-utilities",
     "industry_raw": "Énergie éolienne et photovoltaïque",
     "business_function": [
       "operations",
@@ -14406,6 +14406,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : secteur energy-utilities.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "tool_ids": [
@@ -15756,13 +15763,13 @@
     "title": "Engie — Analyser les dossiers de construction de stockage d’électricité",
     "short_description": "Une IA générative qui cite ses sources analyse les dossiers d’implantation de batteries et fait gagner 50 à 100 heures par projet.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "group"
     ],
-    "industry": "other",
+    "industry": "energy-utilities",
     "industry_raw": "Énergie",
     "business_function": [
       "operations"
@@ -15910,6 +15917,13 @@
         "change_type": "created",
         "summary": "Ajouté lors du balayage web du 01/10/2026 depuis La Revue du Digital.",
         "source_ref": "https://www.larevuedudigital.com/stockage-de-lelectricite-lia-generative-outil-dacceleration-cle-chez-engie/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : secteur energy-utilities.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ]
   },
@@ -15921,13 +15935,13 @@
     "title": "Veolia — Passer d’un assistant interne à une place de marché d’agents",
     "short_description": "Secure GPT réunit plus de 214 assistants et agents ; 58 000 salariés l’utilisent plus de deux fois par jour.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "group"
     ],
-    "industry": "other",
+    "industry": "energy-utilities",
     "industry_raw": "Services à l’environnement (eau, déchets, énergie)",
     "business_function": [
       "general-management",
@@ -16108,6 +16122,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : secteur energy-utilities.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "tool_ids": [
@@ -16521,13 +16542,13 @@
     "title": "SUEZ — Supprimer les contrôles manuels des demandes d’achat",
     "short_description": "Un agent prend en charge la revue des demandes d’achat ; l’éditeur annonce 80 % de contrôles manuels en moins.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "group"
     ],
-    "industry": "other",
+    "industry": "energy-utilities",
     "industry_raw": "Services à l’environnement (eau, déchets)",
     "business_function": [
       "procurement"
@@ -16692,6 +16713,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : secteur energy-utilities.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "tool_ids": [
@@ -16706,16 +16734,16 @@
     "title": "A&O Shearman — Déployer l’IA juridique dans un cabinet international",
     "short_description": "Le cabinet a déployé Harvey, construit ContractMatrix pour la négociation de contrats, puis des agents pour des dossiers complexes.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "group"
     ],
     "industry": "services-b2b",
     "industry_raw": "Cabinet d’avocats",
     "business_function": [
-      "other"
+      "legal"
     ],
     "geography": [
       "Royaume-Uni",
@@ -16881,6 +16909,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : fonction legal.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "tool_ids": [
@@ -17062,13 +17097,13 @@
     "title": "EDF — Construire un moteur de recherche documentaire sur des modèles souverains",
     "short_description": "La R&D d’EDF et Illuin ont testé un moteur RAG sur 2 000 documents : un modèle ouvert affiné rivalise avec GPT-4.",
     "status": "draft",
-    "version": 2,
+    "version": 3,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-01T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "group"
     ],
-    "industry": "other",
+    "industry": "energy-utilities",
     "industry_raw": "Énergie",
     "business_function": [
       "it-data",
@@ -17230,6 +17265,13 @@
         "change_type": "enriched",
         "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
         "source_ref": "data/acolyte-tool-aliases-v1.json"
+      },
+      {
+        "version": 3,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : secteur energy-utilities.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "tool_ids": [
@@ -18592,16 +18634,16 @@
     "title": "Mata contre Avianca — Des avocats sanctionnés pour de fausses jurisprudences",
     "short_description": "Des avocats ont déposé un mémoire citant six décisions inventées par ChatGPT ; le juge les a sanctionnés.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-03T00:00:00Z",
-    "updated_at": "2026-10-03T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "tpe"
     ],
     "industry": "services-b2b",
     "industry_raw": "Cabinet d’avocats",
     "business_function": [
-      "other"
+      "legal"
     ],
     "geography": [
       "États-Unis"
@@ -18746,6 +18788,13 @@
         "change_type": "created",
         "summary": "Ajouté lors du recensement des échecs du 03/10/2026 depuis Wikipédia (décision du tribunal fédéral du district sud de New York).",
         "source_ref": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc."
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : fonction legal.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ]
   },
@@ -19371,13 +19420,13 @@
     "title": "3WAYSTE — Trier les déchets avec vision et bras robotiques",
     "short_description": "Une arche de vision identifie et localise les matériaux sur un convoyeur ; des bras robotiques retirent les éléments indésirables.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-05T00:00:00Z",
-    "updated_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "tpe"
     ],
-    "industry": "other",
+    "industry": "energy-utilities",
     "industry_raw": "Tri et valorisation des déchets",
     "business_function": [
       "operations",
@@ -19529,6 +19578,13 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : secteur energy-utilities.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "architecture_pattern": [
@@ -19728,13 +19784,13 @@
     "title": "Enedis — Repérer les interventions inutiles avant de déplacer un technicien",
     "short_description": "Un modèle de langage français, enrichi du vocabulaire technique d’Enedis, analyse les commentaires des demandes d’intervention et signale chaque matin celles qui risquent d’être inutiles.",
     "status": "draft",
-    "version": 1,
+    "version": 2,
     "created_at": "2026-10-05T00:00:00Z",
-    "updated_at": "2026-10-05T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
     "company_size": [
       "enterprise"
     ],
-    "industry": "other",
+    "industry": "energy-utilities",
     "industry_raw": "Distribution d’électricité",
     "business_function": [
       "operations",
@@ -19914,6 +19970,13 @@
         "change_type": "created",
         "summary": "Ajouté depuis la fiche officielle DGE AI for Efficiency (lot 02, 05/10/2026).",
         "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Reclassé après extension de la taxonomie : secteur energy-utilities.",
+        "source_ref": "schemas/case-taxonomies-v1.yaml"
       }
     ],
     "architecture_pattern": [
@@ -20137,6 +20200,602 @@
       "AGENT LLM",
       "SUPERVISION MÉDICALE",
       "ESSAI RANDOMISÉ"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-bms-ai-sourcing",
+    "slug": "real-bms-ai-sourcing",
+    "title": "Bristol-Myers Squibb — Ramener un appel d’offres de plusieurs mois à moins de 30 jours",
+    "short_description": "Le laboratoire a confié la recherche et la sélection des fournisseurs à une plateforme d’IA, puis l’a généralisée à toute l’organisation.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "healthcare",
+    "industry_raw": "Industrie pharmaceutique",
+    "business_function": [
+      "procurement"
+    ],
+    "geography": [
+      "États-Unis",
+      "International"
+    ],
+    "problem": "Chaque appel d’offres prenait six à neuf mois en moyenne, et une partie du travail de sourcing était externalisée.",
+    "ai_pattern": [
+      "recommendation",
+      "comparison"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Groupe pharmaceutique international",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Exprimer le besoin",
+        "actor": "human",
+        "input": [
+          "Besoin d’achat"
+        ],
+        "output": [
+          "Demande de sourcing"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Trouver et proposer des fournisseurs",
+        "actor": "system",
+        "input": [
+          "Demande",
+          "base de fournisseurs"
+        ],
+        "output": [
+          "Fournisseurs suggérés"
+        ],
+        "action": "Plateforme d’IA de sourcing (Globality)."
+      },
+      {
+        "order": 3,
+        "label": "Comparer et sélectionner",
+        "actor": "human",
+        "input": [
+          "Propositions des fournisseurs"
+        ],
+        "output": [
+          "Fournisseur retenu"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Appels d’offres menés sur la plateforme",
+      "Fournisseurs sélectionnés"
+    ],
+    "data_required": [
+      "Besoins d’achat",
+      "Données fournisseurs et propositions"
+    ],
+    "data_sources": [
+      {
+        "name": "Données achats de Bristol-Myers Squibb",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Globality"
+    ],
+    "expected_value": [
+      {
+        "type": "speed",
+        "description": "Raccourcir le cycle d’appel d’offres."
+      },
+      {
+        "type": "cost",
+        "description": "Réinternaliser le sourcing avec moins de ressources."
+      }
+    ],
+    "value_type": [
+      "speed",
+      "cost"
+    ],
+    "business_impact": [
+      "cycle d’achat",
+      "coûts de sourcing"
+    ],
+    "results": [
+      {
+        "text": "La durée moyenne d’un appel d’offres est passée de six à neuf mois à moins de 30 jours.",
+        "observed": true
+      },
+      {
+        "text": "Plus d’un milliard de dollars de dépenses sont passés par la plateforme la première année, au-delà des prévisions.",
+        "observed": true
+      },
+      {
+        "text": "L’entreprise mène environ dix fois plus d’appels d’offres, et a réinternalisé un travail sous-traité avec environ 50 % de ressources en moins.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Durée d’un appel d’offres",
+        "value": "6-9 mois → moins de 30",
+        "unit": "jours"
+      },
+      {
+        "name": "Dépenses passées par la plateforme (1re année)",
+        "value": "1",
+        "unit": "Md$ (plus de)"
+      },
+      {
+        "name": "Nombre d’appels d’offres",
+        "value": "10",
+        "unit": "x"
+      },
+      {
+        "name": "Ressources de sourcing",
+        "value": "-50",
+        "unit": "% (environ)"
+      }
+    ],
+    "limitations": [
+      "Les chiffres sont rapportés par l’entreprise à la presse spécialisée ; la répartition des gains entre IA et refonte du processus n’est pas détaillée."
+    ],
+    "risks": [
+      "Décisions d’achat prises sur des données encore imparfaites"
+    ],
+    "lessons_learned": [
+      "Bristol-Myers Squibb n’a pas attendu des données parfaites : stockage brut dans un lac de données et nettoyage au fil de l’eau.",
+      "Le gain vient autant de la réinternalisation du travail que de la vitesse."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.supplychaindive.com/news/inside-bristol-myers-ai-powered-procurement-overhaul/822840/",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-gaps-2026-10-06",
+      "transformation_notes": "Faits et citations de l’entreprise rapportés par Supply Chain Dive et CFO Dive (juin 2026) ; lancement en novembre 2024, généralisation en février 2025."
+    },
+    "confidence": "high",
+    "sources": [
+      {
+        "id": "source-bms-ai-sourcing",
+        "source_type": "public-source",
+        "title": "Inside Bristol Myers’ AI-powered procurement overhaul",
+        "publisher": "Supply Chain Dive",
+        "reference": "https://www.supplychaindive.com/news/inside-bristol-myers-ai-powered-procurement-overhaul/822840/",
+        "url": "https://www.supplychaindive.com/news/inside-bristol-myers-ai-powered-procurement-overhaul/822840/",
+        "published_at": "2026-06-17",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "high"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot « trous de couverture » du 06/10/2026 depuis Supply Chain Dive.",
+        "source_ref": "https://www.supplychaindive.com/news/inside-bristol-myers-ai-powered-procurement-overhaul/822840/"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "architecture_pattern": [
+      "BESOIN",
+      "PLATEFORME DE SOURCING IA",
+      "FOURNISSEURS SUGGÉRÉS",
+      "SÉLECTION PAR L’ACHETEUR"
+    ],
+    "tool_ids": [
+      "tool-globality"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-john-deere-see-spray",
+    "slug": "real-john-deere-see-spray",
+    "title": "John Deere — Ne pulvériser que les mauvaises herbes",
+    "short_description": "Des caméras montées sur la rampe distinguent culture et mauvaises herbes, et déclenchent buse par buse la pulvérisation d’herbicide.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "group"
+    ],
+    "industry": "agriculture",
+    "industry_raw": "Machinisme et grandes cultures",
+    "business_function": [
+      "operations"
+    ],
+    "geography": [
+      "États-Unis"
+    ],
+    "problem": "Pulvériser un champ entier d’herbicide coûte cher et charge l’environnement, alors que les mauvaises herbes n’en couvrent qu’une partie.",
+    "ai_pattern": [
+      "multimodal",
+      "classification"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "bounded-autonomous",
+    "company_size_raw": "Constructeur de machines agricoles ; utilisé par des exploitations agricoles",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Filmer la parcelle en roulant",
+        "actor": "system",
+        "input": [
+          "Images des caméras de la rampe"
+        ],
+        "output": [
+          "Images du rang"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Reconnaître culture et mauvaises herbes",
+        "actor": "model",
+        "input": [
+          "Images"
+        ],
+        "output": [
+          "Plante classée"
+        ],
+        "action": "Vision par ordinateur, traitement embarqué."
+      },
+      {
+        "order": 3,
+        "label": "Déclencher la buse",
+        "actor": "system",
+        "input": [
+          "Plante classée « mauvaise herbe »"
+        ],
+        "output": [
+          "Dose d’herbicide ciblée"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Régler et superviser",
+        "actor": "human",
+        "input": [
+          "Paramètres de traitement"
+        ],
+        "output": [
+          "Passage piloté par l’agriculteur"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Pulvérisation ciblée plante par plante"
+    ],
+    "data_required": [
+      "Images des cultures en temps réel"
+    ],
+    "data_sources": [
+      {
+        "name": "Caméras embarquées sur le pulvérisateur",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "See & Spray (John Deere)",
+      "Computer vision"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Réduire la quantité d’herbicide achetée."
+      },
+      {
+        "type": "risk",
+        "description": "Limiter l’impact environnemental des traitements."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "risk"
+    ],
+    "business_impact": [
+      "coûts d’intrants",
+      "environnement"
+    ],
+    "results": [
+      {
+        "text": "Sur la saison 2024, la technologie a été utilisée sur plus d’un million d’acres de maïs, de soja et de coton aux États-Unis.",
+        "observed": true
+      },
+      {
+        "text": "John Deere annonce une économie moyenne de 59 % d’herbicide et estime à environ 8 millions de gallons le volume de mélange économisé.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Économie moyenne d’herbicide (2024)",
+        "value": "59",
+        "unit": "%"
+      },
+      {
+        "name": "Surfaces traitées (2024)",
+        "value": "1000000",
+        "unit": "acres (plus de)"
+      },
+      {
+        "name": "Mélange économisé (estimation)",
+        "value": "8000000",
+        "unit": "gallons"
+      }
+    ],
+    "limitations": [
+      "Les chiffres sont annoncés par le constructeur ; le volume économisé est une estimation.",
+      "L’économie dépend de la densité de mauvaises herbes de chaque parcelle."
+    ],
+    "risks": [
+      "Mauvaises herbes non détectées",
+      "Dépendance au constructeur pour les modèles"
+    ],
+    "lessons_learned": [
+      "La vision par ordinateur a une valeur immédiate quand elle déclenche une action précise et mesurable.",
+      "C’est un cas d’IA industrielle sans IA générative, avec un indicateur simple : la quantité d’herbicide."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.deere.com/en/news/all-news/see-spray-herbicide-savings/",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-gaps-2026-10-06",
+      "transformation_notes": "Annonce de John Deere (fin 2024), dont le texte n’a pas pu être lu directement (page dynamique) ; chiffres concordants dans CropLife, Farm Equipment et Michigan Farm News. Le volume économisé est présenté par Deere comme une estimation."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-john-deere-see-spray",
+        "source_type": "public-source",
+        "title": "See & Spray Herbicide Savings",
+        "publisher": "John Deere",
+        "reference": "https://www.deere.com/en/news/all-news/see-spray-herbicide-savings/",
+        "url": "https://www.deere.com/en/news/all-news/see-spray-herbicide-savings/",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot « trous de couverture » du 06/10/2026 depuis John Deere.",
+        "source_ref": "https://www.deere.com/en/news/all-news/see-spray-herbicide-savings/"
+      }
+    ],
+    "architecture_pattern": [
+      "CAMÉRAS SUR LA RAMPE",
+      "CLASSIFICATION EMBARQUÉE",
+      "BUSE PAR BUSE",
+      "HERBICIDE CIBLÉ"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-hopia-staff-scheduling",
+    "slug": "real-hopia-staff-scheduling",
+    "title": "Hopia — Planifier les soignants avec une IA explicable",
+    "short_description": "Un moteur d’IA symbolique construit les plannings des équipes soignantes en respectant règles légales, besoins des services et préférences individuelles.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "eti",
+      "enterprise"
+    ],
+    "industry": "healthcare",
+    "industry_raw": "Établissements de santé",
+    "business_function": [
+      "hr",
+      "operations"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Construire les plannings des soignants prend beaucoup de temps aux cadres, et un planning mal équilibré pèse sur l’activité, l’intérim et la fidélisation.",
+    "ai_pattern": [
+      "optimization"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Établissements de santé (hôpitaux, blocs, urgences, imagerie, HAD, EHPAD)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Saisir contraintes et besoins",
+        "actor": "human",
+        "input": [
+          "Règles légales",
+          "besoins du service",
+          "préférences"
+        ],
+        "output": [
+          "Paramètres de planification"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Calculer le planning",
+        "actor": "system",
+        "input": [
+          "Paramètres"
+        ],
+        "output": [
+          "Planning proposé et explicable"
+        ],
+        "action": "IA symbolique (optimisation sous contraintes)."
+      },
+      {
+        "order": 3,
+        "label": "Ajuster et publier",
+        "actor": "human",
+        "input": [
+          "Planning proposé"
+        ],
+        "output": [
+          "Planning publié"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Plannings des équipes soignantes"
+    ],
+    "data_required": [
+      "Effectifs, compétences, règles de temps de travail",
+      "Besoins d’activité des services",
+      "Préférences des soignants"
+    ],
+    "data_sources": [
+      {
+        "name": "Données RH et d’activité des établissements",
+        "access": "read",
+        "sensitivity": "personal"
+      }
+    ],
+    "tools": [
+      "Hopia"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le temps de planification des cadres."
+      },
+      {
+        "type": "cost",
+        "description": "Limiter le recours à l’intérim."
+      },
+      {
+        "type": "quality",
+        "description": "Mieux équilibrer la charge des soignants."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "cost",
+      "quality"
+    ],
+    "business_impact": [
+      "temps des cadres",
+      "intérim",
+      "fidélisation des soignants"
+    ],
+    "results": [
+      {
+        "text": "Selon l’éditeur, sur plus de 30 établissements : 3 à 7 % d’activité en plus à ressources égales, et 50 à 90 % de temps de planification en moins pour les cadres.",
+        "observed": true
+      },
+      {
+        "text": "Dans un bloc de 32 salles, 21 jours d’intérim par mois ont été supprimés selon l’éditeur.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Activité supplémentaire à ressources égales",
+        "value": "3-7",
+        "unit": "%"
+      },
+      {
+        "name": "Temps de planification économisé",
+        "value": "50-90",
+        "unit": "%"
+      },
+      {
+        "name": "Intérim supprimé (bloc de 32 salles)",
+        "value": "21",
+        "unit": "jours par mois"
+      },
+      {
+        "name": "Établissements utilisateurs",
+        "value": "30",
+        "unit": "établissements (plus de)"
+      }
+    ],
+    "limitations": [
+      "Les résultats sont publiés par l’éditeur, sans nommer les établissements ni détailler la méthode de mesure.",
+      "La source ne précise pas comment les cadres valident ou modifient les plannings proposés."
+    ],
+    "risks": [
+      "Données personnelles des soignants",
+      "Planning inadapté si les contraintes sont mal saisies"
+    ],
+    "lessons_learned": [
+      "Pour une décision qui touche les personnes, une IA symbolique explicable peut être préférée à l’apprentissage automatique.",
+      "L’optimisation sous contraintes produit des gains mesurables sans IA générative."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://www.catel-esante.fr/post/planification-hospitaliere-hopia-l-ia-explicable-au-service-de-la-qvct-des-soignants",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-gaps-2026-10-06",
+      "transformation_notes": "Article de CATEL présentant Hopia ; tous les chiffres sont ceux de l’éditeur (agrégés sur plus de 30 établissements non nommés), sans protocole publié."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-hopia-staff-scheduling",
+        "source_type": "public-source",
+        "title": "Planification hospitalière : Hopia, l’IA explicable au service de la QVCT des soignants",
+        "publisher": "CATEL",
+        "reference": "https://www.catel-esante.fr/post/planification-hospitaliere-hopia-l-ia-explicable-au-service-de-la-qvct-des-soignants",
+        "url": "https://www.catel-esante.fr/post/planification-hospitaliere-hopia-l-ia-explicable-au-service-de-la-qvct-des-soignants",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot « trous de couverture » du 06/10/2026 depuis CATEL.",
+        "source_ref": "https://www.catel-esante.fr/post/planification-hospitaliere-hopia-l-ia-explicable-au-service-de-la-qvct-des-soignants"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "architecture_pattern": [
+      "CONTRAINTES + BESOINS + PRÉFÉRENCES",
+      "IA SYMBOLIQUE",
+      "PLANNING EXPLICABLE",
+      "AJUSTEMENT PAR LE CADRE"
+    ],
+    "tool_ids": [
+      "tool-hopia"
     ]
   }
 ]

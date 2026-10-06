@@ -1855,5 +1855,93 @@
         "summary": "Ajouté avec le lot des échecs du 03/10/2026."
       }
     ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-globality",
+    "name": "Globality",
+    "vendor": "Globality",
+    "vendor_country": "US",
+    "family": "harness-agent",
+    "secondary_families": [
+      "business-app"
+    ],
+    "description": "Plateforme de sourcing qui utilise l’IA pour aider à exprimer un besoin d’achat, trouver des fournisseurs et mener les appels d’offres.",
+    "use_when": [
+      "Achats indirects avec beaucoup d’appels d’offres répétitifs"
+    ],
+    "avoid_when": [
+      "Achats stratégiques uniques qui reposent sur une relation fournisseur établie"
+    ],
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "Globality"
+    ],
+    "sources": [
+      {
+        "title": "Globality — page officielle",
+        "url": "https://www.globality.com/"
+      }
+    ],
+    "verified_at": "2026-10-06",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté avec le lot « trous de couverture » du 06/10/2026."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "id": "tool-hopia",
+    "name": "Hopia",
+    "vendor": "Hopia",
+    "vendor_country": "FR",
+    "family": "business-app",
+    "secondary_families": [
+      "classic-ml"
+    ],
+    "description": "Logiciel français de planification des équipes soignantes, fondé sur une IA symbolique explicable (optimisation sous contraintes).",
+    "use_when": [
+      "Plannings complexes soumis à des règles légales et à des préférences individuelles"
+    ],
+    "avoid_when": [
+      "Petites équipes aux plannings stables"
+    ],
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "enterprise-quote",
+    "aliases": [
+      "Hopia"
+    ],
+    "sources": [
+      {
+        "title": "Hopia — page officielle",
+        "url": "https://www.hopia.fr/"
+      }
+    ],
+    "verified_at": "2026-10-06",
+    "status": "draft",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté avec le lot « trous de couverture » du 06/10/2026."
+      }
+    ]
   }
 ]

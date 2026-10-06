@@ -1,12 +1,12 @@
 {
   "source_repo": "baptistepigaux-27/server-playbook",
   "source_file": "data/acolyte-cases-v1.json",
-  "source_revision": "641526a",
-  "source_sha256": "950898a3220d5ccd7cbff51e825fa760794076718a5fd2c573d0735fde10a45e",
-  "record_count": 151,
+  "source_revision": "08af9ea",
+  "source_sha256": "974e6b79a3a2ba367456c3ccd1a77233dd871614cfa080e72f8892470907ba6d",
+  "record_count": 154,
   "generated_file": "webapp/explore/data/cases-v1.json",
   "tools_source_file": "data/acolyte-tools-v1.json",
-  "tools_sha256": "d792715ec60363aef7487110152b319bbdb9cafddccf7a60b3c970ae8901083d",
-  "tool_count": 49,
+  "tools_sha256": "9cade62e3cfdaba1c64023856bdfb22044aeef0166daf5bdd9d5b49927e37cdb",
+  "tool_count": 51,
   "tools_generated_file": "webapp/explore/data/tools-v1.json"
 }
