@@ -244,6 +244,27 @@
   function renderTextList(values, field = null) { const list = asArray(values).filter((item) => textValue(item)); return list.length ? `<ul class="detail-list">${renderItems(list, field)}</ul>` : ''; }
   function resultLabel(result, sourceType) { return result?.observed === false || sourceType === 'projected' ? 'PROJETÉ' : sourceType === 'reported' ? 'RAPPORTÉ' : result?.observed ? 'OBSERVÉ' : 'À QUALIFIER'; }
   function sourceType(item) { return item.sources?.[0]?.evidence_type || 'unknown'; }
+  /* Type de résultat (lot 07) : l'usage d'un outil n'est pas un effet sur l'activité. */
+  const resultKindLabel = { adoption: 'Adoption', business: 'Effet métier', technical: 'Technique', governance: 'Cadre' };
+  function renderResultItem(result, item) {
+    const kind = resultKindLabel[result?.kind];
+    return `<li><span>${escapeHtml(resultLabel(result, sourceType(item)))}${kind ? `<em>${escapeHtml(kind)}</em>` : ''}</span>${escapeHtml(textValue(result))}</li>`;
+  }
+
+  /* Déroulé : étapes ordonnées, avec l'acteur et les points de validation humaine. */
+  const actorLabel = { human: 'Humain', model: 'Modèle', copilot: 'Copilote', workflow: 'Automatisation', agent: 'Agent', system: 'Système' };
+  function renderWorkflow(steps) {
+    const list = asArray(steps).filter((step) => step && (step.label || step.action));
+    if (!list.length) return '';
+    return `<ol class="detail-steps">${list.map((step) => `<li><span class="detail-step-actor">${escapeHtml(actorLabel[step.actor] || 'Étape')}</span><div><strong>${escapeHtml(step.label || '')}</strong>${step.action ? `<p>${escapeHtml(step.action)}</p>` : ''}${step.human_gate ? '<small class="detail-step-gate">Validation humaine</small>' : ''}</div></li>`).join('')}</ol>`;
+  }
+
+  /* Version PME : transposition estimée par Acolyte d'un cas de grand groupe, jamais un fait de la source. */
+  function renderVariant(item) {
+    const variant = asArray(item.variants).find((v) => v.id === 'variant-pme-acolyte');
+    if (!variant) return '';
+    return `<section class="detail-section detail-variant"><h2 class="detail-section-title">Et dans une PME ? · estimation Acolyte</h2>${variant.summary ? `<p class="detail-variant-lead">${escapeHtml(variant.summary)}</p>` : ''}${renderTextList(variant.changes)}${variant.maturity_note ? `<p class="detail-quiet">${escapeHtml(variant.maturity_note)} Transposition proposée par Acolyte, pas un résultat de la source.</p>` : ''}</section>`;
+  }
 
   function hasAny(...values) { return values.some((value) => asArray(value).some((item) => textValue(item))); }
 
@@ -251,7 +272,8 @@
   const autonomyPhrase = { assisted: 'l’humain garde la décision', 'semi-autonomous': 'le système automatise certaines étapes', 'supervised-agent': 'le système agit sous supervision humaine', 'bounded-autonomous': 'le système agit seul dans un cadre fixé', unknown: 'niveau d’autonomie non précisé' };
   /* Résultat clé : de préférence un résultat chiffré en euros, pourcentage ou multiple. */
   function keyResult(item) {
-    const results = asArray(item.results).map(textValue).filter(Boolean);
+    const all = asArray(item.results);
+    const results = [...all.filter((r) => r?.kind !== 'adoption'), ...all.filter((r) => r?.kind === 'adoption')].map(textValue).filter(Boolean);
     return results.find((text) => /€|%|\beuros?\b|×|\bfois\b|\bmillions?\b|\bmilliards?\b/i.test(text)) || results[0] || '';
   }
   function renderEssentials(item) {
@@ -388,7 +410,7 @@
 
   function renderDetail(item) {
     const source = item.sources?.[0];
-    const resultList = item.results?.length ? `<div><p class="detail-sub-label">Résultats rapportés par la source</p><ul class="detail-results">${item.results.map((result) => `<li><span>${escapeHtml(resultLabel(result, sourceType(item)))}</span>${escapeHtml(textValue(result))}</li>`).join('')}</ul></div>` : '';
+    const resultList = item.results?.length ? `<div><p class="detail-sub-label">Résultats rapportés par la source</p><ul class="detail-results">${item.results.map((result) => renderResultItem(result, item)).join('')}</ul></div>` : '';
     const expectedValue = item.expected_value?.length ? `<ul class="detail-list">${item.expected_value.map((value) => `<li>${value.type && value.type !== 'unknown' ? `<b>${escapeHtml(titleFor('value_type', value.type))}</b>` : ''}${escapeHtml(value.description || '')}</li>`).join('')}</ul>` : '';
     const sourceMarkup = source ? `<div class="detail-source"><p class="detail-sub-label">Preuve et source</p><strong>${escapeHtml(source.publisher || source.title || 'Source')}</strong>${source.url ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">Ouvrir la source ↗</a>` : ''}<small>${escapeHtml(sourceType(item) === 'projected' ? 'Résultat projeté dans la source.' : sourceType(item) === 'reported' ? 'Résultat rapporté par la source.' : 'Type de résultat non renseigné.')}</small></div>` : '';
     const architecture = renderTextList(item.architecture_pattern);
@@ -397,12 +419,12 @@
     const namedTools = valuesFor(item, 'tool_ids').map((id) => state.toolsById[id]).filter(Boolean);
     const namedToolsMarkup = namedTools.length ? `<div class="detail-pills detail-tool-links">${namedTools.map((tool) => `<a href="${toolHref(tool)}">${escapeHtml(tool.name)} <b aria-hidden="true">→</b></a>`).join('')}</div>` : '';
     const mechanismSupport = [dataMarkup ? `<div><p class="detail-sub-label">Données et entrées</p>${dataMarkup}</div>` : '', namedToolsMarkup ? `<div><p class="detail-sub-label">Outils nommés · voir la carte des outils</p>${namedToolsMarkup}</div>` : '', toolsMarkup ? `<div><p class="detail-sub-label">Outils et systèmes cités par la source</p>${toolsMarkup}</div>` : ''].join('');
-    const mechanism = `<div class="detail-pills">${valuesFor(item, 'ai_pattern').map((value) => { const term = termFor('ai_pattern', value); return term ? `<a class="glossary-pill" href="${termHref(term)}">${escapeHtml(titleFor('ai_pattern', value))}</a>` : `<span>${escapeHtml(titleFor('ai_pattern', value))}</span>`; }).join('')}</div>${item.workflow?.length ? renderTextList(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : '<p class="detail-quiet">Le schéma indique le pattern mobilisé, sans déroulé opérationnel plus détaillé.</p>'}${mechanismSupport}`;
+    const mechanism = `<div class="detail-pills">${valuesFor(item, 'ai_pattern').map((value) => { const term = termFor('ai_pattern', value); return term ? `<a class="glossary-pill" href="${termHref(term)}">${escapeHtml(titleFor('ai_pattern', value))}</a>` : `<span>${escapeHtml(titleFor('ai_pattern', value))}</span>`; }).join('')}</div>${item.workflow?.length ? renderWorkflow(item.workflow) : architecture ? `<p class="detail-sub-label">Chaîne décrite dans la source</p>${architecture}` : '<p class="detail-quiet">Le schéma indique le pattern mobilisé, sans déroulé opérationnel plus détaillé.</p>'}${mechanismSupport}`;
     const impactMarkup = [resultList, expectedValue ? `<div><p class="detail-sub-label">Valeur attendue dans la fiche</p>${expectedValue}</div>` : '', item.business_impact?.length ? `<div><p class="detail-sub-label">Type d’impact envisagé</p>${renderTextList(item.business_impact)}</div>` : ''].join('');
     const limitations = renderTextList([...(item.risks || []), ...(item.limitations || []), ...(item.failure_modes || []), ...(item.governance_requirements || []), ...(item.security_constraints || []), ...(item.legal_constraints || [])]);
     const related = relatedCases(item);
     const provenance = `<div class="detail-evidence-grid"><section class="detail-aside-card"><p class="detail-label">PROVENANCE</p><p>${escapeHtml(provenanceLabel(item.provenance?.source_type))}</p>${item.provenance?.source_type === 'internal-note' ? '<small>Cas type construit par HOCUS à partir des parcours Acolyte.</small>' : `<small>${escapeHtml(item.provenance?.source_ref || '')}</small>`}</section><section class="detail-aside-card"><p class="detail-label">CONFIANCE</p><strong class="detail-confidence">${escapeHtml(titleFor('confidence', item.confidence))}</strong></section></div>`;
-    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}${outcomeBadge(item)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p></div></header><div class="detail-facts">${detailFacts(item)}</div>${renderEssentials(item)}<div class="detail-layout"><div class="detail-main">${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${renderLaunch(item)}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
+    root.innerHTML = `<div class="explore-detail-page"><a class="detail-back" href="${exploreHref}">← Retour au catalogue</a><header class="explore-detail-hero"><div><p class="explore-kicker">FICHE · ${escapeHtml(kindLabel(item))}</p><h1>${escapeHtml(item.title)}</h1><p class="explore-detail-lead">${escapeHtml(item.short_description || item.problem)}</p></div><div class="detail-proof-panel">${proofBadge(item.evidence_level)}${outcomeBadge(item)}<p>${escapeHtml(evidenceCopy[item.evidence_level] || 'Niveau de preuve non renseigné.')}</p></div></header><div class="detail-facts">${detailFacts(item)}</div>${renderEssentials(item)}<div class="detail-layout"><div class="detail-main">${renderSection('Le mécanisme / workflow', mechanism)}${renderSection('Impact observé ou attendu', impactMarkup)}${renderLaunch(item)}${renderVariant(item)}${renderEditorial(item)}${renderSection('Limites et risques', limitations)}${renderRisk(item)}${renderSection('Résultats et sources', sourceMarkup)}${provenance}${renderUndocumented(item)}</div></div>${renderHocus(item)}${related ? `<section class="detail-related"><div><p class="detail-label">CAS PROCHES</p><h2>Continuer par une autre entrée.</h2></div><div class="detail-related-grid">${related}</div></section>` : ''}<section class="detail-learn-row">${learnLink(item)}</section></div>`;
   }
 
   const toolCases = (tool) => state.cases.filter((item) => valuesFor(item, 'tool_ids').includes(tool.id));
