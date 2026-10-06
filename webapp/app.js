@@ -149,7 +149,7 @@
       <div class="journey-end-actions">
         <a class="journey-end-primary" href="/works/diagnostic/">Découvrir le Diagnostic Data &amp; IA <span aria-hidden="true">↗</span></a>
         <a class="journey-end-link" href="mailto:hello@hocus.works?subject=Acolyte%20%E2%80%94%20parlons%20de%20votre%20cas">Écrire à HOCUS <span aria-hidden="true">↗</span></a>
-        <a class="journey-end-link" href="explore/">Explorer les 154 cas <span aria-hidden="true">→</span></a>
+        <a class="journey-end-link" href="explore/">Explorer les 160 cas <span aria-hidden="true">→</span></a>
         <a class="journey-end-link" href="${other.href}">L’autre parcours : ${escapeHtml(other.label)} <span aria-hidden="true">→</span></a>
       </div>`;
   }

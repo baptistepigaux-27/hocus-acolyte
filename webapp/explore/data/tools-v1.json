@@ -110,7 +110,8 @@
     ],
     "pricing_model": "usage-based",
     "aliases": [
-      "Gemini"
+      "Gemini",
+      "Gemini Flash"
     ],
     "sources": [
       {
@@ -1941,6 +1942,89 @@
         "changed_at": "2026-10-06T00:00:00Z",
         "change_type": "created",
         "summary": "Ajouté avec le lot « trous de couverture » du 06/10/2026."
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "status": "draft",
+    "verified_at": "2026-10-06",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté avec le lot Bpifrance du 06/10/2026."
+      }
+    ],
+    "id": "tool-duckdb",
+    "name": "DuckDB",
+    "vendor": "DuckDB Foundation (open source)",
+    "vendor_country": "NL",
+    "family": "data-platform",
+    "description": "Base de données analytique open source, embarquée, qui interroge rapidement de gros volumes de données tabulaires en SQL.",
+    "use_when": [
+      "Analyser localement de gros volumes de données structurées sans serveur"
+    ],
+    "avoid_when": [
+      "Base transactionnelle partagée par de nombreux utilisateurs"
+    ],
+    "skill_level": "dev",
+    "license": "open-source",
+    "hosting": [
+      "self-hosted",
+      "desktop"
+    ],
+    "pricing_model": "open-source",
+    "aliases": [
+      "DuckDB"
+    ],
+    "sources": [
+      {
+        "title": "DuckDB — page officielle",
+        "url": "https://duckdb.org/"
+      }
+    ]
+  },
+  {
+    "type": "AcolyteTool",
+    "schema_version": "1.0",
+    "status": "draft",
+    "verified_at": "2026-10-06",
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté avec le lot Bpifrance du 06/10/2026."
+      }
+    ],
+    "id": "tool-shiroo",
+    "name": "Shiroo",
+    "vendor": "Shiroo",
+    "vendor_country": "FR",
+    "family": "knowledge-rag",
+    "description": "Application française de gestion des connaissances qui transforme la voix ou la vidéo des équipes en procédures et contenus de formation.",
+    "use_when": [
+      "Capitaliser des savoirs de terrain là où l’écrit est difficile (ateliers, maintenance)"
+    ],
+    "avoid_when": [
+      "Documentation déjà structurée et bien tenue"
+    ],
+    "skill_level": "no-code",
+    "license": "proprietary",
+    "hosting": [
+      "saas"
+    ],
+    "pricing_model": "per-seat",
+    "aliases": [
+      "Shiroo"
+    ],
+    "sources": [
+      {
+        "title": "Shiroo — page officielle",
+        "url": "https://www.shiroo.ai/"
       }
     ]
   }

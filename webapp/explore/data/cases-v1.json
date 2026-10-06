@@ -20797,5 +20797,1185 @@
     "tool_ids": [
       "tool-hopia"
     ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-batibig-invoice-price-check",
+    "slug": "real-batibig-invoice-price-check",
+    "title": "Batibig — Vérifier chaque ligne de facture fournisseur contre les contrats cadres",
+    "short_description": "Un outil développé sur mesure extrait les lignes de plus de 100 000 factures par an et les compare aux prix négociés ; il a détecté 110 000 € de surfacturation.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "construction",
+    "industry_raw": "Travaux de rénovation et de dépannage",
+    "business_function": [
+      "procurement",
+      "finance"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Plus de 100 000 factures fournisseurs par an, gérées par une équipe externalisée, sans moyen de vérifier ligne par ligne que les prix appliqués respectent les contrats cadres du groupe.",
+    "ai_pattern": [
+      "extraction",
+      "comparison"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Plus de 300 M€ de chiffre d’affaires, plus de 1 500 collaborateurs",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Centraliser les factures",
+        "actor": "system",
+        "input": [
+          "Factures fournisseurs PDF"
+        ],
+        "output": [
+          "Dépôt central"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Extraire chaque ligne",
+        "actor": "model",
+        "input": [
+          "Factures PDF"
+        ],
+        "output": [
+          "Lignes d’achat structurées"
+        ],
+        "action": "Parsing par un grand modèle de langage (Gemini Flash)."
+      },
+      {
+        "order": 3,
+        "label": "Stocker et comparer",
+        "actor": "system",
+        "input": [
+          "Lignes d’achat",
+          "conditions des contrats cadres"
+        ],
+        "output": [
+          "Écarts de prix"
+        ],
+        "action": "Stockage analytique DuckDB, scripts Python."
+      },
+      {
+        "order": 4,
+        "label": "Réclamer les écarts",
+        "actor": "human",
+        "input": [
+          "Écarts détectés"
+        ],
+        "output": [
+          "Avoirs obtenus auprès des fournisseurs"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Lignes de factures structurées",
+      "Écarts de prix par fournisseur"
+    ],
+    "data_required": [
+      "Plus de 100 000 factures fournisseurs par an",
+      "Contrats cadres de prix"
+    ],
+    "data_sources": [
+      {
+        "name": "Factures fournisseurs du groupe",
+        "access": "read",
+        "sensitivity": "confidential"
+      },
+      {
+        "name": "Contrats cadres négociés",
+        "access": "read",
+        "sensitivity": "confidential"
+      }
+    ],
+    "tools": [
+      "Gemini Flash",
+      "Python",
+      "DuckDB"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Récupérer les sommes surfacturées."
+      },
+      {
+        "type": "risk",
+        "description": "Faire respecter les contrats négociés."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "risk"
+    ],
+    "business_impact": [
+      "dépenses d’achat",
+      "conformité fournisseurs"
+    ],
+    "results": [
+      {
+        "text": "Un POC fonctionnel a été réalisé en un mois, en décembre 2024.",
+        "observed": true
+      },
+      {
+        "text": "L’outil a détecté 110 000 € de surfacturation par rapport aux contrats cadres, dont plus de la moitié a été récupérée par avoir.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Surfacturation détectée",
+        "value": "110000",
+        "unit": "€"
+      },
+      {
+        "name": "Part récupérée par avoir",
+        "value": "50",
+        "unit": "% (plus de)"
+      },
+      {
+        "name": "Factures fournisseurs par an",
+        "value": "100000",
+        "unit": "factures (plus de)"
+      },
+      {
+        "name": "Durée du POC",
+        "value": "1",
+        "unit": "mois"
+      }
+    ],
+    "limitations": [
+      "Le livre blanc ne précise ni la période couverte par les 110 000 € ni le coût de l’outil."
+    ],
+    "risks": [
+      "Erreurs d’extraction sur des factures mal numérisées",
+      "Données contractuelles confidentielles"
+    ],
+    "lessons_learned": [
+      "Les grands modèles de langage savent maintenant structurer à grande échelle des données non structurées, comme chaque ligne de facture.",
+      "Le gain vient de la comparaison avec un référentiel (les contrats cadres), pas de l’extraction seule."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-bpifrance-2026-10-06",
+      "transformation_notes": "Étude de cas du livre blanc « Les Audacieux de l’IA » (Bpifrance Conseil et Siparex, mai 2026). Chiffres déclarés par l’entreprise accompagnée, sans mesure indépendante. Pages 87-88."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-batibig-invoice-price-check",
+        "source_type": "public-source",
+        "title": "Les Audacieux de l’IA — livre blanc Bpifrance Conseil et Siparex (2026), p. 87",
+        "publisher": "Bpifrance Conseil et Siparex",
+        "reference": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "url": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot Bpifrance « Les Audacieux de l’IA » du 06/10/2026 depuis Bpifrance Conseil et Siparex.",
+        "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "architecture_pattern": [
+      "FACTURES PDF",
+      "EXTRACTION LLM",
+      "DUCKDB",
+      "ÉCARTS AUX CONTRATS",
+      "RÉCLAMATION"
+    ],
+    "tool_ids": [
+      "tool-gemini",
+      "tool-duckdb"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-global-packaging-transport-sourcing",
+    "slug": "real-global-packaging-transport-sourcing",
+    "title": "Global Packaging Services — Choisir le transporteur et prévoir les flux de conteneurs",
+    "short_description": "Un loueur de conteneurs industriels compare automatiquement les devis de transport et prévoit ses flux de stockage par recherche opérationnelle.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "transport-logistics",
+    "industry_raw": "Location de packaging industriel réutilisable",
+    "business_function": [
+      "procurement",
+      "supply",
+      "operations"
+    ],
+    "geography": [
+      "France",
+      "International"
+    ],
+    "problem": "Des flux logistiques complexes, sur 76 entrepôts et 3 600 points de collecte, où la précision des prévisions et le choix des transporteurs pèsent sur un poste transport de 40 M€ par an.",
+    "ai_pattern": [
+      "prediction",
+      "optimization",
+      "comparison",
+      "recommendation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "assisted",
+    "company_size_raw": "130 M€ de chiffre d’affaires, 300 collaborateurs, 20 filiales",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Prévoir collectes et besoins",
+        "actor": "model",
+        "input": [
+          "Historiques",
+          "saisonnalités",
+          "données externes"
+        ],
+        "output": [
+          "Prévisions de flux"
+        ],
+        "action": "Modèles de prévision."
+      },
+      {
+        "order": 2,
+        "label": "Planifier les mouvements de caisses",
+        "actor": "system",
+        "input": [
+          "Prévisions",
+          "capacités",
+          "contraintes"
+        ],
+        "output": [
+          "Plan de flux et scénarios"
+        ],
+        "action": "Recherche opérationnelle et simulation."
+      },
+      {
+        "order": 3,
+        "label": "Comparer les devis de transport",
+        "actor": "system",
+        "input": [
+          "Devis des transporteurs",
+          "cahier des charges"
+        ],
+        "output": [
+          "Fournisseur suggéré selon la ligne, l’historique de prix et la performance"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Décider",
+        "actor": "human",
+        "input": [
+          "Plan et suggestions"
+        ],
+        "output": [
+          "Choix du transporteur et des transferts"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Prévisions de flux",
+      "Scénarios de transfert",
+      "Recommandation de transporteur"
+    ],
+    "data_required": [
+      "Historiques de collectes et de stocks",
+      "Devis des transporteurs",
+      "Données externes"
+    ],
+    "data_sources": [
+      {
+        "name": "Données logistiques de GPS",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Recherche opérationnelle"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Réduire le poste transport."
+      },
+      {
+        "type": "productivity",
+        "description": "Accélérer les équipes de planification."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "productivity"
+    ],
+    "business_impact": [
+      "coûts de transport",
+      "planification logistique"
+    ],
+    "results": [
+      {
+        "text": "Deux projets ont été menés : planification des flux de stockage, et comparaison automatisée des devis de transport.",
+        "observed": true
+      }
+    ],
+    "limitations": [
+      "Le livre blanc annonce une diminution du poste transport (40 M€ par an) et des gains de productivité sans les chiffrer : 40 M€ est la taille du poste, pas un gain."
+    ],
+    "risks": [
+      "Prévisions faussées par des comportements clients atypiques"
+    ],
+    "lessons_learned": [
+      "La démarche a été portée par la direction générale et les actionnaires, sur l’ensemble des métiers.",
+      "Ne pas confondre ce qui relève de l’IT, de la donnée et de l’IA."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-bpifrance-2026-10-06",
+      "transformation_notes": "Étude de cas du livre blanc « Les Audacieux de l’IA » (Bpifrance Conseil et Siparex, mai 2026). Chiffres déclarés par l’entreprise accompagnée, sans mesure indépendante. Pages 71-72 ; aucun résultat chiffré n’est publié, aucune performance n’est déduite."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-global-packaging-transport-sourcing",
+        "source_type": "public-source",
+        "title": "Les Audacieux de l’IA — livre blanc Bpifrance Conseil et Siparex (2026), p. 71",
+        "publisher": "Bpifrance Conseil et Siparex",
+        "reference": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "url": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot Bpifrance « Les Audacieux de l’IA » du 06/10/2026 depuis Bpifrance Conseil et Siparex.",
+        "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf"
+      }
+    ],
+    "architecture_pattern": [
+      "PRÉVISION DES FLUX",
+      "RECHERCHE OPÉRATIONNELLE",
+      "COMPARAISON DES DEVIS",
+      "DÉCISION"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-automotive-plastics-contract-management",
+    "slug": "real-automotive-plastics-contract-management",
+    "title": "Fabricant automobile — Gérer ses contrats sans service juridique",
+    "short_description": "Une PME de 85 personnes extrait les clauses de ses contrats, suit les échéances et automatise sa veille réglementaire ; le temps passé sur les contrats baisse de moitié.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "pme"
+    ],
+    "industry": "automotive",
+    "industry_raw": "Composants plastiques pour l’automobile",
+    "business_function": [
+      "legal",
+      "procurement"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "250 à 300 contrats par an (fournisseurs, sous-traitance, propriété intellectuelle) gérés dans des fichiers Word dispersés, sans équipe juridique, avec un risque de clauses obsolètes et de non-conformité lors des audits.",
+    "ai_pattern": [
+      "extraction",
+      "summarization",
+      "comparison",
+      "monitoring"
+    ],
+    "solution_type": "copilot",
+    "autonomy_level": "assisted",
+    "company_size_raw": "85 collaborateurs, 18 M€ de chiffre d’affaires (entreprise confidentielle)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Extraire les informations clés",
+        "actor": "model",
+        "input": [
+          "Contrats"
+        ],
+        "output": [
+          "Durée, renouvellement, responsabilités, sécurité"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Alerter sur les échéances",
+        "actor": "system",
+        "input": [
+          "Informations extraites"
+        ],
+        "output": [
+          "Tableau de bord des échéances"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Résumer la veille réglementaire",
+        "actor": "model",
+        "input": [
+          "Évolutions ISO, REACH, environnement"
+        ],
+        "output": [
+          "Synthèse en langage clair et impacts métier"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Rédiger et valider",
+        "actor": "human",
+        "input": [
+          "Reformulations et comparaisons proposées"
+        ],
+        "output": [
+          "Contrat validé"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Fiches de contrats",
+      "Alertes d’échéance",
+      "Veille réglementaire résumée"
+    ],
+    "data_required": [
+      "250 à 300 contrats par an",
+      "Référentiels réglementaires (ISO, REACH)"
+    ],
+    "data_sources": [
+      {
+        "name": "Contrats de l’entreprise",
+        "access": "read",
+        "sensitivity": "confidential"
+      }
+    ],
+    "tools": [
+      "Solution de marché de gestion des contrats (non nommée)"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire le temps passé sur les contrats."
+      },
+      {
+        "type": "risk",
+        "description": "Renforcer la conformité réglementaire."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "risk"
+    ],
+    "business_impact": [
+      "gestion des contrats",
+      "préparation des audits"
+    ],
+    "results": [
+      {
+        "text": "Le temps passé sur la gestion des contrats a baissé de 50 %, et les audits des constructeurs sont plus rapides.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps de gestion des contrats",
+        "value": "-50",
+        "unit": "%"
+      },
+      {
+        "name": "Contrats gérés par an",
+        "value": "250-300",
+        "unit": "contrats"
+      }
+    ],
+    "limitations": [
+      "L’entreprise n’est pas nommée et l’outil de marché utilisé n’est pas identifié."
+    ],
+    "risks": [
+      "Clause mal extraite",
+      "Confiance excessive dans les reformulations proposées"
+    ],
+    "lessons_learned": [
+      "Commencer petit : un périmètre limité (les contrats fournisseurs) a permis un déploiement rapide.",
+      "L’IA n’a pas remplacé la validation juridique, elle a réduit le volume de vérifications manuelles."
+    ],
+    "evidence_level": "experience",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-bpifrance-2026-10-06",
+      "transformation_notes": "Étude de cas du livre blanc « Les Audacieux de l’IA » (Bpifrance Conseil et Siparex, mai 2026). Chiffres déclarés par l’entreprise accompagnée, sans mesure indépendante. Pages 79-80. Classé experience : le cas est réel et détaillé mais l’entreprise est confidentielle."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-automotive-plastics-contract-management",
+        "source_type": "public-source",
+        "title": "Les Audacieux de l’IA — livre blanc Bpifrance Conseil et Siparex (2026), p. 79",
+        "publisher": "Bpifrance Conseil et Siparex",
+        "reference": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "url": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot Bpifrance « Les Audacieux de l’IA » du 06/10/2026 depuis Bpifrance Conseil et Siparex.",
+        "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf"
+      }
+    ],
+    "architecture_pattern": [
+      "CONTRATS",
+      "EXTRACTION DES CLAUSES",
+      "ALERTES + VEILLE",
+      "VALIDATION"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-time-to-fly-audit-compliance",
+    "slug": "real-time-to-fly-audit-compliance",
+    "title": "Time To Fly — Faire analyser la conformité réglementaire aéronautique par l’IA",
+    "short_description": "Un cabinet d’audit de 35 personnes a construit un outil qui analyse la documentation de ses clients face aux référentiels ; l’IA réalise 80 % de l’analyse de conformité.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "pme"
+    ],
+    "industry": "services-b2b",
+    "industry_raw": "Conseil et audit réglementaire aéronautique",
+    "business_function": [
+      "legal",
+      "operations"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les auditeurs passent beaucoup de temps à lire la documentation des clients face à des référentiels de plusieurs centaines de points, avec un risque d’oubli et une tâche peu motivante.",
+    "ai_pattern": [
+      "retrieval",
+      "comparison",
+      "extraction"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "company_size_raw": "35 collaborateurs, 3 M€ de chiffre d’affaires",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Charger la documentation du client",
+        "actor": "human",
+        "input": [
+          "Manuels et procédures du client"
+        ],
+        "output": [
+          "Corpus à auditer"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Vérifier la conformité",
+        "actor": "model",
+        "input": [
+          "Corpus",
+          "référentiel réglementaire"
+        ],
+        "output": [
+          "Analyse point par point"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Superviser et conclure",
+        "actor": "human",
+        "input": [
+          "Analyse proposée"
+        ],
+        "output": [
+          "Rapport d’audit"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Analyse de conformité point par point",
+      "Rapport d’audit"
+    ],
+    "data_required": [
+      "Documentation des clients audités",
+      "Référentiels réglementaires aéronautiques"
+    ],
+    "data_sources": [
+      {
+        "name": "Documentation client",
+        "access": "read",
+        "sensitivity": "confidential"
+      },
+      {
+        "name": "Référentiels réglementaires",
+        "access": "read",
+        "sensitivity": "public"
+      }
+    ],
+    "tools": [
+      "Outil d’audit développé par Time To Fly"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Réduire la durée des audits."
+      },
+      {
+        "type": "quality",
+        "description": "Limiter les oublis."
+      },
+      {
+        "type": "revenue",
+        "description": "Commercialiser l’outil en SaaS."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "quality",
+      "revenue"
+    ],
+    "business_impact": [
+      "durée des audits",
+      "qualité des audits",
+      "nouvelle offre"
+    ],
+    "results": [
+      {
+        "text": "80 % de l’analyse de conformité est réalisée par l’IA, et la durée des audits a baissé de 50 %.",
+        "observed": true
+      },
+      {
+        "text": "L’outil est déployé en SaaS auprès d’autres acteurs de l’audit.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Part de l’analyse de conformité faite par l’IA",
+        "value": "80",
+        "unit": "%"
+      },
+      {
+        "name": "Durée des audits",
+        "value": "-50",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "Les chiffres sont déclarés par l’entreprise ; le taux d’erreur de l’IA n’est pas publié."
+    ],
+    "risks": [
+      "Non-conformité manquée par l’IA",
+      "Excès de confiance des auditeurs"
+    ],
+    "lessons_learned": [
+      "Accepter que le taux de succès ne soit pas de 100 % et garder une supervision humaine fondée sur l’expérience.",
+      "Une PME peut transformer un outil interne en produit vendu."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-bpifrance-2026-10-06",
+      "transformation_notes": "Étude de cas du livre blanc « Les Audacieux de l’IA » (Bpifrance Conseil et Siparex, mai 2026). Chiffres déclarés par l’entreprise accompagnée, sans mesure indépendante. Pages 83-84."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-time-to-fly-audit-compliance",
+        "source_type": "public-source",
+        "title": "Les Audacieux de l’IA — livre blanc Bpifrance Conseil et Siparex (2026), p. 83",
+        "publisher": "Bpifrance Conseil et Siparex",
+        "reference": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "url": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot Bpifrance « Les Audacieux de l’IA » du 06/10/2026 depuis Bpifrance Conseil et Siparex.",
+        "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf"
+      }
+    ],
+    "architecture_pattern": [
+      "DOCUMENTATION CLIENT",
+      "ANALYSE IA FACE AU RÉFÉRENTIEL",
+      "SUPERVISION DE L’AUDITEUR",
+      "RAPPORT"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-kitsune-product-descriptions",
+    "slug": "real-kitsune-product-descriptions",
+    "title": "Kitsuné — Produire 1 000 fiches produits en 5 langues",
+    "short_description": "Une marque de mode premium génère et traduit ses fiches produits avec l’IA, relues par la responsable merchandising ; le délai passe de deux mois à quelques minutes.",
+    "status": "draft",
+    "version": 1,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "luxury-beauty",
+    "industry_raw": "Mode premium (prêt-à-porter), cafés et musique",
+    "business_function": [
+      "marketing"
+    ],
+    "geography": [
+      "France",
+      "Japon",
+      "International"
+    ],
+    "problem": "Générer et traduire environ 1 000 fiches produits en 5 langues, lisibles, cohérentes avec l’image de la marque et optimisées pour le référencement.",
+    "ai_pattern": [
+      "generation"
+    ],
+    "solution_type": "workflow",
+    "autonomy_level": "assisted",
+    "company_size_raw": "Environ 110 M€ de chiffre d’affaires, 180 collaborateurs",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Briefer l’outil",
+        "actor": "human",
+        "input": [
+          "Stratégie de marque",
+          "descriptifs historiques",
+          "format attendu"
+        ],
+        "output": [
+          "Brief de génération"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Tester sur un échantillon",
+        "actor": "copilot",
+        "input": [
+          "10 à 20 fiches",
+          "français et anglais"
+        ],
+        "output": [
+          "Fiches de test"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Générer et traduire à l’échelle",
+        "actor": "workflow",
+        "input": [
+          "Brief",
+          "caractéristiques produits"
+        ],
+        "output": [
+          "1 000 fiches en 5 langues"
+        ]
+      },
+      {
+        "order": 4,
+        "label": "Valider avant mise en ligne",
+        "actor": "human",
+        "input": [
+          "Fiches générées"
+        ],
+        "output": [
+          "Fiches publiées"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Fiches produits en 5 langues",
+      "Base structurée de caractéristiques produits"
+    ],
+    "data_required": [
+      "Descriptifs historiques",
+      "Caractéristiques produits",
+      "Charte de marque"
+    ],
+    "data_sources": [
+      {
+        "name": "Catalogue produits Kitsuné",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Newtone",
+      "Kleep"
+    ],
+    "expected_value": [
+      {
+        "type": "cost",
+        "description": "Réduire les prestations externes."
+      },
+      {
+        "type": "speed",
+        "description": "Publier les fiches beaucoup plus vite."
+      },
+      {
+        "type": "revenue",
+        "description": "Préserver la conversion e-commerce."
+      }
+    ],
+    "value_type": [
+      "cost",
+      "speed",
+      "revenue"
+    ],
+    "business_impact": [
+      "production de contenus",
+      "e-commerce",
+      "budget agence"
+    ],
+    "results": [
+      {
+        "text": "Le délai de livraison des descriptifs est passé de deux mois à quelques minutes.",
+        "observed": true
+      },
+      {
+        "text": "20 000 € d’économies sur les prestations externes ; 20 % du temps de deux collaborateurs réalloué à d’autres tâches.",
+        "observed": true
+      },
+      {
+        "text": "Le taux de transformation est resté stable malgré une hausse du trafic de 40 %.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Fiches produits",
+        "value": "1000",
+        "unit": "fiches"
+      },
+      {
+        "name": "Langues",
+        "value": "5",
+        "unit": "langues"
+      },
+      {
+        "name": "Économies sur les prestations externes",
+        "value": "20000",
+        "unit": "€"
+      },
+      {
+        "name": "Hausse du trafic à conversion stable",
+        "value": "40",
+        "unit": "%"
+      }
+    ],
+    "limitations": [
+      "Le lien entre les fiches générées et la stabilité de la conversion n’est pas démontré."
+    ],
+    "risks": [
+      "Descriptions inexactes",
+      "Dilution du ton de la marque"
+    ],
+    "lessons_learned": [
+      "Le cadrage des règles de génération avec le prestataire, avant le déploiement en masse, conditionne la qualité.",
+      "Le projet a aussi produit une base structurée de caractéristiques produits, utile au-delà des fiches."
+    ],
+    "evidence_level": "documented",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-bpifrance-2026-10-06",
+      "transformation_notes": "Étude de cas du livre blanc « Les Audacieux de l’IA » (Bpifrance Conseil et Siparex, mai 2026). Chiffres déclarés par l’entreprise accompagnée, sans mesure indépendante. Pages 97-99. Solutions retenues après appel d’offres : Newtone et Kleep."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-kitsune-product-descriptions",
+        "source_type": "public-source",
+        "title": "Les Audacieux de l’IA — livre blanc Bpifrance Conseil et Siparex (2026), p. 97",
+        "publisher": "Bpifrance Conseil et Siparex",
+        "reference": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "url": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot Bpifrance « Les Audacieux de l’IA » du 06/10/2026 depuis Bpifrance Conseil et Siparex.",
+        "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf"
+      }
+    ],
+    "architecture_pattern": [
+      "BRIEF DE MARQUE",
+      "TEST 10-20 FICHES",
+      "GÉNÉRATION + TRADUCTION",
+      "VALIDATION MERCHANDISING"
+    ]
+  },
+  {
+    "type": "AcolyteCase",
+    "schema_version": "1.0",
+    "id": "case-real-agrifood-voice-procedures",
+    "slug": "real-agrifood-voice-procedures",
+    "title": "Industriel agroalimentaire — Créer les procédures à la voix ou en vidéo",
+    "short_description": "Les opérateurs parlent ou filment une manipulation sur smartphone ; l’IA en fait une procédure structurée. Une procédure passe d’une heure à sept minutes.",
+    "status": "draft",
+    "version": 2,
+    "created_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-06T00:00:00Z",
+    "company_size": [
+      "eti"
+    ],
+    "industry": "industry",
+    "industry_raw": "Agroalimentaire",
+    "business_function": [
+      "operations",
+      "hr"
+    ],
+    "geography": [
+      "France"
+    ],
+    "problem": "Les équipes de production et de maintenance documentent peu, dans des environnements bruyants, alors que l’entreprise perd des savoirs critiques et doit former vite nouveaux entrants et intérimaires.",
+    "ai_pattern": [
+      "multimodal",
+      "generation"
+    ],
+    "solution_type": "product",
+    "autonomy_level": "assisted",
+    "company_size_raw": "3 000 collaborateurs (entreprise confidentielle)",
+    "workflow": [
+      {
+        "order": 1,
+        "label": "Parler ou filmer la manipulation",
+        "actor": "human",
+        "input": [
+          "Voix ou vidéo sur smartphone"
+        ],
+        "output": [
+          "Captation"
+        ]
+      },
+      {
+        "order": 2,
+        "label": "Générer la procédure",
+        "actor": "model",
+        "input": [
+          "Transcription ou vidéo"
+        ],
+        "output": [
+          "Procédure structurée"
+        ]
+      },
+      {
+        "order": 3,
+        "label": "Publier et partager",
+        "actor": "human",
+        "input": [
+          "Procédure"
+        ],
+        "output": [
+          "Procédure diffusée aux équipes"
+        ],
+        "human_gate": true
+      }
+    ],
+    "expected_output": [
+      "Procédures et modes opératoires",
+      "Contenus de formation"
+    ],
+    "data_required": [
+      "Gestes et savoirs des opérateurs (voix, vidéo)"
+    ],
+    "data_sources": [
+      {
+        "name": "Captations des équipes de production et de maintenance",
+        "access": "read",
+        "sensitivity": "internal"
+      }
+    ],
+    "tools": [
+      "Shiroo"
+    ],
+    "expected_value": [
+      {
+        "type": "productivity",
+        "description": "Formaliser une procédure en quelques minutes."
+      },
+      {
+        "type": "knowledge",
+        "description": "Capitaliser les savoirs de terrain."
+      },
+      {
+        "type": "speed",
+        "description": "Former plus vite."
+      }
+    ],
+    "value_type": [
+      "productivity",
+      "knowledge",
+      "speed"
+    ],
+    "business_impact": [
+      "documentation",
+      "formation",
+      "intégration des intérimaires"
+    ],
+    "results": [
+      {
+        "text": "Une procédure prenait une heure à formaliser ; elle prend désormais sept minutes.",
+        "observed": true
+      },
+      {
+        "text": "La durée de formation est passée de deux mois à trois semaines grâce à la documentation générée.",
+        "observed": true
+      }
+    ],
+    "metrics": [
+      {
+        "name": "Temps de formalisation d’une procédure",
+        "value": "60 → 7",
+        "unit": "minutes"
+      },
+      {
+        "name": "Durée de formation",
+        "value": "2 mois → 3 semaines",
+        "unit": ""
+      },
+      {
+        "name": "Coût sur 12 mois (10 licences et formation)",
+        "value": "6000",
+        "unit": "€ (environ)"
+      }
+    ],
+    "limitations": [
+      "La source annonce « ×3 de productivité », ce qui ne correspond pas au passage de 60 à 7 minutes ; les deux chiffres sont repris tels quels.",
+      "L’entreprise n’est pas nommée ; le déploiement est progressif (pilote de 10 utilisateurs, objectif de 200)."
+    ],
+    "risks": [
+      "Procédure générée inexacte",
+      "Matériel et connectivité insuffisants sur le terrain"
+    ],
+    "lessons_learned": [
+      "Passer par la voix et la vidéo lève le principal frein à la documentation dans les ateliers.",
+      "Un outil simple et un chef de projet convaincu comptent plus que la sophistication technique."
+    ],
+    "evidence_level": "experience",
+    "provenance": {
+      "source_type": "public-source",
+      "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+      "captured_at": "2026-10-06T00:00:00Z",
+      "captured_by": "case-base-enrichment-bpifrance-2026-10-06",
+      "transformation_notes": "Étude de cas du livre blanc « Les Audacieux de l’IA » (Bpifrance Conseil et Siparex, mai 2026). Chiffres déclarés par l’entreprise accompagnée, sans mesure indépendante. Pages 133-135. Classé experience : entreprise confidentielle. Incohérence de la source signalée (×3 annoncé, 60 → 7 minutes mesuré)."
+    },
+    "confidence": "medium",
+    "sources": [
+      {
+        "id": "source-agrifood-voice-procedures",
+        "source_type": "public-source",
+        "title": "Les Audacieux de l’IA — livre blanc Bpifrance Conseil et Siparex (2026), p. 133",
+        "publisher": "Bpifrance Conseil et Siparex",
+        "reference": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "url": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf",
+        "published_at": null,
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
+      }
+    ],
+    "change_history": [
+      {
+        "version": 1,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "created",
+        "summary": "Ajouté lors du lot Bpifrance « Les Audacieux de l’IA » du 06/10/2026 depuis Bpifrance Conseil et Siparex.",
+        "source_ref": "https://kiosque.bpifrance.fr/storage/sites/24/2026/05/Livre-blanc-IA-Bpifrance-Conseil-_Les_Audacieux-de-lIA_2026.pdf"
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-06T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Outils normalisés : tool_ids dérivés des champs tools et models via le référentiel d’outils v1.",
+        "source_ref": "data/acolyte-tool-aliases-v1.json"
+      }
+    ],
+    "architecture_pattern": [
+      "VOIX / VIDÉO",
+      "GÉNÉRATION DE PROCÉDURE",
+      "PUBLICATION"
+    ],
+    "tool_ids": [
+      "tool-shiroo"
+    ]
   }
 ]

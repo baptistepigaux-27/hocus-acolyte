@@ -177,12 +177,12 @@
   function renderCatalogShell() {
     root.innerHTML = `<section class="explore-hero">
       <div class="explore-hero-copy">
-        <p class="explore-kicker">CATALOGUE · 154 CAS D’USAGE</p>
+        <p class="explore-kicker">CATALOGUE · 160 CAS D’USAGE</p>
         <h1>Les cas d’usage de l’IA, avant les promesses.</h1>
         <p class="explore-lead">Parcourez des situations de travail, les solutions possibles et ce qui est réellement documenté. Filtrez par secteur, fonction ou taille d’entreprise, puis ouvrez une fiche.</p>
         <div class="explore-hero-links"><a class="explore-button explore-button-primary" href="${base}?journey=operating-system&amp;slide=1">Commencer par un parcours <span aria-hidden="true">→</span></a><a class="explore-text-link" href="${toolsHref}">La carte des outils →</a><a class="explore-text-link" href="${glossaryHref}">Le glossaire →</a><a class="explore-text-link" href="/works/diagnostic/">Le Diagnostic Data &amp; IA ↗</a></div>
       </div>
-      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p><span id="case-mix">111 cas documentés par une source publique, 41 cas types et 2 retours d’expérience.</span> Les inconnues et les limites restent visibles.</p></aside>
+      <aside class="explore-hero-note"><span>À DATE</span><strong id="case-count">— cas</strong><p><span id="case-mix">115 cas documentés par une source publique, 41 cas types et 4 retours d’expérience.</span> Les inconnues et les limites restent visibles.</p></aside>
     </section>
     <section class="explore-catalog" aria-labelledby="catalog-title">
       <div class="explore-catalog-head"><div><p class="explore-kicker">LE CATALOGUE</p><h2 id="catalog-title">Trouver un point de départ.</h2></div><p class="explore-catalog-intro">La recherche porte sur le titre, le problème, la fonction, le secteur, le type d’IA et les outils cités. Les filtres se combinent.</p></div>
