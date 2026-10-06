@@ -33,6 +33,7 @@
     complexity: { low: 'Faible', medium: 'Moyenne', high: 'Forte', unknown: 'Non estimée' },
     time_to_value: { days: 'Quelques jours', weeks: 'Quelques semaines', months: 'Plusieurs mois', unknown: 'Non estimé' },
     delivery_scope: { 'quick-win': 'Gain rapide', structuring: 'Structurant', transformational: 'Transformant' },
+    feasibility: { low: 'Faible', medium: 'Moyenne', high: 'Élevée', unknown: 'Non estimée' },
     ai_pattern: { generation: 'Génération', summarization: 'Synthèse', retrieval: 'Recherche', extraction: 'Extraction', classification: 'Classification', comparison: 'Comparaison', scoring: 'Scoring', recommendation: 'Recommandation', orchestration: 'Orchestration', monitoring: 'Veille', prediction: 'Prédiction', coding: 'Code', multimodal: 'Multimodal', clustering: 'Regroupement (clustering)', optimization: 'Optimisation sous contraintes', other: 'Autre', unknown: 'Non renseigné' }
   };
   const filterConfig = [
@@ -284,7 +285,7 @@
       ['Complexité', titleFor('complexity', item.complexity)],
       ['Délai de mise en valeur', titleFor('time_to_value', item.time_to_value)],
       ['Exigence sur les données', titleFor('complexity', item.data_readiness)],
-      ['Faisabilité organisationnelle', titleFor('complexity', item.organizational_feasibility)],
+      ['Faisabilité organisationnelle', titleFor('feasibility', item.organizational_feasibility)],
       ['Portée', formatList(item.delivery_scope, 'delivery_scope')],
     ].filter(([, value]) => value && value !== 'Non renseigné');
     const deps = asArray(item.dependencies);
