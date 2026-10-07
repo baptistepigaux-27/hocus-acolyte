@@ -6,6 +6,8 @@
   --brass: #b89a5b;
   --stone: #6d6d69;
   --muted: #a9a49c;
+  --terra-text: #953d22; /* terracotta en petit corps sur fond clair : 4,7 à 6,4 */
+  --brass-text: #6e5420; /* laiton en petit corps sur fond clair : 4,75 à 6,5 */
   --dark-line: rgba(11, 15, 20, .17);
   --light-line: rgba(245, 241, 234, .19);
   --serif: Georgia, 'Times New Roman', serif;
@@ -899,3 +901,44 @@ body.module-mode .topbar-navigation, body.module-mode .status-dot, body.module-m
 .home-hero h1 { font-size: clamp(54px, 7.4vw, 112px); }
 .home-hero h1 em { display: block; min-height: 2.76em; }
 @media (max-width: 760px) { .home-hero h1 { font-size: clamp(46px, 13.5vw, 70px); } .home-hero h1 em { min-height: 3.52em; } }
+
+/* ===== Lisibilité, lot 1 (audit du 7 octobre 2026) =====
+   Interface et accueil : micro-libellés à 11 px au moins, texte lu à 12 px au moins ; terracotta et
+   laiton « texte » sur les fonds clairs seulement. Les libellés internes aux schémas des étapes ne
+   sont pas concernés (lot ultérieur). */
+.brand small, .journey-switcher-label, .journey-link, .status-dot, .tool-button, .deck-meta,
+.act-heading h3, .slide-link span, .slide-bottomline, .eyebrow, .overline, .slide-act,
+.interaction-kicker, .interaction-panel-kicker { font-size: 11px; }
+.site-nav-panel-heading p, .site-nav-subgroup h3, .site-nav-link small, .site-nav-compact-link b,
+.site-nav-compact-link small { font-size: 11px; }
+.site-nav-panel-heading span, .site-nav-link span, .search-field input, .slide-link b, .app-footer { font-size: 12px; }
+.site-nav-panel-heading p, .site-nav-subgroup h3, .act-heading span { color: var(--terra-text); }
+.act-heading span { font-size: 11px; }
+.site-nav-compact-link b, .site-nav-link small { color: var(--brass-text); }
+.slide-link { min-height: 36px; }
+
+/* Accueil */
+.home-kicker { font-size: 12px; color: var(--terra-text); }
+.home-rail-label { font-size: 11px; color: var(--brass-text); }
+.home-hero-rail > span { font-size: 12px; color: var(--terra-text); }
+.home-card-top { font-size: 11px; }
+.home-module-card > span, .home-module-card > b { font-size: 12px; color: var(--terra-text); }
+.home-group-heading, .home-mini-grid span { font-size: 12px; }
+.home-mini-grid b { font-size: 12px; color: var(--terra-text); }
+.acolyte-bridge-card span { font-size: 11px; color: var(--terra-text); }
+.acolyte-bridge-card.is-entry span { color: var(--terra); }
+.acolyte-bridge-card b, .journey-end-actions a { font-size: 12px; }
+.hero-case-kicker, .al-kicker, .al-num, .al-platform-cases .al-all { font-size: 11px; color: var(--terra-text); }
+.al-platform-cases .al-all { font-size: 12px; }
+.al-you b, .al-platform-cases a span, .al-platform-go a span, .hero-ask-cases span { font-size: 11px; }
+.hero-ask-field button { font-size: 12px; }
+
+/* Sections sombres de l'accueil et des parcours : tailles seulement, couleurs inchangées. */
+.eq-link, .mw-modes button, .mw-hint { font-size: 12px; }
+.eq-piece b, .eq-chat-head, .mw-behind-title, .mw-note span, .mw-card span { font-size: 11px; }
+
+@media (max-width: 760px) {
+  .site-nav-home, .site-nav-group > summary { min-height: 44px; font-size: 12px; }
+}
+.hero-ask-station span { font-size: 11px; }
+.sidebar-header .eyebrow { color: var(--terra-text); }
