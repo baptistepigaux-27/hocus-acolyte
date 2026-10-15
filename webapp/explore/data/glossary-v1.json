@@ -391,7 +391,64 @@
         "solution_type": [
           "copilot"
         ]
-      }
+      },
+      "seo_title": "Copilote : définition, sens en IA et exemples",
+      "seo_description": "Que veut dire copilote ? Le sens courant (aviation, rallye) et le sens en IA : un assistant intégré à l’outil qui prépare le travail, l’humain décide.",
+      "sections": [
+        {
+          "title": "Du copilote de rallye au copilote IA",
+          "paragraphs": [
+            "Au sens courant, le copilote est la personne assise à côté du pilote. En aviation, il partage le pilotage et peut prendre les commandes ; en rallye, il lit les notes et annonce la route. Dans les deux cas, il aide celui qui conduit sans lui retirer la décision.",
+            "L’informatique a repris l’image. Un copilote IA travaille à côté de l’utilisateur, dans l’outil qu’il utilise déjà (messagerie, traitement de texte, CRM, éditeur de code) : il prépare, suggère, rédige. L’utilisateur relit, corrige et valide."
+          ]
+        },
+        {
+          "title": "Exemples de copilotes en entreprise",
+          "items": [
+            "Bureautique : rédiger un e-mail, résumer une réunion ou un long fil de discussion (Microsoft 365 Copilot, Gemini dans Google Workspace).",
+            "Code : proposer la suite d’une fonction ou un test (GitHub Copilot).",
+            "Vente : mettre à jour le CRM depuis la messagerie, sans changer d’outil, comme chez l’assureur Zurich.",
+            "Service client : résumer l’historique d’un dossier avant l’appel et rédiger le compte rendu après, comme chez l’assureur AIA.",
+            "Santé : rédiger le compte rendu de consultation pendant que le médecin écoute, comme avec Nabla."
+          ]
+        },
+        {
+          "title": "Copilote, assistant ou agent ?",
+          "items": [
+            "Assistant : on lui pose une question dans une fenêtre à part (un chatbot).",
+            "Copilote : il est intégré à l’outil de travail et prépare le résultat ; l’humain décide et exécute.",
+            "Agent : il enchaîne lui-même des actions (envoyer, saisir, commander) dans un cadre fixé."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Voir les cas de copilotes",
+          "path": "explore/?solution_type=copilot"
+        },
+        {
+          "label": "Niveaux d’autonomie",
+          "path": "glossaire/autonomie/"
+        }
+      ],
+      "faq": [
+        {
+          "question": "Que signifie « copilote » ?",
+          "answer": "Au sens propre, la personne qui assiste le pilote : en aviation, elle partage le pilotage ; en rallye, elle annonce la route. Par extension, tout ce qui assiste quelqu’un dans sa tâche sans prendre la décision à sa place."
+        },
+        {
+          "question": "Qu’est-ce qu’un copilote IA ?",
+          "answer": "Un assistant d’intelligence artificielle intégré à un outil de travail. Il prépare un brouillon, un résumé ou une suggestion, et la personne garde la main sur le résultat final."
+        },
+        {
+          "question": "Copilot et copilote, est-ce la même chose ?",
+          "answer": "Copilot est le nom de marque des assistants de Microsoft (Microsoft 365 Copilot, GitHub Copilot). « Copilote » est le terme générique : d’autres éditeurs proposent des copilotes sous d’autres noms."
+        },
+        {
+          "question": "Un copilote peut-il agir seul ?",
+          "answer": "Non, c’est ce qui le distingue d’un agent : le copilote propose, l’humain exécute. Quand le système envoie, saisit ou commande lui-même, on parle d’agent."
+        }
+      ]
     },
     {
       "slug": "agent",
@@ -729,7 +786,73 @@
           "supervised-agent",
           "bounded-autonomous"
         ]
-      }
+      },
+      "seo_title": "Niveaux d’autonomie de l’IA : de l’assistant à l’agent",
+      "seo_description": "Les quatre niveaux d’autonomie d’un système d’IA, de l’assistance à l’autonomie bornée, avec des exemples réels, les critères pour choisir et les garde-fous.",
+      "sections": [
+        {
+          "title": "Les quatre niveaux, avec des exemples",
+          "items": [
+            "Assisté : le système propose, l’humain fait. Le scribe médical de Nabla rédige le compte rendu, le médecin le valide et l’envoie.",
+            "Semi-autonome : le système exécute certaines étapes, l’humain garde les décisions. Chez Choco, les commandes reçues par SMS ou message vocal deviennent des lignes de commande ; les cas incertains passent en validation.",
+            "Agent supervisé : le système enchaîne les actions et soumet les plus sensibles. Chez Qonto, l’agent prépare le virement ou la facture ; le client approuve avant que l’argent ne parte.",
+            "Autonome borné : le système agit seul dans un cadre fixé à l’avance. Chez Walmart, un agent négocie avec de petits fournisseurs dans les limites définies par les acheteurs."
+          ]
+        },
+        {
+          "title": "Comment choisir le bon niveau",
+          "items": [
+            "Le coût d’une erreur : un brouillon raté se corrige, un virement parti non.",
+            "La réversibilité : peut-on annuler l’action facilement ?",
+            "Le volume : l’autonomie se justifie quand les cas sont nombreux et répétitifs.",
+            "La qualité des données et la confiance acquise : on monte d’un niveau quand les preuves s’accumulent.",
+            "Le cadre réglementaire : pour un système à haut risque, l’AI Act exige un contrôle humain effectif."
+          ]
+        },
+        {
+          "title": "Les garde-fous qui permettent de monter d’un niveau",
+          "items": [
+            "Des limites explicites : montants, périmètres, durées, listes de clients.",
+            "Un seuil de confiance : sous ce seuil, le cas part en validation humaine.",
+            "Un journal de toutes les actions, relu par échantillons.",
+            "Un moyen d’arrêter le système à tout moment."
+          ]
+        },
+        {
+          "title": "Et les autres échelles ?",
+          "paragraphs": [
+            "On rencontre des échelles en cinq ou six niveaux, inspirées des niveaux 0 à 5 de la conduite autonome. Acolyte en garde quatre, plus faciles à appliquer à un processus métier : la question utile est « qui décide, et à quel moment ? »."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "La validation humaine",
+          "path": "glossaire/validation-humaine/"
+        },
+        {
+          "label": "Voir les agents supervisés",
+          "path": "explore/?autonomy_level=supervised-agent"
+        }
+      ],
+      "faq": [
+        {
+          "question": "Qu’est-ce que l’autonomie d’une IA ?",
+          "answer": "La part d’actions qu’un système d’IA réalise sans intervention humaine. Elle va de l’assistance, où il ne fait que proposer, à l’autonomie bornée, où il agit seul dans des limites fixées à l’avance."
+        },
+        {
+          "question": "Quels sont les niveaux d’autonomie d’un agent IA ?",
+          "answer": "Acolyte en distingue quatre : assisté (il propose), semi-autonome (il exécute des étapes), agent supervisé (il agit et soumet les actions sensibles), autonome borné (il agit seul dans un cadre défini)."
+        },
+        {
+          "question": "Comment choisir le niveau d’autonomie ?",
+          "answer": "Selon le coût d’une erreur, la possibilité d’annuler l’action, le volume de cas et la confiance déjà acquise. On commence bas et on monte au fil des preuves."
+        },
+        {
+          "question": "L’AI Act interdit-il les IA autonomes ?",
+          "answer": "Non. Il interdit certains usages précis et impose, pour les systèmes à haut risque (crédit, recrutement, santé…), un contrôle humain effectif. Un agent autonome sur une tâche peu risquée reste possible, avec des limites claires."
+        }
+      ]
     },
     {
       "slug": "extraction",
@@ -877,7 +1000,72 @@
         "ai_pattern": [
           "scoring"
         ]
-      }
+      },
+      "seo_title": "Scoring : définition, méthode et grille de scoring",
+      "seo_description": "Qu’est-ce que le scoring ? Définition, types (crédit, leads, attrition, fraude), grille ou modèle prédictif, méthode en 5 étapes et cadre légal.",
+      "sections": [
+        {
+          "title": "Les principaux types de scoring",
+          "items": [
+            "Scoring de crédit : la probabilité qu’un emprunteur ne rembourse pas.",
+            "Lead scoring : la probabilité qu’un prospect devienne client, pour savoir qui appeler d’abord.",
+            "Scoring d’attrition : le risque qu’un client résilie, pour agir avant son départ.",
+            "Scoring de fraude : le risque qu’une transaction soit frauduleuse, évalué en temps réel, comme chez Crédit Agricole Payment Services.",
+            "Scoring d’opportunités : les appels d’offres ou les dossiers à traiter en priorité."
+          ]
+        },
+        {
+          "title": "Deux méthodes : la grille et le modèle",
+          "paragraphs": [
+            "La grille de scoring additionne des points attribués par des experts à des critères. Exemple de lead scoring : secteur cible, 15 points ; plus de 50 salariés, 10 points ; visite de la page tarifs, 10 points ; demande de démonstration, 30 points. Au-delà de 50 points, le prospect passe au commercial. C’est simple, explicable et utilisable sans historique.",
+            "Le modèle de scoring apprend les poids à partir de l’historique : régression logistique, arbres de décision, gradient boosting. Il renvoie une probabilité et repère des combinaisons qu’un expert ne verrait pas, mais il exige des données passées fiables et un suivi dans le temps. On commence souvent par une grille, que l’on remplace par un modèle quand l’historique le permet."
+          ]
+        },
+        {
+          "title": "Construire un score en cinq étapes",
+          "items": [
+            "Définir la décision servie et l’événement à prévoir : qui appeler, quel dossier vérifier, quel client relancer.",
+            "Rassembler l’historique : des exemples où l’événement s’est produit, et d’autres où il ne s’est pas produit.",
+            "Choisir les critères ou les variables, en écartant ceux qui ne seraient pas connus au moment de la décision.",
+            "Tester sur une période que le score n’a pas vue, et regarder surtout la qualité du haut du classement.",
+            "Brancher le score sur l’action, puis suivre son efficacité et le recalculer quand les comportements changent."
+          ]
+        },
+        {
+          "title": "Ce que dit la réglementation",
+          "paragraphs": [
+            "Noter des personnes est encadré. Le RGPD limite les décisions entièrement automatisées qui produisent des effets importants, et donne droit à une intervention humaine. L’AI Act classe à haut risque l’évaluation de la solvabilité des particuliers et le tri de candidats à l’embauche. Un score de prospects ou de pièces industrielles est beaucoup moins contraint qu’un score de crédit ou de recrutement."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Le cadre AI Act et RGPD",
+          "path": "cadre/"
+        },
+        {
+          "label": "Voir les cas de scoring",
+          "path": "explore/?ai_pattern=scoring"
+        }
+      ],
+      "faq": [
+        {
+          "question": "Qu’est-ce que le scoring ?",
+          "answer": "Une méthode qui attribue une note à chaque élément (client, prospect, transaction, dossier) pour les classer et décider dans quel ordre agir. La note est souvent une probabilité : d’achat, de départ, de fraude, de défaut."
+        },
+        {
+          "question": "Qu’est-ce qu’une grille de scoring ?",
+          "answer": "Une liste de critères, chacun valant un nombre de points fixé par des experts. On additionne les points et on compare le total à un seuil. C’est la forme la plus simple de scoring, utilisable sans historique de données."
+        },
+        {
+          "question": "Quelle différence entre scoring et classification ?",
+          "answer": "La classification range un élément dans une catégorie (frauduleux ou non) ; le scoring lui attribue une note continue qui permet de classer et de choisir son propre seuil. Beaucoup de modèles font les deux : ils produisent un score, puis un seuil le transforme en catégorie."
+        },
+        {
+          "question": "Le scoring est-il encadré par la loi ?",
+          "answer": "Oui quand il porte sur des personnes. Le RGPD encadre les décisions entièrement automatisées, et l’AI Act classe à haut risque le scoring de crédit des particuliers et le tri de candidatures."
+        }
+      ]
     },
     {
       "slug": "prediction",

@@ -29,6 +29,10 @@ for (const term of glossary.terms) {
   assert.ok(glossary.groups[term.group], `${term.slug}: groupe inconnu ${term.group}`);
   assert.ok(term.short && term.short.length <= 200, `${term.slug}: description courte absente ou trop longue (${term.short?.length})`);
   assert.ok(Array.isArray(term.definition) && term.definition.length >= 1, `${term.slug}: définition`);
+  if (term.seo_title) assert.ok(term.seo_title.length <= 60, `${term.slug}: seo_title trop long (${term.seo_title.length})`);
+  if (term.seo_description) assert.ok(term.seo_description.length <= 160, `${term.slug}: seo_description trop longue (${term.seo_description.length})`);
+  for (const section of term.sections || []) assert.ok(section.title && ((section.paragraphs || []).length || (section.items || []).length), `${term.slug}: section vide`);
+  for (const item of term.faq || []) assert.ok(item.question && item.answer, `${term.slug}: FAQ incomplète`);
   for (const [field, list] of Object.entries(term.maps || {})) {
     if (field === 'human_gate') { assert.equal(typeof list, 'boolean', `${term.slug}: human_gate booléen`); continue; }
     assert.ok(known[field], `${term.slug}: champ de correspondance inconnu ${field}`);

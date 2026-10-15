@@ -289,3 +289,11 @@ a { color: inherit; }
 .explore-footer a, .detail-source a { display: inline-flex; align-items: center; min-height: 32px; }
 /* Longueur des lignes : ~68 caractères pour le texte suivi. */
 .detail-quiet, .explore-lead, .explore-catalog-intro, .explore-detail-lead { max-width: 68ch; }
+.detail-faq { display: grid; gap: 0; max-width: 760px; }
+.detail-faq > div { padding: 14px 0; border-bottom: 1px solid rgba(16, 24, 32, .1); }
+.detail-faq h3 { margin: 0 0 6px; font-size: 18px; line-height: 1.25; letter-spacing: -.02em; }
+.detail-faq p { margin: 0; color: #3f4b4e; font-size: 16px; line-height: 1.5; }
+.detail-status { max-width: 760px; margin: 31px 0 0; padding: 14px 16px; border-left: 3px solid var(--explore-terra); background: rgba(237, 104, 72, .1); }
+.detail-status strong { color: #9a3a22; font: 12px var(--explore-mono); letter-spacing: .06em; text-transform: uppercase; }
+.detail-status p { margin: 7px 0 0; font-size: 16px; line-height: 1.5; }
+.detail-main .detail-list li b a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

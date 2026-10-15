@@ -19791,12 +19791,12 @@
     "schema_version": "1.0",
     "id": "case-real-berger-levrault-bl-predict",
     "slug": "real-berger-levrault-bl-predict",
-    "title": "Berger-Levrault — Détecter les anomalies d'équipements avec BL Predict",
+    "title": "Berger-Levrault — Détecter les anomalies d’équipements avec BL.Predict",
     "short_description": "Une plateforme IoT française combine capteurs, détection d'anomalies et modèles adaptatifs pour la maintenance d'équipements.",
     "status": "draft",
-    "version": 3,
+    "version": 4,
     "created_at": "2026-09-21T00:00:00Z",
-    "updated_at": "2026-10-06T00:00:00Z",
+    "updated_at": "2026-10-15T00:00:00Z",
     "company_size": [
       "eti"
     ],
@@ -19968,6 +19968,18 @@
         "citation_right": "allowed",
         "evidence_type": "reported",
         "evidence_strength": "high"
+      },
+      {
+        "id": "source-berger-levrault-bl-predict-cp",
+        "source_type": "public-source",
+        "title": "BL.Predict, une innovation numérique pour l’optimisation des équipements et l’efficience énergétique (communiqué de presse)",
+        "publisher": "Berger-Levrault",
+        "reference": "https://www.berger-levrault.com/app/uploads/sites/2/2023/06/communique-presse-bl-predict.pdf",
+        "url": "https://www.berger-levrault.com/app/uploads/sites/2/2023/06/communique-presse-bl-predict.pdf",
+        "published_at": "2023-06-06",
+        "citation_right": "allowed",
+        "evidence_type": "reported",
+        "evidence_strength": "medium"
       }
     ],
     "change_history": [
@@ -19991,6 +20003,13 @@
         "change_type": "enriched",
         "summary": "Grille de déploiement estimée par Acolyte (complexité, délai, données, faisabilité, portée).",
         "source_ref": "scripts/estimate_acolyte_diag_grid.py"
+      },
+      {
+        "version": 4,
+        "changed_at": "2026-10-15T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Page enrichie d’après la Search Console : présentation du produit, FAQ et titre de page centré sur le nom du produit.",
+        "source_ref": "https://www.entreprises.gouv.fr/la-dge/actualites/ami-ai-efficiency-les-laureats-en-detail"
       }
     ],
     "tool_ids": [
@@ -20020,7 +20039,36 @@
         "historique structuré nécessaire (prédiction, scoring, optimisation…) → exigence forte sur les données",
         "délai : estimation d’après la complexité (aucune durée citée par la fiche)"
       ]
-    }
+    },
+    "seo_title": "BL.Predict (Berger-Levrault) : maintenance prédictive IoT",
+    "seo_description": "BL.Predict, la plateforme cloud de Berger-Levrault : capteurs IoT et IA pour repérer les dérives des équipements avant la panne. Lauréat DGE, 16 sites clients.",
+    "background": {
+      "title": "BL.Predict en bref",
+      "paragraphs": [
+        "BL.Predict est une plateforme cloud lancée par Berger-Levrault en juin 2023. Elle combine des objets connectés (IoT) et des modèles d’IA spécialisés par métier pour suivre en temps réel le fonctionnement des équipements et des infrastructures.",
+        "Elle vise la maintenance prévisionnelle, la durée de vie des équipements et la consommation d’énergie (électricité, gaz, fioul, eau), sur des installations comme le chauffage, la climatisation, l’eau, le transport ou les machines de production. Berger-Levrault cite trois publics : l’industrie, le facility management et les collectivités.",
+        "Les capteurs remontent leurs mesures ; des modèles de détection d’anomalies non supervisés, qui s’adaptent dans le temps, repèrent les comportements qui s’écartent de la normale ; l’alerte part vers les équipes de maintenance. Berger-Levrault édite aussi la GMAO CARL Source, qui gère ensuite l’intervention.",
+        "BL.Predict figure parmi les lauréats de l’appel « AI for Efficiency » de la Direction générale des Entreprises (DGE), qui indique un déploiement sur 16 sites clients. L’éditeur annonce un retour sur investissement en moins de 12 mois : c’est une déclaration commerciale, sans étude publiée."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Qu’est-ce que BL.Predict ?",
+        "answer": "Une plateforme cloud de maintenance prédictive éditée par Berger-Levrault. Elle relie des capteurs IoT à des modèles d’IA pour repérer les dérives d’un équipement avant la panne et réduire sa consommation d’énergie."
+      },
+      {
+        "question": "Comment fonctionne BL.Predict ?",
+        "answer": "Des capteurs mesurent en continu le fonctionnement des équipements. Des modèles de détection d’anomalies apprennent leur comportement normal, s’adaptent dans le temps et signalent les écarts. Les équipes reçoivent l’alerte et planifient l’intervention."
+      },
+      {
+        "question": "À qui s’adresse BL.Predict ?",
+        "answer": "Selon Berger-Levrault, aux industriels, aux gestionnaires de bâtiments (facility management) et aux collectivités qui exploitent des équipements : chauffage, climatisation, réseaux d’eau, machines de production."
+      },
+      {
+        "question": "Quels résultats pour BL.Predict ?",
+        "answer": "La DGE indique un déploiement sur 16 sites clients. L’éditeur annonce un retour sur investissement en moins de 12 mois, sans étude indépendante publiée à ce jour."
+      }
+    ]
   },
   {
     "type": "AcolyteCase",
@@ -23414,9 +23462,9 @@
     "title": "Veolia — Passer d’un assistant interne à une place de marché d’agents",
     "short_description": "Secure GPT réunit plus de 214 assistants et agents ; 58 000 salariés l’utilisent plus de deux fois par jour.",
     "status": "draft",
-    "version": 5,
+    "version": 6,
     "created_at": "2026-10-01T00:00:00Z",
-    "updated_at": "2026-10-06T12:00:00Z",
+    "updated_at": "2026-10-15T00:00:00Z",
     "company_size": [
       "group"
     ],
@@ -23622,6 +23670,13 @@
         "change_type": "variant_added",
         "summary": "Enrichissement 07 : transposition PME (estimation Acolyte).",
         "source_ref": "docs/acolyte-enrichment-07-report.md"
+      },
+      {
+        "version": 6,
+        "changed_at": "2026-10-15T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Page enrichie d’après la Search Console : présentation du produit, FAQ et titre de page centré sur le nom du produit.",
+        "source_ref": "https://www.lemagit.fr/etude/Secure-GPT-comment-Veolia-passe-de-lIA-generative-a-lIA-agentique"
       }
     ],
     "tool_ids": [
@@ -23668,6 +23723,35 @@
         ],
         "maturity_note": "L’enjeu est l’animation, pas la plateforme.",
         "source": "acolyte-estimate"
+      }
+    ],
+    "seo_title": "Veolia Secure GPT : 214 assistants IA pour 58 000 salariés",
+    "seo_description": "Secure GPT, la plateforme d’IA générative de Veolia : plus de 12 modèles (Claude, GPT, Gemini, Mistral), RAG, 214 assistants et 400 ambassadeurs.",
+    "background": {
+      "title": "Secure GPT en bref",
+      "paragraphs": [
+        "Secure GPT est la plateforme d’IA générative interne de Veolia. Ouverte en septembre 2023 à 2 000 utilisateurs, elle a été étendue dès octobre 2023 à l’ensemble du groupe, soit environ 213 000 salariés.",
+        "Elle donne accès à plus de douze modèles de langage (Claude, GPT, Gemini, Mistral, Llama, Amazon Nova…), hébergés chez plusieurs fournisseurs : Amazon Bedrock, Azure OpenAI et Google Vertex AI. Veolia ne réentraîne pas ces modèles : il leur fournit le contexte de l’entreprise par RAG, avec des documents découpés et vectorisés dans PostgreSQL (pgvector).",
+        "Les assistants se construisent sans code par les équipes métier, à trois niveaux : un modèle avec un rôle défini ; un assistant qui interroge des documents ; un assistant qui lit des données structurées et peut agir dans les systèmes, par exemple envoyer un e-mail ou saisir une commande dans l’ERP. Depuis octobre 2024, une plateforme d’agents (LangGraph) fait travailler un agent superviseur avec des agents spécialisés.",
+        "L’adoption s’est appuyée sur environ 400 ambassadeurs dans 57 pays, qui ont formé plus de 13 000 salariés en sessions de deux heures. Prochaines étapes annoncées : un serveur MCP pour simplifier l’accès aux outils, et de petits modèles Mistral installés sur site dans certaines usines."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Qu’est-ce que Veolia Secure GPT ?",
+        "answer": "La plateforme d’IA générative interne de Veolia, ouverte à tout le groupe depuis octobre 2023. Elle réunit plus de douze modèles de langage et une place de marché de plus de 214 assistants et agents créés par les équipes."
+      },
+      {
+        "question": "Quels modèles utilise Secure GPT ?",
+        "answer": "Plus de douze modèles, dont Claude, GPT, Gemini, Mistral, Llama et Amazon Nova, hébergés sur Amazon Bedrock, Azure OpenAI et Google Vertex AI. Veolia ne les réentraîne pas : il leur fournit ses documents par RAG."
+      },
+      {
+        "question": "Comment Veolia a-t-il fait adopter Secure GPT ?",
+        "answer": "Par un réseau d’environ 400 ambassadeurs dans 57 pays, qui ont formé plus de 13 000 salariés en sessions de deux heures, et par une création d’assistants sans code laissée aux équipes métier."
+      },
+      {
+        "question": "Quels gains Veolia a-t-il mesurés ?",
+        "answer": "Veolia indique un accès plus rapide à l’information et à certaines décisions, mais ne publie pas de gain chiffré. Le chiffre publié porte sur l’usage : 58 000 salariés l’utilisaient plus de deux fois par jour en avril 2025."
       }
     ]
   },

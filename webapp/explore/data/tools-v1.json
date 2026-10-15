@@ -390,12 +390,15 @@
     "vendor": "Anthropic",
     "vendor_country": "US",
     "family": "harness-agent",
-    "description": "Agent de développement en ligne de commande qui lit, modifie et teste du code dans un dépôt.",
+    "description": "L’agent de développement d’Anthropic : il lit un dépôt, modifie les fichiers, lance commandes et tests, depuis le terminal, l’éditeur, l’application de bureau ou le navigateur.",
     "use_when": [
-      "Migrations, refactorisations et tâches de code répétitives"
+      "Migrations, refactorisations et tâches de code répétitives",
+      "Équipe qui dispose de tests automatisés et d’une relecture de code",
+      "Automatiser la revue de pull requests ou le tri d’issues en intégration continue"
     ],
     "avoid_when": [
-      "Absence de tests et de relecture humaine du code produit"
+      "Absence de tests et de relecture humaine du code produit",
+      "Code qui ne peut pas être envoyé à un service externe, sauf à passer par un cloud déjà autorisé"
     ],
     "skill_level": "dev",
     "license": "proprietary",
@@ -411,9 +414,17 @@
       {
         "title": "Claude Code — page officielle",
         "url": "https://www.anthropic.com/claude-code"
+      },
+      {
+        "title": "Claude Code — documentation officielle",
+        "url": "https://code.claude.com/docs/en/overview"
+      },
+      {
+        "title": "Claude — offres et prix",
+        "url": "https://claude.com/pricing"
       }
     ],
-    "verified_at": "2026-10-01",
+    "verified_at": "2026-10-15",
     "status": "draft",
     "change_history": [
       {
@@ -421,6 +432,59 @@
         "changed_at": "2026-10-01T00:00:00Z",
         "change_type": "created",
         "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-15T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Page enrichie d’après la Search Console : présentation, statut, prix, alternatives et FAQ, sources revérifiées le 15/10/2026."
+      }
+    ],
+    "seo_title": "Claude Code : l’agent de code d’Anthropic, usages et prix",
+    "seo_description": "Claude Code, l’agent de développement d’Anthropic : ce qu’il fait dans un dépôt, où l’utiliser, son prix, et le cas Stripe (10 000 lignes migrées).",
+    "overview": [
+      "Claude Code est l’outil de développement agentique d’Anthropic. On lui décrit une tâche en langage courant ; il explore le code, planifie, modifie plusieurs fichiers, exécute les commandes et les tests, puis crée le commit ou la pull request. Il fonctionne dans le terminal, dans VS Code et les IDE JetBrains, dans l’application de bureau Claude et dans le navigateur (claude.ai/code).",
+      "On l’adapte à un projet avec un fichier CLAUDE.md, lu à chaque session (conventions, architecture, règles de revue), des compétences réutilisables (skills) et des hooks qui lancent un formatage ou des tests à chaque modification. Il se connecte à d’autres outils par le protocole MCP : tickets Jira, documents Google Drive, messages Slack.",
+      "Pour une entreprise, l’intérêt dépasse l’écriture de code : migrations, tests manquants, mises à jour de dépendances, revue de pull requests et tri d’issues en intégration continue (GitHub Actions, GitLab), tâches planifiées. La condition, c’est un filet de sécurité : des tests automatisés et une relecture humaine de ce qui part en production.",
+      "Dans le catalogue Acolyte, Stripe a équipé 1 370 ingénieurs de Claude Code et migré 10 000 lignes de Scala vers Java en quatre jours, selon Anthropic."
+    ],
+    "pricing_note": "Inclus dans les abonnements payants Claude (non inclus dans l’offre gratuite) : Pro à 20 $ par mois, Max à partir de 100 $ par mois, Team et Enterprise par siège. Également utilisable à l’usage via la console Anthropic (API) ou via des fournisseurs cloud tiers. Prix relevés le 15/10/2026.",
+    "alternatives": [
+      {
+        "name": "Codex (OpenAI)",
+        "tool_id": "tool-codex",
+        "note": "L’agent de développement d’OpenAI, en ligne de commande et dans le cloud."
+      },
+      {
+        "name": "Replit Agent",
+        "tool_id": "tool-replit-agent",
+        "note": "Construit et déploie une application depuis le navigateur ; plus adapté aux prototypes qu’aux dépôts existants."
+      },
+      {
+        "name": "GitHub Copilot",
+        "note": "Complétion et agent intégrés à GitHub et aux éditeurs."
+      },
+      {
+        "name": "Cursor",
+        "note": "Un éditeur de code construit autour d’un assistant IA."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Qu’est-ce que Claude Code ?",
+        "answer": "Un agent de développement créé par Anthropic. Il travaille dans un dépôt de code : il lit les fichiers, les modifie, lance les commandes et les tests, et prépare commits et pull requests, à partir d’une demande en langage courant."
+      },
+      {
+        "question": "Claude Code est-il gratuit ?",
+        "answer": "Non. Il est inclus dans les abonnements payants Claude (Pro, Max, Team, Enterprise) ou facturé à l’usage via l’API d’Anthropic. L’offre gratuite de Claude ne le comprend pas."
+      },
+      {
+        "question": "Où utiliser Claude Code ?",
+        "answer": "Dans le terminal, dans VS Code et les IDE JetBrains, dans l’application de bureau Claude et dans le navigateur, sur claude.ai/code. Les réglages d’un dépôt (CLAUDE.md, serveurs MCP) valent pour toutes ces interfaces."
+      },
+      {
+        "question": "Faut-il savoir programmer pour utiliser Claude Code ?",
+        "answer": "Pour un prototype, pas forcément. Pour du code mis en production, oui : il faut pouvoir relire ce qu’il produit, et disposer de tests qui vérifient que rien n’est cassé."
       }
     ]
   },
@@ -1100,11 +1164,11 @@
     "type": "AcolyteTool",
     "schema_version": "1.0",
     "id": "tool-google-document-ai",
-    "name": "Document AI",
+    "name": "Google Document AI",
     "vendor": "Google",
     "vendor_country": "US",
     "family": "vision-speech",
-    "description": "Service de Google Cloud qui extrait des données structurées de documents scannés.",
+    "description": "Service de Google Cloud qui transforme des documents (PDF, scans, photos) en données structurées : OCR, extraction de champs, classification.",
     "skill_level": "dev",
     "license": "proprietary",
     "hosting": [
@@ -1118,9 +1182,17 @@
       {
         "title": "Document AI — page officielle",
         "url": "https://cloud.google.com/document-ai"
+      },
+      {
+        "title": "Google Cloud — Document AI pricing",
+        "url": "https://cloud.google.com/document-ai/pricing"
+      },
+      {
+        "title": "Google Cloud — Document AI overview",
+        "url": "https://docs.cloud.google.com/document-ai/docs/overview"
       }
     ],
-    "verified_at": "2026-10-01",
+    "verified_at": "2026-10-15",
     "status": "draft",
     "change_history": [
       {
@@ -1128,6 +1200,73 @@
         "changed_at": "2026-10-01T00:00:00Z",
         "change_type": "created",
         "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-15T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Page enrichie d’après la Search Console : présentation, statut, prix, alternatives et FAQ, sources revérifiées le 15/10/2026."
+      }
+    ],
+    "seo_title": "Google Document AI : usages, prix et alternatives",
+    "seo_description": "Google Document AI extrait texte, tableaux et champs de vos documents : processeurs (OCR, Form Parser, Custom Extractor), prix à la page, alternatives.",
+    "overview": [
+      "Document AI est le service de Google Cloud pour faire entrer des documents dans un système d’information. Il repose sur des « processeurs », chacun spécialisé dans une tâche : lire, extraire, classer ou découper.",
+      "Enterprise Document OCR numérise le texte et la mise en page. Form Parser récupère paires clé-valeur, tableaux et cases cochées. Layout Parser restitue la structure d’un document (titres, paragraphes, tableaux), utile pour préparer un RAG. Custom Extractor extrait les champs que vous définissez, avec une version appuyée sur l’IA générative ; Custom Classifier et Custom Splitter trient et séparent les documents d’un lot. Des processeurs préentraînés couvrent certains documents courants.",
+      "Les processeurs se règlent dans Document AI Workbench : étiquetage d’exemples, entraînement ou ajustement, puis évaluation sur un jeu de test. C’est là que se joue la qualité : un schéma de champs stable et quelques dizaines de documents bien annotés valent mieux qu’un modèle plus gros.",
+      "Dans le catalogue Acolyte, MediConCen s’appuie sur Document AI et Gemini pour lire les pièces de remboursement de frais médicaux, avec 98 % de précision annoncée au niveau des champs."
+    ],
+    "use_when": [
+      "Volumes réguliers de documents semi-structurés (factures, bons de livraison, formulaires) à faire entrer dans un ERP ou un outil métier",
+      "Équipes déjà sur Google Cloud",
+      "Préparer des documents longs pour un RAG (Layout Parser)"
+    ],
+    "avoid_when": [
+      "Quelques dizaines de documents par mois : un modèle multimodal généraliste suffit souvent",
+      "Documents très hétérogènes, sans liste de champs stable",
+      "Contrainte de souveraineté qui exclut un cloud américain"
+    ],
+    "data_residency": "Le service propose une multi-région UE ; vérifier que chaque processeur utilisé y est disponible.",
+    "pricing_note": "Facturation à la page. Prix publics relevés le 15/10/2026 : 1,50 $ les 1 000 pages pour Enterprise Document OCR (jusqu’à 5 millions de pages par mois), 30 $ les 1 000 pages pour Form Parser et Custom Extractor (jusqu’à 1 million de pages par mois), dégressifs au-delà. Les requêtes en erreur ne sont pas facturées.",
+    "alternatives": [
+      {
+        "name": "Azure AI Document Intelligence (Microsoft)",
+        "note": "L’équivalent chez Microsoft, avec des modèles préentraînés et personnalisables."
+      },
+      {
+        "name": "Amazon Textract (AWS)",
+        "note": "L’équivalent chez AWS pour le texte, les formulaires et les tableaux."
+      },
+      {
+        "name": "Mistral OCR",
+        "tool_id": "tool-mistral",
+        "note": "L’OCR d’un éditeur français, accessible par API."
+      },
+      {
+        "name": "Docling",
+        "note": "Une bibliothèque open source de conversion de documents, à héberger soi-même."
+      },
+      {
+        "name": "Un modèle multimodal (Gemini, GPT, Claude)",
+        "note": "Pour de petits volumes ou des documents variés : on décrit les champs voulus dans la consigne."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Qu’est-ce que Google Document AI ?",
+        "answer": "Un service de Google Cloud qui lit des documents (PDF, scans, photos) et en extrait des données structurées : texte, tableaux, champs comme un montant ou une date, type de document."
+      },
+      {
+        "question": "Combien coûte Document AI ?",
+        "answer": "Le prix se calcule à la page. Au 15/10/2026, l’OCR coûte 1,50 $ les 1 000 pages et l’extraction (Form Parser, Custom Extractor) 30 $ les 1 000 pages, avec des tarifs dégressifs pour les gros volumes."
+      },
+      {
+        "question": "Document AI ou un LLM multimodal ?",
+        "answer": "Document AI convient aux volumes réguliers et aux schémas stables : coût prévisible, évaluation, réglage par l’exemple. Un LLM multimodal est plus souple pour des documents variés ou de petits volumes, mais demande plus de contrôles sur la régularité des sorties."
+      },
+      {
+        "question": "Document AI fonctionne-t-il avec des documents en français ?",
+        "answer": "Oui pour l’OCR, qui prend en charge de nombreuses langues. Pour l’extraction de champs, tester sur un échantillon de vos propres documents avant de s’engager."
       }
     ]
   },
@@ -1174,11 +1313,11 @@
     "type": "AcolyteTool",
     "schema_version": "1.0",
     "id": "tool-bing-search-api",
-    "name": "API de recherche Bing",
+    "name": "API Bing Search",
     "vendor": "Microsoft",
     "vendor_country": "US",
     "family": "knowledge-rag",
-    "description": "Accès programmatique à la recherche web de Microsoft, utilisé pour ancrer des réponses sur le web.",
+    "description": "Ancienne API de recherche web de Microsoft, retirée le 11 août 2025 et remplacée par la recherche intégrée aux agents Microsoft Foundry.",
     "skill_level": "dev",
     "license": "proprietary",
     "hosting": [
@@ -1192,16 +1331,94 @@
       {
         "title": "API de recherche Bing — page officielle",
         "url": "https://www.microsoft.com/bing/apis"
+      },
+      {
+        "title": "Microsoft — Bing Search APIs retiring on August 11, 2025",
+        "url": "https://learn.microsoft.com/en-us/lifecycle/announcements/bing-search-api-retirement"
+      },
+      {
+        "title": "Microsoft Learn — Web grounding in Foundry (Web Search, Grounding with Bing)",
+        "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/web-overview"
       }
     ],
-    "verified_at": "2026-10-01",
-    "status": "draft",
+    "verified_at": "2026-10-15",
+    "status": "deprecated",
     "change_history": [
       {
         "version": 1,
         "changed_at": "2026-10-01T00:00:00Z",
         "change_type": "created",
         "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-15T00:00:00Z",
+        "change_type": "enriched",
+        "summary": "Page enrichie d’après la Search Console : présentation, statut, prix, alternatives et FAQ, sources revérifiées le 15/10/2026."
+      }
+    ],
+    "seo_title": "API Bing Search : arrêtée en 2025, quelles alternatives ?",
+    "seo_description": "Microsoft a retiré les API Bing Search le 11 août 2025. Ce qui les remplace (Grounding with Bing, Web Search) et les alternatives pour ancrer une IA sur le web.",
+    "status_note": {
+      "label": "Retirée",
+      "date": "2025-08-11",
+      "text": "Microsoft a retiré les API Bing Search le 11 août 2025 : les instances existantes ont été arrêtées et les nouvelles inscriptions fermées. Microsoft oriente ses clients vers Grounding with Bing Search, intégré aux agents de Microsoft Foundry."
+    },
+    "overview": [
+      "Les API Bing Search (recherche web, images, actualités, vidéos, Bing Custom Search…) donnaient un accès programmatique à l’index de Bing : une requête, une liste de résultats en JSON. Elles servaient aux moteurs de recherche tiers, aux outils de veille et, depuis 2023, à ancrer les réponses des modèles de langage sur le web.",
+      "Le remplaçant proposé par Microsoft n’est pas équivalent. Grounding with Bing Search, comme l’outil Web Search de Microsoft Foundry, ne renvoie pas de résultats bruts : la recherche alimente un modèle, qui rédige la réponse et cite ses sources. Selon la documentation Microsoft, développeurs et utilisateurs n’ont pas accès au contenu renvoyé par Bing, et les liens cités doivent être affichés sous la forme fournie par Microsoft.",
+      "Point à vérifier pour une entreprise européenne : toujours selon Microsoft, les données envoyées à Grounding with Bing sortent de la frontière de conformité Azure et ne relèvent pas de son avenant de protection des données (DPA). Le service n’est pas non plus accessible derrière un réseau privé (VPN, private endpoint).",
+      "Dans le catalogue Acolyte, la recherche Bing apparaît dans le chatbot Cubby des résidences Ascott (CapitaLand), qui combine les pages des résidences et la recherche web pour aider les voyageurs à préparer leur séjour."
+    ],
+    "use_when": [
+      "Projet déjà construit sur Microsoft Foundry qui doit ancrer un agent sur l’actualité ou le web public (via Web Search ou Grounding with Bing Search)",
+      "Recherche à restreindre à une liste de sites (via Bing Custom Search)"
+    ],
+    "avoid_when": [
+      "Besoin de résultats bruts à classer ou analyser soi-même",
+      "Données qui ne doivent pas sortir de la frontière de conformité Azure",
+      "Agent déployé derrière un réseau privé"
+    ],
+    "pricing_note": "Grounding with Bing Search est facturé au nombre d’appels de l’outil, en plus du modèle utilisé ; tarifs sur la page Microsoft des API Bing. Un abonnement Azure payant est nécessaire : les abonnements à crédits gratuits ne sont pas éligibles.",
+    "alternatives": [
+      {
+        "name": "Web Search et Grounding with Bing Search (Microsoft Foundry)",
+        "tool_id": "tool-azure-ai-foundry",
+        "note": "Le remplaçant officiel : une réponse rédigée par un modèle, avec citations, sans résultats bruts."
+      },
+      {
+        "name": "Recherche web intégrée aux API de modèles",
+        "note": "OpenAI, Anthropic (Claude) et Google (Gemini, avec Google Search) proposent un outil de recherche web dans leurs API : le plus simple si l’objectif est seulement d’ancrer une réponse."
+      },
+      {
+        "name": "Brave Search API",
+        "note": "Un index web indépendant, avec des résultats bruts en JSON : l’alternative la plus proche de l’ancienne API."
+      },
+      {
+        "name": "Tavily, Exa",
+        "note": "Des API de recherche pensées pour les agents : résultats nettoyés et extraits prêts à passer à un modèle."
+      },
+      {
+        "name": "SerpApi, DataForSEO",
+        "note": "Elles récupèrent les pages de résultats des moteurs ; utiles au SEO et à la veille, sous réserve des conditions d’utilisation des moteurs."
+      }
+    ],
+    "faq": [
+      {
+        "question": "L’API Bing Search existe-t-elle encore ?",
+        "answer": "Non. Microsoft l’a retirée le 11 août 2025 : les instances existantes ont été arrêtées et il n’est plus possible de s’inscrire. Selon la presse spécialisée, seuls quelques partenaires sous contrat privé, comme DuckDuckGo, gardent un accès."
+      },
+      {
+        "question": "Par quoi remplacer l’API Bing Search ?",
+        "answer": "Tout dépend du besoin. Pour ancrer la réponse d’un agent sur le web : Web Search ou Grounding with Bing dans Microsoft Foundry, ou l’outil de recherche intégré aux API d’OpenAI, d’Anthropic ou de Google. Pour obtenir des résultats bruts à traiter soi-même : Brave Search API, ou des services comme SerpApi."
+      },
+      {
+        "question": "Grounding with Bing renvoie-t-il les résultats de recherche ?",
+        "answer": "Non. La recherche sert au modèle, qui rédige la réponse ; on récupère cette réponse, les liens cités et la requête Bing utilisée, mais pas le contenu renvoyé par Bing."
+      },
+      {
+        "question": "Peut-on limiter la recherche à certains sites ?",
+        "answer": "Oui. Avec une instance Bing Custom Search, l’outil Web Search de Foundry accepte une liste de domaines autorisés ou exclus ; Grounding with Bing Custom Search fait de même, en préversion."
       }
     ]
   },
@@ -1497,7 +1714,7 @@
     "type": "AcolyteTool",
     "schema_version": "1.0",
     "id": "tool-bl-predict",
-    "name": "BL Predict",
+    "name": "BL.Predict",
     "vendor": "Berger-Levrault",
     "vendor_country": "FR",
     "family": "classic-ml",
@@ -1525,6 +1742,12 @@
         "changed_at": "2026-10-01T00:00:00Z",
         "change_type": "created",
         "summary": "Créé lors de la normalisation des outils du corpus Acolyte."
+      },
+      {
+        "version": 2,
+        "changed_at": "2026-10-15T00:00:00Z",
+        "change_type": "corrected",
+        "summary": "Nom aligné sur l’orthographe de l’éditeur (BL.Predict)."
       }
     ]
   },
