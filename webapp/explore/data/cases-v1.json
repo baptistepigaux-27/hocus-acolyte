@@ -4295,7 +4295,8 @@
       "Données : FAQ et manuels produits",
       "Données : Historique des échanges clients",
       "Données : Boîte e-mail du support"
-    ]
+    ],
+    "seo_title": "Trier les demandes de support par IA — RIS"
   },
   {
     "type": "AcolyteCase",
@@ -4674,7 +4675,8 @@
       "Données : Contexte et besoin du client",
       "Données : Offres et références de l’expert",
       "Données : Modèles de propositions"
-    ]
+    ],
+    "seo_title": "Rédiger une propale en 2 h avec l’IA — GroupeActive"
   },
   {
     "type": "AcolyteCase",
@@ -4865,7 +4867,8 @@
       "Données : Comptes et transactions bancaires",
       "Données : Bénéficiaires et bulletins de paie",
       "Données : Liste des clients et éléments de facturation"
-    ]
+    ],
+    "seo_title": "Agent financier avec validation humaine — Qonto"
   },
   {
     "type": "AcolyteCase",
@@ -24005,7 +24008,8 @@
         "maturity_note": "Aucune intégration lourde ; la conformité santé est le critère de choix.",
         "source": "acolyte-estimate"
       }
-    ]
+    ],
+    "seo_title": "Compte rendu de consultation par l’IA — Nabla"
   },
   {
     "type": "AcolyteCase",
@@ -25231,7 +25235,8 @@
         "maturity_note": "L’affinage d’un modèle demande des compétences rares ; l’hébergement souverain, non.",
         "source": "acolyte-estimate"
       }
-    ]
+    ],
+    "seo_title": "Recherche documentaire RAG souveraine — EDF R&D"
   },
   {
     "type": "AcolyteCase",
@@ -28648,7 +28653,8 @@
         "maturity_note": "Un modèle du marché suffit pour classer des commentaires ; l’historique des déplacements inutiles sert à l’évaluer.",
         "source": "acolyte-estimate"
       }
-    ]
+    ],
+    "seo_title": "Éviter les interventions inutiles avec l’IA — Enedis"
   },
   {
     "type": "AcolyteCase",
@@ -29913,7 +29919,8 @@
         "documents ou flux à organiser (recherche, extraction, classification) → exigence moyenne",
         "délai : durée de POC ou de mise en service citée par la fiche"
       ]
-    }
+    },
+    "seo_title": "Contrôler les factures fournisseurs avec l’IA — Batibig"
   },
   {
     "type": "AcolyteCase",

@@ -72,10 +72,15 @@
     slot.innerHTML = markup;
     scope = slot;
   } else {
-    const header = document.createElement('header');
-    header.className = 'acolyte-global-header';
+    /* L'en-tête est réservé dans le HTML (09/11/2026) : sa hauteur est déjà occupée au premier
+       affichage, la page ne descend plus quand la navigation arrive (CLS). */
+    let header = document.querySelector('body > header.acolyte-global-header');
+    if (!header) {
+      header = document.createElement('header');
+      header.className = 'acolyte-global-header';
+      document.body.insertBefore(header, document.body.firstChild);
+    }
     header.innerHTML = markup;
-    document.body.insertBefore(header, document.body.firstChild);
     document.body.classList.add('acolyte-global-nav-page');
     scope = header;
   }

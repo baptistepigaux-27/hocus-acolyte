@@ -297,3 +297,6 @@ a { color: inherit; }
 .detail-status strong { color: #9a3a22; font: 12px var(--explore-mono); letter-spacing: .06em; text-transform: uppercase; }
 .detail-status p { margin: 7px 0 0; font-size: 16px; line-height: 1.5; }
 .detail-main .detail-list li b a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+/* 09/11/2026 : l'écran de chargement occupe la hauteur de l'écran, le pied de page ne saute plus (CLS). */
+.explore-loading { min-height: 100vh; }
+.explore-loading h1 { margin: 0 0 18px; color: var(--explore-ink, inherit); font: 400 clamp(32px, 5vw, 64px)/1 var(--explore-serif, Georgia, serif); }
